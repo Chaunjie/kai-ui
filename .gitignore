@@ -1,0 +1,8 @@
+.DS_Store
+node_modules/
+./dist/
+dist/*
+dist/
+.wepycache
+.idea
+npm-debug.log
