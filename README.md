@@ -1,2 +1,2 @@
 # kai-ui
-UI components for weapp
+微信小程序UI组件库
