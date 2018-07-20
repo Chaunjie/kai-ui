@@ -1,0 +1,23 @@
+
+  <view class="kai-content">
+    <view class="padding-10">
+      <button class="btn" catchtap="openDialog">dialog</button>
+      <button class="btn btn-success" catchtap="openAlert">Alert</button>
+      <button class="btn btn-kai" catchtap="openVertical">横向按钮排列</button>
+      <button class="btn btn-warn btn-empty" catchtap="openNoVertical">纵向按钮排列</button>
+    </view>
+    
+  <view class="dialog {{ $dialog$dialog.show ? 'dialog-show' : '' }}">
+    <view class="dialog-mask"/>
+    <view class="dialog-container">
+      <view  wx:if="{{ $dialog$dialog.title }}" class="dialog-header">{{ $dialog$dialog.title }}</view>
+      <view class="dialog-content {{ $dialog$dialog.title ? 'dialog-content-title' : '' }}">{{ $dialog$dialog.content }}</view>
+      <view class="dialog-footer {{ $dialog$dialog.showVertical ? 'dialog-footer-vertical' : 'dialog-footer-horizon' }}">
+      <block wx:for="{{$dialog$dialog.buttons}}" wx:for-index="$dialog$index" wx:for-item="$dialog$item" wx:key="$dialog$key">
+        <button class="dialog-button btn" catchtap="$dialog$btnTap" style="color: {{ $dialog$item.color || '#333' }}" data-wpybtntap-a="{{$dialog$index}}">{{ $dialog$item.text }}</button>
+      </block>
+    </view>
+  </view>
+</view>
+
+  </view>

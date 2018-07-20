@@ -1,0 +1,9 @@
+
+  <view class="kai-content">
+    <view class="padding-10">
+      <button class="btn" catchtap="openToast">toast</button>
+    </view>
+    
+  <view class="content-toast"  wx:if="{{ $toast$toast.show }}">{{ $toast$toast.content }}</view>
+
+  </view>

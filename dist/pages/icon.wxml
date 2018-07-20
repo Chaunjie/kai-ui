@@ -1,0 +1,13 @@
+
+  <view class="kai-content icon-container">
+    <block wx:for="{{list}}" wx:for-index="index" wx:for-item="item" wx:key="key">
+      <view class="col col-4 icon-block">
+        <view>
+          <text class="iconfont {{item}}"/>
+        </view>
+        <view>
+          <text class="icon-title">{{item}}</text>
+        </view>
+      </view>
+    </block>
+  </view>

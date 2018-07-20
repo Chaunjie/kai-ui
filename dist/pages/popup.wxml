@@ -1,0 +1,60 @@
+
+  <view class="kai-content">
+    <view class="padding-10">
+      <button class="btn" bindtap="togglePopup">弹出popup</button>
+      <button class="btn btn-success" catchtap="toggleTopPopup">从顶部弹出popup</button>
+      <button class="btn btn-kai" catchtap="toggleBottomPopup">从底部弹出popup</button>
+      <button class="btn btn-warn btn-empty" bindtap="toggleLeftPopup">从左边弹出popup</button>
+      <button class="btn btn-danger btn-empty" catchtap="toggleRightPopup">从右边弹出popup</button>
+    </view>
+    <view class="popup {{ showPopup ? 'popup-show' : ''}}">
+      <view class="popup-mask" bindtap="togglePopup"/>
+      <view class="popup-container popup-example-center">
+        <view class="btns">
+          <button class="btn" bindtap="togglePopup">
+            关闭 popup
+          </button>
+        </view>
+      </view>
+    </view>
+
+    <view class="popup-example-left popup popup-left {{ showLeftPopup ? 'popup-show' : ''}}">
+      <view class="popup-mask" bindtap="toggleLeftPopup"/>
+      <view class="popup-container">
+        <view class="btns">
+          <button class="btn" catchtap="toggleLeftPopup">
+            关闭 popup
+          </button>
+        </view>
+      </view>
+    </view>
+
+    <view class="popup-example-right popup popup-right {{ showRightPopup ? 'popup-show' : ''}}">
+      <view class="popup-mask" catchtap="toggleRightPopup"/>
+      <view class="popup-container">
+        <view class="btns">
+          <button class="btn" catchtap="toggleRightPopup">
+            关闭 popup
+          </button>
+        </view>
+      </view>
+    </view>
+
+    <view class="popup-example-top popup popup-top {{ showTopPopup ? 'popup-show' : ''}}">
+      <view class="popup-mask" catchtap="toggleTopPopup"/>
+      <view class="popup-container">
+        内容
+      </view>
+    </view>
+
+    <view class="popup-example-bottom popup popup-bottom {{ showBottomPopup ? 'popup-show' : ''}}">
+      <view class="popup-mask" catchtap="toggleBottomPopup"/>
+      <view class="popup-container">
+        <view class="btns">
+          <button class="btn" catchtap="toggleBottomPopup">
+            关闭 popup
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>

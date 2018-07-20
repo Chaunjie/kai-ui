@@ -1,0 +1,10 @@
+
+  <view class="kai-content">
+    <view class="padding-10 btn-container">
+      <button class="btn btn-kai" catchtap="tips">顶部弹出提示</button>
+    </view>
+  </view>
+  
+  <view class="toptips {{ $toptips$topTips.show ? 'toptips-show' : '' }}">
+    {{$toptips$topTips.content}}
+  </view>

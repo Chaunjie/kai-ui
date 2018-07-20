@@ -1,0 +1,28 @@
+
+  <view class="kai-content">
+    <view class="panel">
+      <view class="list list-last-child">
+        <view class="tag">灰色</view>
+        <view class="tag tag-danger">红色</view>
+        <view class="tag tag-disabled">不可用</view>
+      </view>
+    </view>
+    <view class="panel">
+      <view class="list list-last-child">
+        <view class="tag tag-danger">会员折扣</view>
+        <view class="tag tag-warn">返现</view>
+        <view class="tag tag-primary">返现</view>
+        <view class="tag tag-primary tag-disabled">不可用</view>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="list list-last-child">
+        <view class="tag tag-plain">灰色</view>
+        <view class="tag tag-danger tag-plain">会员折扣</view>
+        <view class="tag tag-warn tag-plain">返现</view>
+        <view class="tag tag-primary tag-plain">返现</view>
+        <view class="tag tag-primary tag-plain tag-disabled">返现不可用</view>
+      </view>
+    </view>
+  </view>

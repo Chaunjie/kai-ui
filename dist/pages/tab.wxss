@@ -1,0 +1,2 @@
+@import "./../components/tab.wxss";
+.tab-container{margin-bottom:20px}

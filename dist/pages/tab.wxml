@@ -1,0 +1,47 @@
+
+  <view class="kai-content">
+    
+  <view class="tab-container {{$tab$tabData.class ? $tab$tabData.class : ''}}">
+      <block  wx:if="{{$tab$tabData.scroll}}">
+          <scroll-view scroll-x class="scroll-tab-content" style="height:{{$tab$tabData.height ? $tab$tabData.height+2 : 45+2}}px;">
+            <block wx:for="{{$tab$tabData.list}}" wx:for-index="$tab$index" wx:for-item="$tab$item" wx:key="$tab$key">
+              <view class="tab {{$tab$selectedId == $tab$item.id ? 'active' : ''}}" style="height:{{$tab$tabData.height ? $tab$tabData.height : 45}}px;line-height: {{$tab$tabData.height ? $tab$tabData.height : 45}}px" catchtap="$tab$selectTab" data-wpyselecttab-a="{{$tab$item}}">
+                <view class="tab-text">{{$tab$item.title}}</view>
+              </view>
+           </block>
+          </scroll-view>
+      </block>
+      <block  wx:else>
+        <view class="tab-content">
+           <block wx:for="{{$tab$tabData.list}}" wx:for-index="$tab$index" wx:for-item="$tab$item" wx:key="$tab$key">
+              <view class="tab {{$tab$selectedId == $tab$item.id ? 'active' : ''}}" style="height:{{$tab$tabData.height ? $tab$tabData.height : 45}}px;line-height: {{$tab$tabData.height ? $tab$tabData.height : 45}}px" catchtap="$tab$selectTab" data-wpyselecttab-a="{{$tab$item}}">
+                <text class="tab-text">{{$tab$item.title}}</text>
+              </view>
+           </block>
+        </view>
+      </block>
+  </view>
+
+    
+  <view class="tab-container {{$tab1$tabData.class ? $tab1$tabData.class : ''}}">
+      <block  wx:if="{{$tab1$tabData.scroll}}">
+          <scroll-view scroll-x class="scroll-tab-content" style="height:{{$tab1$tabData.height ? $tab1$tabData.height+2 : 45+2}}px;">
+            <block wx:for="{{$tab1$tabData.list}}" wx:for-index="$tab1$index" wx:for-item="$tab1$item" wx:key="$tab1$key">
+              <view class="tab {{$tab1$selectedId == $tab1$item.id ? 'active' : ''}}" style="height:{{$tab1$tabData.height ? $tab1$tabData.height : 45}}px;line-height: {{$tab1$tabData.height ? $tab1$tabData.height : 45}}px" catchtap="$tab1$selectTab" data-wpyselecttab-a="{{$tab1$item}}">
+                <view class="tab-text">{{$tab1$item.title}}</view>
+              </view>
+           </block>
+          </scroll-view>
+      </block>
+      <block  wx:else>
+        <view class="tab-content">
+           <block wx:for="{{$tab1$tabData.list}}" wx:for-index="$tab1$index" wx:for-item="$tab1$item" wx:key="$tab1$key">
+              <view class="tab {{$tab1$selectedId == $tab1$item.id ? 'active' : ''}}" style="height:{{$tab1$tabData.height ? $tab1$tabData.height : 45}}px;line-height: {{$tab1$tabData.height ? $tab1$tabData.height : 45}}px" catchtap="$tab1$selectTab" data-wpyselecttab-a="{{$tab1$item}}">
+                <text class="tab-text">{{$tab1$item.title}}</text>
+              </view>
+           </block>
+        </view>
+      </block>
+  </view>
+
+  </view>

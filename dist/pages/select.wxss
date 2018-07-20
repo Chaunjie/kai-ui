@@ -1,0 +1,2 @@
+@import "./../components/select.wxss";
+.icon-right{font-size:12px}

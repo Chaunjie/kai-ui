@@ -1,0 +1,31 @@
+
+  <view class="kai-content">
+    <view class="panel">
+      
+  <view class="select-container {{$select$selectData.class ? $select$selectData.class : ''}}">
+   <block wx:for="{{$select$selectData.list}}" wx:for-index="$select$index" wx:for-item="$select$item" wx:key="$select$key">
+    <view class="select-item {{$select$index==$select$selectIndex ? 'active': ''}}" catchtap="$select$tapItem" data-wpytapitem-a="{{$select$index}}">
+      <text class="item-name font-14">{{$select$item.name}}</text>
+      <block  wx:if="{{$select$index==$select$selectIndex}}">
+        <text class="iconfont icon-right"/>
+      </block>
+    </view>
+  </block>
+</view>
+
+    </view>
+    <view class="panel">
+      
+  <view class="select-container {{$select1$selectData.class ? $select1$selectData.class : ''}}">
+   <block wx:for="{{$select1$selectData.list}}" wx:for-index="$select1$index" wx:for-item="$select1$item" wx:key="$select1$key">
+    <view class="select-item {{$select1$index==$select1$selectIndex ? 'active': ''}}" catchtap="$select1$tapItem" data-wpytapitem-a="{{$select1$index}}">
+      <text class="item-name font-14">{{$select1$item.name}}</text>
+      <block  wx:if="{{$select1$index==$select1$selectIndex}}">
+        <text class="iconfont icon-right"/>
+      </block>
+    </view>
+  </block>
+</view>
+
+    </view>
+  </view>

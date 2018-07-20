@@ -1,0 +1,47 @@
+
+  <view class="kai-content icon-container">
+    <view style="margin-bottom:10px;">
+      <view class="col col-1 bg-success">col-1</view>
+    </view>
+    <view style="margin-bottom:10px;">
+      <view class="col col-2 bg-success">col-2</view>
+    </view>
+    <view style="margin-bottom:10px;">
+      <view class="col col-3 bg-success">col-3</view>
+    </view>
+    <view style="margin-bottom:10px;">
+      <view class="col col-4 bg-success">col-4</view>
+    </view>
+    <view style="margin-bottom:10px;">
+      <view class="col col-5 bg-success">col-5</view>
+    </view>
+    <view style="margin-bottom:10px;">
+      <view class="col col-6 bg-success">col-6</view>
+    </view>
+    <view style="margin-bottom:10px;">
+      <view class="col col-7 bg-success">col-7</view>
+    </view>
+    <view style="margin-bottom:10px;">
+      <view class="col col-8 bg-success">col-8</view>
+    </view>
+    <view style="margin-bottom:10px;">
+      <view class="col col-9 bg-success">col-9</view>
+    </view>
+    <view style="margin-bottom:10px;">
+      <view class="col col-10 bg-success">col-10</view>
+    </view>
+    <view style="margin-bottom:10px;">
+      <view class="col col-11 bg-success">col-11</view>
+    </view>
+    <view style="margin-bottom:10px;">
+      <view class="col col-12 bg-success">col-12</view>
+    </view>
+
+    <view style="margin-bottom:10px;">
+      <view class="col col-3 bg-success">col-3</view>
+      <view class="col col-3 col-offset-6 bg-success">col-offset-6</view>
+    </view>
+    <view style="margin-bottom:10px;">
+      <view class="col col-3 col-offset-6 bg-success">col-3</view>
+    </view>
+  </view>

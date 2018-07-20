@@ -1,0 +1,109 @@
+
+  <view class="kai-content">
+    <view class="panel">
+      <view class="col col-4 icon-block">
+        <view>
+          <text class="iconfont icon-my"/>
+        </view>
+      </view>
+      <view class="list">
+        <view class="list-bd">有图标</view>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="list">
+        <view class="list-bd">单行列表</view>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="list">
+        <view class="list-bd">单行列表</view>
+        <view class="list-arrow">详细信息</view>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="list">
+        <view class="list-icon icon icon-checked" style="color:#38f;"/>
+        <view class="list-bd">单行列表</view>
+        <view class="list-arrow">详细信息</view>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="list">
+        <view class="list-bd">
+          <view class="list-text">单行列表</view>
+          <view class="list-desc">附加描述</view>
+        </view>
+        <view class="list-arrow">详细信息</view>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="list list-access">
+        <view class="list-bd">单行列表</view>
+        <view class="list-arrow"/>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="list">
+        <view class="list-bd">多行列表</view>
+      </view>
+      <view class="list">
+        <view class="list-bd">多行列表</view>
+      </view>
+      <view class="list">
+        <view class="list-bd">多行列表</view>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="list">
+        <view class="list-bd">多行列表</view>
+        <view class="list-arrow">详细信息</view>
+      </view>
+      <view class="list">
+        <view class="list-bd">多行列表</view>
+        <view class="list-arrow">详细信息</view>
+      </view>
+      <view class="list">
+        <view class="list-bd">多行列表</view>
+        <view class="list-arrow">详细信息</view>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="list list-access">
+        <view class="list-bd">多行列表</view>
+        <view class="list-arrow"/>
+      </view>
+      <view class="list list-access">
+        <view class="list-bd">多行列表</view>
+        <view class="list-arrow"/>
+      </view>
+      <view class="list list-access">
+        <view class="list-bd">多行列表</view>
+        <view class="list-arrow"/>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="list list-access">
+        <view class="list-bd">多行列表</view>
+        <view class="list-arrow">详细信息</view>
+      </view>
+      <view class="list list-access">
+        <view class="list-bd">多行列表</view>
+        <view class="list-arrow">详细信息</view>
+      </view>
+      <view class="list list-access">
+        <view class="list-bd">多行列表</view>
+        <view class="list-arrow">详细信息</view>
+      </view>
+    </view>
+
+  </view>
