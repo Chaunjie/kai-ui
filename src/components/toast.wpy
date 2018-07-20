@@ -1,0 +1,33 @@
+<template>
+  <view class="content-toast" wx:if="{{ toast.show }}">{{ toast.content }}</view>
+</template>
+<script>
+import wepy from 'wepy'
+
+export default class Toast extends wepy.component {
+  data = {
+    toast: {
+      show:false,
+      content:'提示信息'
+    }
+  }
+
+  show (data){
+    this.toast = {
+      show: true,
+      content: data.content
+    }
+    
+    this.$apply();
+
+    setTimeout(function(){
+      this.toast = {
+        show: false,
+        content: ''
+      }
+
+      this.$apply();
+    }.bind(this), 4000)
+  }
+}
+</script>

@@ -1,0 +1,39 @@
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <button class="btn" catchtap="openToast">toast</button>
+    </view>
+    <toast/>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import toast from '../components/toast'
+
+export default class  Toast extends wepy.page {
+  config = {
+    navigationBarTitleText: '提示框'
+  }
+  components = {
+    toast: toast
+  }
+
+  data = {}
+
+  computed = {}
+
+  methods = {
+    openToast(){
+      const options = {
+        content: '内容'
+      };
+      this.$invoke('toast', 'show', options)
+    }
+  }
+
+  events = {}
+
+  onLoad() {}
+}
+</script>

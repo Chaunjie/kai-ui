@@ -1,0 +1,44 @@
+<style lang="less">
+  .btn-container{
+    margin-top:40px;
+  }
+</style>
+<template>
+  <view class="kai-content">
+    <view class="padding-10 btn-container">
+      <button class="btn btn-kai" catchtap="tips">顶部弹出提示</button>
+    </view>
+  </view>
+  <toptips/>
+</template>
+
+<script>
+import wepy from 'wepy'
+import toptips from '../components/toptips';
+
+export default class  TopTips extends wepy.page {
+  config = {
+    navigationBarTitleText: '提示'
+  }
+  components = {
+    toptips: toptips
+  }
+
+  data = {}
+
+  computed = {}
+
+  methods = {
+    tips(){
+      console.log(6666);
+      this.$invoke('toptips', 'show', {
+        content: '发生错误信息'
+      })
+    }
+  }
+
+  events = {}
+
+  onLoad() {}
+}
+</script>

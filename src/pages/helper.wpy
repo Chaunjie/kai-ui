@@ -1,0 +1,74 @@
+<style lang="less">
+.helper-container{
+  background-color:#fff;
+}
+.font-content{
+  padding:5px 0;
+  border-bottom:1rpx solid #f5f5f5;
+}
+</style>
+<template>
+  <view class="kai-content helper-container">
+    <view class="panel">
+       <view class="text-pull-left font-content">
+        <text class="font-12 color-gray">text-pull-left：靠左对齐</text>
+      </view>
+      <view class="text-align-center font-content">
+        <text class="font-12 color-gray">text-align-center：居中对齐</text>
+      </view>
+      <view class="text-pull-right font-content">
+        <text class="font-12 color-gray">text-pull-right：靠右对齐</text>
+      </view>
+      <view class="font-content">
+        <text class="font-12 color-gray text-deleted">text-deleted：被删除的效果</text>
+      </view>
+      <view class="text-pull-left font-content">
+        <text class="font-14 color-title font-bold">font-14 font-bold：字号14 加粗</text>
+      </view>
+      <view class="text-pull-left font-content">
+        <text class="font-16 color-title font-bold">font-16 font-bold：字号16 加粗</text>
+      </view>
+      <view class="text-pull-left font-content">
+        <view>
+          <text class="font-14 color-red">color-red</text>
+        </view>
+        <view>
+          <text class="font-14 color-gray">color-gray</text>
+        </view>
+        <view>
+          <text class="font-14 color-blue">color-blue</text>
+        </view>
+        <view>
+          <text class="font-14 color-success">color-success</text>
+        </view>
+      </view>
+      <view class="font-content">
+        <text class="font-14 color-title ellipsis-l2">我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符</text>
+      </view>
+      <view class="font-content">
+        <text class="font-14 color-title ellipsis-l1">我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class  Helper extends wepy.page {
+  config = {
+    navigationBarTitleText: '基础样式'
+  }
+  components = {}
+
+  data = {}
+
+  computed = {}
+
+  methods = {}
+
+  events = {}
+
+  onLoad() {}
+}
+</script>

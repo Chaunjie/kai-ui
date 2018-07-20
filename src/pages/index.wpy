@@ -1,0 +1,87 @@
+
+<style lang="less">
+
+</style>
+<template>
+  <view class="kai-content">
+    <view class="panel">
+      <view class="list list-access" catchtap="translateToPage('list')">
+        <view class="list-bd">List 列表</view>
+        <view class="list-arrow"></view>
+      </view>
+      <view class="list list-access" catchtap="translateToPage('button')">
+        <view class="list-bd">Button 按钮</view>
+        <view class="list-arrow"></view>
+      </view>
+      <view class="list list-access" catchtap="translateToPage('icon')">
+        <view class="list-bd">Icon 图标</view>
+        <view class="list-arrow"></view>
+      </view>
+      <view class="list list-access" catchtap="translateToPage('layout')">
+        <view class="list-bd">Layout 布局</view>
+        <view class="list-arrow"></view>
+      </view>
+      <view class="list list-access" catchtap="translateToPage('helper')">
+        <view class="list-bd">Helper 基础样式</view>
+        <view class="list-arrow"></view>
+      </view>
+      <view class="list list-access" catchtap="translateToPage('popup')">
+        <view class="list-bd">Popup 弹出层</view>
+        <view class="list-arrow"></view>
+      </view>
+      <view class="list list-access" catchtap="translateToPage('tag')">
+        <view class="list-bd">Tag 标记</view>
+        <view class="list-arrow"></view>
+      </view>
+      <view class="list list-access" catchtap="translateToPage('tab')">
+        <view class="list-bd">Tab 标签</view>
+        <view class="list-arrow"></view>
+      </view>
+      <view class="list list-access" catchtap="translateToPage('select')">
+        <view class="list-bd">Select 选择</view>
+        <view class="list-arrow"></view>
+      </view>
+      <view class="list list-access" catchtap="translateToPage('toptips')">
+        <view class="list-bd">Toptips 底部错误提示</view>
+        <view class="list-arrow"></view>
+      </view>
+    </view>
+
+    <view class="panel">
+      <view class="list list-access" catchtap="translateToPage('dialog')">
+        <view class="list-bd">Dialog 弹出框</view>
+        <view class="list-arrow"></view>
+      </view>
+      <view class="list list-access" catchtap="translateToPage('toast')">
+        <view class="list-bd">Toast 提示框</view>
+        <view class="list-arrow"></view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Index extends wepy.page {
+  config = {
+    navigationBarTitleText: '主页'
+  }
+
+  components = {}
+
+  data = {}
+
+  computed = {}
+
+  methods = {
+    translateToPage (name) {
+      wx.navigateTo({url: name})
+    }
+  }
+
+  events = {}
+
+  onLoad() {}
+}
+</script>

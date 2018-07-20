@@ -1,0 +1,98 @@
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <button class="btn" catchtap="openDialog">dialog</button>
+      <button class="btn btn-success" catchtap="openAlert">Alert</button>
+      <button class="btn btn-kai" catchtap="openVertical">横向按钮排列</button>
+      <button class="btn btn-warn btn-empty" catchtap="openNoVertical">纵向按钮排列</button>
+    </view>
+    <dialog/>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import dialog from '../components/dialog'
+
+export default class  Dialog extends wepy.page {
+  config = {
+    navigationBarTitleText: '弹出窗'
+  }
+  components = {
+    dialog: dialog
+  }
+
+  data = {}
+
+  computed = {}
+
+  methods = {
+    openDialog(){
+      const options = {
+        title: '提示',
+        content: '内容'
+      };
+
+      this.$invoke('dialog', 'show', options).then((data) => {
+        console.log(data);
+      })
+    },
+    openAlert(){
+      const options = {
+        title: '提示',
+        content: '内容',
+        type:'alert'
+      };
+
+      this.$invoke('dialog', 'show', options).then((data) => {
+        console.log(data);
+      })
+    },
+    openVertical(){
+      const options = {
+        title: '提示',
+        content: '内容',
+        type:'muti',
+        buttons: [{
+          text: '现金支付',
+          color: 'red'
+        }, {
+          text: '微信支付',
+          color: '#3CC51F'
+        }, {
+          text: '取消'
+        }]
+      };
+
+      this.$invoke('dialog', 'show', options).then((data) => {
+        console.log(data);
+      })
+    },
+    openNoVertical(){
+      const options = {
+        title: '提示',
+        content: '内容',
+        type:'muti',
+        showVertical: true,
+        buttons: [{
+          text: '现金支付',
+          color: 'red'
+        }, {
+          text: '微信支付',
+          color: '#3CC51F'
+        }, {
+          text: '取消'
+        }]
+      };
+
+      this.$invoke('dialog', 'show', options).then((data) => {
+        console.log(data);
+      })
+    }
+  }
+
+  events = {}
+
+  onLoad() {}
+}
+</script>

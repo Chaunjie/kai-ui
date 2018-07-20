@@ -1,0 +1,35 @@
+<template>
+  <view class="toptips {{ topTips.show ? 'toptips-show' : '' }}">
+    {{topTips.content}}
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+
+export default class Toptips extends wepy.component {
+  data = {
+    topTips: {
+      show:false,
+      content:'错误信息'
+    }
+  }
+
+  show (data){
+    this.topTips = {
+      show: true,
+      content: data.content
+    }
+    
+    this.$apply();
+
+    setTimeout(function(){
+      this.topTips = {
+        show: false,
+        content: ''
+      }
+
+      this.$apply();
+    }.bind(this), 4000)
+  }
+}
+</script>
