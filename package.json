@@ -1,0 +1,23 @@
+
+{
+  "name": "kai-ui",
+  "version": "1.0.0",
+  "description": "kai-ui for weapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chaunjie/kai-ui.git"
+  },
+  "keywords": [
+    "kai-ui"
+  ],
+  "author": "chaunjie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chaunjie/kai-ui/issues"
+  },
+  "homepage": "https://github.com/Chaunjie/kai-ui#readme"
+}
