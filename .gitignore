@@ -1,9 +1,7 @@
 .DS_Store
 node_modules/
 ./example/node_modules/
-./dist/
-dist/*
-dist/
+./example/dist/
 .wepycache
 .idea
 npm-debug.log
