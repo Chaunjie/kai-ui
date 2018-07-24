@@ -1,20 +1,4 @@
-<style lang="less">
-  .userinfo {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .userinfo-avatar {
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 50%;
-  }
-
-  .userinfo-nickname {
-    color: #aaa;
-  }
-</style>
+<style lang="less" src="../less/index.less"></style>
 <template>
   <view class="container">
     <view class="userinfo" @tap="handleViewTap">
@@ -79,10 +63,10 @@
 
 <script>
   import wepy from 'wepy'
-  import List from '@/components/list'
-  import Panel from '@/components/panel' // alias example
-  import Counter from 'counter' // alias example
-  import Group from '../components/group'
+  import List from '@/components/list/index'
+  import Panel from '@/components/panel/index' // alias example
+  import Counter from '@/components/counter/index' // alias example
+  import Group from '../components/group/index'
   import Toast from 'wepy-com-toast/Toast'
   import testMixin from '../mixins/test'
 

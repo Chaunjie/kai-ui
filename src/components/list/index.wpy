@@ -1,11 +1,4 @@
-<style lang="less">
-  .mylist:odd {
-    color: red;
-  }
-  .mylist:even {
-    color: green;
-  }
-</style>
+<style lang="less" src="./index.less"></style>
 <template>
   <view class="list">
   <view>

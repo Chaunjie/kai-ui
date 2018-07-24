@@ -1,19 +1,4 @@
-<style lang="less">
-  .counter {
-    text-align: left;
-    font-size: 12px;
-  }
-  .count {
-    font-size: 18px;
-    font-weight: bold;
-    &.red {
-      color: red;
-    }
-    &.green {
-      color: green;
-    }
-  }
-</style>
+<style lang="less" src="./index.less"></style>
 <template>
   <view class="counter {{style}}">
     <button @tap="plus" size="mini">  +  </button>

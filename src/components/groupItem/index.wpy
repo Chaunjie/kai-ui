@@ -1,7 +1,4 @@
-<style type="less">
-.groupitem {
-}
-</style>
+<style lang="less" src="./index.less"></style>
 <template>
   <view class="groupitem">
     --<text class="id">{{gitem.childid}}.</text>
