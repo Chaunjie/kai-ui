@@ -1,19 +1,30 @@
 {
-  "name": "example",
-  "version": "1.2.8",
-  "description": "",
+  "name": "kai-ui",
+  "version": "1.0.0",
+  "description": "weapp ui components",
   "main": "dist/app.js",
   "scripts": {
     "dev": "wepy build --watch",
     "build": "cross-env NODE_ENV=production wepy build --no-cache",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "chaunjie",
   "license": "MIT",
   "dependencies": {
     "wepy": "^1.7.2",
     "wepy-async-function": "^1.4.6",
     "wepy-com-toast": "^1.0.2"
+  },
+  "wepy": {
+    "./Counter": "./src/components/counter/index.wpy",
+    "./Group": "./src/components/group/index.wpy",
+    "./GroupItem": "./src/components/groupItem/index.wpy",
+    "./List": "./src/components/list/index.wpy",
+    "./Panel": "./src/components/panel/index.wpy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chaunjie/kai-ui.git"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",
@@ -34,5 +45,9 @@
     "wepy-eslint": "^1.5.4",
     "wepy-plugin-imagemin": "^1.5.3",
     "wepy-plugin-uglifyjs": "^1.3.7"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/Chaunjie/kai-ui/issues"
+  },
+  "homepage": "https://github.com/Chaunjie/kai-ui#readme"
 }
