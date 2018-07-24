@@ -4,6 +4,7 @@
     <view class="userinfo" @tap="handleViewTap">
       <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"/>
       <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
+      <image src="http://images.kaistart.com/o_1ciogb1u21tu1hgg2kb13tk1aof9.jpg?imageView2/1/w/828/h/414/interlace/1" background-size="cover" style="width: 100px;height: 100px;" mode="aspectFill"/>
     </view>
 
     <panel>
@@ -67,7 +68,7 @@
   import Panel from '@/components/panel/index' // alias example
   import Counter from '@/components/counter/index' // alias example
   import Group from '../components/group/index'
-  import Toast from 'wepy-com-toast/Toast'
+  import Toast from 'wepy-com-toast'
   import testMixin from '../mixins/test'
 
   export default class Index extends wepy.page {

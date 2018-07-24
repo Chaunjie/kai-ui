@@ -8,7 +8,6 @@
 </template>
 <script>
   import wepy from 'wepy'
-  // import abc from 'abc'
 
   export default class Counter extends wepy.component {
     props = {
@@ -22,6 +21,7 @@
     }
 
     data = {
+      testData: 8
     }
     events = {
       'index-broadcast': (...args) => {
