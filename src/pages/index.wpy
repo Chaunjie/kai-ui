@@ -1,6 +1,10 @@
 <style lang="less" src="../less/index.less"></style>
 <template>
   <view class="container">
+    <panel>
+      <view class="title" slot="title">noticeBar组件</view>
+      <noticeBar :text="longText" componentId="static2" ></noticeBar>
+    </panel>
     <view class="userinfo" @tap="handleViewTap">
       <image class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"/>
       <view class="userinfo-nickname">{{ userInfo.nickName }}</view>
@@ -67,6 +71,7 @@
   import List from '@/components/list/index'
   import Panel from '@/components/panel/index' // alias example
   import Counter from '@/components/counter/index' // alias example
+  import noticeBar from '@/components/noticeBar/index'
   import Group from '../components/group/index'
   import Toast from 'wepy-com-toast'
   import testMixin from '../mixins/test'
@@ -81,7 +86,8 @@
       counter2: Counter,
       list: List,
       group: Group,
-      toast: Toast
+      toast: Toast,
+      noticeBar: noticeBar
     }
 
     mixins = [testMixin]
@@ -93,6 +99,7 @@
       },
       normalTitle: '原始标题',
       setTimeoutTitle: '标题三秒后会被修改',
+      longText: '亲爱的用户，为了给您带来更好的体验，TAPD将于 7.28(本周六)22:00 - 23:00 进行停机升级，请您提前做好准备。对给您造成的不便深感抱歉~~',
       count: 0,
       netrst: '',
       groupList: [
@@ -215,6 +222,7 @@
 
         self.$apply()
       })
+      this.$invoke('noticeBar', 'initNoticeBarScroll')
     }
   }
 </script>
