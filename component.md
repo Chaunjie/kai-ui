@@ -27,12 +27,13 @@ kai-ui组件列表
 22、scrollviewrefresh
 23、checkbox
 24、radio
-<!-- 25、coupon优惠券 -->
+25、rate星级评分
 26、noticebar通知栏
 27、step步骤条
 28、folder折叠面板
 29、backtotop返回顶部
 30、calander日期选择
+31、swipeout滑动菜单
 
 wppeng:  8、9、10、11、13、14、15、16
 stardew516: 1、2、3、4、5、6、7、12、17、18、19、20
