@@ -1,0 +1,34 @@
+<template>
+  <view class="kai-content">
+    
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import panel from '../components/panel/index'
+
+export default class Panel extends wepy.page {
+  config = {
+    navigationBarTitleText: 'uploader'
+  }
+
+  components = {
+    panel: panel
+  }
+
+  data = {
+  }
+
+  computed = {}
+
+  methods = {
+  }
+
+  events = {
+  }
+
+  onLoad() {
+  }
+}
+</script>

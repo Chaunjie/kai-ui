@@ -1,0 +1,34 @@
+<template>
+  <view class="kai-content">
+    
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import uploader from '../components/uploader/index'
+
+export default class Uploader extends wepy.page {
+  config = {
+    navigationBarTitleText: 'uploader'
+  }
+
+  components = {
+    uploader: uploader
+  }
+
+  data = {
+  }
+
+  computed = {}
+
+  methods = {
+  }
+
+  events = {
+  }
+
+  onLoad() {
+  }
+}
+</script>

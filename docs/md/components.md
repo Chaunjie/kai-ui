@@ -36,6 +36,18 @@ grid
 
 button
 
+#### Icon图标
+
+提供了一套常用的图标集合。
+
+##### 使用方法
+
+`<text class="iconfont {{item}}"></text>`
+
+##### 图标集合
+
+
+
 ### 表单组件
 
 #### Checkbox

@@ -1,0 +1,34 @@
+<template>
+  <view class="kai-content">
+    
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import loadmore from '../components/loadmore/index'
+
+export default class Loadmore extends wepy.page {
+  config = {
+    navigationBarTitleText: 'loadmore'
+  }
+
+  components = {
+    loadmore: loadmore
+  }
+
+  data = {
+  }
+
+  computed = {}
+
+  methods = {
+  }
+
+  events = {
+  }
+
+  onLoad() {
+  }
+}
+</script>

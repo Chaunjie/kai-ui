@@ -34,19 +34,29 @@ export default class Index extends wepy.page {
           link: 'button'
         },
         {
+          title: 'Uploader 上传',
+          linktype: 1,
+          link: 'uploader'
+        },
+        {
+          title: 'grid',
+          linktype: 1,
+          link: 'grid'
+        },
+        {
+          title: 'loadmore',
+          linktype: 1,
+          link: 'loadmore'
+        },
+        {
           title: 'Icon 图标',
           linktype: 1,
           link: 'icon'
         },
         {
-          title: 'Layout 布局',
+          title: 'ActionSheet',
           linktype: 1,
-          link: 'layout'
-        },
-        {
-          title: 'Helper 基础样式',
-          linktype: 1,
-          link: 'helper'
+          link: 'actionsheet'
         },
         {
           title: 'Popup 弹出层',
@@ -67,6 +77,21 @@ export default class Index extends wepy.page {
           title: 'Select 选择',
           linktype: 1,
           link: 'select'
+        },
+        {
+          title: 'panel',
+          linktype: 1,
+          link: 'panel'
+        },
+        {
+          title: 'Layout 布局',
+          linktype: 1,
+          link: 'layout'
+        },
+        {
+          title: 'Helper 基础样式',
+          linktype: 1,
+          link: 'helper'
         },
         {
           title: 'Toptips 底部错误提示',

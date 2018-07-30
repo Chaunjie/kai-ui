@@ -1,0 +1,34 @@
+<template>
+  <view class="kai-content">
+    
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import grid from '../components/grid/index'
+
+export default class Grid extends wepy.page {
+  config = {
+    navigationBarTitleText: 'grid'
+  }
+
+  components = {
+    grid: grid
+  }
+
+  data = {
+  }
+
+  computed = {}
+
+  methods = {
+  }
+
+  events = {
+  }
+
+  onLoad() {
+  }
+}
+</script>

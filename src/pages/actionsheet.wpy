@@ -34,48 +34,46 @@ export default class ActionSheet extends wepy.page {
           value: '好多文字啊哈哈哈哈啊哈哈哈哈哈哈哈啊哈哈好多文字啊哈哈哈哈啊哈哈哈哈哈哈哈啊哈哈',
           event: '',
           slot: '<view>slot1html</view>'
-        }
-        // ,
-        // {
-        //   class: '',
-        //   value: '<view class="iconfont icon-success">111</view>',
-        //   event: '',
-        //   slot: '<view class="iconfont icon-success">slot</view>'
-        // },
-        // {
-        //   class: '',
-        //   value: '<view class="iconfont icon-success">222</view>',
-        //   event: ''
-        // },
-        // {
-        //   class: '',
-        //   value: '333',
-        //   event: ''
-        // }
-        ],
+        },
+        {
+          class: '',
+          value: '<view class="iconfont icon-success">111</view>',
+          event: '',
+          slot: '<view class="iconfont icon-success">slot</view>'
+        },
+        {
+          class: '',
+          value: '<view class="iconfont icon-success">222</view>',
+          event: ''
+        },
+        {
+          class: '',
+          value: '333',
+          event: ''
+        }],
         top: true,
         index: 0,
         show: true
-      } // ,
-      // {
-      //   itemList: [{
-      //     class: '',
-      //     value: '一一一',
-      //     event: ''
-      //   },
-      //   {
-      //     class: '',
-      //     value: '二二二',
-      //     event: ''
-      //   },
-      //   {
-      //     class: '',
-      //     value: '三三三',
-      //     event: ''
-      //   }],
-      //   index: 1,
-      //   show: false
-      // }
+      },
+      {
+        itemList: [{
+          class: '',
+          value: '一一一',
+          event: ''
+        },
+        {
+          class: '',
+          value: '二二二',
+          event: ''
+        },
+        {
+          class: '',
+          value: '三三三',
+          event: ''
+        }],
+        index: 1,
+        show: false
+      }
     ]
   }
 
