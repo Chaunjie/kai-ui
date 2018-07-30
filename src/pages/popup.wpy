@@ -1,0 +1,81 @@
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <button class="btn"  bindtap="popPosition(0)">弹出popup</button>
+      <button class="btn btn-success" catchtap="popPosition(1)">从顶部弹出popup</button>
+      <button class="btn btn-kai" catchtap="popPosition(3)">从底部弹出popup</button>
+      <button class="btn btn-warn btn-empty" bindtap="popPosition(4)">从左边弹出popup</button>
+      <button class="btn btn-danger btn-empty" catchtap="popPosition(2)">从右边弹出popup</button>
+    </view>
+    <repeat for="{{popData}}" index="i" item="item" key="row-{{index}}">
+      <popup :show.sync="item.showPopup" :position.sync="item.position" :id.sync="i">
+        <view slot="popContainer">
+          <view class="btns">
+            <button class="btn">
+              111 
+            </button>
+          </view>
+        </view>
+      </popup>
+    </repeat>
+    
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import popup from '../components/popup/index'
+
+export default class Popup extends wepy.page {
+  config = {
+    navigationBarTitleText: 'popup'
+  }
+  components = {
+    popup: popup
+  }
+
+  data = {
+    popData: [
+      {
+        showPopup: true,
+        position: 'center'
+      },
+      {
+        showPopup: false,
+        position: 'top'
+      },
+      {
+        showPopup: false,
+        position: 'right'
+      },
+      {
+        showPopup: false,
+        position: 'bottom'
+      },
+      {
+        showPopup: false,
+        position: 'left'
+      }
+    ]
+  }
+
+  computed = {}
+
+  methods = {
+    popPosition (i) {
+      this.popData.map(function (r, i) {
+        r.showPopup = false
+      })
+      this.popData[i].showPopup = true
+    }
+  }
+
+  events = {
+    pop: function (i, op) {
+      this.popData[i].showPopup = op ? false : !this.popData[i].showPopup
+    }
+  }
+
+  onLoad() {}
+}
+</script>

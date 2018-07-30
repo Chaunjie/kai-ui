@@ -1,0 +1,78 @@
+<style lang="less" src="../style/font.less"></style>
+<style lang="less">
+.icon-container{
+  background-color:#fff;
+}
+.icon-block{
+  background-color:#fff;
+  padding: 20px 0;
+  .iconfont{
+    font-size:30px;
+    margin-bottom:20px;
+    color:#999;
+  }
+  .icon-title{
+    font-size:12px;
+    color:#999;
+    text-align: center;
+  }
+  > view{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content: center;
+  }
+}
+</style>
+<template>
+  <view class="kai-content icon-container">
+    <repeat for="{{list}}" index="index" item="item" key="key">
+      <view class="col col-4 icon-block" >
+        <view>
+          <text class="iconfont {{item}}"></text>
+        </view>
+        <view>
+          <text class="icon-title">{{item}}</text>
+        </view>
+      </view>
+    </repeat>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Icon extends wepy.page {
+  config = {
+    navigationBarTitleText: '字体库'
+  }
+  components = {}
+
+  data = {
+    list: [
+      'icon-delete', 'icon-upload', 'icon-upload2', 'icon-download2', 'icon-rank',
+      'icon-refresh', 'icon-edit-outline', 'icon-edit', 'icon-setting-outline', 'icon-setting',
+      'icon-share', 'icon-loading', 'icon-picture-outline', 'icon-picture', 'icon-callinging',
+      'icon-call', 'icon-location-outline', 'icon-location', 'icon-more-outline', 'icon-more',
+      'icon-phone', 'icon-service', 'icon-menu', 'icon-star-outline', 'icon-star',
+      'icon-view', 'icon-time', 'icon-message', 'icon-printer', 'icon-bell',
+      'icon-date', 'icon-news', 'icon-goods-soldout', 'icon-goods', 'icon-sort',
+      'icon-sort-down', 'icon-sort-up', 'icon-ticket', 'icon-document', 'icon-zoom-out',
+      'icon-zoom-in', 'icon-search', 'icon-double-left', 'icon-double-right', 'icon-plus-outline',
+      'icon-plus-circle', 'icon-plus', 'icon-minus-outline', 'icon-minus-circle', 'icon-minus',
+      'icon-success-outline', 'icon-success-circle', 'icon-success', 'icon-close-outline', 'icon-close-circle',
+      'icon-close', 'icon-caret', 'icon-caret-up', 'icon-caret-right', 'icon-caret-down',
+      'icon-caret-left', 'icon-info', 'icon-warning', 'icon-right', 'icon-left',
+      'icon-up', 'icon-down', 'icon-question', 'icon-back', 'icon-components'
+    ]
+  }
+
+  computed = {}
+
+  methods = {}
+
+  events = {}
+
+  onLoad() {}
+}
+</script>

@@ -1,0 +1,54 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="popup {{'popup-'+position}} {{ show ? 'popup-show' : ''}}">
+      <view class="popup-mask" catchtap="togglePopup({{id}})"></view>
+      <view class="popup-container">
+        <slot name="popContainer"></slot>
+      </view>
+    </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Popup extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Popup'
+  }
+
+  props = {
+    id: { // 弹窗id
+      type: [Number, String],
+      twoWay: true,
+      default: 0
+    },
+    show: {  // 是否展示弹窗
+      type: [Boolean, String],
+      twoWay: true,
+      default: false
+    },
+    position: { // 弹窗弹出位置
+      type: String,
+      twoWay: true,
+      default: 'bottom'
+    }
+  }
+  components = {}
+
+  data = {
+  }
+
+  computed = {}
+
+  methods = {
+    // op 为true时，关闭
+    // i: 索引 close: 关闭
+    togglePopup(i, close) {
+      this.$emit('pop', i, close)
+    }
+  }
+
+  onLoad() {
+  }
+}
+</script>

@@ -1,0 +1,59 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="ac-container {{asData.show ? 'ac-show': ''}} {{asData.top ? 'top' : 'bottom'}}">
+    <import src="../wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+    <repeat for="{{asData.itemList}}" index="i" item="item" key="row-{{index}}">
+      <view class="ac-list {{item.class}}" catchtap="selectIndex({{asData.index}}, {{i}})">
+        <view wx:if="{{item.slot}}">
+          <!-- {{item.slot}} -->
+          <!-- <template is="wxParse" data="{{wxParseData: article.nodes}}"/> -->
+        </view>
+        <view wx:else>{{item.value}}</view>
+        </view>
+      <view class="ac-list" wx:if="{{i===asData.itemList.length-1}}" catchtap="selectIndex({{asData.index}}, {{i}}, true)">取消</view>
+    </repeat>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  import wxParse from '../wxParse/wxParse'
+  export default class ActionSheet extends wepy.component {
+    props = {
+      asData: {
+        type: Object,
+        twoWay: true,
+        defaut: {}
+      }
+    }
+
+    data = {
+      tapIndex: 0
+    }
+
+    methods = {
+      selectIndex (i, index, close) {
+        console.log(i, index, close)
+        this.tapIndex = index
+        const evt = this.asData.itemList[index].event ? this.asData.itemList[index].event : 'action-sheet'
+        this.$emit(evt, i, index, close)
+      }
+    }
+
+    onLoad () {
+      console.log(this.asData)
+      const asData = this.asData
+      const that = this
+      this.asData.itemList.map((r, i) => {
+        if (r.slot) {
+          // wxParse.wxParse('article', 'html', r.slot || '', that, 5)
+          // console.log(wxParse.wxParse('article', 'html', r.slot || '', that, 5))
+        }
+      })
+      wxParse.wxParse('article', 'html', '<div>slot1html</div>', that, 5)
+      console.log(wxParse.wxParse('article', 'html', '<div class="iconfont icon-success">slot1html</div>', that, 5))
+      this.tapIndex = asData.tapIndex ? asData.tapIndex : 0
+      this.$apply()
+    }
+  }
+</script>

@@ -1,0 +1,151 @@
+<template>
+  <view class="kai-content">
+    <view class="panel">
+      <repeat for="{{cellList}}" index="index" item="item" key="row-{{index}}">
+        <cell :celldata="item"></cell>
+      </repeat>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import cell from '../components/cell/index'
+
+export default class Cell extends wepy.page {
+  config = {
+    navigationBarTitleText: '列表'
+  }
+
+  components = {
+    cell: cell
+  }
+
+  data = {
+    cellList: [
+      [
+        {
+          title: '默认'
+        }
+      ],
+      [
+        {
+          title: '列表',
+          linktype: 1,
+          link: 'cell'
+        },
+        {
+          title: '列表',
+          linktype: 1,
+          link: 'cell'
+        },
+        {
+          title: '列表',
+          linktype: 1,
+          link: 'cell'
+        }
+      ],
+      [
+        {
+          title: '列表带icon',
+          icontype: '1',
+          icontext: 'icon-components',
+          linktype: 1,
+          link: 'cell'
+        },
+        {
+          title: '列表带icon',
+          icontype: '1',
+          icontext: 'icon-components',
+          linktype: 1,
+          link: 'cell'
+        },
+        {
+          title: '列表带icon',
+          icontype: '1',
+          icontext: 'icon-components',
+          linktype: 1,
+          link: 'cell'
+        }
+      ],
+      [
+        {
+          title: '单行有附加信息',
+          subtitle: '图片icon',
+          detail: '有箭头',
+          linktype: 1,
+          link: 'index',
+          icontype: '2',
+          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
+        }
+      ],
+      [
+        {
+          title: '多行列表',
+          subtitle: '无icon',
+          detail: '无箭头',
+          linktype: 0,
+          link: 'index',
+          icontype: 1,
+          icontext: ''
+        },
+        {
+          title: '多行列表',
+          subtitle: 'icon',
+          detail: '无箭头',
+          linktype: 0,
+          link: 'index',
+          icontype: '1',
+          icontext: 'icon-components'
+        },
+        {
+          title: '多行列表',
+          subtitle: '图片icon',
+          detail: '有箭头',
+          linktype: 1,
+          link: 'index',
+          icontype: '2',
+          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
+        }
+      ],
+      [
+        {
+          title: '单行',
+          subtitle: '',
+          detail: '无附加信息',
+          linktype: 1,
+          link: 'index',
+          icontype: '2',
+          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
+        }
+      ],
+      [
+        {
+          title: '单行好多字真的好多字不信你数数怎么样',
+          subtitle: '',
+          detail: '无附加信息',
+          linktype: 1,
+          link: 'index',
+          icontype: '2',
+          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
+        }
+      ]
+    ]
+  }
+
+  computed = {}
+
+  methods = {}
+
+  events = {
+    'item-tap': (type, url) => {
+      wx.navigateTo({
+        url: url
+      })
+    }
+  }
+
+  onLoad() {
+  }
+}
+</script>

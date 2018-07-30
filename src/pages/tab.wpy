@@ -1,0 +1,54 @@
+<style lang="less">
+.tab-container{
+  margin-bottom:20px;
+}
+</style>
+<template>
+  <view class="kai-content">
+    <tab :tabData.sync="tab1"/>
+    <tab1 :tabData.sync="tab2"/>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import Tab from '../components/tab/index'
+
+export default class TabPage extends wepy.page {
+  config = {
+    navigationBarTitleText: '标签'
+  }
+
+  components = {
+    tab: Tab,
+    tab1: Tab
+  }
+
+  data = {
+    tab1: {
+      list: [{id: 1, title: '标签1'}, {id: 2, title: '标签2'}, {id: 3, title: '标签3'}, {id: 4, title: '标签4'}, {id: 5, title: '标签5'}],
+      scroll: false,
+      selectedId: 2,
+      class: 'tab-danger'
+    },
+    tab2: {
+      list: [{id: 1, title: '标签1'}, {id: 2, title: '标签2'}, {id: 3, title: '标签3'}, {id: 4, title: '标签4'}, {id: 5, title: '标签5'}, {id: 6, title: '标签6'}, {id: 7, title: '标签7'}, {id: 8, title: '标签8'}],
+      scroll: true,
+      selectedId: 3,
+      class: 'tab-success'
+    }
+  }
+
+  computed = {}
+
+  methods = {}
+
+  events = {
+    'select-tab': (data) => {
+      this.tab1.selectedId = data
+    }
+  }
+
+  onLoad() {}
+}
+</script>

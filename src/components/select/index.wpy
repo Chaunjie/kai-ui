@@ -1,0 +1,43 @@
+<template>
+  <view class="select-container {{selectData.class ? selectData.class : ''}}">
+   <repeat for="{{selectData.list}}" index="index" item="item" key="key">
+    <view class="select-item {{index==selectIndex ? 'active': ''}}" catchtap="tapItem({{selectData.id}}, {{index}})">
+      <text class="item-name font-14">{{item.name}}</text>
+      <block wx:if="{{index==selectIndex}}">
+        <text class="iconfont icon-right" ></text>
+      </block>
+    </view>
+  </repeat>
+</view>
+</template>
+<script>
+import wepy from 'wepy'
+
+export default class Select extends wepy.component {
+  props = {
+    selectData: {}
+  }
+
+  data = {
+    selectIndex: ''
+  }
+
+  events = {}
+
+  methods = {
+    tapItem (i, index) {
+      console.log(i, index)
+      this.selectIndex = index
+      const evt = this.selectData.event ? this.selectData.event : 'select-item'
+      this.$emit(evt, i, index)
+    }
+  }
+
+  onLoad () {
+    console.log(this.selectData, this.selectData.id)
+    const selectData = this.selectData
+    this.selectIndex = selectData.selectIndex ? selectData.selectIndex : 0
+    this.$apply()
+  }
+}
+</script>

@@ -1,0 +1,62 @@
+<style lang="less">
+.icon-right{
+  font-size:12px;
+}
+</style>
+<template>
+  <view class="kai-content">
+    <view class="panel">
+      <select :selectData="selectData"/>
+    </view>
+    <view class="panel">
+      <select1 :selectData="selectData1"/>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import select from '../components/select/index'
+
+export default class SelectPage extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Select 选择'
+  }
+
+  components = {
+    select: select,
+    select1: select
+  }
+
+  data = {
+    selectData: {
+      id: 0,
+      list: [{name: '选择1'}, {name: '选择2'}, {name: '选择3'}],
+      selectIndex: 0,
+      class: 'select-success'
+    },
+    selectData1: {
+      id: 1,
+      list: [{name: '选择1'}, {name: '选择2'}],
+      selectIndex: 1,
+      class: 'select-danger',
+      event: 'select-test'
+    }
+  }
+
+  computed = {}
+
+  methods = {}
+
+  events = {
+    'select-item': (data) => {
+      console.log('item' + data)
+    },
+    'select-test': (data) => {
+      console.log('test' + data)
+    }
+  }
+
+  onLoad() {}
+}
+</script>

@@ -1,3 +1,4 @@
+<style lang="less" src="./style/index.less"></style>
 <style lang="less">
 .container {
   height: 100%;
@@ -16,7 +17,15 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
-      'pages/index'
+      'pages/index',
+      'pages/actionsheet',
+      'pages/select',
+      'pages/tab',
+      'pages/tag',
+      'pages/popup',
+      'pages/icon',
+      'pages/button',
+      'pages/cell'
     ],
     window: {
       backgroundTextStyle: 'light',

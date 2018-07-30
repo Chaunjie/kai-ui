@@ -1,0 +1,39 @@
+@import "../../style/font.less";
+@import "../wxParse/wxParse.wxss";
+
+.ac-container {
+  position: fixed;
+  left: 0;
+  background: #fff;
+  transform: translate3d(0, 0, 0);
+  transform-origin: center;
+  transition: all .4s ease;
+  z-index: 11;
+  width: 100%;
+  opacity: 0
+}
+.ac-container.top {
+  top: -100vh;
+}
+.ac-container.bottom {
+  bottom: -100vh;
+}
+.top.ac-show {
+  opacity: 1;
+  top: 0;
+}
+.bottom.ac-show {
+  opacity: 1;
+  bottom: 0;
+}
+
+.ac-list {
+  text-align: center;
+  font-size: 12px;
+  border-bottom: 1px solid #e1e1e1;
+  height: 40px;
+  line-height: 40px;
+  &:first-child {
+    border-top: 1px solid #e1e1e1;
+  }
+}

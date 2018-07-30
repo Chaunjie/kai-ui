@@ -1,0 +1,134 @@
+.popup-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, .7);
+  display: none
+}
+
+.popup-container {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  background: #fff;
+  transform: translate3d(-50%, -50%, 0);
+  transform-origin: center;
+  transition: all .4s ease;
+  z-index: 11;
+  opacity: 0
+}
+
+.popup-show .popup-container {
+  opacity: 1
+}
+
+.popup-show .popup-mask {
+  display: block
+}
+
+.popup-left .popup-container {
+  left: 0;
+  top: auto;
+  transform: translate3d(-100%, 0, 0)
+}
+
+.popup-show.popup-left .popup-container {
+  transform: translate3d(0, 0, 0)
+}
+
+.popup-right .popup-container {
+  right: 0;
+  top: auto;
+  left: auto;
+  transform: translate3d(100%, 0, 0)
+}
+
+.popup-show.popup-right .popup-container {
+  transform: translate3d(0, 0, 0)
+}
+
+.popup-bottom .popup-container {
+  top: auto;
+  left: auto;
+  bottom: 0;
+  transform: translate3d(0, 100%, 0)
+}
+
+.popup-show.popup-bottom .popup-container {
+  transform: translate3d(0, 0, 0)
+}
+
+.popup-top .popup-container {
+  top: 0;
+  left: auto;
+  transform: translate3d(0, -100%, 0)
+}
+
+.popup-show.popup-top .popup-container {
+  transform: translate3d(0, 0, 0)
+}
+
+// .popup-example-center {
+//   border-radius: 4px;
+// }
+
+// .popup-example-right .popup-container {
+//   top: 0;
+//   bottom: 0;
+// }
+
+// .popup-example-left .popup-container {
+//   top: 0;
+//   bottom: 0;
+// }
+
+// .popup-example-top .popup-container {
+//   left: 0;
+//   right: 0;
+//   padding: 15px;
+//   background-color: rgba(0, 0, 0, 0.7);
+//   color: #fff;
+//   font-size: 16px;
+// }
+// .popup-example-top .popup-mask {
+//   opacity: 0;
+// }
+
+// .popup-example-bottom .popup-container {
+//   left: 0;
+//   right: 0;
+// }
+
+// .popup-center {
+//   border-radius: 4px;
+// }
+
+// .popup-right .popup-container {
+//   top: 0;
+//   bottom: 0;
+// }
+
+// .popup-left .popup-container {
+//   top: 0;
+//   bottom: 0;
+// }
+
+// .popup-top .popup-container {
+//   left: 0;
+//   right: 0;
+//   padding: 15px;
+//   background-color: rgba(0, 0, 0, 0.7);
+//   color: #fff;
+//   font-size: 16px;
+// }
+// .popup-top .popup-mask {
+//   opacity: 0;
+// }
+
+// .popup-bottom .popup-container {
+//   left: 0;
+//   right: 0;
+// }

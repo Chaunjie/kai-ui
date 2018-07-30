@@ -1,0 +1,50 @@
+<template>
+  <view class="tab-container {{tabData.class ? tabData.class : ''}}">
+      <block wx:if="{{tabData.scroll}}">
+          <scroll-view scroll-x class="scroll-tab-content" style="height:{{tabData.height ? tabData.height+2 : 45+2}}px;">
+            <repeat for="{{tabData.list}}" index="index" item="item" key="key">
+              <view class="tab {{selectedId == item.id ? 'active' : ''}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" catchtap="selectTab({{item}})">
+                <view class="tab-text">{{item.title}}</view>
+              </view>
+           </repeat>
+          </scroll-view>
+      </block>
+      <block wx:else>
+        <view class="tab-content">
+           <repeat for="{{tabData.list}}" index="index" item="item" key="key">
+              <view class="tab {{selectedId == item.id ? 'active' : ''}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" catchtap="selectTab({{item}})">
+                <text class="tab-text">{{item.title}}</text>
+              </view>
+           </repeat>
+        </view>
+      </block>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Tab extends wepy.component {
+    props = {
+      tabData: {}
+    }
+
+    data = {
+      selectedId: ''
+    }
+
+    events = {}
+
+    methods = {
+      selectTab (item) {
+        this.selectedId = item.id
+        this.$apply()
+        this.$emit('select-tab', item.id)
+      }
+    }
+
+    onLoad () {
+      this.selectedId = this.tabData.selectedId
+      this.$apply()
+    }
+  }
+</script>

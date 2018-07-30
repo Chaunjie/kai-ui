@@ -1,0 +1,109 @@
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <button class="btn btn-success" catchtap="showActionSheet(0)">从顶部弹出popup</button>
+      <button class="btn btn-kai" catchtap="showActionSheet(1)">从底部弹出popup</button>
+    </view>
+    <repeat for="{{asData}}" index="i" item="item" key="row-{{index}}">
+      <actionsheet :asData.sync="item"></actionsheet>
+    </repeat>
+    <!-- <import src="../wxParse/wxParse.wxml"/> -->
+    <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}"/> -->
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import actionsheet from '../components/actionsheet/index'
+// import wxParse from '../wxParse/wxParse'
+
+export default class ActionSheet extends wepy.page {
+  config = {
+    navigationBarTitleText: 'actionsheet'
+  }
+
+  components = {
+    actionsheet: actionsheet
+  }
+
+  data = {
+    asData: [
+      {
+        itemList: [{
+          class: '',
+          value: '好多文字啊哈哈哈哈啊哈哈哈哈哈哈哈啊哈哈好多文字啊哈哈哈哈啊哈哈哈哈哈哈哈啊哈哈',
+          event: '',
+          slot: '<view>slot1html</view>'
+        }
+        // ,
+        // {
+        //   class: '',
+        //   value: '<view class="iconfont icon-success">111</view>',
+        //   event: '',
+        //   slot: '<view class="iconfont icon-success">slot</view>'
+        // },
+        // {
+        //   class: '',
+        //   value: '<view class="iconfont icon-success">222</view>',
+        //   event: ''
+        // },
+        // {
+        //   class: '',
+        //   value: '333',
+        //   event: ''
+        // }
+        ],
+        top: true,
+        index: 0,
+        show: true
+      } // ,
+      // {
+      //   itemList: [{
+      //     class: '',
+      //     value: '一一一',
+      //     event: ''
+      //   },
+      //   {
+      //     class: '',
+      //     value: '二二二',
+      //     event: ''
+      //   },
+      //   {
+      //     class: '',
+      //     value: '三三三',
+      //     event: ''
+      //   }],
+      //   index: 1,
+      //   show: false
+      // }
+    ]
+  }
+
+  computed = {}
+
+  methods = {
+    showActionSheet (i) {
+      this.asData.map((r, i) => {
+        r.show = false
+      })
+      this.asData[i].show = true
+    }
+  }
+
+  events = {
+    'action-sheet': function (i, index, close) {
+      console.log(i, index, close)
+      if (close === 'true') {
+        this.asData[i].show = false
+        console.log('您选择了取消')
+      } else {
+        console.log(i, index)
+      }
+    }
+  }
+
+  onLoad() {
+    // wxParse.wxParse('article', 'html', '<view class="a113123">slot1html</view>', that, 5)
+  }
+}
+</script>

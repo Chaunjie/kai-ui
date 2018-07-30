@@ -1,0 +1,88 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="cell">
+    <view class="cell-list" wx:for="{{celldata}}" wx:key="index" :class="{'cell-list-access': item.linktype > 0}" catchtap="translateToPage({{item.linktype}}, {{item.link}})">
+      <view class="cell-icon" wx:if="{{item.icontype}}">
+        <text wx:if="{{item.icontype==1}}" class="iconfont cell-icon {{item.icontext}}"></text>
+        <image wx:if="{{item.icontype==2}}" class="cell-img" src="{{item.icontext}}"/>
+      </view>
+      <view class="cell-list-bd">
+        <view wx:if="{{item.title}}" class="cell-list-text">{{item.title}}</view>
+        <view wx:if="{{item.subtitle}}" class="cell-list-desc">{{item.subtitle}}</view>
+      </view>
+      <view class="cell-list-arrow" wx:if="{{item.linktype > 0}}">{{item.detail?item.detail:''}}</view>
+    </view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  /**
+   * title: {  // cell 主体内容
+        type: String,
+        twoway: true,
+        default: ''
+      },
+      subtitle: {  // cell 附加内容
+        type: String,
+        twoway: true,
+        default: ''
+      },
+      detail: {  // cell 右侧描述
+        type: String,
+        twoway: true,
+        default: ''
+      },
+      linktype: {  // 是否需要跳转 0: 无跳转 1：跳转
+        type: [Number, String],
+        twoway: true,
+        default: 0
+      },
+      icontype: { // 图标类型 0：无图片 1：icon 2：图片
+        type: [Number, String],
+        twoway: true,
+        default: 0
+      },
+      icontext: {  // 图标 图片地址
+        type: String,
+        twoway: true,
+        default: ''
+      },
+      link: { // 页面跳转
+        type: String,
+        twoway: true,
+        default: '#'
+      }
+   */
+  export default class Cell extends wepy.component {
+    props = {
+      celldata: { // cell json
+        type: [Array, Object],
+        twoWay: true,
+        default: function () {
+          return []
+        }
+      },
+      index: {
+        type: [Number, String],
+        twoWay: true,
+        defaut: ''
+      }
+    }
+
+    data = {
+    }
+
+    methods = {
+      translateToPage(type, url) {
+        if (type > 0) {
+          this.$emit('item-tap', type, url)
+        }
+      }
+    }
+
+    onLoad () {
+      console.log('celldata', this.celldata)
+    }
+  }
+</script>
