@@ -2,27 +2,27 @@
   
 版本：v1.0.0  
   
-1、cell 列表组件（stardew）  
-2、button 按钮（stardew）  
-3、icon（stardew）  
-4、popup弹出层（stardew）  
-5、tag（stardew）  
-6、tab（stardew）  
-7、select（stardew）  
+1、cell 列表组件（stardew）✔  
+2、button 按钮（stardew）✔  
+3、icon（stardew）✔  
+4、popup弹出层（stardew）✔  
+5、tag（stardew）✔  
+6、tab（stardew）✔  
+7、select（stardew）✔  
 8、toptips提示 (wppeng)  
 9、toast组件(wppeng)  
 10、stepper计步器组件(wppeng)  
 11、switch组件(wppeng)  
-12、actionsheet（stardew）  
+12、actionsheet（stardew）✔  
 13、dialog(wppeng)  
 14、searchbar(wppeng)  
 15、input框(wppeng)  
 16、slider(wppeng)  
-17、uploader（stardew）  
+17、uploader（stardew）✔  
 18、grid（stardew）  
-19、loadmore（stardew）  
-20、panel（stardew）  
-21、layout（stardew）  
+19、loadmore（stardew）✔  
+20、panel（stardew）✔  
+21、layout（stardew）✔  
 22、canvasshareimg  
 23、scrollviewrefresh  
 24、checkbox  

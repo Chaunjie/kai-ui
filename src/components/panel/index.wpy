@@ -1,16 +1,28 @@
 <style lang="less" src="./index.less"></style>
 <template>
   <view class="panel">
-    <slot name="title">
-      Title
-    </slot>
-    <slot>
-    </slot>
+    <slot name="title"></slot>
+    <view class="info" style="border-width: {{border}};" >
+      <slot></slot>
+    </view>
   </view>
 </template>
 <script>
   import wepy from 'wepy'
 
   export default class Panel extends wepy.component {
+    props = {
+      border: {
+        type: [Number, String],
+        default: 0
+      }
+    }
+
+    methods = {
+    }
+
+    onLoad () {
+      console.log(this.border)
+    }
   }
 </script>

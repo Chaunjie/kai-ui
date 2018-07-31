@@ -1,6 +1,19 @@
 <template>
   <view class="kai-content">
-    
+    <panel>
+      <view>我是默认的panel</view>
+    </panel>
+    <panel>
+      <view slot="title" class="title">哎呀我没有边框</view>
+      <view>我是一个没有边框的panel</view>
+    </panel>
+    <panel1 border="1px">
+      <view>我是一个有没有title的panel</view>
+    </panel1>
+    <panel2 border="1px 0 1px 0">
+      <view slot="title" class="title">我是一个title</view>
+      <view>我的边框是2px</view>
+    </panel2>
   </view>
 </template>
 
@@ -10,11 +23,13 @@ import panel from '../components/panel/index'
 
 export default class Panel extends wepy.page {
   config = {
-    navigationBarTitleText: 'uploader'
+    navigationBarTitleText: 'panel'
   }
 
   components = {
-    panel: panel
+    panel: panel,
+    panel1: panel,
+    panel2: panel
   }
 
   data = {

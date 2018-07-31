@@ -44,6 +44,11 @@ export default class Index extends wepy.page {
           link: 'grid'
         },
         {
+          title: 'layout',
+          linktype: 1,
+          link: 'layout'
+        },
+        {
           title: 'loadmore',
           linktype: 1,
           link: 'loadmore'

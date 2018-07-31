@@ -1,20 +1,84 @@
 <style lang="less" src="./index.less"></style>
 <template>
-  
+  <view class="add-file flex-list" style="width:{{imgWidth+'px'}};height:{{imgWidth+'px'}};" wx:if="{{count<total}}" catchtap="upLoad">
+    <text class="iconfont icon-plus color-999"></text>
+    <text class="color-999">添加 {{count}}/{{total}}</text>
+  </view>
 </template>
 <script>
-  import wepy from 'wepy'
-  export default class Uploader extends wepy.component {
-    props = {
-    }
+import wepy from 'wepy'
+const qiniuUploader = require('../../utils/qiniuUploader')
 
-    data = {
-    }
-
-    methods = {
-    }
-
-    onLoad () {
+export default class uploader extends wepy.component {
+  props = {
+    imgList: {  // 上传图片列表
+      type: Array,
+      twoWay: true,
+      default: function () {
+        return []
+      }
+    },
+    imgWidth: {  // 宽度
+      type: [Number, String],
+      twoWay: true,
+      default: 90
+    },
+    region: { // 七牛上传区域
+      type: String,
+      default: 'ECN'
+    },
+    total: {  // 可上传图片总数
+      type: Number,
+      default: 0
+    },
+    count: {  // 已上传图片数量
+      type: Number,
+      twoWay: true,
+      default: 0
     }
   }
+
+  methods = {
+    upLoad () {
+      var that = this
+      // 初始化
+      var options = {
+        region: that.region, // 华东区
+        uptokenURL: 'https://www.kaishiba.com/local/upload/token/type/image',
+        domain: 'http://images.kaistart.com',
+        shouldUseQiniuFileName: false
+      }
+      qiniuUploader.init(options)
+      // 选择图片
+      wx.chooseImage({
+        count: 1,
+        success: function (res) {
+          console.log(res)
+          var filePath = res.tempFilePaths[0]
+          console.log(res.tempFilePath)
+          // 交给七牛上传
+          wx.showLoading({
+            mask: true
+          })
+          qiniuUploader.upload(filePath, (res) => {
+            wx.hideLoading()
+            // 上传成功回调
+            that.$emit('refresh-img-list', res)
+          }, (error) => {
+            console.log('error: ' + error)
+          })
+        }
+      })
+    }
+  }
+
+  watch = {
+    imgList (newValue, oldValue) {
+      this.count = newValue.length
+    }
+  }
+
+  onLoad () {
+  }
+}
 </script>

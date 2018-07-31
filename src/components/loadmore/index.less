@@ -1,2 +1,28 @@
 @import "../../style/font.less";
 
+.loadmore {
+  font-size: 12px;
+  margin-bottom: 20px;
+  color:#aaa;
+  position: relative;
+  width: 65%;
+  margin: 21px auto;
+  line-height: 20px;
+  text-align: center;
+  vertical-align: middle;
+  .icon-loading {
+    display:inline-block;
+    animation: icon-spin 2s linear;
+    animation-iteration-count: infinite;
+    margin-right: 5px;
+  }
+}
+
+@keyframes icon-spin {
+  0% {
+      transform: rotate(0)
+  }
+  100% {
+      transform: rotate(360deg)
+  }
+}

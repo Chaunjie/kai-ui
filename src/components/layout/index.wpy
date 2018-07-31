@@ -1,0 +1,20 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  
+</template>
+<script>
+  import wepy from 'wepy'
+  export default class Layout extends wepy.component {
+    props = {
+    }
+
+    data = {
+    }
+
+    methods = {
+    }
+
+    onLoad () {
+    }
+  }
+</script>

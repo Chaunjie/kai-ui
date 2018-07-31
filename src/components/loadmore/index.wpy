@@ -1,11 +1,24 @@
 <style lang="less" src="./index.less"></style>
 <template>
+  <view class="loadmore">
+    <view wx:if="{{more}}">
+      <text class="iconfont icon-loading"></text><text>加载中</text>
+    </view>
+    <view wx:else>
+      <text>———— 加载完成 ————</text>
+    </view>
+  </view>
   
 </template>
 <script>
   import wepy from 'wepy'
   export default class Loadmore extends wepy.component {
     props = {
+      more: {
+        type: [Boolean, String],
+        twoWay: true,
+        default: true
+      }
     }
 
     data = {
@@ -15,6 +28,7 @@
     }
 
     onLoad () {
+      console.log(this.more)
     }
   }
 </script>
