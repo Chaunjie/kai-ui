@@ -57,7 +57,7 @@
 		<view class="padding-10 font-12">inline样式</view>
 
 		<view class="padding-10">
-			<checkbox-inline :config.sync="checkboxConfig2">
+			<checkbox-inline :config.sync="checkboxConfig2" @bindchange.user="checkboxChange1">
 				<view slot="check-body" class="repeat-content">
 					<repeat for="{{itemsInline}}" index="index" item="item" key="checkbox-{{index}}">
 						<label class="checkbox-item">
@@ -113,9 +113,11 @@ export default class CheckBox extends wepy.page {
 	computed = {}
 
 	methods = {
+		checkboxChange1 (res) {
+			console.log(res)
+		},
 		checkboxChange (res) {
 			console.log(res)
-			const {items} = this
 			if (res.length) {
 				this.items[0].checked = true
 				this.items1[0].checked = true
