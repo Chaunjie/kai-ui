@@ -1,11 +1,34 @@
 <style lang="less" src="./index.less"></style>
+
 <template>
-  
+  <view class="grid-container">
+    <view class="grid-items11"><slot name="row1col1"></slot></view>
+    <view class="grid-items12"><slot name="row1col2"></slot></view>
+    <!-- <view class="grid-items13"><slot name="row1col3"></slot></view>
+    <view class="grid-items14"><slot name="row1col4"></slot></view>
+    <view class="grid-items21"><slot name="row2col1"></slot></view>
+    <view class="grid-items22"><slot name="row2col2"></slot></view>
+    <view class="grid-items23"><slot name="row2col3"></slot></view>
+    <view class="grid-items24"><slot name="row2col4"></slot></view>
+    <view class="grid-items31"><slot name="row3col1"></slot></view>
+    <view class="grid-items32"><slot name="row3col2"></slot></view>
+    <view class="grid-items33"><slot name="row3col3"></slot></view>
+    <view class="grid-items34"><slot name="row3col4"></slot></view>
+    <view class="grid-items41"><slot name="row4col1"></slot></view>
+    <view class="grid-items42"><slot name="row4col2"></slot></view>
+    <view class="grid-items43"><slot name="row4col3"></slot></view>
+    <view class="grid-items44"><slot name="row4col4"></slot></view> -->
+    <slot></slot>
+  </view>
 </template>
 <script>
   import wepy from 'wepy'
   export default class Grid extends wepy.component {
     props = {
+      grids: {
+        type: Number,
+        default: 9
+      }
     }
 
     data = {
@@ -15,6 +38,7 @@
     }
 
     onLoad () {
+      console.log(this.grids)
     }
   }
 </script>
