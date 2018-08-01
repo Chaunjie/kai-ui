@@ -14,9 +14,9 @@
     }
 
     methods = {
-    	change (e) {
-    		this.$emit('bindchange', e.detail.value)
-    	}
+      change (e) {
+        this.$emit('bindchange', e.detail.value)
+      }
     }
 
     onLoad () {}
