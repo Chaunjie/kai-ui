@@ -1,5 +1,5 @@
 <style lang="less">
-.grid-list {
+.grid-items {
   border-bottom: 1px solid #e1e1e1;
   height: 80px;
   text-align: center;
@@ -17,7 +17,7 @@
     <!-- <panel> -->
       <grid :rows="rows" :cols="cols">
         <repeat for="{{gridlist}}" index="i" item="item" key="row-{{index}}">
-          <view class="grid-list {{gridlist[i].class}}">
+          <view class="grid-items {{gridlist[i].class}}">
             {{gridlist[i].name}}
           </view>
         </repeat>
@@ -42,8 +42,8 @@ export default class Grid extends wepy.page {
   }
 
   data = {
-    rows: 2,
-    cols: 3,
+    rows: 10,
+    cols: 10,
     gridlist: []
   }
 
