@@ -4,14 +4,14 @@
     <view class="padding-10">
       <noticeBar2 :text="longText" componentId="noticebar2"></noticeBar2>
     </view>
+    <view class="padding-10 font-12">短信息，不带icon</view>
+    <view class="padding-10">
+      <noticeBar1 :text="shotText" componentId="noticebar1" ></noticeBar1>
+    </view>
     <view class="padding-10 font-12">带icon</view>
   	<view class="padding-10">
 		  <noticeBar :text="longText" componentId="noticebar" :icon="icon"></noticeBar>
 		</view>
-    <view class="padding-10 font-12">短信息，不带icon</view>
-		<view class="padding-10">
-	    <noticeBar1 :text="shotText" componentId="noticebar1" ></noticeBar1>
-	  </view>
   </view>
 </template>
 
@@ -21,7 +21,7 @@ import noticeBar from '@/components/noticeBar/index'
 
 export default class Panel extends wepy.page {
   config = {
-    navigationBarTitleText: 'panel'
+    navigationBarTitleText: 'NoticeBar 通知栏'
   }
 
   components = {
