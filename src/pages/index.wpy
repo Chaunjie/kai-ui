@@ -112,6 +112,11 @@ export default class Index extends wepy.page {
           title: 'Toast 提示框',
           linktype: 1,
           link: 'toast'
+        },
+        {
+          title: 'Checkbox 复选框',
+          linktype: 1,
+          link: 'checkbox'
         }
       ]
     ]

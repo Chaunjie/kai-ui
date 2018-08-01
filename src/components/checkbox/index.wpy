@@ -1,6 +1,6 @@
 <style lang="less" src="./index.less"></style>
 <template>
-  <view class="checkbox-group__container {{config.className}} position-{{config.position}} {{config.circle ? 'checkbox-circle': 'checkbox-hollow'}}">
+  <view class="checkbox-group__container {{config.className}} position-{{config.position}} {{config.circle ? 'checkbox-circle': 'checkbox-hollow'}} {{config.inline ? 'inline' : ''}}">
   	<checkbox-group bindchange="change">
 	  	<slot name="check-body"></slot>
 	  </checkbox-group>

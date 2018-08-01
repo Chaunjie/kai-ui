@@ -1,32 +1,74 @@
 <style lang="less" src="../less/checkbox.less"></style>
 <template>
 	<view class="kai-content">
+		<view class="padding-10 font-12">基础样式</view>
 		<view class="padding-10">
-			<checkbox-group :config.sync="checkboxConfig" @bindchange.user="checkboxChange">
+			<checkbox-circle :config.sync="checkboxConfig" @bindchange.user="checkboxChange">
 				<view slot="check-body">
 					<repeat for="{{items}}" index="index" item="item" key="checkbox-{{index}}">
 						<label class="checkbox-item">
-					  	<view class="check-card">{{item.value}}</view>
-					    <checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
-					  </label>
-				  </repeat>
+							<view class="check-card">{{item.value}}</view>
+							<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+						</label>
+					</repeat>
 				</view>
-			</checkbox-group>
+			</checkbox-circle>
 		</view>
 		<view class="padding-10">
-			<checkbox-item :config.sync="checkboxConfig1" @bindchange.user="checkboxChange">
+			<checkbox-cube :config.sync="checkboxConfig1" @bindchange.user="checkboxChange">
 				<view slot="check-body">
-					<repeat for="{{items}}" index="index" item="item" key="checkbox-{{index}}">
+					<repeat for="{{items1}}" index="index" item="item" key="checkbox-{{index}}">
 						<label class="checkbox-item">
-					  	<view class="check-card">{{item.value}}</view>
-					    <checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
-					  </label>
-				  </repeat>
+							<view class="check-card">{{item.value}}</view>
+							<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+						</label>
+					</repeat>
 				</view>
-			</checkbox-item>
+			</checkbox-cube>
+		</view>
+
+		<view class="padding-10 font-12">禁选样式</view>
+
+		<view class="padding-10">
+			<checkbox-circle :config.sync="checkboxConfig" @bindchange.user="checkboxChange">
+				<view slot="check-body">
+					<repeat for="{{items3}}" index="index" item="item" key="checkbox-{{index}}">
+						<label class="checkbox-item">
+							<view class="check-card">{{item.value}}</view>
+							<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+						</label>
+					</repeat>
+				</view>
+			</checkbox-circle>
 		</view>
 		<view class="padding-10">
-			<button class="btn btn-success" @tap="changePosition">点击切换复选框位置</button>
+			<checkbox-cube :config.sync="checkboxConfig1" @bindchange.user="checkboxChange">
+				<view slot="check-body">
+					<repeat for="{{items2}}" index="index" item="item" key="checkbox-{{index}}">
+						<label class="checkbox-item">
+							<view class="check-card">{{item.value}}</view>
+							<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+						</label>
+					</repeat>
+				</view>
+			</checkbox-cube>
+		</view>
+
+		<view class="padding-10 font-12">inline样式</view>
+
+		<view class="padding-10">
+			<checkbox-inline :config.sync="checkboxConfig2">
+				<view slot="check-body" class="repeat-content">
+					<repeat for="{{itemsInline}}" index="index" item="item" key="checkbox-{{index}}">
+						<label class="checkbox-item">
+							<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+						</label>
+					</repeat>
+				</view>
+			</checkbox-inline>
+		</view>
+		<view class="padding-10">
+			<button class="btn btn-success" @tap="changePosition">点击切换圆形复选框位置</button>
 		</view>
 	</view>
 </template>
@@ -36,13 +78,14 @@ import wepy from 'wepy'
 import checkbox from '@/components/checkbox/index'
 
 export default class CheckBox extends wepy.page {
-  config = {
+	config = {
 		navigationBarTitleText: '复选框'
 	}
 
 	components = {
-		'checkbox-group': checkbox,
-		'checkbox-item': checkbox
+		'checkbox-circle': checkbox,
+		'checkbox-cube': checkbox,
+		'checkbox-inline': checkbox
 	}
 
 	data = {
@@ -55,12 +98,16 @@ export default class CheckBox extends wepy.page {
 			position: 'right',
 			circle: false
 		},
-		items: [
-      {id: '1000', value: '圆形复选框'}
-    ],
-    items1: [
-      {id: '1001', value: '方形复选框'}
-    ]
+		checkboxConfig2: {
+			position: 'right',
+			circle: false,
+			inline: true
+		},
+		items: [{id: '1000', value: '圆形复选框', checked: true}],
+		items1: [{id: '1000', value: '方形复选框', checked: true}],
+		items2: [{id: '1001', value: '方形复选框', checked: true, disabled: true}, {id: '1001', value: '方形复选框', checked: false, disabled: true}],
+		items3: [{id: '1001', value: '圆形复选框', checked: false, disabled: true}, {id: '1001', value: '圆形复选框', checked: true, disabled: true}],
+		itemsInline: [{id: '1003', value: '圆形复选框'}, {id: '1004', value: '圆形复选框'}]
 	}
 
 	computed = {}
@@ -70,20 +117,11 @@ export default class CheckBox extends wepy.page {
 			console.log(res)
 			const {items} = this
 			if (res.length) {
-				for (let i = 0; i < res.length; i++) {
-					for (let j = 0; j < items.length; j++) {
-						if (res[i] === items[j].id) {
-							this.items[j].checked = true
-							break
-						}
-					}
-				}
+				this.items[0].checked = true
+				this.items1[0].checked = true
 			} else {
-				for (let i = 0; i < items.length; i++) {
-					if (items[i].checked) {
-						this.items[i].checked = false
-					}
-				}
+				this.items[0].checked = false
+				this.items1[0].checked = false
 			}
 			this.$apply()
 		},
@@ -92,10 +130,10 @@ export default class CheckBox extends wepy.page {
 			this.checkboxConfig.position = checkboxConfig.position === 'left' ? 'right' : 'left'
 			this.$apply()
 		}
-  }
+	}
 
-  events = {}
+	events = {}
 
-  onLoad() {}
+	onLoad() {}
 }
 </script>

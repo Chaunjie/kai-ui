@@ -10,11 +10,6 @@ checkbox .wx-checkbox-input {
 	height: 16px;
 	border-color:#C59E6C;
 }
-
-checkbox .wx-checkbox-input.wx-checkbox-input-disabled {
-	background: #ccc;
-	border-color:#ccc;
-}
 .checkbox-circle {
 	checkbox .wx-checkbox-input {
 		border-radius: 100%;
@@ -33,6 +28,10 @@ checkbox .wx-checkbox-input.wx-checkbox-input-disabled {
 		transform: translate(-50%, -50%) scale(1);
 		-webkit-transform: translate(-50%, -50%) scale(1);
 	}
+	checkbox .wx-checkbox-input.wx-checkbox-input-disabled {
+		background: #ccc;
+		border-color:#ccc;
+	}
 }
 .checkbox-hollow {
 	checkbox .wx-checkbox-input.wx-checkbox-input-checked {
@@ -50,6 +49,13 @@ checkbox .wx-checkbox-input.wx-checkbox-input-disabled {
 		background: transparent;
 		transform: translate(-50%, -50%) scale(1);
 		-webkit-transform: translate(-50%, -50%) scale(1);
+	}
+	checkbox .wx-checkbox-input.wx-checkbox-input-disabled {
+		background: #fff;
+		border-color:#ccc;
+	}
+	checkbox .wx-checkbox-input.wx-checkbox-input-disabled::before {
+		color: #ccc;
 	}
 }
 .checkbox-group__container{
@@ -89,6 +95,11 @@ checkbox .wx-checkbox-input.wx-checkbox-input-disabled {
 		.check-card {
 			order: 0;
 			margin-right: 10px;
+		}
+	}
+	&.inline {
+		.repeat-content {
+			display: flex;
 		}
 	}
 }
