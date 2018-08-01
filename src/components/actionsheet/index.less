@@ -1,39 +1,60 @@
 @import "../../less/font.less";
-@import "../wxParse/wxParse.wxss";
+@import "../../less/wxParse.wxss";
 
+.ac-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  background: rgba(0, 0, 0, .1);
+  display: none
+}
 .ac-container {
   position: fixed;
   left: 0;
-  background: #fff;
+  z-index: 11;
+  width: 100%;
+}
+.ac-content {
+  position: fixed;
+  left: 0;
   transform: translate3d(0, 0, 0);
   transform-origin: center;
   transition: all .4s ease;
-  z-index: 11;
+  z-index: 100;
   width: 100%;
   opacity: 0
 }
-.ac-container.top {
+.ac-content.top {
   top: -100vh;
 }
-.ac-container.bottom {
+.ac-content.bottom {
   bottom: -100vh;
 }
-.top.ac-show {
+.ac-show .top {
   opacity: 1;
   top: 0;
 }
-.bottom.ac-show {
+.ac-show .bottom {
   opacity: 1;
   bottom: 0;
 }
-
+.ac-show .ac-mask{
+  display: block
+}
 .ac-list {
   text-align: center;
   font-size: 12px;
   border-bottom: 1px solid #e1e1e1;
   height: 40px;
   line-height: 40px;
+  background: #fff;
   &:first-child {
     border-top: 1px solid #e1e1e1;
+  }
+  &.mt5 {
+    margin-top: 5px;
   }
 }

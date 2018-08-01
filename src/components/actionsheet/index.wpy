@@ -1,23 +1,26 @@
 <style lang="less" src="./index.less"></style>
 <template>
-  <view class="ac-container {{asData.show ? 'ac-show': ''}} {{asData.top ? 'top' : 'bottom'}}">
+  <view class="ac-container {{asData.show ? 'ac-show': ''}}">
+    <view class="ac-mask" catchtap="selectIndex('close', 'close', true)"></view>
     <import src="../wxParse/wxParse.wxml"/>
-    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
-    <repeat for="{{asData.itemList}}" index="i" item="item" key="row-{{index}}">
-      <view class="ac-list {{item.class}}" catchtap="selectIndex({{asData.index}}, {{i}})">
-        <view wx:if="{{item.slot}}">
-          <!-- {{item.slot}} -->
-          <!-- <template is="wxParse" data="{{wxParseData: article.nodes}}"/> -->
-        </view>
-        <view wx:else>{{item.value}}</view>
-        </view>
-      <view class="ac-list" wx:if="{{i===asData.itemList.length-1}}" catchtap="selectIndex({{asData.index}}, {{i}}, true)">取消</view>
-    </repeat>
+    <template is="wxParse" data="{{wxParseData: article.nodes}}"/>
+    <view class="ac-content {{asData.top ? 'top' : 'bottom'}}">
+      <repeat for="{{asData.itemList}}" index="i" item="item" key="row-{{index}}">
+        <view class="ac-list {{item.class}}" catchtap="selectIndex({{asData.index}}, {{i}}, false)">
+          <view wx:if="{{item.slot}}">
+            {{slotA.article.node}}
+            <!-- <template is="wxParse" data="{{wxParseData: slotA.article}}"/> -->
+          </view>
+          <view wx:else>{{item.value}}</view>
+          </view>
+        <view class="ac-list mt5" wx:if="{{i===asData.itemList.length-1}}" catchtap="selectIndex({{asData.index}}, {{i}}, true)">取消</view>
+      </repeat>
+    </view>
   </view>
 </template>
 <script>
   import wepy from 'wepy'
-  import wxParse from '../wxParse/wxParse'
+  import wxParse from '@/wxParse/wxParse'
   export default class ActionSheet extends wepy.component {
     props = {
       asData: {
@@ -28,15 +31,21 @@
     }
 
     data = {
-      tapIndex: 0
+      tapIndex: 0,
+      slotA: ''
     }
 
     methods = {
       selectIndex (i, index, close) {
         console.log(i, index, close)
-        this.tapIndex = index
-        const evt = this.asData.itemList[index].event ? this.asData.itemList[index].event : 'action-sheet'
-        this.$emit(evt, i, index, close)
+        if (close === 'true') {
+          console.log('you choose close')
+          this.asData.show = false
+        } else {
+          this.tapIndex = index
+          const evt = this.asData.itemList[index].event ? this.asData.itemList[index].event : 'action-sheet'
+          this.$emit(evt, i, index, close)
+        }
       }
     }
 
@@ -50,8 +59,10 @@
           // console.log(wxParse.wxParse('article', 'html', r.slot || '', that, 5))
         }
       })
-      wxParse.wxParse('article', 'html', '<div>slot1html</div>', that, 5)
-      console.log(wxParse.wxParse('article', 'html', '<div class="iconfont icon-success">slot1html</div>', that, 5))
+      wxParse.wxParse('article', 'html', '<div class="iconfont icon-success">slot1html</div>', that, 5)
+      this.slotA = wxParse.wxParse('article', 'html', '<div class="iconfont icon-success">slot1html</div>', that, 5)
+      // this.slotA = JSON.stringify(this.slotA)
+      console.log(this.slotA)
       this.tapIndex = asData.tapIndex ? asData.tapIndex : 0
       this.$apply()
     }
