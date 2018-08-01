@@ -1,29 +1,35 @@
+<style lang="less">
+.grid-list {
+  border-bottom: 1px solid #e1e1e1;
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  &:first-child {
+    background: red;
+  }
+  &:last-child {
+    background: rgb(25, 214, 228);
+  }
+}
+</style>
 <template>
   <view class="kai-content">
-    <grid :grids="grids">
-      <view slot="row1col1">我是1 1 </view>
-      <view slot="row1col2">我是i2</view>
-      <!-- <view slot="row1col3">3</view>
-      <view slot="row1col4">4</view>
-      <view slot="row2col1">5</view>
-      <view slot="row2col2">6</view>
-      <view slot="row2col3">7</view>
-      <view slot="row2col4">8</view>
-      <view slot="row3col1">9</view>
-      <view slot="row3col2">10</view>
-      <view slot="row3col3">11</view>
-      <view slot="row3col4">12</view>
-      <view slot="row4col1">13</view>
-      <view slot="row4col2">14</view>
-      <view slot="row4col3">15</view>
-      <view slot="row4col4" class="grid-items44">16</view> -->
-    </grid>
+    <!-- <panel> -->
+      <grid :rows="rows" :cols="cols">
+        <repeat for="{{gridlist}}" index="i" item="item" key="row-{{index}}">
+          <view class="grid-list {{gridlist[i].class}}">
+            {{gridlist[i].name}}
+          </view>
+        </repeat>
+      </grid>
+    <!-- </panel> -->
   </view>
 </template>
 
 <script>
 import wepy from 'wepy'
 import grid from '../components/grid/index'
+import panel from '../components/panel/index'
 
 export default class Grid extends wepy.page {
   config = {
@@ -31,15 +37,14 @@ export default class Grid extends wepy.page {
   }
 
   components = {
-    grid: grid
+    grid: grid,
+    panel: panel
   }
 
   data = {
-    grids: 16,
-    gridData: [{
-      icon: 1,
-      text: 1
-    }]
+    rows: 2,
+    cols: 3,
+    gridlist: []
   }
 
   computed = {}
@@ -51,6 +56,20 @@ export default class Grid extends wepy.page {
   }
 
   onLoad() {
+    // 初始化grid
+    const {rows, cols} = this
+    console.log(rows, cols)
+    for (let i = 1; i <= rows; i++) {
+      for (let j = 1; j <= cols; j++) {
+        this.gridlist.push({
+          class: 'grid-items' + i + j,
+          name: 'row' + i + '-col' + j
+        })
+      }
+    }
+    console.log(this.gridlist)
+    this.$apply()
+    // 初始化grid
   }
 }
 </script>
