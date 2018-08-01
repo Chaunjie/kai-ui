@@ -1,0 +1,25 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <text class="iconfont {{type}}"></text>
+</template>
+<script>
+  import wepy from 'wepy'
+  export default class Grid extends wepy.component {
+    props = {
+      type: {
+        type: String,
+        default: ''
+      }
+    }
+
+    data = {
+    }
+
+    methods = {
+    }
+
+    onLoad () {
+      console.log(this.type)
+    }
+  }
+</script>

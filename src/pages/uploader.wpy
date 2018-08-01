@@ -1,4 +1,4 @@
-<style lang="less" src="../style/font.less"></style>
+<style lang="less" src="../less/font.less"></style>
 <style lang="less">
   /*file*/
   .panel-upload{

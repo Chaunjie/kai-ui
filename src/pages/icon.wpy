@@ -1,4 +1,4 @@
-<style lang="less" src="../style/font.less"></style>
+<style lang="less" src="../less/font.less"></style>
 <style lang="less">
 .icon-container{
   background-color:#fff;
@@ -6,7 +6,7 @@
 .icon-block{
   background-color:#fff;
   padding: 20px 0;
-  .iconfont{
+  .iconfont {
     font-size:30px;
     margin-bottom:20px;
     color:#999;
@@ -25,11 +25,11 @@
 }
 </style>
 <template>
-  <view class="kai-content icon-container">
+  <view class="kai-content icon-container layout">
     <repeat for="{{list}}" index="index" item="item" key="key">
-      <view class="col col-4 icon-block" >
+      <view class="col col-6 icon-block" >
         <view>
-          <text class="iconfont {{item}}"></text>
+          <icon :type="item"></icon>
         </view>
         <view>
           <text class="icon-title">{{item}}</text>
@@ -41,12 +41,15 @@
 
 <script>
 import wepy from 'wepy'
+import icon from '../components/icon/index'
 
 export default class Icon extends wepy.page {
   config = {
     navigationBarTitleText: '字体库'
   }
-  components = {}
+  components = {
+    icon: icon
+  }
 
   data = {
     list: [
