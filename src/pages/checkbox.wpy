@@ -19,7 +19,7 @@
 				<view slot="check-body">
 					<repeat for="{{items1}}" index="index" item="item" key="checkbox-{{index}}">
 						<label class="checkbox-item">
-							<view class="check-card">{{item.value}}</view>
+							<view class="check-card" catchtap="doTap">{{item.value}}</view>
 							<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
 						</label>
 					</repeat>
@@ -61,6 +61,7 @@
 				<view slot="check-body" class="repeat-content">
 					<repeat for="{{itemsInline}}" index="index" item="item" key="checkbox-{{index}}">
 						<label class="checkbox-item">
+							<view class="check-card">{{item.value}}</view>
 							<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
 						</label>
 					</repeat>
@@ -99,12 +100,13 @@ export default class CheckBox extends wepy.page {
 			circle: false
 		},
 		checkboxConfig2: {
-			position: 'right',
+			position: 'left',
 			circle: false,
 			inline: true
 		},
 		items: [{id: '1000', value: '圆形复选框', checked: true}],
-		items1: [{id: '1000', value: '方形复选框', checked: true}],
+		items0: [{id: '1000', value: '点击文字阻止选择', checked: true}],
+		items1: [{id: '1000', value: '方形复选框点击文字不选中', checked: true}],
 		items2: [{id: '1001', value: '方形复选框', checked: true, disabled: true}, {id: '1001', value: '方形复选框', checked: false, disabled: true}],
 		items3: [{id: '1001', value: '圆形复选框', checked: false, disabled: true}, {id: '1001', value: '圆形复选框', checked: true, disabled: true}],
 		itemsInline: [{id: '1003', value: '圆形复选框'}, {id: '1004', value: '圆形复选框'}]
@@ -113,6 +115,9 @@ export default class CheckBox extends wepy.page {
 	computed = {}
 
 	methods = {
+		doTap () {
+			console.log('阻止冒泡成功')
+		},
 		checkboxChange1 (res) {
 			console.log(res)
 		},

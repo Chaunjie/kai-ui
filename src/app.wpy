@@ -17,9 +17,9 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
-      'pages/grid',
-      'pages/index',
       'pages/checkbox',
+      'pages/index',
+      'pages/grid',
       'pages/uploader',
       'pages/loadmore',
       'pages/panel',
