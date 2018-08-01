@@ -1,0 +1,101 @@
+<style lang="less" src="../less/checkbox.less"></style>
+<template>
+	<view class="kai-content">
+		<view class="padding-10">
+			<checkbox-group :config.sync="checkboxConfig" @bindchange.user="checkboxChange">
+				<view slot="check-body">
+					<repeat for="{{items}}" index="index" item="item" key="checkbox-{{index}}">
+						<label class="checkbox-item">
+					  	<view class="check-card">{{item.value}}</view>
+					    <checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+					  </label>
+				  </repeat>
+				</view>
+			</checkbox-group>
+		</view>
+		<view class="padding-10">
+			<checkbox-item :config.sync="checkboxConfig1" @bindchange.user="checkboxChange">
+				<view slot="check-body">
+					<repeat for="{{items}}" index="index" item="item" key="checkbox-{{index}}">
+						<label class="checkbox-item">
+					  	<view class="check-card">{{item.value}}</view>
+					    <checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+					  </label>
+				  </repeat>
+				</view>
+			</checkbox-item>
+		</view>
+		<view class="padding-10">
+			<button class="btn btn-success" @tap="changePosition">点击切换复选框位置</button>
+		</view>
+	</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import checkbox from '@/components/checkbox/index'
+
+export default class CheckBox extends wepy.page {
+  config = {
+		navigationBarTitleText: '复选框'
+	}
+
+	components = {
+		'checkbox-group': checkbox,
+		'checkbox-item': checkbox
+	}
+
+	data = {
+		checkboxConfig: {
+			className: 'sp-checkbox',
+			position: 'left',
+			circle: true
+		},
+		checkboxConfig1: {
+			position: 'right',
+			circle: false
+		},
+		items: [
+      {id: '1000', value: '圆形复选框'}
+    ],
+    items1: [
+      {id: '1001', value: '方形复选框'}
+    ]
+	}
+
+	computed = {}
+
+	methods = {
+		checkboxChange (res) {
+			console.log(res)
+			const {items} = this
+			if (res.length) {
+				for (let i = 0; i < res.length; i++) {
+					for (let j = 0; j < items.length; j++) {
+						if (res[i] === items[j].id) {
+							this.items[j].checked = true
+							break
+						}
+					}
+				}
+			} else {
+				for (let i = 0; i < items.length; i++) {
+					if (items[i].checked) {
+						this.items[i].checked = false
+					}
+				}
+			}
+			this.$apply()
+		},
+		changePosition () {
+			const {checkboxConfig} = this
+			this.checkboxConfig.position = checkboxConfig.position === 'left' ? 'right' : 'left'
+			this.$apply()
+		}
+  }
+
+  events = {}
+
+  onLoad() {}
+}
+</script>
