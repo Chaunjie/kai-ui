@@ -19,7 +19,7 @@
 15、input框(wppeng)  
 16、slider(wppeng)  
 17、uploader（stardew）✔  
-18、grid（stardew）  
+18、grid（stardew）✔  
 19、loadmore（stardew）✔  
 20、panel（stardew）✔  
 21、layout（stardew）✔  
