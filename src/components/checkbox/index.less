@@ -1,0 +1,105 @@
+checkbox {
+	width: 16px;
+	height: 16px;
+	border-radius: 100%;
+	line-height: 0px;
+}
+
+checkbox .wx-checkbox-input {
+	width: 16px;
+	height: 16px;
+	border-color:#C59E6C;
+}
+.checkbox-circle {
+	checkbox .wx-checkbox-input {
+		border-radius: 100%;
+	}
+	checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+		background: #C59E6C;
+	}
+	checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+		width: 16px;
+		height: 16px;
+		line-height: 16px;
+		text-align: center;
+		font-size: 10px;
+		color: #fff;
+		background: transparent;
+		transform: translate(-50%, -50%) scale(1);
+		-webkit-transform: translate(-50%, -50%) scale(1);
+	}
+	checkbox .wx-checkbox-input.wx-checkbox-input-disabled {
+		background: #ccc;
+		border-color:#ccc;
+	}
+}
+.checkbox-hollow {
+	checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+		background-color: #fff;
+	}
+	checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+		content: '■';
+		color: #C59E6C;
+		width: 16px;
+		height: 16px;
+		line-height: 16px;
+		text-align: center;
+		font-size: 12px;
+		margin-top: -1px;
+		background: transparent;
+		transform: translate(-50%, -50%) scale(1);
+		-webkit-transform: translate(-50%, -50%) scale(1);
+	}
+	checkbox .wx-checkbox-input.wx-checkbox-input-disabled {
+		background: #fff;
+		border-color:#ccc;
+	}
+	checkbox .wx-checkbox-input.wx-checkbox-input-disabled::before {
+		color: #ccc;
+	}
+}
+.checkbox-group__container{
+	width: 100%;
+	.checkbox-item {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		padding: 15px 10px;
+		background-color: #fff;
+		checkbox {
+			margin-right: 10px;
+			order: 0;
+		}
+		.check-card{
+			flex: 1;
+			order: 1;
+			margin: 0;
+		}
+	}
+	&.position-left {
+		checkbox {
+			order: 0;
+			margin-right: 10px;
+		}
+		.check-card {
+			order: 1;
+			margin: 0;
+		}
+	}
+	&.position-right {
+		checkbox {
+			order: 1;
+			margin: 0;
+		}
+		.check-card {
+			order: 0;
+			margin-right: 10px;
+		}
+	}
+	&.inline {
+		.repeat-content {
+			display: flex;
+		}
+	}
+}

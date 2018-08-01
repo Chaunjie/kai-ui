@@ -18,11 +18,12 @@ export default class extends wepy.app {
   config = {
     pages: [
       'pages/grid',
+      'pages/index',
+      'pages/checkbox',
       'pages/uploader',
       'pages/loadmore',
       'pages/panel',
       'pages/layout',
-      'pages/index',
       'pages/actionsheet',
       'pages/select',
       'pages/tab',
