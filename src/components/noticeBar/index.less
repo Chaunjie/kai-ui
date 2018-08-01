@@ -4,7 +4,21 @@
   font-size: 12px;
   line-height: 1.5;
   background-color: #fff7cc;
+  display: flex;
+  flex-direction: row;
+  .noticebar-wrap{
+  	flex: 1;
+  }
   &.icon-noticebar{
-  	padding-left:30px;
+  	.icon-content{
+  		width: 20px;
+  		display: flex;
+  		flex-direction: row;
+  		justify-content: center;
+  		align-items: center;
+  		.iconfont {
+	  		font-size: 12px;
+	  	}
+  	}
   }
 }

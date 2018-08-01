@@ -17,6 +17,7 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
+      'pages/noticebar',
       'pages/index',
       'pages/actionsheet',
       'pages/button',
@@ -25,7 +26,6 @@ export default class extends wepy.app {
       'pages/grid',
       'pages/icon',
       'pages/layout',
-      'pages/noticebar',
       'pages/loadmore',
       'pages/panel',
       'pages/popup',

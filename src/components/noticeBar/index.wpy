@@ -2,11 +2,14 @@
 <style lang="less" src="./index.less"></style>
 <template>
   <view class="noticebar {{icon ? 'icon-noticebar' : ''}}">
+    <view class="icon-content" wx:if="{{icon}}">
+      <text class="iconfont icon-broadcast"></text>
+    </view>
     <view
       id="{{ componentId }}__content-wrap"
+      class="noticebar-wrap"
       style="height: 18px; overflow: hidden; position: relative;"
     >
-      <text class="iconfont icon-upload"></text>
       <view
         animation="{{ animationData }}"
         id="{{ componentId }}__content"
