@@ -1,0 +1,21 @@
+<template>
+  <view class="kai-content">
+    7777
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Radio extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Radio 单选框'
+  }
+
+  components = {}
+
+  data = {}
+
+  onLoad () {}
+}
+</script>

@@ -19,7 +19,7 @@
 import wepy from 'wepy'
 import noticeBar from '@/components/noticeBar/index'
 
-export default class Panel extends wepy.page {
+export default class NoticeBar extends wepy.page {
   config = {
     navigationBarTitleText: 'NoticeBar 通知栏'
   }
