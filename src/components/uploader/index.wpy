@@ -44,8 +44,8 @@ export default class uploader extends wepy.component {
       // 初始化
       var options = {
         region: that.region, // 华东区
-        uptokenURL: 'https://www.kaishiba.com/local/upload/token/type/image',
-        domain: 'http://images.kaistart.com',
+        uptokenURL: 'https://www.***.com/local/upload/token/type/image',
+        domain: 'http://images.***.com',
         shouldUseQiniuFileName: false
       }
       qiniuUploader.init(options)
