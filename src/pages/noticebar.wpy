@@ -1,0 +1,37 @@
+<template>
+  <view class="kai-content">
+  	<view class="padding-10">
+		  <noticeBar :text="longText" componentId="noticebar" :icon="icon"></noticeBar>
+		</view>
+		<view class="padding-10">
+	    <noticeBar1 :text="shotText" componentId="noticebar1" ></noticeBar1>
+	  </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import noticeBar from '@/components/noticeBar/index'
+
+export default class Panel extends wepy.page {
+  config = {
+    navigationBarTitleText: 'panel'
+  }
+
+  components = {
+    noticeBar: noticeBar,
+    noticeBar1: noticeBar
+  }
+
+  data = {
+    longText: '近日，俄空军苏-34战斗轰炸机部队在里海地区举行了反舰实弹攻击演练，其中罕见使用了Kh-31AD超音速反舰导弹，明显是针对先前美海军在环太军演中的反舰演习，本图集就此为您简析',
+    icon: true,
+    shotText: '美F35培训中心遭沙尘暴袭击'
+  }
+
+  onLoad () {
+    this.$invoke('noticeBar', 'initNoticeBarScroll')
+    this.$invoke('noticeBar1', 'initNoticeBarScroll')
+  }
+}
+</script>

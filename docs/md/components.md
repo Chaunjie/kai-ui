@@ -66,9 +66,7 @@ import checkbox from 'kai-ui/Checkbox'
 &emsp;&emsp;组件添加
 ```javascript
 components = {
-  'checkbox-circle': checkbox,
-  'checkbox-cube': checkbox,
-  'checkbox-inline': checkbox
+  'checkbox-circle': checkbox
 }
 ```
 

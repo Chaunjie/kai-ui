@@ -25,15 +25,15 @@
 21、layout（stardew）✔  
 22、canvasshareimg  
 23、scrollviewrefresh  
-24、checkbox  
+24、checkbox ✔
 25、radio  
 26、rate星级评分  
-27、noticebar通知栏  
+27、noticebar通知栏 ✔ 
 28、step步骤条  
 29、folder折叠面板  
 30、backtotop返回顶部  
 31、calander日期选择  
-32、swipeout滑动菜单  
+32、swipeout滑动菜单 
   
 wppeng:  8、9、10、11、13、14、15、16  
 stardew: 1、2、3、4、5、6、7、12、17、18、19、20、21  

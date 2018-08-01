@@ -117,6 +117,11 @@ export default class Index extends wepy.page {
           title: 'Checkbox 复选框',
           linktype: 1,
           link: 'checkbox'
+        },
+        {
+          title: 'NoticeBar 通知栏',
+          linktype: 1,
+          link: 'noticebar'
         }
       ]
     ]

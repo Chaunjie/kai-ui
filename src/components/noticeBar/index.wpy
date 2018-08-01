@@ -1,10 +1,12 @@
+<style lang="less" src="../../less/font.less"></style>
 <style lang="less" src="./index.less"></style>
 <template>
-  <view class="noticebar">
+  <view class="noticebar {{icon ? 'icon-noticebar' : ''}}">
     <view
       id="{{ componentId }}__content-wrap"
       style="height: 18px; overflow: hidden; position: relative;"
     >
+      <text class="iconfont icon-upload"></text>
       <view
         animation="{{ animationData }}"
         id="{{ componentId }}__content"
@@ -21,7 +23,8 @@ import wepy from 'wepy'
 export default class noticebar extends wepy.component {
   props = {
     componentId: String,
-    text: String
+    text: String,
+    icon: Boolean
   }
   data = {
     animationData: {},
