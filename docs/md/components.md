@@ -212,6 +212,7 @@ setTimeout(() => {
 | -------- | ----- | ----- | ---------------------------- |
 | text    | `String` | `true`   | 需要通知的信息（当宽度超过通知栏宽度时候会自动滚动） |
 | componentId | `String` | `false`  | 组件Id    |
+| icon | `Boolean` | `true`  | 是否前面带图标    |
 
 &emsp;&emsp;案例
 ```wpy
@@ -223,6 +224,11 @@ import NoticeBar from 'kai-ui/NoticeBar'
 export default class Index extends wepy.page {
 	components = {
 	  noticeBar: NoticeBar
+	}
+	data = {
+	  longText: '近日，俄空军苏-34战斗轰炸机部队在里海地区举行了反舰实弹攻击演练，其中罕见使用了Kh-31AD超音速反舰导弹，明显是针对先前美海军在环太军演中的反舰演习，本图集就此为您简析',
+	  icon: true,
+	  shotText: '美F35培训中心遭沙尘暴袭击'
 	}
 	onLoad () {
 		this.$invoke('noticeBar', 'initNoticeBarScroll')

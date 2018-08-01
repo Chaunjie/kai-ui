@@ -1,8 +1,14 @@
 <template>
   <view class="kai-content">
+    <view class="padding-10 font-12">长信息</view>
+    <view class="padding-10">
+      <noticeBar2 :text="longText" componentId="noticebar2"></noticeBar2>
+    </view>
+    <view class="padding-10 font-12">带icon</view>
   	<view class="padding-10">
 		  <noticeBar :text="longText" componentId="noticebar" :icon="icon"></noticeBar>
 		</view>
+    <view class="padding-10 font-12">短信息，不带icon</view>
 		<view class="padding-10">
 	    <noticeBar1 :text="shotText" componentId="noticebar1" ></noticeBar1>
 	  </view>
@@ -20,7 +26,8 @@ export default class Panel extends wepy.page {
 
   components = {
     noticeBar: noticeBar,
-    noticeBar1: noticeBar
+    noticeBar1: noticeBar,
+    noticeBar2: noticeBar
   }
 
   data = {
@@ -32,6 +39,7 @@ export default class Panel extends wepy.page {
   onLoad () {
     this.$invoke('noticeBar', 'initNoticeBarScroll')
     this.$invoke('noticeBar1', 'initNoticeBarScroll')
+    this.$invoke('noticeBar2', 'initNoticeBarScroll')
   }
 }
 </script>
