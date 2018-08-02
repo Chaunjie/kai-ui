@@ -22,21 +22,29 @@ npm i kai-ui -g
 
 ### 布局
 
-#### Panel
+#### Layout 布局
 
-panel
+Layout
 
-#### Grid
+#### Grid 栅格
 
 grid
 
+#### Cell 列表
+
+cell
+
+#### Panel 
+
+panel
+
 ### 基础组件
 
-#### Button
+#### Button 按钮
 
 button
 
-#### Icon图标
+#### Icon 图标
 
 提供了一套常用的图标集合。
 
@@ -46,11 +54,124 @@ button
 
 ##### 图标集合
 
+#### Loadmore 加载
 
+loadmore
+
+#### Helper 基础样式
+
+helper
+
+#### Tag 标记
+
+tag
+
+### 导航组件
+
+#### Popup 弹出层
+
+Popup 
+
+#### NoticeBar 通知
+
+- **概述**
+
+&emsp;&emsp;适用于通知类信息展示
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import NoticeBar from 'kai-ui/NoticeBar'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  noticeBar: NoticeBar
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+	<noticeBar :text="longText" componentId="noticebar" ></noticeBar>
+</template>
+```
+
+&emsp;&emsp;方法触法调用
+```javascript
+this.$invoke('noticeBar', 'initNoticeBarScroll')
+也可以延迟调用
+setTimeout(() => {
+	this.$invoke('noticeBar', 'initNoticeBarScroll')
+}, 3000)
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+| text    | `String` | `true`   | 需要通知的信息（当宽度超过通知栏宽度时候会自动滚动） |
+| componentId | `String` | `false`  | 组件Id    |
+| icon | `Boolean` | `true`  | 是否前面带图标    |
+
+&emsp;&emsp;案例
+```wpy
+<template>
+	<noticeBar :text="longText" componentId="noticebar" ></noticeBar>
+</template>
+<script>
+import NoticeBar from 'kai-ui/NoticeBar'
+export default class Index extends wepy.page {
+	components = {
+	  noticeBar: NoticeBar
+	}
+	data = {
+	  longText: '近日，俄空军苏-34战斗轰炸机部队在里海地区举行了反舰实弹攻击演练，其中罕见使用了Kh-31AD超音速反舰导弹，明显是针对先前美海军在环太军演中的反舰演习，本图集就此为您简析',
+	  icon: true,
+	  shotText: '美F35培训中心遭沙尘暴袭击'
+	}
+	onLoad () {
+		this.$invoke('noticeBar', 'initNoticeBarScroll')
+	}
+}
+</script>
+```
+
+#### Tab
+
+tab
+
+### 操作提示组件
+
+#### Actionsheet
+
+actionsheet
+
+#### Toptips
+
+toptips
+
+#### Dialog 弹窗
+
+dialog
+
+#### Toast 提示
+
+toast
 
 ### 表单组件
 
-#### Radio
+#### Uploader 上传
+
+uploader
+
+#### Select 选择
+
+select
+
+#### Radio 单选框
 
 - **概述**
 
@@ -160,7 +281,7 @@ export default class Index extends wepy.page {
 </script>
 ```
 
-#### Checkbox
+#### Checkbox 复选框
 
 - **概述**
 
@@ -272,77 +393,20 @@ export default class Index extends wepy.page {
 </script>
 ```
 
-### 弹出层组件
+#### Stepper 步骤条
 
-#### Dialog
+stepper
 
-dialog
+#### Switch 
 
-### 通知组件
+switch
 
-#### NoticeBar
+#### Input 框
 
-- **概述**
+input
 
-&emsp;&emsp;适用于通知类信息展示
+### 搜索组件
 
-- **使用指南**
+#### Searchbar 搜索条
 
-&emsp;&emsp;页面中引入组件
-```javascript
-import NoticeBar from 'kai-ui/NoticeBar'
-```
-
-&emsp;&emsp;组件添加
-```javascript
-components = {
-  noticeBar: NoticeBar
-}
-```
-
-&emsp;&emsp;template添加
-```template
-<template>
-	<noticeBar :text="longText" componentId="noticebar" ></noticeBar>
-</template>
-```
-
-&emsp;&emsp;方法触法调用
-```javascript
-this.$invoke('noticeBar', 'initNoticeBarScroll')
-也可以延迟调用
-setTimeout(() => {
-	this.$invoke('noticeBar', 'initNoticeBarScroll')
-}, 3000)
-```
-
-&emsp;&emsp;对应参数：
-
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-| text    | `String` | `true`   | 需要通知的信息（当宽度超过通知栏宽度时候会自动滚动） |
-| componentId | `String` | `false`  | 组件Id    |
-| icon | `Boolean` | `true`  | 是否前面带图标    |
-
-&emsp;&emsp;案例
-```wpy
-<template>
-	<noticeBar :text="longText" componentId="noticebar" ></noticeBar>
-</template>
-<script>
-import NoticeBar from 'kai-ui/NoticeBar'
-export default class Index extends wepy.page {
-	components = {
-	  noticeBar: NoticeBar
-	}
-	data = {
-	  longText: '近日，俄空军苏-34战斗轰炸机部队在里海地区举行了反舰实弹攻击演练，其中罕见使用了Kh-31AD超音速反舰导弹，明显是针对先前美海军在环太军演中的反舰演习，本图集就此为您简析',
-	  icon: true,
-	  shotText: '美F35培训中心遭沙尘暴袭击'
-	}
-	onLoad () {
-		this.$invoke('noticeBar', 'initNoticeBarScroll')
-	}
-}
-</script>
-```
+Searchbar
