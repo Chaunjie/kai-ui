@@ -38,17 +38,19 @@ checkbox .wx-checkbox-input {
 		background-color: #fff;
 	}
 	checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
-		content: '■';
-		color: #C59E6C;
-		width: 16px;
-		height: 16px;
-		line-height: 16px;
+		content: '';
+		width: 10px;
+		height: 10px;
+		line-height: 10px;
 		text-align: center;
 		font-size: 12px;
-		margin-top: -1px;
-		background: transparent;
+		background-color: #C59E6C;
+		border-radius: 1px;
 		transform: translate(-50%, -50%) scale(1);
 		-webkit-transform: translate(-50%, -50%) scale(1);
+	}
+	checkbox .wx-checkbox-input.wx-checkbox-input-checked.wx-checkbox-input-disabled::before{
+		background-color: #ccc;
 	}
 	checkbox .wx-checkbox-input.wx-checkbox-input-disabled {
 		background: #fff;
@@ -65,7 +67,7 @@ checkbox .wx-checkbox-input {
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		padding: 15px 10px;
+		padding: 0px 10px;
 		background-color: #fff;
 		checkbox {
 			margin-right: 10px;
@@ -75,6 +77,7 @@ checkbox .wx-checkbox-input {
 			flex: 1;
 			order: 1;
 			margin: 0;
+			padding: 15px 0;
 		}
 	}
 	&.position-left {

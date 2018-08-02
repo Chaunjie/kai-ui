@@ -17,8 +17,7 @@
           </view>
         </view>
       </popup>
-    </repeat>
-    
+    </repeat> 
   </view>
 </template>
 
