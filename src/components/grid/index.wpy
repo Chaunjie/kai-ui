@@ -19,7 +19,7 @@
     }
 
     data = {
-      gridlist: []
+      // gridlist: []
     }
 
     methods = {

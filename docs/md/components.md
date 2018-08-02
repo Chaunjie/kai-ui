@@ -24,15 +24,509 @@ npm i kai-ui -g
 
 #### Layout 布局
 
-Layout
+- **概述**
+
+&emsp;&emsp;适用于一维布局
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入样式
+```css
+@import '../node_modules/wepy-ui-ydj/src/styles/all';
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+	<view class="layout layout-list">
+		<view class="col col-4">4</view>
+		<view class="col col-4 col-offset-4">4 4</view>
+		<view class="col col-8 col-offset-4">4 8</view>
+	</view>
+</template>
+```
 
 #### Grid 栅格
 
-grid
+- **概述**
+
+&emsp;&emsp;适用于二维布局-九宫格
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Grid from 'kai-ui/Grid'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  grid: Grid
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+	<grid :rows="rows" :cols="cols">
+		<repeat for="{{gridlist}}" index="i" item="item" key="row-{{index}}">
+			<view class="grid-items {{item.class}}">
+				<icon :type="item.icon"></icon>
+				<text class="">{{item.text}}</text>
+			</view>
+		</repeat>
+	</grid>
+</template>
+```
+
+&emsp;&emsp;方法触法调用
+```javascript
+initData (rows, cols, gridItems, gridlist) {
+	// 初始化grid
+	console.log(rows, cols, gridItems)
+	for (let i = 1, k = 0; i <= rows; i++) {
+		for (let j = 1; j <= cols; j++) {
+			gridlist.push({
+				class: 'grid-items' + i + j,
+				name: 'row' + i + '-col' + j,
+				icon: gridItems[k].icon,
+				text: gridItems[k].text
+			})
+			k++
+		}
+	}
+	console.log(this.gridlist)
+	this.$apply()
+	// 初始化grid
+}
+
+this.initData(rows, cols, gridItems, gridlist)
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 描述                      |
+| -------- | ----- | ---------------------------- |
+| rows    | `Number` | 行数 |
+| cols | `Number` | 列数    |
+
+&emsp;&emsp;案例
+```wpy
+<style lang="less">
+.grid-outer {
+  background-color: #fff;
+  font-size: 12px;
+  margin-top: 20px;
+}
+.grid-items {
+  height: 80px;
+  text-align: center;
+  line-height: 80px;
+  background: green;
+  color: #eee;
+}
+</style>
+<template>
+  <view class="kai-content">
+    <panel>
+      <view slot="title" class="title">9宫格</view>
+      <view class="panel">
+        <grid1 :rows="rows" :cols="cols">
+          <repeat for="{{gridlist}}" index="i" item="item" key="row-{{index}}">
+            <view class="grid-items {{item.class}}">
+              <icon :type="item.icon"></icon>
+              <text class="">{{item.text}}</text>
+            </view>
+          </repeat>
+        </grid1>
+      </view>
+    </panel>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import grid from 'kai-ui/Grid'
+import panel from 'kai-ui/Panel'
+import icon from 'kai-ui/Icon'
+
+export default class Grid extends wepy.page {
+  config = {
+    navigationBarTitleText: 'grid'
+  }
+
+  components = {
+    grid: grid,
+    grid1: grid,
+    panel: panel,
+    icon: icon
+  }
+
+  data = {
+    rows: 1,
+    cols: 1,
+    gridlist: [],
+    gridItems: [
+      {
+        icon: 'icon-message',
+        text: '消息'
+      },
+      {
+        icon: 'icon-star-outline',
+        text: '收藏'
+      },
+      {
+        icon: 'icon-news',
+        text: '新闻'
+      },
+      {
+        icon: 'icon-printer',
+        text: '打印'
+      },
+      {
+        icon: 'icon-goods',
+        text: '商品'
+      },
+      {
+        icon: 'icon-ticket',
+        text: '票务'
+      },
+      {
+        icon: 'icon-components',
+        text: '组件'
+      },
+      {
+        icon: 'icon-upload',
+        text: '上传'
+      },
+      {
+        icon: 'icon-picture-outline',
+        text: '图像'
+      },
+      {
+        icon: 'icon-phone',
+        text: '手机'
+      },
+      {
+        icon: 'icon-service',
+        text: '服务'
+      },
+      {
+        icon: 'icon-time',
+        text: '时间'
+      },
+      {
+        icon: 'icon-goods-soldout',
+        text: '售罄'
+      },
+      {
+        icon: 'icon-document',
+        text: '文件'
+      },
+      {
+        icon: 'icon-menu',
+        text: '菜单'
+      },
+      {
+        icon: 'icon-picture',
+        text: '图画'
+      }
+    ]
+  }
+
+  computed = {}
+
+  methods = {
+  }
+
+  events = {
+  }
+
+  initData (rows, cols, gridItems, gridlist) {
+    // 初始化grid
+    console.log(rows, cols, gridItems)
+    for (let i = 1, k = 0; i <= rows; i++) {
+      for (let j = 1; j <= cols; j++) {
+        gridlist.push({
+          class: 'grid-items' + i + j,
+          name: 'row' + i + '-col' + j,
+          icon: gridItems[k].icon,
+          text: gridItems[k].text
+        })
+        k++
+      }
+    }
+    console.log(this.gridlist)
+    this.$apply()
+    // 初始化grid
+  }
+
+  onLoad() {
+    const {rows, cols, gridItems, gridlist} = this
+    this.initData(rows, cols, gridItems, gridlist)
+  }
+}
+</script>
+```
+
+#### demo111
+
+- **概述**
+
+&emsp;&emsp;适用于
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import  from 'kai-ui/'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  : 
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+	
+</template>
+```
+
+&emsp;&emsp;方法触法调用
+```javascript
+
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+|     | `String` | `true`   |  |
+|  | `String` | `false`  |     |
+|  | `Boolean` | `true`  |     |
+
+&emsp;&emsp;案例
+```wpy
+
+```
 
 #### Cell 列表
 
-cell
+- **概述**
+
+&emsp;&emsp;适用于列表展示
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Cell from 'kai-ui/Cell'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  cell : Cell
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+	<view class="panel">
+      <repeat for="{{cellList}}" index="index" item="item" key="row-{{index}}">
+        <cell :celldata="item"></cell>
+      </repeat>
+    </view>
+</template>
+```
+
+&emsp;&emsp;回调
+```javascript
+	events = {
+    'item-tap': (type, url) => {
+      wx.navigateTo({
+        url: url
+      })
+    }
+  }
+```
+
+&emsp;&emsp;对应参数：
+
+celljson
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+|   title  | `String` | `false`   | 主体内容 |
+| subtitle | `String` | `false`  |  附加内容   |
+| detail | `String` | `false`  |  右侧描述   |
+| linktype | `Number, String` | `false`  |  是否需要跳转 0: 无跳转 1：跳转   |
+| icontype | `Number, String` | `false`  |  图标类型 0：无图片 1：icon 2：图片   |
+| icontext | `String` | `false`  |  图标 图片地址   |
+| link | `String` | `false`  |  页面跳转   |
+
+&emsp;&emsp;案例
+```wpy
+<template>
+  <view class="kai-content">
+    <view class="panel">
+      <repeat for="{{cellList}}" index="index" item="item" key="row-{{index}}">
+        <cell :celldata="item"></cell>
+      </repeat>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import Cell from 'kai-ui/Cell'
+
+export default class Cell extends wepy.page {
+  config = {
+    navigationBarTitleText: '列表'
+  }
+
+  components = {
+    cell: Cell
+  }
+
+  data = {
+    cellList: [
+      [
+        {
+          title: '默认'
+        }
+      ],
+      [
+        {
+          title: '列表',
+          linktype: 1,
+          link: 'cell'
+        },
+        {
+          title: '列表',
+          linktype: 1,
+          link: 'cell'
+        },
+        {
+          title: '列表',
+          linktype: 1,
+          link: 'cell'
+        }
+      ],
+      [
+        {
+          title: '列表带icon',
+          icontype: '1',
+          icontext: 'icon-components',
+          linktype: 1,
+          link: 'cell'
+        },
+        {
+          title: '列表带icon',
+          icontype: '1',
+          icontext: 'icon-components',
+          linktype: 1,
+          link: 'cell'
+        },
+        {
+          title: '列表带icon',
+          icontype: '1',
+          icontext: 'icon-components',
+          linktype: 1,
+          link: 'cell'
+        }
+      ],
+      [
+        {
+          title: '单行有附加信息',
+          subtitle: '图片icon',
+          detail: '有箭头',
+          linktype: 1,
+          link: 'index',
+          icontype: '2',
+          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
+        }
+      ],
+      [
+        {
+          title: '多行列表',
+          subtitle: '无icon',
+          detail: '无箭头',
+          linktype: 0,
+          link: 'index',
+          icontype: 1,
+          icontext: ''
+        },
+        {
+          title: '多行列表',
+          subtitle: 'icon',
+          detail: '无箭头',
+          linktype: 0,
+          link: 'index',
+          icontype: '1',
+          icontext: 'icon-components'
+        },
+        {
+          title: '多行列表',
+          subtitle: '图片icon',
+          detail: '有箭头',
+          linktype: 1,
+          link: 'index',
+          icontype: '2',
+          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
+        }
+      ],
+      [
+        {
+          title: '单行',
+          subtitle: '',
+          detail: '无附加信息',
+          linktype: 1,
+          link: 'index',
+          icontype: '2',
+          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
+        }
+      ],
+      [
+        {
+          title: '单行好多字真的好多字不信你数数怎么样',
+          subtitle: '',
+          detail: '无附加信息',
+          linktype: 1,
+          link: 'index',
+          icontype: '2',
+          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
+        }
+      ]
+    ]
+  }
+
+  computed = {}
+
+  methods = {}
+
+  events = {
+    'item-tap': (type, url) => {
+			if (url !== '#') {
+				wx.navigateTo({
+					url: url
+				})
+			}
+    }
+  }
+
+  onLoad() {
+  }
+}
+</script>
+```
 
 #### Panel 
 

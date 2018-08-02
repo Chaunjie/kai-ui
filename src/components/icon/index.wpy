@@ -1,12 +1,16 @@
 <style lang="less" src="./index.less"></style>
 <template>
-  <text class="iconfont {{type}}"></text>
+  <text class="iconfont {{type}}" catchtap="iconTap" data-event="{{event}}"></text>
 </template>
 <script>
   import wepy from 'wepy'
   export default class Grid extends wepy.component {
     props = {
       type: {
+        type: String,
+        default: ''
+      },
+      event: {
         type: String,
         default: ''
       }
@@ -16,6 +20,13 @@
     }
 
     methods = {
+      iconTap (e) {
+        const dataset = e.currentTarget.dataset
+        const event = dataset.event || ''
+        if (event) {
+          this.$emit(event)
+        }
+      }
     }
 
     onLoad () {

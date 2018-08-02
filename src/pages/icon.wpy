@@ -29,7 +29,7 @@
     <repeat for="{{list}}" index="index" item="item" key="key">
       <view class="col col-6 icon-block" >
         <view>
-          <icon :type="item"></icon>
+          <icon :type="item" :event="index % 2 ? 'icon-tap' : ''"></icon>
         </view>
         <view>
           <text class="icon-title">{{item}}</text>
@@ -74,7 +74,11 @@ export default class Icon extends wepy.page {
 
   methods = {}
 
-  events = {}
+  events = {
+    'icon-tap': function () {
+      console.log(111)
+    }
+  }
 
   onLoad() {}
 }

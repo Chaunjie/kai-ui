@@ -32,17 +32,17 @@ export default class Cell extends wepy.page {
         {
           title: '列表',
           linktype: 1,
-          link: 'cell'
+          link: '#'
         },
         {
           title: '列表',
           linktype: 1,
-          link: 'cell'
+          link: '#'
         },
         {
           title: '列表',
           linktype: 1,
-          link: 'cell'
+          link: '#'
         }
       ],
       [
@@ -51,21 +51,21 @@ export default class Cell extends wepy.page {
           icontype: '1',
           icontext: 'icon-components',
           linktype: 1,
-          link: 'cell'
+          link: '#'
         },
         {
           title: '列表带icon',
           icontype: '1',
           icontext: 'icon-components',
           linktype: 1,
-          link: 'cell'
+          link: '#'
         },
         {
           title: '列表带icon',
           icontype: '1',
           icontext: 'icon-components',
           linktype: 1,
-          link: 'cell'
+          link: '#'
         }
       ],
       [
@@ -74,7 +74,7 @@ export default class Cell extends wepy.page {
           subtitle: '图片icon',
           detail: '有箭头',
           linktype: 1,
-          link: 'index',
+          link: '#',
           icontype: '2',
           icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
         }
@@ -85,7 +85,7 @@ export default class Cell extends wepy.page {
           subtitle: '无icon',
           detail: '无箭头',
           linktype: 0,
-          link: 'index',
+          link: '#',
           icontype: 1,
           icontext: ''
         },
@@ -94,7 +94,7 @@ export default class Cell extends wepy.page {
           subtitle: 'icon',
           detail: '无箭头',
           linktype: 0,
-          link: 'index',
+          link: '#',
           icontype: '1',
           icontext: 'icon-components'
         },
@@ -103,7 +103,7 @@ export default class Cell extends wepy.page {
           subtitle: '图片icon',
           detail: '有箭头',
           linktype: 1,
-          link: 'index',
+          link: '#',
           icontype: '2',
           icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
         }
@@ -114,7 +114,7 @@ export default class Cell extends wepy.page {
           subtitle: '',
           detail: '无附加信息',
           linktype: 1,
-          link: 'index',
+          link: '#',
           icontype: '2',
           icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
         }
@@ -125,7 +125,7 @@ export default class Cell extends wepy.page {
           subtitle: '',
           detail: '无附加信息',
           linktype: 1,
-          link: 'index',
+          link: '#',
           icontype: '2',
           icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
         }
@@ -139,9 +139,11 @@ export default class Cell extends wepy.page {
 
   events = {
     'item-tap': (type, url) => {
-      wx.navigateTo({
-        url: url
-      })
+      if (url !== '#') {
+				wx.navigateTo({
+					url: url
+				})
+			}
     }
   }
 
