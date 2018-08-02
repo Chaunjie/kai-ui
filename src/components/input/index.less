@@ -1,0 +1,26 @@
+.field {
+  padding:0 15px;
+  font-size: 14px;
+  color:#333;
+  background-color: #fff;
+  .field-wrap {
+    display: flex;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+  }
+  .field-label {
+    margin-right:10px;
+  }
+  .field-input {
+    flex: 1;
+  }
+  .field-textarea {
+    width: 100%;
+    min-height: 100px;
+  }
+}
+.field:last-child {
+  .field-wrap {
+    border-bottom: none;
+  }
+}

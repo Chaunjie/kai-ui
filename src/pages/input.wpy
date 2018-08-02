@@ -1,11 +1,43 @@
 <template>
-
+  <inputName label="联系人" placeholder="请输入姓名" :value.sync="name" focus="true"/>
+  <inputPassword type="password" label="密码" placeholder="请输入密码" :value.sync="password"/>
+  <inputPhone type="number" label="联系电话" maxlength="11" :value.sync="tel" />
+  <inputAddress type="textarea" placeholder="详细地址" :value.sync="address"/>
+  <button @tap="save">保存</button>
 </template>
 
 <script>
   import wepy from 'wepy'
+  import Input from '@/components/input/index'
 
   export default class InputPage extends wepy.page {
-    data = {}
+    data = {
+      name: '道格强森',
+      password: '',
+      tel: '',
+      address: ''
+    }
+    components = {
+      inputName: Input,
+      inputAddress: Input,
+      inputPassword: Input,
+      inputPhone: Input
+    }
+    methods = {
+      save () {
+        console.log(this.name, this.password, this.tel, this.address)
+      }
+    }
+    events = {
+      handleChange(e) {
+        console.log('handleChange', e)
+      },
+      handleInput(e) {
+        console.log('handleInput', e)
+      },
+      handleBlur(e) {
+        console.log('handleBlur', e)
+      }
+    }
   }
 </script>

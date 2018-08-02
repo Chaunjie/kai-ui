@@ -1,0 +1,92 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="field">
+    <view class="field-wrap">
+      <label class="field-label" wx:if="{{label}}">{{label}}</label>
+      <textarea
+        wx:if="{{type==='textarea'}}"
+        class="field-input field-textarea"
+        value="{{value}}"
+        maxlength="{{maxlength}}"
+        placeholder="{{placeholder}}"
+        disabled="{{disabled}}"
+        focus="{{focus}}"
+        @change="_handleChange"
+        @input="_handleInput"
+        @blur="_handleBlur">
+      </textarea>
+      <input
+        wx:else
+        type="{{type}}"
+        class="field-input"
+        value="{{value}}"
+        maxlength="{{maxlength}}"
+        placeholder="{{placeholder}}"
+        disabled="{{disabled}}"
+        focus="{{focus}}"
+        @change="_handleChange"
+        @input="_handleInput"
+        @blur="_handleBlur">
+      </input>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Input extends wepy.component {
+    props = {
+      type: { // 类型：textarea, text, number, password
+        type: String,
+        default: 'text'
+      },
+      value: {
+        type: String,
+        default: '',
+        twoWay: true
+      },
+      label: { // label文本
+        type: String,
+        default: ''
+      },
+      placeholder: {
+        type: String,
+        default: ''
+      },
+      disabled: { // 是否禁用
+        type: [Boolean, String],
+        default: false,
+        coerce(v) {
+          return typeof v === 'string' ? JSON.parse(v) : v
+        }
+      },
+      focus: { // 是否默认聚焦
+        type: [Boolean, String],
+        default: false,
+        coerce(v) {
+          return typeof v === 'string' ? JSON.parse(v) : v
+        }
+      },
+      maxlength: {
+        type: [Number, String],
+        default: 9999
+      }
+    }
+
+    methods = {
+      _handleChange (e) {
+        // debugger
+        this.value = e.detail.value
+        this.$emit('handleChange', e)
+      },
+      _handleInput (e) {
+        this.value = e.detail.value
+        this.$emit('handleInput', e)
+      },
+      _handleBlur (e) {
+        this.value = e.detail.value
+        this.$emit('handleBlur', e)
+      }
+    }
+  }
+</script>
