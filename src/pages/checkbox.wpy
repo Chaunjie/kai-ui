@@ -4,26 +4,26 @@
 		<view class="padding-10 font-12">基础样式</view>
 		<view class="padding-10">
 			<checkbox-circle :config.sync="checkboxConfig" @bindchange.user="checkboxChange">
-				<view slot="check-body">
+				<block slot="check-body">
 					<repeat for="{{items}}" index="index" item="item" key="checkbox-{{index}}">
 						<label class="checkbox-item">
 							<view class="check-card">{{item.value}}</view>
 							<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
 						</label>
 					</repeat>
-				</view>
+				</block>
 			</checkbox-circle>
 		</view>
 		<view class="padding-10">
 			<checkbox-cube :config.sync="checkboxConfig1" @bindchange.user="checkboxChange">
-				<view slot="check-body">
+				<block slot="check-body">
 					<repeat for="{{items1}}" index="index" item="item" key="checkbox-{{index}}">
 						<label class="checkbox-item">
 							<view class="check-card" catchtap="doTap">{{item.value}}</view>
 							<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
 						</label>
 					</repeat>
-				</view>
+				</block>
 			</checkbox-cube>
 		</view>
 
@@ -31,45 +31,47 @@
 
 		<view class="padding-10">
 			<checkbox-circle :config.sync="checkboxConfig" @bindchange.user="checkboxChange">
-				<view slot="check-body">
+				<block slot="check-body">
 					<repeat for="{{items3}}" index="index" item="item" key="checkbox-{{index}}">
 						<label class="checkbox-item">
 							<view class="check-card">{{item.value}}</view>
 							<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
 						</label>
 					</repeat>
-				</view>
+				</block>
 			</checkbox-circle>
 		</view>
 		<view class="padding-10">
 			<checkbox-cube :config.sync="checkboxConfig1" @bindchange.user="checkboxChange">
-				<view slot="check-body">
+				<block slot="check-body">
 					<repeat for="{{items2}}" index="index" item="item" key="checkbox-{{index}}">
 						<label class="checkbox-item">
 							<view class="check-card">{{item.value}}</view>
 							<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
 						</label>
 					</repeat>
-				</view>
+				</block>
 			</checkbox-cube>
 		</view>
 
 		<view class="padding-10 font-12">inline样式</view>
 
 		<view class="padding-10">
-			<checkbox-inline :config.sync="checkboxConfig2" @bindchange.user="checkboxChange1">
-				<view slot="check-body" class="repeat-content">
-					<repeat for="{{itemsInline}}" index="index" item="item" key="checkbox-{{index}}">
-						<label class="checkbox-item">
-							<view class="check-card">{{item.value}}</view>
-							<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
-						</label>
-					</repeat>
-				</view>
-			</checkbox-inline>
+			<view style="background-color: #fff;">
+				<checkbox-inline :config.sync="checkboxConfig2" @bindchange.user="checkboxChange1">
+					<block slot="check-body">
+						<repeat for="{{itemsInline}}" index="index" item="item" key="checkbox-{{index}}">
+							<label class="checkbox-item">
+								<view class="check-card">{{item.value}}</view>
+								<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+							</label>
+						</repeat>
+					</block>
+				</checkbox-inline>
+			</view>
 		</view>
 		<view class="padding-10">
-			<button class="btn btn-success" @tap="changePosition">点击切换圆形复选框位置</button>
+			<button class="btn btn-kai" @tap="changePosition">点击切换圆形复选框位置</button>
 		</view>
 	</view>
 </template>
@@ -80,7 +82,7 @@ import checkbox from '@/components/checkbox/index'
 
 export default class CheckBox extends wepy.page {
 	config = {
-		navigationBarTitleText: '复选框'
+		navigationBarTitleText: 'Checkbox 复选框'
 	}
 
 	components = {
@@ -109,7 +111,7 @@ export default class CheckBox extends wepy.page {
 		items1: [{id: '1000', value: '方形复选框点击文字不选中', checked: true}],
 		items2: [{id: '1001', value: '方形复选框', checked: true, disabled: true}, {id: '1001', value: '方形复选框', checked: false, disabled: true}],
 		items3: [{id: '1001', value: '圆形复选框', checked: false, disabled: true}, {id: '1001', value: '圆形复选框', checked: true, disabled: true}],
-		itemsInline: [{id: '1003', value: '圆形复选框'}, {id: '1004', value: '圆形复选框'}]
+		itemsInline: [{id: '1003', value: '显示同行'}, {id: '1004', value: '显示同行'}]
 	}
 
 	computed = {}

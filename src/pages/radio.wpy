@@ -1,20 +1,140 @@
 <template>
   <view class="kai-content">
-    7777
+    <view class="padding-10 font-12">基础样式</view>
+		<view class="padding-10">
+			<radio-circle :config.sync="config" @bindchange.user="radioChange">
+				<block slot="radio-body">
+					<repeat for="{{items}}" index="index" item="item" key="radio-{{index}}">
+						<label class="radio-item">
+							<view class="radio-card">{{item.value}}</view>
+							<radio value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+						</label>
+					</repeat>
+				</block>
+			</radio-circle>
+		</view>
+		<view class="padding-10">
+			<radio-cube :config.sync="config1" @bindchange.user="radioChange1">
+				<block slot="radio-body">
+					<repeat for="{{items1}}" index="index" item="item" key="radio-{{index}}">
+						<label class="radio-item">
+							<view class="radio-card">{{item.value}}</view>
+							<radio value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+						</label>
+					</repeat>
+				</block>
+			</radio-cube>
+		</view>
+		<view class="padding-10 font-12">禁选样式</view>
+		<view class="padding-10">
+			<radio-circle :config.sync="config" @bindchange.user="radioChange">
+				<block slot="radio-body">
+					<repeat for="{{items2}}" index="index" item="item" key="radio-{{index}}">
+						<label class="radio-item">
+							<view class="radio-card">{{item.value}}</view>
+							<radio value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+						</label>
+					</repeat>
+				</block>
+			</radio-circle>
+		</view>
+		<view class="padding-10">
+			<radio-cube :config.sync="config1" @bindchange.user="radioChange">
+				<block slot="radio-body">
+					<repeat for="{{items2}}" index="index" item="item" key="radio-{{index}}">
+						<label class="radio-item">
+							<view class="radio-card">{{item.value}}</view>
+							<radio value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+						</label>
+					</repeat>
+				</block>
+			</radio-cube>
+		</view>
+		<view class="padding-10 font-12">inline样式</view>
+		<view class="padding-10">
+			<view style="background-color: #fff;">
+				<radio-line :config.sync="config2" @bindchange.user="radioChange">
+					<block slot="radio-body">
+						<repeat for="{{items4}}" index="index" item="item" key="radio-{{index}}">
+							<label class="radio-item">
+								<view class="radio-card">{{item.value}}</view>
+								<radio value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+							</label>
+						</repeat>
+					</block>
+				</radio-line>
+			</view>
+		</view>
+		<view class="padding-10">
+			<button class="btn btn-kai" @tap="changePosition">点击切换圆形单选框位置</button>
+		</view>
   </view>
 </template>
 
 <script>
 import wepy from 'wepy'
+import radio from '@/components/radio/index'
 
 export default class Radio extends wepy.page {
   config = {
     navigationBarTitleText: 'Radio 单选框'
   }
 
-  components = {}
+  components = {
+    'radio-circle': radio,
+    'radio-cube': radio,
+    'radio-line': radio
+  }
 
-  data = {}
+  data = {
+    config: {
+			className: 'sp-radio',
+			position: 'left',
+			circle: true
+		},
+		config1: {
+			position: 'left',
+			circle: false
+		},
+		config2: {
+			position: 'left',
+			circle: false,
+			inline: true
+		},
+    items: [
+      {id: '1001', value: '圆形单选框', checked: false, disabled: false},
+      {id: '1002', value: '圆形单选框', checked: true, disabled: false}
+    ],
+    items1: [
+      {id: '1003', value: '点形单选框', checked: false, disabled: false},
+      {id: '1004', value: '点形单选框', checked: true, disabled: false}
+    ],
+    items2: [
+      {id: '1005', value: '禁选单选框', checked: false, disabled: true},
+      {id: '1006', value: '禁选单选框', checked: true, disabled: true}
+    ],
+    items3: [
+      {id: '1007', value: '禁选单选框', checked: false, disabled: true},
+      {id: '1008', value: '禁选单选框', checked: true, disabled: true}
+    ],
+    items4: [
+      {id: '1009', value: '显示同一行', checked: false, disabled: false},
+      {id: '10010', value: '显示同一行', checked: true, disabled: false}
+    ]
+  }
+
+  methods = {
+  	radioChange1 (res) {
+  		console.log(res)
+  	},
+    radioChange (res) {
+      console.log(res)
+    },
+    changePosition () {
+    	const {config} = this
+    	this.config.position = config.position === 'left' ? 'right' : 'left'
+    }
+  }
 
   onLoad () {}
 }

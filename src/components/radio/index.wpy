@@ -1,0 +1,24 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="radio-group__container {{config.className}} position-{{config.position}} {{config.circle ? 'radio-circle': 'radio-hollow'}} {{config.inline ? 'inline' : ''}}">
+  	<radio-group bindchange="change">
+	  	<slot name="radio-body"></slot>
+	  </radio-group>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  export default class Radio extends wepy.component {
+    props = {
+      config: Object
+    }
+
+    methods = {
+      change (e) {
+        this.$emit('bindchange', e.detail.value)
+      }
+    }
+
+    onLoad () {}
+  }
+</script>

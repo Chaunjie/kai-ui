@@ -50,6 +50,116 @@ button
 
 ### 表单组件
 
+#### Radio
+
+- **概述**
+
+&emsp;&emsp;适用于单选框或者单选框按钮组
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import radio from 'kai-ui/Radio'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  'radio-circle': radio
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+	<radio-circle :config.sync="config" @bindchange.user="radioChange">
+		<block slot="radio-body">
+			<repeat for="{{items}}" index="index" item="item" key="radio-{{index}}">
+				<label class="radio-item">
+					<view class="radio-card">{{item.value}}</view>
+					<radio value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+				</label>
+			</repeat>
+		</block>
+	</radio-circle>
+</template>
+```
+
+&emsp;&emsp;参数格式
+```data
+data = {
+	config: {
+		className: 'sp-radio',
+		position: 'left',
+		circle: true,
+		inline: false
+	},
+	items: [
+    {id: '1001', value: '圆形单选框', checked: false, disabled: false},
+    {id: '1002', value: '圆形单选框', checked: true, disabled: false}
+  ]
+}
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+| config    | `Object` | `true`   | 单选框组配置信息 |
+| bindchange | `Function` | `false`  | 单选框回调方法    |
+
+&emsp;&emsp;config配置:
+
+| 参数      | 类型 | 异步 | 可选项 | 默认值 | 描述                      |
+| -------- | ----- | ----- | ------- | -------  | ---------------------------- |
+| className   | `String` | `none`   | - | - | 单选框组自定义样式 |
+| position   | `String` | `none`   | `left、right` | `left` | 单选框出现的位置 |
+| circle   | `Boolean` | `none`   | `true、false` | `true` | 单选框样式 |
+| inline   | `Boolean` | `none`   | `true、false` | `false` | 单选框组是否显示在一行内 |
+
+&emsp;&emsp;案例
+```wpy
+<template>
+	<radio-circle :config.sync="config" @bindchange.user="radioChange">
+		<block slot="radio-body">
+			<repeat for="{{items}}" index="index" item="item" key="radio-{{index}}">
+				<label class="radio-item">
+					<view class="radio-card">{{item.value}}</view>
+					<radio value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+				</label>
+			</repeat>
+		</block>
+	</radio-circle>
+</template>
+<script>
+import radio from 'kai-ui/Radio'
+export default class Index extends wepy.page {
+	components = {
+		'radio-circle': radio
+	}
+
+	data = {
+		checkboxConfig: {
+			className: 'sp-radio',
+			position: 'left',
+			circle: true
+		},
+		items: [
+      {id: '1001', value: '圆形单选框', checked: false, disabled: false},
+      {id: '1002', value: '圆形单选框', checked: true, disabled: false}
+    ]
+	}
+
+	methods = {
+		radioChange (res) {
+			console.log(res)
+		}
+	}
+}
+</script>
+```
+
 #### Checkbox
 
 - **概述**
@@ -71,7 +181,7 @@ components = {
 ```
 
 &emsp;&emsp;template添加
-```javascript
+```template
 <template>
 	<checkbox-circle :config.sync="checkboxConfig" @bindchange.user="checkboxChange">
 		<view slot="check-body">
@@ -191,7 +301,7 @@ components = {
 ```
 
 &emsp;&emsp;template添加
-```javascript
+```template
 <template>
 	<noticeBar :text="longText" componentId="noticebar" ></noticeBar>
 </template>

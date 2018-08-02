@@ -26,7 +26,7 @@
 22、canvasshareimg  
 23、scrollviewrefresh  
 24、checkbox ✔
-25、radio  
+25、radio  ✔
 26、rate星级评分  
 27、noticebar通知栏 ✔ 
 28、step步骤条  

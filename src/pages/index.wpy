@@ -114,14 +114,19 @@ export default class Index extends wepy.page {
           link: 'toast'
         },
         {
+          title: 'NoticeBar 通知栏',
+          linktype: 1,
+          link: 'noticebar'
+        },
+        {
           title: 'Checkbox 复选框',
           linktype: 1,
           link: 'checkbox'
         },
         {
-          title: 'NoticeBar 通知栏',
+          title: 'Radio 单选框',
           linktype: 1,
-          link: 'noticebar'
+          link: 'radio'
         },
         {
           title: 'Stepper 计步器',
