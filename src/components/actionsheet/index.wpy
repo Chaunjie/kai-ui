@@ -6,7 +6,8 @@
       <repeat for="{{asData.itemList}}" index="i" item="item" key="row-{{index}}">
         <view class="ac-list {{item.class}}" catchtap="selectIndex({{asData.index}}, {{i}}, false)">
           <view wx:if="{{item.slot}}">
-            <template is="wxParse" data="{{wxParseData: item.slotid.nodes}}"/>
+            <!-- <template is="wxParse" data="{{wxParseData: slotArray[item.slotid]}}"/> -->
+            <template is="wxParse" data="{{wxParseData: test}}"/>
           </view>
           <view wx:else>{{item.value}}</view>
           </view>
@@ -28,7 +29,9 @@
     }
 
     data = {
-      tapIndex: 0
+      tapIndex: 0,
+      slotArray: {},
+      test: [1, 1, 1]
     }
 
     methods = {
@@ -49,13 +52,16 @@
       console.log(this.asData)
       const asData = this.asData
       const that = this
+      let o = {}
       this.asData.itemList.map((r, i) => {
         if (r.slot) {
           wxParse.wxParse(r.slotid, 'html', r.slot || '', that, 5)
+          wxParse.wxParseArray(o, r.slotid, that.bindData, that)
         }
       })
       this.tapIndex = asData.tapIndex ? asData.tapIndex : 0
-      console.log(this.bindData)
+      that.slotArray = o
+      console.log('slotdata', that.slotArray)
       this.$apply()
     }
   }

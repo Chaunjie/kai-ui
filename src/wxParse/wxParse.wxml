@@ -39,6 +39,7 @@
 <!--入口模版-->
 
 <template name="wxParse">
+  {{wxParseData}}
   <block wx:for="{{wxParseData}}" wx:key="">
     <template is="wxParse0" data="{{item}}" />
   </block>

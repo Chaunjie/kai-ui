@@ -153,6 +153,14 @@ function wxParseTemArray (temArrayName, bindNameReg, total, that) {
   that.setData(obj)
 }
 
+// 改造 wxParseTemArray from wxParse.js
+function wxParseArray (o, bindName, temData, that) {
+  var simArr = temData[bindName].nodes
+  o[bindName] = simArr
+  that.setData(o)
+  return o
+}
+
 /**
  * 配置emojis
  *
@@ -166,7 +174,8 @@ module.exports = {
   wxParse: wxParse,
   wxParseImgTap: wxParseImgTap,
   wxParseTemArray: wxParseTemArray,
-  emojisInit: emojisInit
+  emojisInit: emojisInit,
+  wxParseArray: wxParseArray
 }
 
 
