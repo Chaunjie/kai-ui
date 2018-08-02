@@ -162,6 +162,7 @@ export default class Index extends wepy.page {
 
   events = {
     'item-tap': (type, url) => {
+      console.log(url)
       wx.navigateTo({
         url: url
       })

@@ -19,7 +19,6 @@ export default class extends wepy.app {
     pages: [
       'pages/index',
       'pages/radio',
-      'pages/noticebar',
       'pages/actionsheet',
       'pages/button',
       'pages/cell',
