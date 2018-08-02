@@ -1,0 +1,30 @@
+.toast {
+  .toast-wrap {
+    position: fixed;
+    z-index: 999;
+    left: 50%;
+    padding: 5px 10px;
+    background:rgba(0,0,0,0.5);
+    color:#fff;
+    font-size: 12px;
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity .3s;
+  }
+  .toast-show {
+    opacity: 1;
+  }
+  .toast-middle {
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .toast-top {
+    top: 0;
+    transform: translateX(-50%);
+  }
+  .toast-bottom {
+    bottom: 0;
+    transform: translateX(-50%);
+  }
+
+}

@@ -1,0 +1,38 @@
+<template>
+  <dialog />
+  <button @tap="showSuccess">点击弹出对话框</button>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Dialog from '@/components/dialog/index'
+
+  export default class DialogPage extends wepy.page {
+    data = {}
+    components = {
+      dialog: Dialog
+    }
+    methods = {
+      showSuccess () {
+        const options = {
+          title: '删除提示',
+          content: '确定要删除该地址吗？',
+          showCancelBtn: true,
+          vertical: false,
+          className: 'mytest'
+        }
+        this.$invoke('dialog', 'show', options).then((value) => {
+          console.log(value) // 0: 取消，1：确认
+        }, () => {
+          console.log('reject')
+        })
+      }
+    }
+  }
+</script>
+
+<style>
+  .mytest .dialog-container .dialog-footer .dialog-button-ok {
+    color: #C59E6C;
+  }
+</style>

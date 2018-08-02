@@ -104,9 +104,9 @@ export default class Index extends wepy.page {
           link: 'toptips'
         },
         {
-          title: 'dialog',
+          title: 'Dialog 弹出框',
           linktype: 1,
-          link: 'Dialog 弹出框'
+          link: 'dialog'
         },
         {
           title: 'Toast 提示框',
@@ -122,6 +122,26 @@ export default class Index extends wepy.page {
           title: 'NoticeBar 通知栏',
           linktype: 1,
           link: 'noticebar'
+        },
+        {
+          title: 'Stepper 计步器',
+          linktype: 1,
+          link: 'stepper'
+        },
+        {
+          title: 'Switch 开关',
+          linktype: 1,
+          link: 'switch'
+        },
+        {
+          title: 'Input 输入框',
+          linktype: 1,
+          link: 'input'
+        },
+        {
+          title: 'Searchbar 搜索框',
+          linktype: 1,
+          link: 'searchbar'
         }
       ]
     ]

@@ -1,0 +1,92 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="stepper {{config.size}}">
+    <view
+      class="stepper-minus {{num <= (config.min || defaultMin) ? 'stepper-disabled':''}}"
+      data-type="minus"
+      data-num="{{num}}"
+      data-config="{{config}}"
+      data-disabled="{{num <= (config.min || defaultMin)}}"
+      @tap="_handleStep"
+      >-</view>
+    <input
+      class="stepper-input"
+      type="number"
+      value="{{num}}"
+      data-num="{{num}}"
+      data-config="{{config}}"
+      min="1"
+      @input="_handleInput"
+      @blur="_handleBlur"/>
+    <view
+      class="stepper-plus {{num >= config.max ? 'stepper-disabled':''}}"
+      data-type="plus"
+      data-num="{{num}}"
+      data-config="{{config}}"
+      data-disabled="{{num >= config.max}}"
+      @tap="_handleStep"
+      >+</view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  export default class Stepper extends wepy.component {
+    data = {
+      defaultMin: 1
+    }
+    props = {
+      config: {}, // 配置包含：最大值max, 最小值min, 步长step, 尺寸size(可选：small, medium, large), 回调函数callbackFn
+      num: { // 数值
+        type: [Number, String],
+        default: ''
+      },
+      index: { // 索引
+        type: [Number, String],
+        default: ''
+      }
+    }
+
+    methods = {
+      _handleStep (e) {
+        const dataset = e.currentTarget.dataset
+        const dataConfig = dataset.config
+        const min = dataConfig.min || this.defaultMin
+        if (!dataset.disabled) {
+          let originalNum = dataset.num
+          if (this.verify(originalNum, dataConfig)) {
+            let num = dataset.type === 'plus' ? originalNum + Math.ceil(dataConfig.step) : originalNum - Math.ceil(dataConfig.step)
+            this.num = num > dataConfig.max || num < min ? originalNum : num
+            this.handleStepChange(dataConfig.callbackFn)
+          }
+        }
+      },
+      // TODO：输入0
+      _handleBlur (e) {
+        const dataset = e.currentTarget.dataset
+        const dataConfig = dataset.config
+        const min = dataConfig.min || this.defaultMin
+        if (this.verify(dataset.num, dataConfig)) {
+          let num = +e.detail.value
+          this.num = num < min ? min : (dataConfig.max && num > dataConfig.max ? dataConfig.max : num)
+          this.handleStepChange(dataConfig.callbackFn)
+        }
+      }
+    }
+
+    handleStepChange (callbackFn) {
+      this.$emit(callbackFn, this.index, Number(this.num))
+    }
+
+    verify (num, config) {
+      if (!num) {
+        console.error('props "num" is null')
+        return false
+      }
+      if (!config) {
+        console.error('props "config" is null')
+        return false
+      }
+      return true
+    }
+  }
+</script>

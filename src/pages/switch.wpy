@@ -1,0 +1,33 @@
+<template>
+  <switch
+    :checked.sync="checked"
+    :disabled.sync="disabled"
+    :size.sync="size"
+    className="mytest"/>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Switch from '@/components/switch/index'
+
+  export default class ToastPage extends wepy.page {
+    data = {
+      checked: true,
+      disabled: false
+    }
+    components = {
+      switch: Switch
+    }
+
+    watch = {
+      checked () {
+        console.log(this.checked)
+      }
+    }
+  }
+</script>
+<style>
+.mytest .switch-on {
+  background-color: #1AAD16;
+}
+</style>

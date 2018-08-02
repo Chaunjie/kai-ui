@@ -1,0 +1,35 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="{{topTips.className}}">
+    <view class="toptips topstips-{{topTips.show?'show':'hide'}}">
+      {{topTips.content}}
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+
+export default class Toptips extends wepy.component {
+  data = {
+    topTips: {
+      show: false
+    }
+  }
+
+  show (options) {
+    this.topTips = {
+      show: true,
+      content: options.content || '系统异常',
+      duration: options.duration || 3000,
+      className: options.className
+    }
+    this.$apply()
+
+    setTimeout(() => {
+      this.topTips.show = false
+      this.$apply()
+      options.afterClose && this.$emit(options.afterClose)
+    }, +this.topTips.duration)
+  }
+}
+</script>

@@ -1,0 +1,37 @@
+.switch {
+  position: relative;
+  width: 44px;
+  height: 26px;
+  border-radius: 50px;
+  .switch-inner {
+    position: absolute;
+    top: 1px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50px;
+    background-color: #fff;
+  }
+}
+.switch-on {
+  background-color: #ffc107;
+  .switch-inner {
+    right: 1px;
+  }
+}
+.switch-off {
+  background-color: #d9d9d9;
+  .switch-inner {
+    left: 1px;
+  }
+}
+.switch-disabled {
+  background-color: #e0e0e0;
+}
+.switch-large {
+  width: 52px;
+  height: 30px;
+  .switch-inner {
+    width: 28px;
+    height: 28px;
+  }
+}

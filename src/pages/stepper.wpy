@@ -1,0 +1,58 @@
+<template>
+  <view>第一组：</view>
+  <repeat for="{{first.list}}" index="index" item="item">
+    <stepper :num="item" :index="index" :config="first.config"/>
+  </repeat>
+  <view>第二组：</view>
+  <repeat for="{{second.list}}" index="index" item="item">
+    <stepper :num="item" :index="index" :config="second.config"/>
+  </repeat>
+  <button @tap="save">保存</button>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Stepper from '@/components/stepper/index'
+
+  export default class StepperPage extends wepy.page {
+    data = {
+      first: {
+        list: [1],
+        config: {
+          size: 'medium',
+          step: 1,
+          // min: 1,
+          // max: 5,
+          callbackFn: 'firstListChange'
+        }
+      },
+      second: {
+        list: [5, 6, 7],
+        config: {
+          step: 1,
+          min: 3,
+          max: 10,
+          callbackFn: 'secondListChange'
+        }
+      }
+    }
+    components = {
+      stepper: Stepper
+    }
+
+    methods = {
+      save () {
+        console.log(this.first.list, this.second.list)
+      }
+    }
+
+    events = {
+      firstListChange (index, value) {
+        this.first.list[index] = value
+      },
+      secondListChange (index, value) {
+        this.second.list[index] = value
+      }
+    }
+  }
+</script>

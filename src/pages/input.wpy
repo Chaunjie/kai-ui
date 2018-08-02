@@ -1,0 +1,11 @@
+<template>
+
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class InputPage extends wepy.page {
+    data = {}
+  }
+</script>

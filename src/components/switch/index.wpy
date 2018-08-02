@@ -1,0 +1,43 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="{{className}}">
+    <view
+      class="switch switch-{{checked?'on':'off'}} {{disabled?'switch-disabled':''}} switch-{{size}}"
+      @tap="_handleChange">
+      <view class="switch-inner"></view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Toast extends wepy.component {
+    props = {
+      checked: { // 当前选中状态
+        type: Boolean,
+        default: false,
+        twoWay: true
+      },
+      disabled: {  // 是否禁用
+        type: Boolean,
+        default: false
+      },
+      size: { // 可选尺寸：small, large
+        type: String,
+        default: 'small'
+      },
+      className: { // 样式类名
+        type: String,
+        default: ''
+      }
+    }
+
+    methods = {
+      _handleChange () {
+        if (!this.disabled) {
+          this.checked = !this.checked
+        }
+      }
+    }
+  }
+</script>

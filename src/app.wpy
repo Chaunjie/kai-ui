@@ -17,8 +17,8 @@ import 'wepy-async-function'
 export default class extends wepy.app {
   config = {
     pages: [
-      'pages/actionsheet',
       'pages/index',
+      'pages/actionsheet',
       'pages/button',
       'pages/cell',
       'pages/checkbox',
@@ -32,7 +32,14 @@ export default class extends wepy.app {
       'pages/select',
       'pages/tab',
       'pages/tag',
-      'pages/uploader'
+      'pages/uploader',
+      'pages/stepper',
+      'pages/dialog',
+      'pages/toast',
+      'pages/toptips',
+      'pages/switch',
+      'pages/input',
+      'pages/searchbar'
     ],
     window: {
       backgroundTextStyle: 'light',

@@ -1,0 +1,35 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="toast">
+    <view class="toast-wrap toast-{{toast.position}} toast-{{toast.show?'show':'hide'}}">
+      <view>{{toast.content}}</view>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  export default class Toast extends wepy.component {
+    data = {
+      toast: {
+        show: false
+      }
+    }
+
+    show (options) {
+      this.toast = {
+        show: true,
+        content: options.content || '提示信息',
+        duration: options.duration || 3000,
+        position: options.position || 'middle'
+      }
+      this.$apply()
+
+      setTimeout(() => {
+        this.toast.show = false
+        this.$apply()
+        options.afterClose && this.$emit(options.afterClose)
+      }, +this.toast.duration)
+    }
+  }
+</script>

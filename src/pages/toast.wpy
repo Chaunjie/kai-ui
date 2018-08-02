@@ -1,0 +1,33 @@
+<template>
+  <toast />
+  <button @tap="showSuccess">点击弹出toast</button>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Toast from '@/components/toast/index'
+
+  export default class ToastPage extends wepy.page {
+    data = {}
+    components = {
+      toast: Toast
+    }
+    methods = {
+      showSuccess () {
+        const options = {
+          content: '提示成功',
+          position: 'middle',
+          duration: 2000,
+          afterClose: 'afterClose'
+        }
+        this.$invoke('toast', 'show', options)
+      }
+    }
+
+    events = {
+      afterClose () {
+        console.log('弹出框关闭')
+      }
+    }
+  }
+</script>
