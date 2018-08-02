@@ -2,14 +2,11 @@
 <template>
   <view class="ac-container {{asData.show ? 'ac-show': ''}}">
     <view class="ac-mask" catchtap="selectIndex('close', 'close', true)"></view>
-    <import src="../wxParse/wxParse.wxml"/>
-    <template is="wxParse" data="{{wxParseData: article.nodes}}"/>
     <view class="ac-content {{asData.top ? 'top' : 'bottom'}}">
       <repeat for="{{asData.itemList}}" index="i" item="item" key="row-{{index}}">
         <view class="ac-list {{item.class}}" catchtap="selectIndex({{asData.index}}, {{i}}, false)">
           <view wx:if="{{item.slot}}">
-            {{slotA.article.node}}
-            <!-- <template is="wxParse" data="{{wxParseData: slotA.article}}"/> -->
+            <template is="wxParse" data="{{wxParseData: item.slotid.nodes}}"/>
           </view>
           <view wx:else>{{item.value}}</view>
           </view>
@@ -31,8 +28,7 @@
     }
 
     data = {
-      tapIndex: 0,
-      slotA: ''
+      tapIndex: 0
     }
 
     methods = {
@@ -55,15 +51,11 @@
       const that = this
       this.asData.itemList.map((r, i) => {
         if (r.slot) {
-          // wxParse.wxParse('article', 'html', r.slot || '', that, 5)
-          // console.log(wxParse.wxParse('article', 'html', r.slot || '', that, 5))
+          wxParse.wxParse(r.slotid, 'html', r.slot || '', that, 5)
         }
       })
-      wxParse.wxParse('article', 'html', '<div class="iconfont icon-success">slot1html</div>', that, 5)
-      this.slotA = wxParse.wxParse('article', 'html', '<div class="iconfont icon-success">slot1html</div>', that, 5)
-      // this.slotA = JSON.stringify(this.slotA)
-      console.log(this.slotA)
       this.tapIndex = asData.tapIndex ? asData.tapIndex : 0
+      console.log(this.bindData)
       this.$apply()
     }
   }

@@ -10,7 +10,7 @@
 
 <script>
 import wepy from 'wepy'
-import cell from '../components/cell/index'
+import cell from '@/components/cell/index'
 export default class Index extends wepy.page {
   config = {
     navigationBarTitleText: '主页'

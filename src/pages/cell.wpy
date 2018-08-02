@@ -10,7 +10,7 @@
 
 <script>
 import wepy from 'wepy'
-import cell from '../components/cell/index'
+import cell from '@/components/cell/index'
 
 export default class Cell extends wepy.page {
   config = {

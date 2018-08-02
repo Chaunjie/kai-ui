@@ -12,7 +12,7 @@
 
 <script>
 import wepy from 'wepy'
-import Tab from '../components/tab/index'
+import Tab from '@/components/tab/index'
 
 export default class TabPage extends wepy.page {
   config = {

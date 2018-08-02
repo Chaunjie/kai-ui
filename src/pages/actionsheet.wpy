@@ -1,21 +1,22 @@
 <template>
   <view class="kai-content">
+    <import src="../wxParse/wxParse.wxml"/>
     <view class="padding-10">
       <button class="btn btn-success" catchtap="showActionSheet(0)">从顶部弹出popup</button>
       <button class="btn btn-kai" catchtap="showActionSheet(1)">从底部弹出popup</button>
     </view>
     <repeat for="{{asData}}" index="i" item="item" key="row-{{index}}">
       <actionsheet :asData.sync="item"></actionsheet>
+      <!-- <template is="wxParse" data="{{wxParseData: article.nodes}}"/> -->
+      <template is="wxParse" data="{{wxParseData: article.nodes}}"/>
     </repeat>
-    <!-- <import src="../wxParse/wxParse.wxml"/> -->
-    <!-- <template is="wxParse" data="{{wxParseData:article.nodes}}"/> -->
   </view>
 </template>
 
 <script>
 import wepy from 'wepy'
-import actionsheet from '../components/actionsheet/index'
-// import wxParse from '../wxParse/wxParse'
+import actionsheet from '@/components/actionsheet/index'
+import wxParse from '@/wxParse/wxParse'
 
 export default class ActionSheet extends wepy.page {
   config = {
@@ -33,12 +34,14 @@ export default class ActionSheet extends wepy.page {
           class: '',
           value: '好多文字啊哈哈哈哈啊哈哈哈哈哈哈哈啊哈哈好多文字啊哈哈哈哈啊哈哈哈哈哈哈哈啊哈哈',
           event: '',
-          slot: '<view>slot1html</view>'
+          slotid: 'slotid1',
+          slot: '<view class="iconfont icon-success">alot1</view>'
         },
         {
           class: '',
           value: '<view class="iconfont icon-success">111</view>',
           event: '',
+          slotid: 'slotid2',
           slot: '<view class="iconfont icon-success">slot</view>'
         },
         {
@@ -101,7 +104,7 @@ export default class ActionSheet extends wepy.page {
   }
 
   onLoad() {
-    // wxParse.wxParse('article', 'html', '<view class="a113123">slot1html</view>', that, 5)
+    wxParse.wxParse('article', 'html', '<view class="haha">slot1html</view>', this, 5)
   }
 }
 </script>

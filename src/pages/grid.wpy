@@ -28,8 +28,8 @@
 
 <script>
 import wepy from 'wepy'
-import grid from '../components/grid/index'
-import panel from '../components/panel/index'
+import grid from '@/components/grid/index'
+import panel from '@/components/panel/index'
 
 export default class Grid extends wepy.page {
   config = {

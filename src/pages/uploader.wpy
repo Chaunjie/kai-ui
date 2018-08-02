@@ -47,8 +47,8 @@
 
 <script>
 import wepy from 'wepy'
-import uploader from '../components/uploader/index'
-import panel from '../components/panel/index'
+import uploader from '@/components/uploader/index'
+import panel from '@/components/panel/index'
 
 export default class Uploader extends wepy.page {
   config = {

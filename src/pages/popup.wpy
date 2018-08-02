@@ -24,7 +24,7 @@
 
 <script>
 import wepy from 'wepy'
-import popup from '../components/popup/index'
+import popup from '@/components/popup/index'
 
 export default class Popup extends wepy.page {
   config = {

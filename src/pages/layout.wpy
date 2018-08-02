@@ -99,7 +99,7 @@
 
 <script>
 import wepy from 'wepy'
-import layout from '../components/layout/index'
+import layout from '@/components/layout/index'
 
 export default class Layout extends wepy.page {
   config = {

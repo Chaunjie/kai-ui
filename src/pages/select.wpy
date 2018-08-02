@@ -16,7 +16,7 @@
 
 <script>
 import wepy from 'wepy'
-import select from '../components/select/index'
+import select from '@/components/select/index'
 
 export default class SelectPage extends wepy.page {
   config = {
