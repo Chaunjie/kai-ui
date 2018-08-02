@@ -115,6 +115,11 @@ export default class Index extends wepy.page {
             title: 'Tab 组件',
             linktype: 1,
             link: 'tab'
+          },
+          {
+            title: 'Step 步骤条',
+            linktype: 1,
+            link: 'step'
           }
         ]
       },
@@ -127,7 +132,7 @@ export default class Index extends wepy.page {
             link: 'actionsheet'
           },
           {
-            title: 'Toptips 底部错误提示',
+            title: 'Toptips 顶部错误提示',
             linktype: 1,
             link: 'toptips'
           },
@@ -167,9 +172,9 @@ export default class Index extends wepy.page {
             link: 'radio'
           },
           {
-            title: 'Stepper 计步器',
+            title: 'NumberPicker 数字输入框',
             linktype: 1,
-            link: 'stepper'
+            link: 'numberpicker'
           },
           {
             title: 'Switch 开关',

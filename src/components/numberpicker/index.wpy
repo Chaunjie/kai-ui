@@ -1,8 +1,8 @@
 <style lang="less" src="./index.less"></style>
 <template>
-  <view class="stepper {{config.size}}">
+  <view class="numberpicker {{config.size}}">
     <view
-      class="stepper-minus {{num <= (config.min || defaultMin) ? 'stepper-disabled':''}}"
+      class="numberpicker-minus {{num <= (config.min || defaultMin) ? 'numberpicker-disabled':''}}"
       data-type="minus"
       data-num="{{num}}"
       data-config="{{config}}"
@@ -10,7 +10,7 @@
       @tap="_handleStep"
       >-</view>
     <input
-      class="stepper-input"
+      class="numberpicker-input"
       type="number"
       value="{{num}}"
       data-num="{{num}}"
@@ -19,7 +19,7 @@
       @input="_handleInput"
       @blur="_handleBlur"/>
     <view
-      class="stepper-plus {{num >= config.max ? 'stepper-disabled':''}}"
+      class="numberpicker-plus {{num >= config.max ? 'numberpicker-disabled':''}}"
       data-type="plus"
       data-num="{{num}}"
       data-config="{{config}}"
@@ -30,7 +30,7 @@
 </template>
 <script>
   import wepy from 'wepy'
-  export default class Stepper extends wepy.component {
+  export default class NumberPicker extends wepy.component {
     data = {
       defaultMin: 1
     }

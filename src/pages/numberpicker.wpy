@@ -1,20 +1,20 @@
 <template>
   <view>第一组：</view>
   <repeat for="{{first.list}}" index="index" item="item">
-    <stepper :num="item" :index="index" :config="first.config"/>
+    <numberpicker :num="item" :index="index" :config="first.config"/>
   </repeat>
   <view>第二组：</view>
   <repeat for="{{second.list}}" index="index" item="item">
-    <stepper :num="item" :index="index" :config="second.config"/>
+    <numberpicker :num="item" :index="index" :config="second.config"/>
   </repeat>
   <button @tap="save">保存</button>
 </template>
 
 <script>
   import wepy from 'wepy'
-  import Stepper from '@/components/stepper/index'
+  import NumberPicker from '@/components/numberpicker/index'
 
-  export default class StepperPage extends wepy.page {
+  export default class NumberPickerPage extends wepy.page {
     data = {
       first: {
         list: [1],
@@ -37,7 +37,7 @@
       }
     }
     components = {
-      stepper: Stepper
+      numberpicker: NumberPicker
     }
 
     methods = {

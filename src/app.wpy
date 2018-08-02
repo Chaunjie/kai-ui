@@ -34,13 +34,14 @@ export default class extends wepy.app {
       'pages/tab',
       'pages/tag',
       'pages/uploader',
-      'pages/stepper',
+      'pages/numberpicker',
       'pages/dialog',
       'pages/toast',
       'pages/toptips',
       'pages/switch',
       'pages/input',
-      'pages/searchbar'
+      'pages/searchbar',
+      'pages/step'
     ],
     window: {
       backgroundTextStyle: 'light',
