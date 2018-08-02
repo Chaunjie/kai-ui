@@ -11,6 +11,9 @@
 </style>
 <template>
   <view class="kai-content">
+    <loadmore1 :more.sync="more1"></loadmore1>
+    <loadmore2 :more.sync="more2"></loadmore2>
+    <view>案例</view>
     <scroll-view class="scroll-view" scroll-y scroll-with-animation="{{true}}" bindscrolltolower="lower">
       <repeat for="{{listShow}}" index="index" item="item" key="{{index}}">
         <view class="item">{{item}}</view>
@@ -30,7 +33,9 @@ export default class Loadmore extends wepy.page {
   }
 
   components = {
-    loadmore: loadmore
+    loadmore: loadmore,
+    loadmore1: loadmore,
+    loadmore2: loadmore
   }
 
   data = {
@@ -38,7 +43,9 @@ export default class Loadmore extends wepy.page {
     listShow: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     page: 0,
     pagesize: 10,
-    more: true
+    more: true,
+    more1: true,
+    more2: false
   }
 
   computed = {}
