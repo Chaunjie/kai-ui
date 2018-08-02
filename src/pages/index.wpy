@@ -1,149 +1,198 @@
+<style lang="less">
+  .icon-img{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 60vw;
+    font-size: 50px;
+    font-weight: bold;
+    font-style: italic;
+    color: #999;
+  }
+</style>
 <template>
   <view class="kai-content">
-    <view class="panel">
-      <repeat for="{{cellList}}" index="index" item="item" key="row-{{index}}">
-        <cell :celldata="item"></cell>
-      </repeat>
+    <view class="icon-img">
+      kai-ui
     </view>
+    <repeat for="{{cellDemoList}}" index="index" item="item" key="panel-{{index}}">
+      <view>
+        <view slot="title" class="font-12 padding-10" style="padding-bottom: 0;">{{item.title}}</view>
+        <cell :celldata="item.list"></cell>
+      </view>
+    </repeat>
+    <view class="padding-10"></view>
   </view>
 </template>
 
 <script>
 import wepy from 'wepy'
 import cell from '@/components/cell/index'
+import panel from '@/components/panel/index'
+
 export default class Index extends wepy.page {
   config = {
     navigationBarTitleText: '主页'
   }
 
   components = {
-    cell: cell
+    cell: cell,
+    panel: panel
   }
 
   data = {
-    cellList: [
-      [
-        {
-          title: 'cell 列表',
-          linktype: 1,
-          link: 'cell'
-        },
-        {
-          title: 'Button 按钮',
-          linktype: 1,
-          link: 'button'
-        },
-        {
-          title: 'Uploader 上传',
-          linktype: 1,
-          link: 'uploader'
-        },
-        {
-          title: 'grid',
-          linktype: 1,
-          link: 'grid'
-        },
-        {
-          title: 'loadmore',
-          linktype: 1,
-          link: 'loadmore'
-        },
-        {
-          title: 'Icon 图标',
-          linktype: 1,
-          link: 'icon'
-        },
-        {
-          title: 'ActionSheet',
-          linktype: 1,
-          link: 'actionsheet'
-        },
-        {
-          title: 'Popup 弹出层',
-          linktype: 1,
-          link: 'popup'
-        },
-        {
-          title: 'Tag 标记',
-          linktype: 1,
-          link: 'tag'
-        },
-        {
-          title: 'Tab 标签',
-          linktype: 1,
-          link: 'tab'
-        },
-        {
-          title: 'Select 选择',
-          linktype: 1,
-          link: 'select'
-        },
-        {
-          title: 'panel',
-          linktype: 1,
-          link: 'panel'
-        },
-        {
-          title: 'Layout 布局',
-          linktype: 1,
-          link: 'layout'
-        },
-        {
-          title: 'Helper 基础样式',
-          linktype: 1,
-          link: 'helper'
-        },
-        {
-          title: 'Toptips 底部错误提示',
-          linktype: 1,
-          link: 'toptips'
-        },
-        {
-          title: 'Dialog 弹出框',
-          linktype: 1,
-          link: 'dialog'
-        },
-        {
-          title: 'Toast 提示框',
-          linktype: 1,
-          link: 'toast'
-        },
-        {
-          title: 'NoticeBar 通知栏',
-          linktype: 1,
-          link: 'noticebar'
-        },
-        {
-          title: 'Checkbox 复选框',
-          linktype: 1,
-          link: 'checkbox'
-        },
-        {
-          title: 'Radio 单选框',
-          linktype: 1,
-          link: 'radio'
-        },
-        {
-          title: 'Stepper 计步器',
-          linktype: 1,
-          link: 'stepper'
-        },
-        {
-          title: 'Switch 开关',
-          linktype: 1,
-          link: 'switch'
-        },
-        {
-          title: 'Input 输入框',
-          linktype: 1,
-          link: 'input'
-        },
-        {
-          title: 'Searchbar 搜索框',
-          linktype: 1,
-          link: 'searchbar'
-        }
-      ]
+    cellDemoList: [
+      {
+        title: '布局',
+        list: [
+          {
+            title: 'Layout 布局',
+            linktype: 1,
+            link: 'layout'
+          },
+          {
+            title: 'grid',
+            linktype: 1,
+            link: 'grid'
+          },
+          {
+            title: 'cell 列表',
+            linktype: 1,
+            link: 'cell'
+          },
+          {
+            title: 'panel',
+            linktype: 1,
+            link: 'panel'
+          }
+        ]
+      },
+      {
+        title: '基础组件',
+        list: [
+          {
+            title: 'Button 按钮',
+            linktype: 1,
+            link: 'button'
+          },
+          {
+            title: 'Icon 图标',
+            linktype: 1,
+            link: 'icon'
+          },
+          {
+            title: 'loadmore',
+            linktype: 1,
+            link: 'loadmore'
+          },
+          {
+            title: 'Helper 基础样式',
+            linktype: 1,
+            link: 'helper'
+          },
+          {
+            title: 'Tag 标记',
+            linktype: 1,
+            link: 'tag'
+          }
+        ]
+      },
+      {
+        title: '导航组件',
+        list: [
+          {
+            title: 'Popup 弹出层',
+            linktype: 1,
+            link: 'popup'
+          },
+          {
+            title: 'NoticeBar 通知栏',
+            linktype: 1,
+            link: 'noticebar'
+          },
+          {
+            title: 'Tab 组件',
+            linktype: 1,
+            link: 'tab'
+          }
+        ]
+      },
+      {
+        title: '操作提示组件',
+        list: [
+          {
+            title: 'ActionSheet',
+            linktype: 1,
+            link: 'actionsheet'
+          },
+          {
+            title: 'Toptips 底部错误提示',
+            linktype: 1,
+            link: 'toptips'
+          },
+          {
+            title: 'Dialog 弹出框',
+            linktype: 1,
+            link: 'dialog'
+          },
+          {
+            title: 'Toast 提示框',
+            linktype: 1,
+            link: 'toast'
+          }
+        ]
+      },
+      {
+        title: '表单组件',
+        list: [
+          {
+            title: 'Uploader 上传',
+            linktype: 1,
+            link: 'uploader'
+          },
+          {
+            title: 'Select 选择',
+            linktype: 1,
+            link: 'select'
+          },
+          {
+            title: 'Checkbox 复选框',
+            linktype: 1,
+            link: 'checkbox'
+          },
+          {
+            title: 'Radio 单选框',
+            linktype: 1,
+            link: 'radio'
+          },
+          {
+            title: 'Stepper 计步器',
+            linktype: 1,
+            link: 'stepper'
+          },
+          {
+            title: 'Switch 开关',
+            linktype: 1,
+            link: 'switch'
+          },
+          {
+            title: 'Input 输入框',
+            linktype: 1,
+            link: 'input'
+          }
+        ]
+      },
+      {
+        title: '搜索组件',
+        list: [
+          {
+            title: 'Searchbar 搜索框',
+            linktype: 1,
+            link: 'searchbar'
+          }
+        ]
+      }
     ]
   }
 
