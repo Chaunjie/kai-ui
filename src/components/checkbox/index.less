@@ -1,3 +1,4 @@
+@import '../../less/color';
 checkbox {
 	width: 16px;
 	height: 16px;
@@ -8,14 +9,14 @@ checkbox {
 checkbox .wx-checkbox-input {
 	width: 16px;
 	height: 16px;
-	border-color:#C59E6C;
+	border-color:@kai;
 }
 .checkbox-circle {
 	checkbox .wx-checkbox-input {
 		border-radius: 100%;
 	}
 	checkbox .wx-checkbox-input.wx-checkbox-input-checked {
-		background: #C59E6C;
+		background: @kai;
 	}
 	checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
 		width: 16px;
@@ -44,7 +45,7 @@ checkbox .wx-checkbox-input {
 		line-height: 10px;
 		text-align: center;
 		font-size: 12px;
-		background-color: #C59E6C;
+		background-color: @kai;
 		border-radius: 1px;
 		transform: translate(-50%, -50%) scale(1);
 		-webkit-transform: translate(-50%, -50%) scale(1);

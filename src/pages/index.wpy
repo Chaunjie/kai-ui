@@ -18,7 +18,7 @@
     </view>
     <repeat for="{{cellDemoList}}" index="index" item="item" key="panel-{{index}}">
       <view>
-        <view slot="title" class="font-12 padding-10" style="padding-bottom: 0;">{{item.title}}</view>
+        <view class="font-12 padding-10" style="padding-bottom: 0;">{{item.title}}</view>
         <cell :celldata="item.list"></cell>
       </view>
     </repeat>
@@ -29,7 +29,6 @@
 <script>
 import wepy from 'wepy'
 import cell from '@/components/cell/index'
-import panel from '@/components/panel/index'
 
 export default class Index extends wepy.page {
   config = {
@@ -37,8 +36,7 @@ export default class Index extends wepy.page {
   }
 
   components = {
-    cell: cell,
-    panel: panel
+    cell: cell
   }
 
   data = {

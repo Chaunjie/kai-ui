@@ -1,3 +1,4 @@
+@import '../../less/color';
 radio {
 	width: 16px;
 	height: 16px;
@@ -8,14 +9,14 @@ radio {
 radio .wx-radio-input {
 	width: 16px;
 	height: 16px;
-	border-color:#C59E6C !important;
+	border-color:@kai !important;
 }
 .radio-circle {
 	radio .wx-radio-input {
 		border-radius: 100%;
 	}
 	radio .wx-radio-input.wx-radio-input-checked {
-		background-color: #C59E6C !important;
+		background-color: @kai !important;
 	}
 	radio .wx-radio-input.wx-radio-input-checked::before {
 		width: 16px;
@@ -49,7 +50,7 @@ radio .wx-radio-input {
 		border-radius: 100%;
 		text-align: center;
 		font-size: 12px;
-		background: #C59E6C;
+		background: @kai;
 		transform: translate(-50%, -50%) scale(1);
 		-webkit-transform: translate(-50%, -50%) scale(1);
 	}

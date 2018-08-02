@@ -1,17 +1,24 @@
 <style lang="less" src="./index.less"></style>
 <template>
-  <view class="{{className}}">
-    <view
-      class="switch switch-{{checked?'on':'off'}} {{disabled?'switch-disabled':''}} switch-{{size}}"
-      @tap="_handleChange">
-      <view class="switch-inner"></view>
+  <view
+    class="switch switch-{{ checked ? 'on' : 'off' }} {{ disabled ? 'swtich-disabled' : '' }} {{className}} switch-{{type}}"
+    data-checked="{{ checked }}"
+    data-sync="{{ sync }}"
+    data-loading="{{loading}}"
+    data-disabled="{{ disabled }}"
+    data-component-id="{{ componentId }}"
+    bindtap="_handleSwitchChange"
+  >
+    <view class="switch-circle">
+      <view hidden="{{ !loading }}" class="switch-loading"></view>
     </view>
+    <view class="switch-bg"></view>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
-  export default class Toast extends wepy.component {
+  export default class Switch extends wepy.component {
     props = {
       checked: { // 当前选中状态
         type: Boolean,
@@ -29,13 +36,35 @@
       className: { // 样式类名
         type: String,
         default: ''
+      },
+      componentId: {
+        type: String,
+        default: ''
+      },
+      loading: {
+        type: Boolean,
+        default: false
+      },
+      sync: {
+        type: Boolean,
+        default: false
+      },
+      type: {
+        type: String,
+        default: 'success'
       }
     }
 
     methods = {
-      _handleChange () {
-        if (!this.disabled) {
-          this.checked = !this.checked
+      _handleSwitchChange (e) {
+        const dataset = e.currentTarget.dataset
+        // console.log(dataset)
+        if (!dataset.disabled) {
+          const checked = !dataset.checked
+          const newObj = Object.assign({}, dataset, {checked: checked})
+          delete newObj.comIndex
+          delete newObj.disabled
+          this.$emit('onChange', newObj)
         }
       }
     }
