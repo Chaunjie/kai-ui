@@ -2,6 +2,9 @@
   .panel .info {
     padding: 0;
   }
+  .cell {
+    margin: 0;
+  }
   .icon-img{
     display: flex;
     flex-direction: row;
@@ -92,14 +95,14 @@ export default class Index extends wepy.page {
             link: 'loadmore'
           },
           {
-            title: 'Helper 基础样式',
-            linktype: 1,
-            link: 'helper'
-          },
-          {
             title: 'Tag 标记',
             linktype: 1,
             link: 'tag'
+          },
+          {
+            title: 'Helper 基础样式',
+            linktype: 1,
+            link: 'helper'
           }
         ]
       },

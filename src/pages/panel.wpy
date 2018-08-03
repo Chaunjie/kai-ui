@@ -1,18 +1,18 @@
 <template>
   <view class="kai-content">
-    <panel>
+    <panel class="padding-10">
       <view>我是默认的panel</view>
     </panel>
-    <panel>
-      <view slot="title" class="title">哎呀我没有边框</view>
+    <panel class="padding-10">
+      <view slot="title" class="title">无边框</view>
       <view>我是一个没有边框的panel</view>
     </panel>
-    <panel1 border="1px">
+    <panel1 border="1px" class="padding-10">
       <view>我是一个有没有title的panel</view>
     </panel1>
-    <panel2 border="1px 0 1px 0">
+    <panel2 border="1rpx 0 1rpx 0" class="padding-10">
       <view slot="title" class="title">我是一个title</view>
-      <view>我的边框是2px</view>
+      <view>我的边框是1rpx 0 1rpx 0</view>
     </panel2>
   </view>
 </template>
