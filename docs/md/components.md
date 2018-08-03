@@ -1096,10 +1096,6 @@ export default class Index extends wepy.page {
 
 stepper
 
-#### Switch 
-
-switch
-
 #### Input 框
 
 input
