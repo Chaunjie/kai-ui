@@ -8,7 +8,7 @@
 }
 </style>
 <template>
-  <view class="kai-content helper-container">
+  <view class="kai-content helper-container padding-10">
     <view class="panel">
        <view class="text-pull-left font-content">
         <text class="font-12 color-gray">text-pull-left：靠左对齐</text>
