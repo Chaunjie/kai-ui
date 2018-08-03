@@ -113,7 +113,6 @@
             }
           }
         }
-        console.log(res)
       },
       doChange (res) {
         const {items1} = this
