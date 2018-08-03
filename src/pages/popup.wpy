@@ -1,3 +1,10 @@
+<style lang="less" src="./index.less"></style>
+<style lang="less">
+  .pop-inner {
+    width: 200rpx;
+  }
+</style>
+
 <template>
   <view class="kai-content">
     <view class="padding-10">
@@ -10,7 +17,7 @@
     <repeat for="{{popData}}" index="i" item="item" key="row-{{index}}">
       <popup :show.sync="item.showPopup" :position.sync="item.position" :id.sync="i">
         <view slot="popContainer">
-          <view class="btns">
+          <view class="pop-inner">
             <button class="btn">
               111 
             </button>

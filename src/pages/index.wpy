@@ -50,17 +50,17 @@ export default class Index extends wepy.page {
             link: 'layout'
           },
           {
-            title: 'grid',
+            title: 'Grid 宫格',
             linktype: 1,
             link: 'grid'
           },
           {
-            title: 'cell 列表',
+            title: 'Cell 列表',
             linktype: 1,
             link: 'cell'
           },
           {
-            title: 'panel',
+            title: 'Panel 面板',
             linktype: 1,
             link: 'panel'
           }
@@ -80,7 +80,7 @@ export default class Index extends wepy.page {
             link: 'icon'
           },
           {
-            title: 'loadmore',
+            title: 'LoadMore 更多',
             linktype: 1,
             link: 'loadmore'
           },
@@ -110,7 +110,7 @@ export default class Index extends wepy.page {
             link: 'noticebar'
           },
           {
-            title: 'Tab 组件',
+            title: 'Tab 标签',
             linktype: 1,
             link: 'tab'
           },
@@ -125,12 +125,12 @@ export default class Index extends wepy.page {
         title: '操作提示组件',
         list: [
           {
-            title: 'ActionSheet',
+            title: 'ActionSheet 操作盘',
             linktype: 1,
             link: 'actionsheet'
           },
           {
-            title: 'Toptips 顶部错误提示',
+            title: 'Toptips 顶部提示',
             linktype: 1,
             link: 'toptips'
           },
@@ -140,7 +140,7 @@ export default class Index extends wepy.page {
             link: 'dialog'
           },
           {
-            title: 'Toast 提示框',
+            title: 'Toast 提示条',
             linktype: 1,
             link: 'toast'
           }

@@ -7,7 +7,7 @@
 </template>
 <script>
 import wepy from 'wepy'
-const qiniuUploader = require('../../utils/qiniuUploader')
+// const qiniuUploader = require('../../utils/qiniuUploader')
 
 export default class uploader extends wepy.component {
   props = {
@@ -40,35 +40,35 @@ export default class uploader extends wepy.component {
 
   methods = {
     upLoad () {
-      var that = this
-      // 初始化
-      var options = {
-        region: that.region, // 华东区
-        uptokenURL: 'https://www.***.com/local/upload/token/type/image',
-        domain: 'http://images.***.com',
-        shouldUseQiniuFileName: false
-      }
-      qiniuUploader.init(options)
-      // 选择图片
-      wx.chooseImage({
-        count: 1,
-        success: function (res) {
-          console.log(res)
-          var filePath = res.tempFilePaths[0]
-          console.log(res.tempFilePath)
-          // 交给七牛上传
-          wx.showLoading({
-            mask: true
-          })
-          qiniuUploader.upload(filePath, (res) => {
-            wx.hideLoading()
-            // 上传成功回调
-            that.$emit('refresh-img-list', res)
-          }, (error) => {
-            console.log('error: ' + error)
-          })
-        }
-      })
+      // var that = this
+      // // 初始化
+      // var options = {
+      //   region: that.region, // 华东区
+      //   uptokenURL: 'https://www.***.com/local/upload/token/type/image',
+      //   domain: 'http://images.***.com',
+      //   shouldUseQiniuFileName: false
+      // }
+      // qiniuUploader.init(options)
+      // // 选择图片
+      // wx.chooseImage({
+      //   count: 1,
+      //   success: function (res) {
+      //     console.log(res)
+      //     var filePath = res.tempFilePaths[0]
+      //     console.log(res.tempFilePath)
+      //     // 交给七牛上传
+      //     wx.showLoading({
+      //       mask: true
+      //     })
+      //     qiniuUploader.upload(filePath, (res) => {
+      //       wx.hideLoading()
+      //       // 上传成功回调
+      //       that.$emit('refresh-img-list', res)
+      //     }, (error) => {
+      //       console.log('error: ' + error)
+      //     })
+      //   }
+      // })
     }
   }
 
