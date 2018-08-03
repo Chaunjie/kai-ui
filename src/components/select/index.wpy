@@ -1,10 +1,14 @@
+<style lang="less" src="./index.less"></style>
 <template>
-  <view class="select-container {{selectData.class ? selectData.class : ''}}">
+  <view class="select-container {{selectData.class ? selectData.class : 'select-right'}}">
    <repeat for="{{selectData.list}}" index="index" item="item" key="key">
     <view class="select-item {{index==selectIndex ? 'active': ''}}" catchtap="tapItem({{selectData.id}}, {{index}})">
+      <block wx:if="{{index==selectIndex && selectData.class==='select-left'}}">
+        <text class="iconfont icon-success" ></text>
+      </block>
       <text class="item-name font-14">{{item.name}}</text>
-      <block wx:if="{{index==selectIndex}}">
-        <text class="iconfont icon-right" ></text>
+      <block wx:if="{{index==selectIndex && selectData.class!=='select-left'}}">
+        <text class="iconfont icon-success" ></text>
       </block>
     </view>
   </repeat>
@@ -15,7 +19,11 @@ import wepy from 'wepy'
 
 export default class Select extends wepy.component {
   props = {
-    selectData: {}
+    selectData: {
+      type: Object,
+      twoWay: true,
+      default: {}
+    }
   }
 
   data = {

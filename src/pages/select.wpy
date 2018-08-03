@@ -6,11 +6,12 @@
 <template>
   <view class="kai-content">
     <view class="panel">
-      <select :selectData="selectData"/>
+      <select :selectData.sync="selectData"/>
     </view>
     <view class="panel">
-      <select1 :selectData="selectData1"/>
+      <select1 :selectData.sync="selectData1"/>
     </view>
+    <button class="btn btn-success" catchtap="changeSelect">切换icon位置</button>
   </view>
 </template>
 
@@ -41,12 +42,19 @@ export default class SelectPage extends wepy.page {
       selectIndex: 1,
       class: 'select-danger',
       event: 'select-test'
-    }
+    },
+    position: ''
   }
 
   computed = {}
 
-  methods = {}
+  methods = {
+    changeSelect () {
+      const {selectData1} = this
+      this.position = this.position === 'left' ? 'right' : 'left'
+      selectData1.class = 'select-danger select-' + this.position
+    }
+  }
 
   events = {
     'select-item': (data) => {

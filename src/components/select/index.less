@@ -1,0 +1,74 @@
+@import "../../less/font.less";
+@import "../../less/color.less";
+
+.select-container{
+  .select-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding:10px;
+    .item-name{
+      color:#333;
+      line-height:14px;
+    }
+    .iconfont{
+      color:#333;
+      font-size:12px !important;
+    }
+  }
+  
+  &.select-success{
+    .active{
+        .item-name{
+            color: @success;
+        }
+        .iconfont{
+            color: @success;
+        }
+    }
+  }
+  &.select-danger{
+    .active{
+        .item-name{
+            color: @red;
+        }
+        .iconfont{
+            color: @red;
+        }
+    }
+  }
+  &.select-kai{
+    .active{
+        .item-name{
+            color: @kai;
+        }
+        .iconfont{
+            color: @kai;
+        }
+    }
+  }
+}
+.select-right{
+  .select-item{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.select-left{
+  .select-item{
+    position: relative;
+    .item-name{
+      padding-left: 16px;
+    }
+    .iconfont{
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+}
