@@ -1,25 +1,14 @@
 <style lang="less">
-.scroll-view {
-  height: 400px;
-  .item {
-    line-height: 40px;
-    background: #ccc;
-    color: #fff;
-    border-bottom: 1px solid #e1e1e1;
-  }
+.title {
+  font-size: 12px;
 }
 </style>
 <template>
   <view class="kai-content">
+    <view class="title padding-10">加载中</view>
     <loadmore1 :more.sync="more1"></loadmore1>
+    <view class="title padding-10">加载完成</view>
     <loadmore2 :more.sync="more2"></loadmore2>
-    <view>案例</view>
-    <scroll-view class="scroll-view" scroll-y scroll-with-animation="{{true}}" bindscrolltolower="lower">
-      <repeat for="{{listShow}}" index="index" item="item" key="{{index}}">
-        <view class="item">{{item}}</view>
-      </repeat>
-      <loadmore :more.sync="more"></loadmore>
-    </scroll-view>
   </view>
 </template>
 
@@ -33,40 +22,26 @@ export default class Loadmore extends wepy.page {
   }
 
   components = {
-    loadmore: loadmore,
     loadmore1: loadmore,
     loadmore2: loadmore
   }
 
   data = {
-    list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25],
-    listShow: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    page: 0,
-    pagesize: 10,
-    more: true,
-    more1: true,
-    more2: false
+    more1: {
+      type: true,
+      loading: 'loading',
+      loaded: '加载完成'
+    },
+    more2: {
+      type: false,
+      loading: '加载中',
+      loaded: '我们是有底线的'
+    }
   }
 
   computed = {}
 
   methods = {
-  }
-
-  lower () {
-    const len = this.list.length
-    const hasMore = len > this.listShow.length
-    if (hasMore) {
-      this.page++
-      const { page, pagesize } = this
-      const start = page * pagesize
-      const end = (page + 1) * pagesize > len ? len : (page + 1) * pagesize
-      const newdata = this.list.slice(start, end)
-      console.log(start, end, newdata)
-      this.listShow = this.listShow.concat(newdata)
-    }
-    this.more = hasMore
-    this.$apply()
   }
 
   events = {

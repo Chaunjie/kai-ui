@@ -1,11 +1,11 @@
 <style lang="less" src="./index.less"></style>
 <template>
   <view class="loadmore">
-    <view wx:if="{{more}}">
-      <text class="iconfont icon-loading"></text><text>加载中</text>
+    <view wx:if="{{more.type}}">
+      <text class="iconfont icon-loading"></text><text>{{more.loading || '加载中'}}</text>
     </view>
     <view wx:else>
-      <text>———— 加载完成 ————</text>
+      <text class="lighter">————</text><text> {{more.loaded || '加载完成'}} </text><text class="lighter">————</text>
     </view>
   </view>
   
@@ -15,9 +15,9 @@
   export default class Loadmore extends wepy.component {
     props = {
       more: {
-        type: [Boolean, String],
+        type: Object,
         twoWay: true,
-        default: true
+        default: {}
       }
     }
 
