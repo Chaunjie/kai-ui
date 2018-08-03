@@ -39,7 +39,7 @@
             <text class="iconfont icon-close delete-file" catchtap="removeImg({{index}})"></text>
           </view>
         </repeat>
-        <uploader :imgWidth.sync="imgWidth" :total="imgTotal" region="ECN" :imgList.sync="imgList"></uploader>
+        <uploader :imgWidth.sync="imgWidth" :total="imgTotal" region="ECN" :imgList.sync="imgList" :domain="domain" :uptokenURL="uptokenURL" :test="test"></uploader>
       </view>
     </panel>
   </view>
@@ -63,7 +63,10 @@ export default class Uploader extends wepy.page {
   data = {
     imgTotal: 5,  // 可上传图片总数
     imgList: [],  // 图片上传列表
-    imgWidth: 90
+    imgWidth: 90,
+    domain: '',
+    uptokenURL: '',
+    test: true
   }
 
   computed = {}
@@ -99,8 +102,12 @@ export default class Uploader extends wepy.page {
 
   events = {
     // 上传图片成功回调
-    'refresh-img-list': (data) => {
-      this.imgList.push({url: data.imageURL})
+    'refresh-img-list': (data, test) => {
+      if (test) {
+        this.imgList.push({url: data})
+      } else {
+        this.imgList.push({url: data.imageURL})
+      }
       this.$apply()
     }
   }

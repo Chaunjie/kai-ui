@@ -7,10 +7,20 @@
 </template>
 <script>
 import wepy from 'wepy'
-// const qiniuUploader = require('../../utils/qiniuUploader')
+const qiniuUploader = require('../../utils/qiniuUploader')
 
 export default class uploader extends wepy.component {
   props = {
+    uptokenURL: {  // tokenurl
+      type: String,
+      twoWay: true,
+      default: 'https://www.***.com/local/upload/token/type/image'
+    },
+    domain: {  // 图片域名
+      type: String,
+      twoWay: true,
+      default: 'http://images.***.com'
+    },
     imgList: {  // 上传图片列表
       type: Array,
       twoWay: true,
@@ -35,40 +45,50 @@ export default class uploader extends wepy.component {
       type: Number,
       twoWay: true,
       default: 0
+    },
+    test: {  // 预留本地测试
+      type: Boolean,
+      twoWay: true,
+      default: false
     }
   }
 
   methods = {
     upLoad () {
-      // var that = this
-      // // 初始化
-      // var options = {
-      //   region: that.region, // 华东区
-      //   uptokenURL: 'https://www.***.com/local/upload/token/type/image',
-      //   domain: 'http://images.***.com',
-      //   shouldUseQiniuFileName: false
-      // }
-      // qiniuUploader.init(options)
-      // // 选择图片
-      // wx.chooseImage({
-      //   count: 1,
-      //   success: function (res) {
-      //     console.log(res)
-      //     var filePath = res.tempFilePaths[0]
-      //     console.log(res.tempFilePath)
-      //     // 交给七牛上传
-      //     wx.showLoading({
-      //       mask: true
-      //     })
-      //     qiniuUploader.upload(filePath, (res) => {
-      //       wx.hideLoading()
-      //       // 上传成功回调
-      //       that.$emit('refresh-img-list', res)
-      //     }, (error) => {
-      //       console.log('error: ' + error)
-      //     })
-      //   }
-      // })
+      var that = this
+      // 初始化
+      var options = {
+        region: that.region, // 华东区
+        uptokenURL: that.uptokenURL,
+        domain: that.domain,
+        shouldUseQiniuFileName: false
+      }
+      qiniuUploader.init(options)
+      // 选择图片
+      wx.chooseImage({
+        count: 1,
+        success: function (res) {
+          console.log(res)
+          var filePath = res.tempFilePaths[0]
+          console.log(res.tempFilePath)
+          // 交给七牛上传
+          wx.showLoading({
+            mask: true
+          })
+          if (that.test) {
+            wx.hideLoading()
+            that.$emit('refresh-img-list', filePath, that.test)
+          } else {
+            qiniuUploader.upload(filePath, (res) => {
+              wx.hideLoading()
+              // 上传成功回调
+              that.$emit('refresh-img-list', res)
+            }, (error) => {
+              console.log('error: ' + error)
+            })
+          }
+        }
+      })
     }
   }
 
