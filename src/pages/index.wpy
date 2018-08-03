@@ -1,4 +1,7 @@
 <style lang="less">
+  .panel .info {
+    padding: 0;
+  }
   .icon-img{
     display: flex;
     flex-direction: row;
@@ -17,10 +20,12 @@
       kai-ui
     </view>
     <repeat for="{{cellDemoList}}" index="index" item="item" key="panel-{{index}}">
-      <view>
-        <view class="font-12 padding-10" style="padding-bottom: 0;">{{item.title}}</view>
-        <cell :celldata="item.list"></cell>
-      </view>
+      <panel>
+        <view slot="title" class="title">{{item.title}}</view>
+        <block>
+          <cell :celldata="item.list"></cell>
+        </block>
+      </panel>
     </repeat>
     <view class="padding-10"></view>
   </view>
@@ -29,6 +34,7 @@
 <script>
 import wepy from 'wepy'
 import cell from '@/components/cell/index'
+import panel from '@/components/panel/index'
 
 export default class Index extends wepy.page {
   config = {
@@ -36,7 +42,8 @@ export default class Index extends wepy.page {
   }
 
   components = {
-    cell: cell
+    cell: cell,
+    panel: panel
   }
 
   data = {
