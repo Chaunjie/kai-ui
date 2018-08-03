@@ -405,100 +405,9 @@ export default class Cell extends wepy.page {
       ],
       [
         {
-          title: '列表',
-          linktype: 1,
-          link: 'cell'
-        },
-        {
-          title: '列表',
-          linktype: 1,
-          link: 'cell'
-        },
-        {
-          title: '列表',
-          linktype: 1,
-          link: 'cell'
-        }
-      ],
-      [
-        {
-          title: '列表带icon',
-          icontype: '1',
-          icontext: 'icon-components',
-          linktype: 1,
-          link: 'cell'
-        },
-        {
-          title: '列表带icon',
-          icontype: '1',
-          icontext: 'icon-components',
-          linktype: 1,
-          link: 'cell'
-        },
-        {
-          title: '列表带icon',
-          icontype: '1',
-          icontext: 'icon-components',
-          linktype: 1,
-          link: 'cell'
-        }
-      ],
-      [
-        {
           title: '单行有附加信息',
           subtitle: '图片icon',
           detail: '有箭头',
-          linktype: 1,
-          link: 'index',
-          icontype: '2',
-          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
-        }
-      ],
-      [
-        {
-          title: '多行列表',
-          subtitle: '无icon',
-          detail: '无箭头',
-          linktype: 0,
-          link: 'index',
-          icontype: 1,
-          icontext: ''
-        },
-        {
-          title: '多行列表',
-          subtitle: 'icon',
-          detail: '无箭头',
-          linktype: 0,
-          link: 'index',
-          icontype: '1',
-          icontext: 'icon-components'
-        },
-        {
-          title: '多行列表',
-          subtitle: '图片icon',
-          detail: '有箭头',
-          linktype: 1,
-          link: 'index',
-          icontype: '2',
-          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
-        }
-      ],
-      [
-        {
-          title: '单行',
-          subtitle: '',
-          detail: '无附加信息',
-          linktype: 1,
-          link: 'index',
-          icontype: '2',
-          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
-        }
-      ],
-      [
-        {
-          title: '单行好多字真的好多字不信你数数怎么样',
-          subtitle: '',
-          detail: '无附加信息',
           linktype: 1,
           link: 'index',
           icontype: '2',
@@ -530,7 +439,48 @@ export default class Cell extends wepy.page {
 
 #### Panel 
 
-panel
+- **概述**
+
+&emsp;&emsp;适用于
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import  from 'kai-ui/'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  : 
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+	
+</template>
+```
+
+&emsp;&emsp;方法触法调用
+```javascript
+
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+|     | `String` | `true`   |  |
+|  | `String` | `false`  |     |
+|  | `Boolean` | `true`  |     |
+
+&emsp;&emsp;案例
+```wpy
+
+```
 
 ### 基础组件
 
