@@ -1,7 +1,27 @@
 <style lang="less" src="./index.less"></style>
 <style lang="less">
+
   .pop-inner {
-    width: 200rpx;
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+  .pop-text {
+    font-size: 16px;
+    text-align: center;
+    line-height: 28px;
+  }
+  .pop-center {
+    width: 240px;
+    height: 300px;
+  }
+  .pop-right {
+    width: 200px;
+  }
+  .pop-left {
+    width: 200px;
+  }
+  .margin-top20 {
+    margin-top: 20px;
   }
 </style>
 
@@ -15,14 +35,20 @@
       <button class="btn btn-danger btn-empty" catchtap="popPosition(2)">从右边弹出popup</button>
     </view>
     <repeat for="{{popData}}" index="i" item="item" key="row-{{index}}">
-      <popup :show.sync="item.showPopup" :position.sync="item.position" :id.sync="i">
-        <view slot="popContainer">
-          <view class="pop-inner">
-            <button class="btn">
-              111 
+      <popup :show.sync="item.showPopup" :position.sync="item.position" :id.sync="i" :maskHide.sync="item.maskHide">
+        <block slot="popContainer">
+          <view class="pop-inner {{'pop-'+item.position}}">
+            <view class="pop-text">忆江南</view>
+            <view class="pop-text">江南好</view>
+            <view class="pop-text">风景旧曾谙</view>
+            <view class="pop-text">日出江花红胜火</view>
+            <view class="pop-text">春来江水绿如蓝</view>
+            <view class="pop-text">能不忆江南</view>
+            <button class="btn btn-kai margin-top20" catchtap="close({{i}})">
+              关闭 
             </button>
           </view>
-        </view>
+        </block>
       </popup>
     </repeat> 
   </view>
@@ -44,11 +70,13 @@ export default class Popup extends wepy.page {
     popData: [
       {
         showPopup: true,
-        position: 'center'
+        position: 'center',
+        maskHide: false
       },
       {
         showPopup: false,
-        position: 'top'
+        position: 'top',
+        maskHide: false
       },
       {
         showPopup: false,
@@ -73,6 +101,10 @@ export default class Popup extends wepy.page {
         r.showPopup = false
       })
       this.popData[i].showPopup = true
+    },
+    close (i) {
+      this.popData[i].showPopup = false
+      console.log(this.popData[i].showPopup)
     }
   }
 
