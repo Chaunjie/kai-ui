@@ -2,12 +2,12 @@
 .layout-list {
   margin-bottom: 10px;
   .col {
-    background-color: #50b4d3;
+    background-color: #d4a260;
     color: #fff;
     text-align: center;
     font-size: 12px;
     &:nth-child(2n) {
-      background-color: #7dd4ee;
+      background-color: #C59E6C;
     }
   }
 }
