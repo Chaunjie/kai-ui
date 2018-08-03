@@ -1,3 +1,15 @@
+<style lang="less">
+.list1 {
+  color: #C59E6C;
+}
+.list {
+  color: #808080;
+}
+.bold {
+  font-weight: bold;
+}
+</style>
+
 <template>
   <view class="kai-content">
     <import src="../wxParse/wxParse.wxml"/>
@@ -31,47 +43,62 @@ export default class ActionSheet extends wepy.page {
     asData: [
       {
         itemList: [{
-          class: '',
-          value: '好多文字啊哈哈哈哈啊哈哈哈哈哈哈哈啊哈哈好多文字啊哈哈哈哈啊哈哈哈哈哈哈哈啊哈哈',
+          class: 'list bold',
+          value: '江南忆',
           event: '',
-          slotid: 'slotid0',
-          slot: '<view class="iconfont icon-success">alot1</view><view class="iconfont icon-delete">alot11</view>'
+          slotid: 'slotid0'
+          // ,slot: '<view class="iconfont icon-success">alot1</view><view class="iconfont icon-delete">alot11</view>'
         },
         {
-          class: '',
-          value: '<view class="iconfont icon-success">111</view>',
+          class: 'list',
+          value: '其次忆吴宫',
           event: '',
-          slotid: 'slotid1',
-          slot: '<view class="iconfont icon-minus">slot2</view><view class="iconfont icon-plus">alot21</view>'
+          slotid: 'slotid1'
+          // ,slot: '<view class="iconfont icon-minus">slot2</view><view class="iconfont icon-plus">alot21</view>'
         },
         {
-          class: '',
-          value: '<view class="iconfont icon-success">222</view>',
+          class: 'list',
+          value: '吴酒一杯春竹叶',
           event: ''
         },
         {
-          class: '',
-          value: '333',
+          class: 'list',
+          value: '吴娃双舞醉芙蓉',
+          event: ''
+        },
+        {
+          class: 'list',
+          value: '早晚复相逢',
           event: ''
         }],
         top: true,
         index: 0,
-        show: true
+        show: false
       },
       {
         itemList: [{
-          class: '',
-          value: '一一一',
+          class: 'bold list1',
+          value: '江南忆',
           event: ''
         },
         {
-          class: '',
-          value: '二二二',
+          class: 'list1',
+          value: '最忆是杭州',
           event: ''
         },
         {
-          class: '',
-          value: '三三三',
+          class: 'list1',
+          value: '山寺月中寻桂子',
+          event: ''
+        },
+        {
+          class: 'list1',
+          value: '郡亭枕上看潮头',
+          event: ''
+        },
+        {
+          class: 'list1',
+          value: '何日更重游',
           event: ''
         }],
         index: 1,
