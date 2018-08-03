@@ -897,13 +897,13 @@ export default class Index extends wepy.page {
 
 &emsp;&emsp;页面中引入组件
 ```javascript
-import Switch from '@/components/switch/index'
+import switch from 'kai-ui/Switch'
 ```
 
 &emsp;&emsp;组件添加
 ```javascript
 components = {
-  switch: Switch
+  switch: switch
 }
 ```
 
