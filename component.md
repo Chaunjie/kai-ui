@@ -12,7 +12,7 @@
 8、toptips提示 (wppeng)
 9、toast组件(wppeng)
 10、stepper计步器组件(wppeng)
-11、switch组件(wppeng)
+11、switch组件 ✔
 12、actionsheet（stardew）✔
 13、dialog(wppeng)
 14、searchbar(wppeng)
@@ -37,7 +37,7 @@
 
 wppeng:  8、9、10、11、13、14、15、16、28
 stardew: 1、2、3、4、5、6、7、12、17、18、19、20、21
-chaunjie: 22、23、24、25、26、27、29、30、31、32
+chaunjie: 11、22、23、24、25、26、27、29、30、31、32
 
 最后提供：基础样式（例如各种字体样式）
 
