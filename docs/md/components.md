@@ -887,6 +887,211 @@ export default class Index extends wepy.page {
 </script>
 ```
 
+#### Switch 开关
+
+- **概述**
+
+&emsp;&emsp;开关组件
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Switch from '@/components/switch/index'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  switch: Switch
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+	<switch
+    :checked.sync="item1.checked"
+    :disabled.sync="item1.disabled"
+    :componentId.sync="item1.componentId"
+    className="test-switch"
+    :sync.sync="item1.sync"
+    :loading.sync="item1.loading"
+    @onChange.user="change"/>
+    <switch-sync
+      :checked.sync="item.checked"
+      :disabled.sync="item.disabled"
+      :type.sync="item.type"
+      :componentId.sync="item.componentId"
+      className="test-switch"
+      @onChange.user="doChange"/>
+</template>
+```
+
+&emsp;&emsp;参数格式
+```data
+data = {
+	item1: {
+    title: '普通样式',
+    checked: false,
+    disabled: false,
+    componentId: 'switch1'
+  },
+	item: {
+    title: '异步样式',
+    checked: false,
+    disabled: false,
+    sync: true,
+    loading: false,
+    componentId: 'switch3'
+  }
+}
+```
+
+&emsp;&emsp;对应方法：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+| onChange | `Function` | `false`  | 开关change回调方法    |
+
+&emsp;&emsp;配置:
+
+| 参数      | 类型 | 异步 | 可选项 | 默认值 | 描述                      |
+| -------- | ----- | ----- | ------- | -------  | ---------------------------- |
+| className   | `String` | `true`   | - | - | 开关自定义样式 |
+| checked   | `Boolean` | `true`   | `true、false` | `false` | 开关是否开启 |
+| disabled   | `Boolean` | `true`   | `true、false` | `false` | 开关是否可操作 |
+| type   | `String` | `true`   | `success、kai、danger、warn` | `success` | 开关样式 |
+| componentId   | `String` | `true`   | - | - | 开关组件id（自定义） |
+| sync   | `Boolean` | `true`   | `true、false` | `false` | 是否异步 |
+| loading   | `Boolean` | `true`   | `true、false` | `false` | 是否显示loading图案 |
+
+&emsp;&emsp;案例
+```wpy
+<template>
+	<view class="kai-content">
+    <repeat for="{{items}}" index="index" item="item" key="switch-{{index}}">
+      <view class="padding-10 font-12">{{item.title}}</view>
+      <view class="padding-10">
+        <switch
+          :checked.sync="item.checked"
+          :disabled.sync="item.disabled"
+          :size.sync="item.size"
+          :componentId.sync="item.componentId"
+          className="test-switch"
+          :sync.sync="item.sync"
+          :loading.sync="item.loading"
+          @onChange.user="change"/>
+      </view>
+    </repeat>
+    <view class="padding-10 font-12">其它样式</view>
+    <view class="padding-10">
+      <repeat for="{{items1}}" index="index" item="item" key="switch-{{index}}">
+        <switch-type
+          :checked.sync="item.checked"
+          :disabled.sync="item.disabled"
+          :size.sync="item.size"
+          :type.sync="item.type"
+          :componentId.sync="item.componentId"
+          className="test-switch"
+          @onChange.user="doChange"/>
+      </repeat>
+    </view>
+  </view>
+</template>
+<script>
+import switch from 'kai-ui/Switch'
+export default class Index extends wepy.page {
+	components = {
+		switch: switch,
+    'switch-type': switch
+	}
+
+	data = {
+		items: [
+        {
+          title: '普通样式',
+          checked: false,
+          disabled: false,
+          componentId: 'switch1'
+        },
+        {
+          title: '禁选样式',
+          checked: true,
+          disabled: true,
+          componentId: 'switch2'
+        },
+        {
+          title: '异步样式',
+          checked: false,
+          disabled: false,
+          sync: true,
+          loading: false,
+          componentId: 'switch3'
+        }
+      ],
+      items1: [
+        {
+          checked: true,
+          disabled: false,
+          type: 'success',
+          componentId: 'switch4'
+        },
+        {
+          checked: true,
+          disabled: false,
+          type: 'kai',
+          componentId: 'switch5'
+        },
+        {
+          checked: true,
+          disabled: false,
+          type: 'danger',
+          componentId: 'switch6'
+        },
+        {
+          checked: true,
+          disabled: false,
+          type: 'warn',
+          componentId: 'switch7'
+        }
+      ]
+	}
+
+	methods = {
+		change (res) {
+        const {items} = this
+        for (let i = 0; i < items.length; i++) {
+          if (items[i].componentId === res.componentId) {
+            if (res.sync) {
+              this.items[i].loading = true
+              setTimeout(() => {
+                this.items[i].loading = false
+                this.items[i].checked = res.checked
+                this.$apply()
+              }, 1000)
+            } else {
+              this.items[i].checked = res.checked
+              this.$apply()
+            }
+          }
+        }
+        console.log(res)
+      },
+      doChange (res) {
+        const {items1} = this
+        for (let i = 0; i < items1.length; i++) {
+          if (items1[i].componentId === res.componentId) {
+            this.items1[i].checked = res.checked
+            this.$apply()
+          }
+        }
+      }
+	}
+}
+</script>
+```
+
 #### Stepper 步骤条
 
 stepper
