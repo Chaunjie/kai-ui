@@ -132,14 +132,14 @@ this.initData(rows, cols, gridItems, gridlist)
     <panel>
       <view slot="title" class="title">9宫格</view>
       <view class="panel">
-        <grid1 :rows="rows" :cols="cols">
+        <grid :rows="rows" :cols="cols">
           <repeat for="{{gridlist}}" index="i" item="item" key="row-{{index}}">
             <view class="grid-items {{item.class}}">
               <icon :type="item.icon"></icon>
               <text class="">{{item.text}}</text>
             </view>
           </repeat>
-        </grid1>
+        </grid>
       </view>
     </panel>
   </view>
@@ -158,14 +158,13 @@ export default class Grid extends wepy.page {
 
   components = {
     grid: grid,
-    grid1: grid,
     panel: panel,
     icon: icon
   }
 
   data = {
-    rows: 1,
-    cols: 1,
+    rows: 3,
+    cols: 3,
     gridlist: [],
     gridItems: [
       {
@@ -306,9 +305,9 @@ components = {
 
 | 参数      | 类型 | 异步 | 描述                      |
 | -------- | ----- | ----- | ---------------------------- |
-|     | `String` | `true`   |  |
+|     | `String` | `false`   |  |
 |  | `String` | `false`  |     |
-|  | `Boolean` | `true`  |     |
+|  | `String` | `false`  |     |
 
 &emsp;&emsp;案例
 ```wpy
@@ -331,7 +330,7 @@ import Cell from 'kai-ui/Cell'
 &emsp;&emsp;组件添加
 ```javascript
 components = {
-  cell : Cell
+  cell: Cell
 }
 ```
 
@@ -437,7 +436,269 @@ export default class Cell extends wepy.page {
 </script>
 ```
 
-#### Panel 
+#### Panel  
+
+- **概述**
+
+&emsp;&emsp;适用于统一面板
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Panel from 'kai-ui/Panel'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  panel: Panel
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <panel class="padding-10">
+    <view>我是默认的panel</view>
+  </panel>
+  <panel class="padding-10">
+    <view slot="title" class="title">无边框</view>
+    <view>我是一个没有边框的panel</view>
+  </panel>
+</template>
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+|   border  | `String` | `false`   | 例如：border-width: 1px 0 1px 0; |
+
+### 基础组件
+
+#### Button 按钮
+
+- **概述**
+
+&emsp;&emsp;适用于统一按钮button
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入全局样式
+```javascript
+@import '../node_modules/wepy-ui-ydj/src/styles/all';
+```
+
+&emsp;&emsp;案例
+```wpy
+<style lang="less" src="../less/font.less"></style>
+<style lang="less">
+
+</style>
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <button class="btn btn-min">按钮</button>
+      <button class="btn btn-min btn-kai">微信支付</button>
+      <button class="btn btn-min btn-empty btn-success">微信支付</button>
+    </view>
+    <view class="padding-10">
+      <button class="btn btn-small">按钮</button>
+      <button class="btn btn-small btn-success">支付宝支付</button>
+      <button class="btn btn-small btn-kai">微信支付</button>
+      <button class="btn btn-small btn-danger btn-empty">京东支付</button>
+    </view>
+    <view class="padding-10">
+      <button class="btn ">按钮</button>
+      <button class="btn btn-success">按钮</button>
+      <button class="btn btn-kai">按钮</button>
+      <button class="btn btn-warn btn-empty">按钮</button>
+    </view>
+    <view class="padding-10">
+      <button class="btn btn-large">按钮</button>
+      <button class="btn btn-large btn-success">按钮</button>
+      <button class="btn btn-large btn-kai">按钮</button>
+      <button class="btn btn-large btn-warn btn-empty">按钮</button>
+    </view>
+    <view class="padding-10">
+      <button class="btn btn-small btn-success btn-loading">
+       <view class="iconfont icon-loading"></view>
+       按钮
+     </button>
+     <button class="btn btn-large btn-kai btn-loading">
+       <view class="iconfont icon-loading"></view>
+       按钮
+     </button>
+     <button class="btn btn-large btn-warn btn-empty btn-loading">
+       <view class="iconfont icon-loading"></view>
+       按钮
+     </button>
+   </view>
+   <view class="padding-10">
+    <button class="btn btn-min" disabled>按钮</button>
+    <button class="btn btn-small btn-success btn-empty" disabled>按钮</button>
+    <button class="btn btn-kai" disabled>按钮</button>
+    <button class="btn btn-large btn-warn" disabled>按钮</button>
+  </view>
+</view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Button extends wepy.page {
+  config = {
+    navigationBarTitleText: '按钮'
+  }
+  components = {}
+
+  data = {}
+
+  computed = {}
+
+  methods = {}
+
+  events = {}
+
+  onLoad() {}
+}
+</script>
+```
+
+#### Icon 图标
+
+- **概述**
+
+&emsp;&emsp;提供了一套常用的图标集合
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Icon from 'kai-ui/Icon'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  icon: Icon
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <icon :type="item" :event="index % 2 ? 'icon-tap' : ''"></icon>
+</template>
+```
+
+&emsp;&emsp;方法触法调用
+```javascript
+  events = {
+    'icon-tap': function () {
+      console.log('点击事件回调')
+    }
+  }
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+|  type   | `String` | `false`   | 图标的iconfont |
+| event | `String` | `false`  |  事件回调   |
+
+&emsp;&emsp;案例
+```wpy
+  <style lang="less" src="../less/font.less"></style>
+  <style lang="less">
+  .icon-container{
+    background-color:#fff;
+  }
+  .icon-block{
+    background-color:#fff;
+    padding: 20px 0;
+    .iconfont {
+      font-size:30px;
+      margin-bottom:20px;
+      color:#999;
+    }
+    .icon-title{
+      font-size:12px;
+      color:#999;
+      text-align: center;
+    }
+    > view{
+      width:100%;
+      display:flex;
+      align-items:center;
+      justify-content: center;
+    }
+  }
+  </style>
+  <template>
+    <view class="kai-content icon-container layout">
+      <repeat for="{{list}}" index="index" item="item" key="key">
+        <view class="col col-6 icon-block" >
+          <view>
+            <icon :type="item" :event="index % 2 ? 'icon-tap' : ''"></icon>
+          </view>
+          <view>
+            <text class="icon-title">{{item}}</text>
+          </view>
+        </view>
+      </repeat>
+    </view>
+  </template>
+
+  <script>
+  import wepy from 'wepy'
+  import icon from '@/components/icon/index'
+
+  export default class Icon extends wepy.page {
+    config = {
+      navigationBarTitleText: '字体库'
+    }
+    components = {
+      icon: icon
+    }
+
+    data = {
+      list: [
+        'icon-delete', 'icon-upload', 'icon-upload2', 'icon-download2', 'icon-rank',
+        'icon-refresh', 'icon-edit-outline', 'icon-edit', 'icon-setting-outline', 'icon-setting',
+        'icon-share', 'icon-loading', 'icon-picture-outline', 'icon-picture', 'icon-callinging',
+        'icon-call', 'icon-location-outline', 'icon-location', 'icon-more-outline', 'icon-more',
+        'icon-phone', 'icon-service', 'icon-menu', 'icon-star-outline', 'icon-star',
+        'icon-view', 'icon-time', 'icon-message', 'icon-printer', 'icon-bell',
+        'icon-date', 'icon-news', 'icon-goods-soldout', 'icon-goods', 'icon-sort',
+        'icon-sort-down', 'icon-sort-up', 'icon-ticket', 'icon-document', 'icon-zoom-out',
+        'icon-zoom-in', 'icon-search', 'icon-double-left', 'icon-double-right', 'icon-plus-outline',
+        'icon-plus-circle', 'icon-plus', 'icon-minus-outline', 'icon-minus-circle', 'icon-minus',
+        'icon-success-outline', 'icon-success-circle', 'icon-success', 'icon-close-outline', 'icon-close-circle',
+        'icon-close', 'icon-caret', 'icon-caret-up', 'icon-caret-right', 'icon-caret-down',
+        'icon-caret-left', 'icon-info', 'icon-warning', 'icon-right', 'icon-left',
+        'icon-up', 'icon-down', 'icon-question', 'icon-back', 'icon-components'
+      ]
+    }
+
+    computed = {}
+
+    methods = {}
+
+    events = {
+      'icon-tap': function () {
+        console.log(111)
+      }
+    }
+
+    onLoad() {}
+  }
+  </script>
+```
+
+#### Loadmore 加载
 
 - **概述**
 
@@ -447,68 +708,96 @@ export default class Cell extends wepy.page {
 
 &emsp;&emsp;页面中引入组件
 ```javascript
-import  from 'kai-ui/'
+import Loadmore from 'kai-ui/Loadmore'
 ```
 
 &emsp;&emsp;组件添加
 ```javascript
 components = {
-  : 
+  loadmore: Loadmore
 }
 ```
 
 &emsp;&emsp;template添加
 ```template
 <template>
-	
+  <loadmore :more.sync="more"></loadmore>
 </template>
-```
-
-&emsp;&emsp;方法触法调用
-```javascript
-
 ```
 
 &emsp;&emsp;对应参数：
 
 | 参数      | 类型 | 异步 | 描述                      |
 | -------- | ----- | ----- | ---------------------------- |
-|     | `String` | `true`   |  |
-|  | `String` | `false`  |     |
-|  | `Boolean` | `true`  |     |
+|  more  | `Object` | `false`   | 展示参数，支持类型，加载中文案，加载完成文案 |
+| more.type | `Boolean` | `false`  |  true: 加载中, false: 加载完成   |
+| more.loading | `String` | `false`  |  加载中文案   |
+| more.loaded | `String` | `false`  |  加载完成文案   |
 
 &emsp;&emsp;案例
 ```wpy
+  <style lang="less">
+  .title {
+    font-size: 12px;
+  }
+  </style>
+  <template>
+    <view class="kai-content">
+      <view class="title padding-10">加载中</view>
+      <loadmore1 :more.sync="more1"></loadmore1>
+      <view class="title padding-10">加载完成</view>
+      <loadmore2 :more.sync="more2"></loadmore2>
+    </view>
+  </template>
 
+  <script>
+  import wepy from 'wepy'
+  import loadmore from '@/components/loadmore/index'
+
+  export default class Loadmore extends wepy.page {
+    config = {
+      navigationBarTitleText: 'loadmore'
+    }
+
+    components = {
+      loadmore1: loadmore,
+      loadmore2: loadmore
+    }
+
+    data = {
+      more1: {
+        type: true,
+        loading: 'loading',
+        loaded: '加载完成'
+      },
+      more2: {
+        type: false,
+        loading: '加载中',
+        loaded: '我们是有底线的'
+      }
+    }
+
+    computed = {}
+
+    methods = {
+    }
+
+    events = {
+    }
+
+    onLoad() {
+    }
+  }
+  </script>
 ```
-
-### 基础组件
-
-#### Button 按钮
-
-button
-
-#### Icon 图标
-
-提供了一套常用的图标集合。
-
-##### 使用方法
-
-`<text class="iconfont {{item}}"></text>`
-
-##### 图标集合
-
-#### Loadmore 加载
-
-loadmore
-
-#### Helper 基础样式
-
-helper
 
 #### Tag 标记
 
 tag
+
+#### Helper 基础样式
+
+helper
 
 ### 导航组件
 
