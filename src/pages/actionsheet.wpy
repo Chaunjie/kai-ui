@@ -1,7 +1,7 @@
 <style lang="less">
-.list1 {
-  color: #C59E6C;
-}
+// .list1 {
+//   color: #C59E6C;
+// }
 .list {
   color: #808080;
 }
@@ -14,7 +14,7 @@
   <view class="kai-content">
     <import src="../wxParse/wxParse.wxml"/>
     <view class="padding-10">
-      <button class="btn btn-success" catchtap="showActionSheet(0)">从顶部弹出popup</button>
+      <!-- <button class="btn btn-success" catchtap="showActionSheet(0)">从顶部弹出popup</button> -->
       <button class="btn btn-kai" catchtap="showActionSheet(1)">从底部弹出popup</button>
     </view>
     <repeat for="{{asData}}" index="i" item="item" key="row-{{index}}">
@@ -78,27 +78,15 @@ export default class ActionSheet extends wepy.page {
       {
         itemList: [{
           class: 'bold list1',
-          value: '江南忆',
+          value: '自定义',
           event: ''
         },
         {
-          class: 'list1',
-          value: '最忆是杭州',
+          value: '拍摄',
           event: ''
         },
         {
-          class: 'list1',
-          value: '山寺月中寻桂子',
-          event: ''
-        },
-        {
-          class: 'list1',
-          value: '郡亭枕上看潮头',
-          event: ''
-        },
-        {
-          class: 'list1',
-          value: '何日更重游',
+          value: '从手机相册选择',
           event: ''
         }],
         index: 1,
