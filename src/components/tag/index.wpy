@@ -1,6 +1,6 @@
 <style lang="less" src="./index.less"></style>
 <template>
-  <view class="tag {{type ? type : ''}}" data-type="{{type}}">
+  <view class="tag {{type ? type : ''}}">
     <slot></slot>
   </view>
 </template>
@@ -13,11 +13,6 @@
         type: String,
         twoWay: true,
         default: ''
-      },
-      index: {
-        type: [String, Number],
-        twoWay: true,
-        default: 0
       }
     }
 

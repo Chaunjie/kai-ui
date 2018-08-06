@@ -793,17 +793,393 @@ components = {
 
 #### Tag 标记
 
-tag
+- **概述**
+
+&emsp;&emsp;页面标签
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Tag from 'kai-ui/Tag'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  tag: Tag
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <view class="kai-content">
+    <view class="panel padding-10">
+      <view class="list list-last-child">
+        <repeat for="{{types}}" index="i" item="item">
+          <tags :type="item.type">{{item.text}}</tags>
+        </repeat>
+      </view>
+    </view>
+  </view>
+</template>
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+|  type   | `String` | `false`   | 标签类型 |
+
+&emsp;&emsp;案例
+```wpy
+<style lang="less">
+.tag{
+  margin-right:10px;
+}
+</style>
+<template>
+  <view class="kai-content">
+    <view class="panel padding-10">
+      <view class="list list-last-child">
+        <repeat for="{{types}}" index="i" item="item">
+          <tags :type="item.type">{{item.text}}</tags>
+        </repeat>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+import Tags from '@/components/tag/index'
+export default class Tag extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Tag 标记'
+  }
+  components = {
+    tags: Tags
+  }
+
+  data = {
+    types: [
+      {
+        type: 'tag-plain',
+        text: '默认'
+      },
+      {
+        type: 'tag-primary',
+        text: '返现'
+      },
+      {
+        type: 'tag-danger',
+        text: '会员折扣'
+      },
+      {
+        type: 'tag-warn',
+        text: '返现'
+      },
+      {
+        type: 'tag-disabled',
+        text: '返现不可用'
+      }
+    ]
+  }
+
+  computed = {}
+
+  methods = {}
+
+  events = {}
+
+  onLoad() {}
+}
+</script>
+```
 
 #### Helper 基础样式
 
-helper
+- **概述**
+
+&emsp;&emsp;帮助
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入全局样式
+```javascript
+@import '../node_modules/wepy-ui-ydj/src/styles/all';
+```
+
+&emsp;&emsp;案例
+```wpy
+<style lang="less">
+  .helper-container{
+    background-color:#fff;
+  }
+  .font-content{
+    padding:5px 0;
+    border-bottom:1rpx solid #f5f5f5;
+  }
+</style>
+<template>
+  <view class="kai-content helper-container padding-10">
+    <view class="panel">
+       <view class="text-pull-left font-content">
+        <text class="font-12 color-gray">text-pull-left：靠左对齐</text>
+      </view>
+      <view class="text-align-center font-content">
+        <text class="font-12 color-gray">text-align-center：居中对齐</text>
+      </view>
+      <view class="text-pull-right font-content">
+        <text class="font-12 color-gray">text-pull-right：靠右对齐</text>
+      </view>
+      <view class="font-content">
+        <text class="font-12 color-gray text-deleted">text-deleted：被删除的效果</text>
+      </view>
+      <view class="text-pull-left font-content">
+        <text class="font-14 color-title font-bold">font-14 font-bold：字号14 加粗</text>
+      </view>
+      <view class="text-pull-left font-content">
+        <text class="font-16 color-title font-bold">font-16 font-bold：字号16 加粗</text>
+      </view>
+      <view class="text-pull-left font-content">
+        <view>
+          <text class="font-14 color-red">color-red</text>
+        </view>
+        <view>
+          <text class="font-14 color-gray">color-gray</text>
+        </view>
+        <view>
+          <text class="font-14 color-blue">color-blue</text>
+        </view>
+        <view>
+          <text class="font-14 color-success">color-success</text>
+        </view>
+      </view>
+      <view class="font-content">
+        <text class="font-14 color-title ellipsis-l2">我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符</text>
+      </view>
+      <view class="font-content">
+        <text class="font-14 color-title ellipsis-l1">我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符我是占位符</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+
+export default class Helper extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Helper 基础样式'
+  }
+  components = {}
+
+  data = {}
+
+  computed = {}
+
+  methods = {}
+
+  events = {}
+
+  onLoad() {}
+}
+</script>
+```
 
 ### 导航组件
 
 #### Popup 弹出层
 
-Popup 
+- **概述**
+
+&emsp;&emsp;适用于页面弹出展示
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Popup from 'kai-ui/Popup'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  popup: Popup
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <button class="btn"  bindtap="popPosition(0)">弹出popup</button>
+      <button class="btn btn-success" catchtap="popPosition(1)">从顶部弹出popup</button>
+      <button class="btn btn-kai" catchtap="popPosition(3)">从底部弹出popup</button>
+      <button class="btn btn-warn btn-empty" bindtap="popPosition(4)">从左边弹出popup</button>
+      <button class="btn btn-danger btn-empty" catchtap="popPosition(2)">从右边弹出popup</button>
+    </view>
+    <repeat for="{{popData}}" index="i" item="item" key="row-{{index}}">
+      <popup :show.sync="item.showPopup" :position.sync="item.position" :id.sync="i" :maskHide.sync="item.maskHide">
+        <block slot="popContainer">
+          <view class="pop-inner {{'pop-'+item.position}}">
+            <view class="pop-text">忆江南</view>
+            <view class="pop-text">江南好</view>
+            <view class="pop-text">风景旧曾谙</view>
+            <view class="pop-text">日出江花红胜火</view>
+            <view class="pop-text">春来江水绿如蓝</view>
+            <view class="pop-text">能不忆江南</view>
+            <button class="btn btn-kai margin-top20" catchtap="close({{i}})">
+              关闭
+            </button>
+          </view>
+        </block>
+      </popup>
+    </repeat>
+  </view>
+</template>
+```
+
+&emsp;&emsp;方法触法调用
+```javascript
+
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+|  id   | `String` | `false`   | 弹出层id |
+| show | `Boolean` | `false`  |   是否展示弹窗  |
+| position | `String` | `false`  |  弹出位置   |
+| maskHide | `Boolean` | `false`  |  点击mask不关闭   |
+
+&emsp;&emsp;案例
+```wpy
+<style lang="less" src="./index.less"></style>
+<style lang="less">
+
+  .pop-inner {
+    padding: 40px 20px;
+    box-sizing: border-box;
+  }
+  .pop-text {
+    font-size: 16px;
+    text-align: center;
+    line-height: 28px;
+  }
+  .pop-center {
+    width: 240px;
+    height: 300px;
+  }
+  .pop-right {
+    width: 200px;
+  }
+  .pop-left {
+    width: 200px;
+  }
+  .margin-top20 {
+    margin-top: 20px;
+  }
+</style>
+
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <button class="btn"  bindtap="popPosition(0)">弹出popup</button>
+      <button class="btn btn-success" catchtap="popPosition(1)">从顶部弹出popup</button>
+      <button class="btn btn-kai" catchtap="popPosition(3)">从底部弹出popup</button>
+      <button class="btn btn-warn btn-empty" bindtap="popPosition(4)">从左边弹出popup</button>
+      <button class="btn btn-danger btn-empty" catchtap="popPosition(2)">从右边弹出popup</button>
+    </view>
+    <repeat for="{{popData}}" index="i" item="item" key="row-{{index}}">
+      <popup :show.sync="item.showPopup" :position.sync="item.position" :id.sync="i" :maskHide.sync="item.maskHide">
+        <block slot="popContainer">
+          <view class="pop-inner {{'pop-'+item.position}}">
+            <view class="pop-text">忆江南</view>
+            <view class="pop-text">江南好</view>
+            <view class="pop-text">风景旧曾谙</view>
+            <view class="pop-text">日出江花红胜火</view>
+            <view class="pop-text">春来江水绿如蓝</view>
+            <view class="pop-text">能不忆江南</view>
+            <button class="btn btn-kai margin-top20" catchtap="close({{i}})">
+              关闭 
+            </button>
+          </view>
+        </block>
+      </popup>
+    </repeat> 
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import popup from '@/components/popup/index'
+
+export default class Popup extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Popup 弹出层'
+  }
+  components = {
+    popup: popup
+  }
+
+  data = {
+    popData: [
+      {
+        showPopup: true,
+        position: 'center',
+        maskHide: false
+      },
+      {
+        showPopup: false,
+        position: 'top',
+        maskHide: false
+      },
+      {
+        showPopup: false,
+        position: 'right'
+      },
+      {
+        showPopup: false,
+        position: 'bottom'
+      },
+      {
+        showPopup: false,
+        position: 'left'
+      }
+    ]
+  }
+
+  computed = {}
+
+  methods = {
+    popPosition (i) {
+      this.popData.map(function (r, i) {
+        r.showPopup = false
+      })
+      this.popData[i].showPopup = true
+    },
+    close (i) {
+      this.popData[i].showPopup = false
+      console.log(this.popData[i].showPopup)
+    }
+  }
+
+  events = {
+    pop: function (i, op) {
+      this.popData[i].showPopup = op ? false : !this.popData[i].showPopup
+    }
+  }
+
+  onLoad() {}
+}
+</script>
+```
 
 #### NoticeBar 通知
 
@@ -880,7 +1256,183 @@ tab
 
 #### Actionsheet
 
-actionsheet
+- **概述**
+
+&emsp;&emsp;操作盘
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import ActionSheet from 'kai-ui/ActionSheet'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  actionsheet: ActionSheet
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <view class="kai-content">
+    <import src="../wxParse/wxParse.wxml"/>
+    <view class="padding-10">
+      <!-- <button class="btn btn-success" catchtap="showActionSheet(0)">从顶部弹出popup</button> -->
+      <button class="btn btn-kai" catchtap="showActionSheet(1)">从底部弹出ActionSheet</button>
+    </view>
+    <repeat for="{{asData}}" index="i" item="item" key="row-{{index}}">
+      <actionsheet :asData.sync="item"></actionsheet>
+      <!-- <template is="wxParse" data="{{wxParseData: article.nodes}}"/> -->
+      <!-- <template is="wxParse" data="{{wxParseData: article.nodes}}"/> -->
+    </repeat>
+  </view>
+</template>
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+|  asData   | `Array` | `false`   | 传一整个json参数 |
+| asData.class | `String` | `false`  |  类名   |
+| asData.value | `String` | `false`  |  值   |
+| asData.event | `String` | `false`  |  点击事件  |
+
+&emsp;&emsp;案例
+```wpy
+<style lang="less">
+// .list1 {
+//   color: #C59E6C;
+// }
+.list {
+  color: #808080;
+}
+.bold {
+  font-weight: bold;
+}
+</style>
+
+<template>
+  <view class="kai-content">
+    <import src="../wxParse/wxParse.wxml"/>
+    <view class="padding-10">
+      <!-- <button class="btn btn-success" catchtap="showActionSheet(0)">从顶部弹出popup</button> -->
+      <button class="btn btn-kai" catchtap="showActionSheet(1)">从底部弹出ActionSheet</button>
+    </view>
+    <repeat for="{{asData}}" index="i" item="item" key="row-{{index}}">
+      <actionsheet :asData.sync="item"></actionsheet>
+      <!-- <template is="wxParse" data="{{wxParseData: article.nodes}}"/> -->
+      <!-- <template is="wxParse" data="{{wxParseData: article.nodes}}"/> -->
+    </repeat>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import actionsheet from '@/components/actionsheet/index'
+// import wxParse from '@/wxParse/wxParse'
+
+export default class ActionSheet extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Actionsheet 操作盘'
+  }
+
+  components = {
+    actionsheet: actionsheet
+  }
+
+  data = {
+    asData: [
+      {
+        itemList: [{
+          class: 'list bold',
+          value: '江南忆',
+          event: '',
+          slotid: 'slotid0'
+          // ,slot: '<view class="iconfont icon-success">alot1</view><view class="iconfont icon-delete">alot11</view>'
+        },
+        {
+          class: 'list',
+          value: '其次忆吴宫',
+          event: '',
+          slotid: 'slotid1'
+          // ,slot: '<view class="iconfont icon-minus">slot2</view><view class="iconfont icon-plus">alot21</view>'
+        },
+        {
+          class: 'list',
+          value: '吴酒一杯春竹叶',
+          event: ''
+        },
+        {
+          class: 'list',
+          value: '吴娃双舞醉芙蓉',
+          event: ''
+        },
+        {
+          class: 'list',
+          value: '早晚复相逢',
+          event: ''
+        }],
+        top: true,
+        index: 0,
+        show: false
+      },
+      {
+        itemList: [{
+          class: 'bold list1',
+          value: '自定义',
+          event: ''
+        },
+        {
+          value: '拍摄',
+          event: ''
+        },
+        {
+          value: '从手机相册选择',
+          event: ''
+        }],
+        index: 1,
+        show: false
+      }
+    ]
+  }
+
+  computed = {}
+
+  methods = {
+    showActionSheet (i) {
+      this.asData.map((r, i) => {
+        r.show = false
+      })
+      this.asData[i].show = true
+    }
+  }
+
+  hideActionsheet (i) {
+    this.asData[i].show = false
+  }
+
+  events = {
+    'action-sheet': function (i, index, close) {
+      console.log(i, index, close)
+      if (close === 'true') {
+        console.log('您选择了取消')
+      } else {
+        console.log(i, index)
+      }
+      this.hideActionsheet(i)
+    }
+  }
+
+  onLoad() {
+    // wxParse.wxParse('article', 'html', '<view class="haha">slot1html</view>', this, 5)
+  }
+}
+</script>
+```
 
 #### Toptips
 
@@ -898,11 +1450,307 @@ toast
 
 #### Uploader 上传
 
-uploader
+- **概述**
+
+&emsp;&emsp;适用于图片上传
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Uploader from 'kai-ui/Uploader'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  uploader: Uploader
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <view class="kai-content">
+    <panel>
+      <view slot="title" class="title">上传凭证</view>
+      <view class="panel-upload">
+        <repeat for="{{imgList}}" index="index" item="item" key="row-{{index}}">
+          <view class="img-list flex-list common-bg" style="width:{{imgWidth+'px'}};height:{{imgWidth+'px'}};background-image:url({{item.url}})"
+                catchtap="previewImg({{imgList}}, {{item.url}})">
+            <text class="iconfont icon-close delete-file" catchtap="removeImg({{index}})"></text>
+          </view>
+        </repeat>
+        <uploader :imgWidth.sync="imgWidth" :total="imgTotal" region="ECN" :imgList.sync="imgList" :domain="domain" :uptokenURL="uptokenURL" :test="test"></uploader>
+      </view>
+    </panel>
+  </view>
+</template>
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+|  uptokenURL   | `String` | `false`   | 上传图片token url |
+| domain | `String` | `false`  |  上传域名   |
+| imgList | `String` | `false`  |  上传图片列表   |
+| imgWidth | `String` | `false`  |  图片宽度   |
+| region | `String` | `false`  |   七牛上传区域  |
+| total | `String` | `false`  |   可上传图片总数  |
+| count | `String` | `false`  |  已上传图片数量   |
+
+&emsp;&emsp;案例
+```wpy
+<style lang="less" src="../less/font.less"></style>
+<style lang="less">
+  /*file*/
+  .panel-upload{
+    display: flex;
+    flex-wrap: wrap;
+    .img-list {
+      width: 80px;
+      height: 80px;
+      display: inline-block;
+      margin: 0 10px 10px 0;
+      position: relative;
+      .delete-file {
+        position:absolute;
+        top:-7px;
+        right:-5px;
+        z-index:99;
+        background:#fff;
+        border-radius:8px;
+        font-size:16px;
+        border:1px solid #fff;
+        width:16px;
+        height:16px;
+      }
+    }
+    .flex-list:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+</style>
+<template>
+  <view class="kai-content">
+    <panel>
+      <view slot="title" class="title">上传凭证</view>
+      <view class="panel-upload">
+        <repeat for="{{imgList}}" index="index" item="item" key="row-{{index}}">
+          <view class="img-list flex-list common-bg" style="width:{{imgWidth+'px'}};height:{{imgWidth+'px'}};background-image:url({{item.url}})"
+                catchtap="previewImg({{imgList}}, {{item.url}})">
+            <text class="iconfont icon-close delete-file" catchtap="removeImg({{index}})"></text>
+          </view>
+        </repeat>
+        <uploader :imgWidth.sync="imgWidth" :total="imgTotal" region="ECN" :imgList.sync="imgList" :domain="domain" :uptokenURL="uptokenURL" :test="test"></uploader>
+      </view>
+    </panel>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import uploader from '@/components/uploader/index'
+import panel from '@/components/panel/index'
+
+export default class Uploader extends wepy.page {
+  
+  config = {
+    navigationBarTitleText: 'Uploader 上传'
+  }
+
+  components = {
+    uploader: uploader,
+    panel: panel
+  }
+
+  data = {
+    imgTotal: 5,  // 可上传图片总数
+    imgList: [],  // 图片上传列表
+    imgWidth: 90,
+    domain: '',
+    uptokenURL: '',
+    test: true
+  }
+
+  computed = {}
+
+  methods = {
+    // 图片预览
+    previewImg (list, cur) {
+      var that = this
+      let urls = []
+      for (let i = 0, len = list.length; i < len; i++) {
+        urls.push(list[i].url)
+      }
+      wx.previewImage({
+        current: cur, // 当前显示图片的http链接
+        urls: urls, // 需要预览的图片http链接列表
+        success: function (res) {
+          that.$apply()
+        },
+        fail: function (res) {
+          console.log(res)
+        },
+        complete: function (res) {
+          console.log(res)
+        }
+      })
+    },
+    // 删除图片
+    removeImg (idx) {
+      this.imgList.splice(idx, 1)
+      this.$apply()
+    }
+  }
+
+  events = {
+    // 上传图片成功回调
+    'refresh-img-list': (data, test) => {
+      if (test) {
+        this.imgList.push({url: data})
+      } else {
+        this.imgList.push({url: data.imageURL})
+      }
+      this.$apply()
+    }
+  }
+
+  onLoad() {
+    let that = this
+    wx.getSystemInfo({
+      success: function(res) {
+        const windowWidth = ~~res.windowWidth
+        console.log(windowWidth)
+        that.imgWidth = (windowWidth - 20 - 30) / 4  // 两个外边距 和三个内边距
+        that.$apply()
+      }
+    })
+  }
+}
+</script>
+
+```
 
 #### Select 选择
 
-select
+- **概述**
+
+&emsp;&emsp;适用于select勾选
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Select from 'kai-ui/Select'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  select: Select
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <view class="kai-content">
+    <view class="panel">
+      <select :selectData.sync="selectData"/>
+    </view>
+    <view class="panel">
+      <select1 :selectData.sync="selectData1"/>
+    </view>
+    <button class="btn btn-success" catchtap="changeSelect">切换icon位置</button>
+  </view>
+</template>
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+|   selectData  | `Object` | `false`   | 组件传入一个参数对象 |
+| selectData.id | `String` | `false`  |   当前select的id  |
+| selectData.list | `Array` | `false`  |  当前select可选列表   |
+| selectData.selectIndex | `Number, String` | `false`  |  当前select的默认勾选索引   |
+| selectData.class | `String` | `false`  |  当前select的class   |
+
+&emsp;&emsp;案例
+```wpy
+<style lang="less">
+.icon-right{
+  font-size:12px;
+}
+</style>
+<template>
+  <view class="kai-content">
+    <view class="panel">
+      <select :selectData.sync="selectData"/>
+    </view>
+    <view class="panel">
+      <select1 :selectData.sync="selectData1"/>
+    </view>
+    <button class="btn btn-success" catchtap="changeSelect">切换icon位置</button>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import select from '@/components/select/index'
+
+export default class SelectPage extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Select 选择'
+  }
+
+  components = {
+    select: select,
+    select1: select
+  }
+
+  data = {
+    selectData: {
+      id: 0,
+      list: [{name: '选择1'}, {name: '选择2'}, {name: '选择3'}],
+      selectIndex: 0,
+      class: 'select-success'
+    },
+    selectData1: {
+      id: 1,
+      list: [{name: '选择1'}, {name: '选择2'}],
+      selectIndex: 1,
+      class: 'select-danger',
+      event: 'select-test'
+    },
+    position: ''
+  }
+
+  computed = {}
+
+  methods = {
+    changeSelect () {
+      const {selectData1} = this
+      this.position = this.position === 'left' ? 'right' : 'left'
+      selectData1.class = 'select-danger select-' + this.position
+    }
+  }
+
+  events = {
+    'select-item': (data) => {
+      console.log('item' + data)
+    },
+    'select-test': (data) => {
+      console.log('test' + data)
+    }
+  }
+
+  onLoad() {}
+}
+</script>
+```
 
 #### Radio 单选框
 
