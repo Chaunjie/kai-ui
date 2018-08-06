@@ -1,13 +1,30 @@
+<style lang="less">
+  .bg-white{
+    background-color: #fff;
+    .font-12{
+      margin-bottom: 15px;
+    }
+    .numberpicker{
+      margin-bottom: 10px;
+    }
+  }
+</style>
 <template>
-  <view>第一组：</view>
-  <repeat for="{{first.list}}" index="index" item="item">
-    <numberpicker :num="item" :index="index" :config="first.config"/>
-  </repeat>
-  <view>第二组：</view>
-  <repeat for="{{second.list}}" index="index" item="item">
-    <numberpicker :num="item" :index="index" :config="second.config"/>
-  </repeat>
-  <button @tap="save">保存</button>
+  <view class="kai-content">
+    <view class="bg-white padding-10">
+      <view class="font-12">正常样式</view>
+      <repeat for="{{first.list}}" index="index" item="item">
+        <numberpicker :num="item" :index="index" :config="first.config"/>
+      </repeat>
+    </view>
+    <view class="bg-white padding-10">
+      <view class="font-12">小size样式</view>
+      <repeat for="{{second.list}}" index="index" item="item">
+        <numberpicker :num="item" :index="index" :config="second.config"/>
+      </repeat>
+    </view>
+    <!-- <button @tap="save">保存</button> -->
+  </view>
 </template>
 
 <script>
@@ -18,7 +35,6 @@
     config = {
       navigationBarTitleText: 'NumberPicker 数字输入框'
     }
-
     data = {
       first: {
         list: [1],

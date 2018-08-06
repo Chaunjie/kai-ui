@@ -1,6 +1,8 @@
 <template>
   <toptips />
-  <button @tap="showSuccess" style="margin-top:100px">点击弹出toptips</button>
+  <view class="padding-10">
+    <button @tap="showSuccess" class="btn btn-kai" style="margin-top:100px">点击弹出toptips</button>
+  </view>
 </template>
 
 <script>

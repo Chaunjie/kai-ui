@@ -1,6 +1,8 @@
 <template>
   <toast />
-  <button @tap="showSuccess">点击弹出toast</button>
+  <view class="padding-10">
+    <button @tap="showSuccess" class="btn btn-kai" style="margin-top:100px">点击弹出toast</button>
+  </view>
 </template>
 
 <script>
@@ -9,9 +11,8 @@
 
   export default class ToastPage extends wepy.page {
     config = {
-      navigationBarTitleText: 'Toast 提示条'
+      navigationBarTitleText: 'Toast 轻提示'
     }
-    
     data = {}
 
     components = {

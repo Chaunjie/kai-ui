@@ -1,9 +1,12 @@
 <template>
-  <inputName label="联系人" placeholder="请输入姓名" :value.sync="name" focus="true"/>
-  <inputPassword type="password" label="密码" placeholder="请输入密码" :value.sync="password"/>
-  <inputPhone type="number" label="联系电话" maxlength="11" :value.sync="tel" />
-  <inputAddress type="textarea" placeholder="详细地址" :value.sync="address"/>
-  <button @tap="save">保存</button>
+  <view class="kai-content">
+    <view class="padding-10 font-12">基础用法</view>
+    <inputName label="联系人" placeholder="请输入姓名" :value.sync="name" focus="true"/>
+    <inputPassword type="password" label="密码" placeholder="请输入密码" :value.sync="password"/>
+    <inputPhone type="number" label="联系电话" maxlength="11" :value.sync="tel" />
+    <inputAddress type="textarea" placeholder="详细地址" :value.sync="address"/>
+    <!-- <button @tap="save">保存</button> -->
+  </view>
 </template>
 
 <script>
@@ -14,7 +17,7 @@
     config = {
       navigationBarTitleText: 'Input 输入框'
     }
-
+    
     data = {
       name: '道格强森',
       password: '',
