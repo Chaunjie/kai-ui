@@ -55,7 +55,7 @@ import wepy from 'wepy'
 
 export default class Button extends wepy.page {
   config = {
-    navigationBarTitleText: '按钮'
+    navigationBarTitleText: 'Button 按钮'
   }
   components = {}
 

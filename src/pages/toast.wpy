@@ -8,10 +8,16 @@
   import Toast from '@/components/toast/index'
 
   export default class ToastPage extends wepy.page {
+    config = {
+      navigationBarTitleText: 'Toast 提示条'
+    }
+    
     data = {}
+
     components = {
       toast: Toast
     }
+
     methods = {
       showSuccess () {
         const options = {

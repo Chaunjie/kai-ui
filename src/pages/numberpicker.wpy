@@ -15,6 +15,10 @@
   import NumberPicker from '@/components/numberpicker/index'
 
   export default class NumberPickerPage extends wepy.page {
+    config = {
+      navigationBarTitleText: 'NumberPicker 数字输入框'
+    }
+
     data = {
       first: {
         list: [1],

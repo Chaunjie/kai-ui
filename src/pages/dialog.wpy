@@ -8,10 +8,16 @@
   import Dialog from '@/components/dialog/index'
 
   export default class DialogPage extends wepy.page {
+    config = {
+      navigationBarTitleText: 'Dialog 弹出框'
+    }
+
     data = {}
+
     components = {
       dialog: Dialog
     }
+
     methods = {
       showSuccess () {
         const options = {

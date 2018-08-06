@@ -16,7 +16,7 @@ import Tab from '@/components/tab/index'
 
 export default class TabPage extends wepy.page {
   config = {
-    navigationBarTitleText: '标签'
+    navigationBarTitleText: 'Tab 标签'
   }
 
   components = {

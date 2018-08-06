@@ -60,7 +60,7 @@ import popup from '@/components/popup/index'
 
 export default class Popup extends wepy.page {
   config = {
-    navigationBarTitleText: 'popup'
+    navigationBarTitleText: 'Popup 弹出层'
   }
   components = {
     popup: popup

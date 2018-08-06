@@ -45,7 +45,7 @@ import icon from '@/components/icon/index'
 
 export default class Icon extends wepy.page {
   config = {
-    navigationBarTitleText: '字体库'
+    navigationBarTitleText: 'Icon 图标'
   }
   components = {
     icon: icon

@@ -18,7 +18,7 @@ import loadmore from '@/components/loadmore/index'
 
 export default class Loadmore extends wepy.page {
   config = {
-    navigationBarTitleText: 'loadmore'
+    navigationBarTitleText: 'Loadmore 更多'
   }
 
   components = {

@@ -11,6 +11,10 @@
   import Input from '@/components/input/index'
 
   export default class InputPage extends wepy.page {
+    config = {
+      navigationBarTitleText: 'Input 输入框'
+    }
+
     data = {
       name: '道格强森',
       password: '',

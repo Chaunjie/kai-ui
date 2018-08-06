@@ -89,7 +89,7 @@ import icon from '@/components/icon/index'
 
 export default class Grid extends wepy.page {
   config = {
-    navigationBarTitleText: 'grid'
+    navigationBarTitleText: 'Grid 宫格'
   }
 
   components = {

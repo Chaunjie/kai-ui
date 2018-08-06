@@ -23,7 +23,7 @@ import panel from '@/components/panel/index'
 
 export default class Panel extends wepy.page {
   config = {
-    navigationBarTitleText: 'panel'
+    navigationBarTitleText: 'Panel  面板'
   }
 
   components = {

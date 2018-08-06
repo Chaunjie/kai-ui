@@ -8,10 +8,16 @@
   import Toptips from '@/components/toptips/index'
 
   export default class ToastPage extends wepy.page {
+    config = {
+      navigationBarTitleText: 'Toptips 顶部提示'
+    }
+
     data = {}
+
     components = {
       toptips: Toptips
     }
+
     methods = {
       showSuccess () {
         const options = {

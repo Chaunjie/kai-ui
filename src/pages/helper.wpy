@@ -57,7 +57,7 @@ import wepy from 'wepy'
 
 export default class Helper extends wepy.page {
   config = {
-    navigationBarTitleText: 'Helper'
+    navigationBarTitleText: 'Helper 基础样式'
   }
   components = {}
 
