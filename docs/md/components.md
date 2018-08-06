@@ -32,7 +32,7 @@ npm i kai-ui -g
 
 &emsp;&emsp;页面中引入样式
 ```css
-@import '../node_modules/wepy-ui-ydj/src/styles/all';
+@import '../node_modules/kai-ui/src/styles/all';
 ```
 
 &emsp;&emsp;template添加
@@ -487,7 +487,7 @@ components = {
 
 &emsp;&emsp;页面中引入全局样式
 ```javascript
-@import '../node_modules/wepy-ui-ydj/src/styles/all';
+@import '../node_modules/kai-ui/src/styles/all';
 ```
 
 &emsp;&emsp;案例
@@ -909,7 +909,7 @@ export default class Tag extends wepy.page {
 
 &emsp;&emsp;页面中引入全局样式
 ```javascript
-@import '../node_modules/wepy-ui-ydj/src/styles/all';
+@import '../node_modules/kai-ui/src/styles/all';
 ```
 
 &emsp;&emsp;案例
