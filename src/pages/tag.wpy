@@ -7,27 +7,9 @@
   <view class="kai-content">
     <view class="panel padding-10">
       <view class="list list-last-child">
-        <view class="tag">灰色</view>
-        <view class="tag tag-danger">红色</view>
-        <view class="tag tag-disabled">不可用</view>
-      </view>
-    </view>
-    <view class="panel padding-10">
-      <view class="list list-last-child">
-        <view class="tag tag-danger">会员折扣</view>
-        <view class="tag tag-warn">返现</view>
-        <view class="tag tag-primary">返现</view>
-        <view class="tag tag-primary tag-disabled">不可用</view>
-      </view>
-    </view>
-
-    <view class="panel padding-10">
-      <view class="list list-last-child">
-        <view class="tag tag-plain">灰色</view>
-        <view class="tag tag-danger tag-plain">会员折扣</view>
-        <view class="tag tag-warn tag-plain">返现</view>
-        <view class="tag tag-primary tag-plain">返现</view>
-        <view class="tag tag-primary tag-plain tag-disabled">返现不可用</view>
+        <repeat for="{{types}}" index="i" item="item">
+          <tags :type="item.type">{{item.text}}</tags>
+        </repeat>
       </view>
     </view>
   </view>
@@ -36,13 +18,39 @@
 <script>
 import wepy from 'wepy'
 
+import Tags from '@/components/tag/index'
 export default class Tag extends wepy.page {
   config = {
-    navigationBarTitleText: '按钮'
+    navigationBarTitleText: 'Tag 标记'
   }
-  components = {}
+  components = {
+    tags: Tags
+  }
 
-  data = {}
+  data = {
+    types: [
+      {
+        type: 'tag-plain',
+        text: '默认'
+      },
+      {
+        type: 'tag-primary',
+        text: '返现'
+      },
+      {
+        type: 'tag-danger',
+        text: '会员折扣'
+      },
+      {
+        type: 'tag-warn',
+        text: '返现'
+      },
+      {
+        type: 'tag-disabled',
+        text: '返现不可用'
+      }
+    ]
+  }
 
   computed = {}
 
