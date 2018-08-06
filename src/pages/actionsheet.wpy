@@ -15,7 +15,7 @@
     <import src="../wxParse/wxParse.wxml"/>
     <view class="padding-10">
       <!-- <button class="btn btn-success" catchtap="showActionSheet(0)">从顶部弹出popup</button> -->
-      <button class="btn btn-kai" catchtap="showActionSheet(1)">从底部弹出popup</button>
+      <button class="btn btn-kai" catchtap="showActionSheet(1)">从底部弹出ActionSheet</button>
     </view>
     <repeat for="{{asData}}" index="i" item="item" key="row-{{index}}">
       <actionsheet :asData.sync="item"></actionsheet>
@@ -106,15 +106,19 @@ export default class ActionSheet extends wepy.page {
     }
   }
 
+  hideActionsheet (i) {
+    this.asData[i].show = false
+  }
+
   events = {
     'action-sheet': function (i, index, close) {
       console.log(i, index, close)
       if (close === 'true') {
-        this.asData[i].show = false
         console.log('您选择了取消')
       } else {
         console.log(i, index)
       }
+      this.hideActionsheet(i)
     }
   }
 
