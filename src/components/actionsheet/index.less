@@ -11,7 +11,7 @@ view {
   right: 0;
   bottom: 0;
   z-index: 10;
-  background: rgba(0, 0, 0, .1);
+  background: rgba(0, 0, 0, .5);
   display: none
 }
 .ac-container {
@@ -23,6 +23,7 @@ view {
 .ac-content {
   position: fixed;
   left: 0;
+  background-color: #E7E6EB;
   transform: translate3d(0, 0, 0);
   transform-origin: center;
   transition: all .4s ease;
@@ -50,12 +51,12 @@ view {
 .ac-list {
   text-align: center;
   font-size: 12px;
-  border-bottom: 1px solid #e1e1e1;
-  min-height: 40px;
-  line-height: 40px;
+  border-bottom: 1rpx solid #e1e1e1;
+  min-height: 45px;
+  line-height: 45px;
   background: #fff;
-  &:first-child {
-    border-top: 1px solid #e1e1e1;
+  &:last-of-type {
+    border-bottom: none;
   }
   &.mt5 {
     margin-top: 5px;
