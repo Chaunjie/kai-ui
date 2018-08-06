@@ -20,10 +20,13 @@
     // background: rgb(25, 214, 228);
   }
 }
+.no-padding .info{
+  padding: 0;
+}
 </style>
 <template>
   <view class="kai-content">
-    <panel>
+    <panel class="no-padding">
       <view slot="title" class="title">16宫格</view>
       <view class="panel">
         <grid1 :rows="rows4" :cols="cols4">
@@ -36,7 +39,7 @@
         </grid1>
       </view>
     </panel>
-    <panel>
+    <panel class="no-padding">
       <view slot="title" class="title">9宫格</view>
       <view class="panel">
         <grid :rows="rows3" :cols="cols3">
@@ -49,7 +52,7 @@
         </grid>
       </view>
     </panel>
-    <panel>
+    <panel class="no-padding">
       <view slot="title" class="title">4宫格</view>
       <view class="panel">
         <grid :rows="rows2" :cols="cols2">
@@ -62,7 +65,7 @@
         </grid>
       </view>
     </panel>
-    <panel>
+    <panel class="no-padding">
       <view slot="title" class="title">1宫格</view>
       <view class="panel">
         <grid :rows="rows1" :cols="cols1">
