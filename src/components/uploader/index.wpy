@@ -35,10 +35,12 @@ export default class uploader extends wepy.component {
     },
     region: { // 七牛上传区域
       type: String,
+      twoWay: true,
       default: 'ECN'
     },
     total: {  // 可上传图片总数
       type: Number,
+      twoWay: true,
       default: 0
     },
     count: {  // 已上传图片数量

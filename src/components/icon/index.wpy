@@ -8,10 +8,12 @@
     props = {
       type: {
         type: String,
+        twoWay: true,
         default: ''
       },
       event: {
         type: String,
+        twoWay: true,
         default: ''
       }
     }

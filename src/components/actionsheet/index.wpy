@@ -6,11 +6,12 @@
       <repeat for="{{asData.itemList}}" index="i" item="item" key="row-{{index}}">
         <view class="ac-list {{item.class}}" catchtap="selectIndex({{asData.index}}, {{i}}, false)">
           <view wx:if="{{item.slot}}">
+            {{item.slot}}
             <!-- <template is="wxParse" data="{{wxParseData: slotArray[item.slotid]}}"/> -->
-            <template is="wxParse" data="{{wxParseData: test}}"/>
+            <!-- <template is="wxParse" data="{{wxParseData: test}}"/> -->
           </view>
           <view wx:else>{{item.value}}</view>
-          </view>
+        </view>
         <view class="ac-list mt5" wx:if="{{i===asData.itemList.length-1}}" catchtap="selectIndex({{asData.index}}, {{i}}, true)">取消</view>
       </repeat>
     </view>

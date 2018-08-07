@@ -62,11 +62,6 @@
         default: function () {
           return []
         }
-      },
-      index: {
-        type: [Number, String],
-        twoWay: true,
-        defaut: ''
       }
     }
 

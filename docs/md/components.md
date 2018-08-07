@@ -50,7 +50,7 @@ npm i kai-ui -g
 
 - **概述**
 
-&emsp;&emsp;适用于二维布局-九宫格
+&emsp;&emsp;适用于二维布局（例如九宫格）
 
 - **使用指南**
 
@@ -80,36 +80,12 @@ components = {
 </template>
 ```
 
-&emsp;&emsp;方法触法调用
-```javascript
-initData (rows, cols, gridItems, gridlist) {
-	// 初始化grid
-	console.log(rows, cols, gridItems)
-	for (let i = 1, k = 0; i <= rows; i++) {
-		for (let j = 1; j <= cols; j++) {
-			gridlist.push({
-				class: 'grid-items' + i + j,
-				name: 'row' + i + '-col' + j,
-				icon: gridItems[k].icon,
-				text: gridItems[k].text
-			})
-			k++
-		}
-	}
-	console.log(this.gridlist)
-	this.$apply()
-	// 初始化grid
-}
-
-this.initData(rows, cols, gridItems, gridlist)
-```
-
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 描述                      |
-| -------- | ----- | ---------------------------- |
-| rows    | `Number` | 行数 |
-| cols | `Number` | 列数    |
+| 参数 | 类型 | 异步 | 默认 | 描述 |
+| --- | --- | --- | --- | --- |
+| rows | `Number` | `true` | 3 | 宫格行数 |
+| cols | `Number` | `true` | 3 | 宫格列数 |
 
 &emsp;&emsp;案例
 ```wpy
@@ -269,51 +245,6 @@ export default class Grid extends wepy.page {
 </script>
 ```
 
-#### demo111
-
-- **概述**
-
-&emsp;&emsp;适用于
-
-- **使用指南**
-
-&emsp;&emsp;页面中引入组件
-```javascript
-import  from 'kai-ui/'
-```
-
-&emsp;&emsp;组件添加
-```javascript
-components = {
-  : 
-}
-```
-
-&emsp;&emsp;template添加
-```template
-<template>
-	
-</template>
-```
-
-&emsp;&emsp;方法触法调用
-```javascript
-
-```
-
-&emsp;&emsp;对应参数：
-
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-|     | `String` | `false`   |  |
-|  | `String` | `false`  |     |
-|  | `String` | `false`  |     |
-
-&emsp;&emsp;案例
-```wpy
-
-```
-
 #### Cell 列表
 
 - **概述**
@@ -358,17 +289,21 @@ components = {
 
 &emsp;&emsp;对应参数：
 
-celljson
+| 参数 | 类型 | 异步 | 描述 |
+| --- | --- | --- | --- |
+| celldata | `Array` | true | 列表组件数据信息 |
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-|   title  | `String` | `false`   | 主体内容 |
-| subtitle | `String` | `false`  |  附加内容   |
-| detail | `String` | `false`  |  右侧描述   |
-| linktype | `Number, String` | `false`  |  是否需要跳转 0: 无跳转 1：跳转   |
-| icontype | `Number, String` | `false`  |  图标类型 0：无图片 1：icon 2：图片   |
-| icontext | `String` | `false`  |  图标 图片地址   |
-| link | `String` | `false`  |  页面跳转   |
+&emsp;&emsp;celldata配置
+
+| 参数 | 类型 | 默认 | 描述 |
+| --- | --- | --- | --- |
+| title  | `String` | '' | 主体内容 |
+| subtitle | `String` |  '' | 附加内容   |
+| detail | `String` | '' | 右侧描述   |
+| linktype | `Number, String` |  0 | 是否需要跳转 0: 无跳转 1：跳转   |
+| icontype | `Number, String` |  0 | 图标类型 0：无图片  1：icon  2：图片 |
+| icontext | `String` | '' |  图标 图片地址   |
+| link | `String` | '' | 页面跳转 |
 
 &emsp;&emsp;案例
 ```wpy
@@ -422,11 +357,11 @@ export default class Cell extends wepy.page {
 
   events = {
     'item-tap': (type, url) => {
-			if (url !== '#') {
-				wx.navigateTo({
-					url: url
-				})
-			}
+      if (url !== '#') {
+        wx.navigateTo({
+          url: url
+        })
+      }
     }
   }
 
@@ -471,9 +406,9 @@ components = {
 
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 描述                      |
+| 参数      | 类型 | 异步 | 默认  |     描述               |
 | -------- | ----- | ----- | ---------------------------- |
-|   border  | `String` | `false`   | 例如：border-width: 1px 0 1px 0; |
+|   border  | `String` | `false`   | 0 | panel边框宽度，例如border-width: 1px 0 1px 0; |
 
 ### 基础组件
 
@@ -481,7 +416,7 @@ components = {
 
 - **概述**
 
-&emsp;&emsp;适用于统一按钮button
+&emsp;&emsp;常用按钮样式统一
 
 - **使用指南**
 
@@ -604,10 +539,10 @@ components = {
 
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-|  type   | `String` | `false`   | 图标的iconfont |
-| event | `String` | `false`  |  事件回调   |
+| 参数 | 类型 | 异步 | 默认 | 描述 |
+| --- | --- | --- | --- | --- |
+|  type   | `String` | `true`  | '' | 图标的iconfont |
+| event | `String` | `true`  | '' |  事件回调   |
 
 &emsp;&emsp;案例
 ```wpy
@@ -702,7 +637,7 @@ components = {
 
 - **概述**
 
-&emsp;&emsp;适用于
+&emsp;&emsp;加载更多
 
 - **使用指南**
 
@@ -727,12 +662,17 @@ components = {
 
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-|  more  | `Object` | `false`   | 展示参数，支持类型，加载中文案，加载完成文案 |
-| more.type | `Boolean` | `false`  |  true: 加载中, false: 加载完成   |
-| more.loading | `String` | `false`  |  加载中文案   |
-| more.loaded | `String` | `false`  |  加载完成文案   |
+| 参数 | 类型 | 异步 | 默认 | 描述 |
+| --- | --- | --- | --- | --- |
+|  more  | `Object` | `true`   | {} | 加载更多数据配置，包括支持类型、加载中文案、加载完成文案 |
+
+&emsp;&emsp;more配置：
+
+| 参数 | 类型 | 默认 | 描述 |
+| --- | --- | --- | --- |
+| type | `Boolean` | `false`  |  true: 加载中, false: 加载完成   |
+| loading | `String` | `加载中`  |  加载中文案   |
+| loaded | `String` | `加载完成`  |  加载完成文案   |
 
 &emsp;&emsp;案例
 ```wpy
@@ -828,9 +768,9 @@ components = {
 
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-|  type   | `String` | `false`   | 标签类型 |
+| 参数 | 类型 | 异步 | 默认 | 描述 |
+| --- | --- | --- | --- | --- |
+| type | `String` | `true`  | '' | 标签类型 |
 
 &emsp;&emsp;案例
 ```wpy
@@ -1044,19 +984,14 @@ components = {
 </template>
 ```
 
-&emsp;&emsp;方法触法调用
-```javascript
-
-```
-
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-|  id   | `String` | `false`   | 弹出层id |
-| show | `Boolean` | `false`  |   是否展示弹窗  |
-| position | `String` | `false`  |  弹出位置   |
-| maskHide | `Boolean` | `false`  |  点击mask不关闭   |
+| 参数 | 类型 | 异步 | 默认 | 描述 |
+| --- | --- | --- | --- | --- |
+|  id   | `String` | `true` | 0 | 弹出层id |
+| show | `Boolean` | `true`  | false |  是否展示弹窗  |
+| position | `String` | `true`  | bottom | 弹出位置   |
+| maskHide | `Boolean` | `true`  |  true | 点击mask是否关闭popup |
 
 &emsp;&emsp;案例
 ```wpy
@@ -1377,19 +1312,21 @@ components = {
 
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-|  asData   | `Array` | `false`   | 传一整个json参数 |
-| asData.class | `String` | `false`  |  类名   |
-| asData.value | `String` | `false`  |  值   |
-| asData.event | `String` | `false`  |  点击事件  |
+| 参数 | 类型 | 异步 | 默认 | 描述 |
+| --- | --- | --- | --- | --- |
+|  asData | `Object` | `true` | {} | 操作盘json数据配置 |
+
+&emsp;&emsp;asData配置：
+
+| 参数 | 类型 | 默认 | 描述 |
+| --- | --- | --- | --- |
+| class | `String` | ''  |  类名   |
+| value | `String` | ''  |  值   |
+| event | `String` | `action-sheet`  |  点击事件  |
 
 &emsp;&emsp;案例
 ```wpy
 <style lang="less">
-// .list1 {
-//   color: #C59E6C;
-// }
 .list {
   color: #808080;
 }
@@ -1575,13 +1512,13 @@ components = {
 
 | 参数      | 类型 | 异步 | 描述                      |
 | -------- | ----- | ----- | ---------------------------- |
-|  uptokenURL   | `String` | `false`   | 上传图片token url |
-| domain | `String` | `false`  |  上传域名   |
-| imgList | `String` | `false`  |  上传图片列表   |
-| imgWidth | `String` | `false`  |  图片宽度   |
-| region | `String` | `false`  |   七牛上传区域  |
-| total | `String` | `false`  |   可上传图片总数  |
-| count | `String` | `false`  |  已上传图片数量   |
+|  uptokenURL   | `String` | `true`   | 上传图片token url |
+| domain | `String` | `true`  |  上传域名   |
+| imgList | `String` | `true`  |  上传图片列表   |
+| imgWidth | `String` | `true`  |  图片宽度   |
+| region | `String` | `true`  |   七牛上传区域  |
+| total | `String` | `true`  |   可上传图片总数  |
+| count | `String` | `true`  |  已上传图片数量   |
 
 &emsp;&emsp;案例
 ```wpy
@@ -1753,13 +1690,18 @@ components = {
 
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-|   selectData  | `Object` | `false`   | 组件传入一个参数对象 |
-| selectData.id | `String` | `false`  |   当前select的id  |
-| selectData.list | `Array` | `false`  |  当前select可选列表   |
-| selectData.selectIndex | `Number, String` | `false`  |  当前select的默认勾选索引   |
-| selectData.class | `String` | `false`  |  当前select的class   |
+| 参数 | 类型 | 异步 | 默认 | 描述 |
+| --- | --- | --- | --- | --- |
+| selectData | `Object` | `true` | {} | 组件传入一个参数对象 |
+
+&emsp;&emsp;selectData配置：
+
+| 参数 | 类型 | 默认 | 描述 |
+| --- | --- | --- | --- | --- |
+| id | `String` | '' | 当前select的id  |
+| list | `Array` | [] | 当前select可选列表 |
+| selectIndex | `Number` | 0 |  当前select的默认勾选索引 |
+| class | `String` | ''  | 当前select的class |
 
 &emsp;&emsp;案例
 ```wpy

@@ -29,7 +29,7 @@
     <repeat for="{{list}}" index="index" item="item" key="key">
       <view class="col col-6 icon-block" >
         <view>
-          <icon :type="item" :event="index % 2 ? 'icon-tap' : ''"></icon>
+          <icon :type.sync="item" :event.sync="index % 2 ? 'icon-tap' : ''"></icon>
         </view>
         <view>
           <text class="icon-title">{{item}}</text>

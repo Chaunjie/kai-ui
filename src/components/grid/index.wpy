@@ -10,10 +10,12 @@
     props = {
       rows: {
         type: [Number, String],
+        twoWay: true,
         default: 3
       },
       cols: {
         type: [Number, String],
+        twoWay: true,
         default: 3
       }
     }

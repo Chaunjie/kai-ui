@@ -55,7 +55,7 @@
     <panel class="no-padding">
       <view slot="title" class="title">4宫格</view>
       <view class="panel">
-        <grid :rows="rows2" :cols="cols2">
+        <grid :rows.sync="rows2" :cols.sync="cols2">
           <repeat for="{{gridlist2}}" index="i" item="item" key="row-{{index}}">
             <view class="grid-items {{item.class}}">
               <icon :type="item.icon"></icon>
@@ -68,7 +68,7 @@
     <panel class="no-padding">
       <view slot="title" class="title">1宫格</view>
       <view class="panel">
-        <grid :rows="rows1" :cols="cols1">
+        <grid :rows.sync="rows1" :cols.sync="cols1">
           <repeat for="{{gridlist1}}" index="i" item="item" key="row-{{index}}">
             <view class="grid-items {{item.class}}">
               <icon :type="item.icon"></icon>
