@@ -84,8 +84,8 @@ components = {
 
 | 参数 | 类型 | 异步 | 默认 | 描述 |
 | --- | --- | --- | --- | --- |
-| rows | `Number` | `true` | 3 | 宫格行数 |
-| cols | `Number` | `true` | 3 | 宫格列数 |
+| rows | `Number` | `true` | 3 | 宫格行数1-10 |
+| cols | `Number` | `true` | 3 | 宫格列数1-10 |
 
 &emsp;&emsp;案例
 ```wpy
@@ -406,9 +406,9 @@ components = {
 
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 默认  |     描述               |
-| -------- | ----- | ----- | ---------------------------- |
-|   border  | `String` | `false`   | 0 | panel边框宽度，例如border-width: 1px 0 1px 0; |
+| 参数 | 类型 | 异步 | 默认  | 描述 |
+| --- | --- | --- | --- |
+| border | `String` | `false` | 0 | panel边框宽度，例如border-width: 1px 0 1px 0; |
 
 ### 基础组件
 
@@ -668,11 +668,11 @@ components = {
 
 &emsp;&emsp;more配置：
 
-| 参数 | 类型 | 默认 | 描述 |
-| --- | --- | --- | --- |
-| type | `Boolean` | `false`  |  true: 加载中, false: 加载完成   |
-| loading | `String` | `加载中`  |  加载中文案   |
-| loaded | `String` | `加载完成`  |  加载完成文案   |
+| 参数 | 类型 | 可选值 | 默认 | 描述 |
+| --- | --- | --- | --- | --- |
+| type | `Boolean` | true/false | `false`  |  true: 加载中, false: 加载完成 |
+| loading | `String` | - | `加载中`  |  加载中文案   |
+| loaded | `String` | - | `加载完成`  |  加载完成文案   |
 
 &emsp;&emsp;案例
 ```wpy
@@ -1154,11 +1154,11 @@ setTimeout(() => {
 
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-| text    | `String` | `true`   | 需要通知的信息（当宽度超过通知栏宽度时候会自动滚动） |
-| componentId | `String` | `false`  | 组件Id    |
-| icon | `Boolean` | `true`  | 是否前面带图标    |
+| 参数 | 类型 | 异步 | 描述 |
+| --- | --- | --- | --- |
+| text | `String` | `true` | 需要通知的信息（当宽度超过通知栏宽度时候会自动滚动） |
+| componentId | `String` | `false`  | 组件Id |
+| icon | `Boolean` | `true`  | 是否前面带图标 |
 
 &emsp;&emsp;案例
 ```wpy
@@ -1217,25 +1217,25 @@ this.$invoke('tab', 'doInitTabData', this.tabData)
 
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-| bindchange | `Function` | `false`  | 单选框回调方法    |
+| 参数 | 类型 | 异步 | 描述 |
+| --- | --- | --- | --- |
+| bindchange | `Function` | `false`  | 单选框回调方法 |
 
 &emsp;&emsp;tabData配置:
 
-| 参数      | 类型 | 异步 | 可选项 | 默认值 | 描述                      |
-| -------- | ----- | ----- | ------- | -------  | ---------------------------- |
-| class   | `String` | `none`   | - | - | tab自定义样式 |
-| selectedId   | `Number String` | `none`   | - | ` ` | tab选择的item |
-| scroll   | `Boolean` | `none`   | `true、false` | `false` | 是否要求支持滚动 |
-| list   | `Array` | `none`   | - | `[]` | tab显示的数据 |
+| 参数 | 类型 | 异步 | 可选项 | 默认值 | 描述 |
+| --- | --- | --- | --- | --- | --- |
+| class | `String` | `none` | - | - | tab自定义样式 |
+| selectedId | `Number String` | `none` | - | ` ` | tab选择的item |
+| scroll | `Boolean` | `none` | `true、false` | `false` | 是否要求支持滚动 |
+| list | `Array` | `none`   | - | `[]` | tab显示的数据 |
 
 &emsp;&emsp;list配置:
 
-| 参数      | 类型 | 异步 | 可选项 | 默认值 | 描述                      |
-| -------- | ----- | ----- | ------- | -------  | ---------------------------- |
-| id   | `Number String` | `none`   | - | - | tab每个item的id |
-| title   | `String` | `none`   | - | ` ` | tab每个item显示的字段 |
+| 参数 | 类型 | 异步 | 可选项 | 默认值 | 描述 |
+| --- | --- | --- | --- | ---  | --- |
+| id | `Number String` | `none`   | - | - | tab每个item的id |
+| title | `String` | `none`   | - | ` ` | tab每个item显示的字段 |
 
 &emsp;&emsp;案例
 ```wpy
@@ -1510,12 +1510,12 @@ components = {
 
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-|  uptokenURL   | `String` | `true`   | 上传图片token url |
-| domain | `String` | `true`  |  上传域名   |
-| imgList | `String` | `true`  |  上传图片列表   |
-| imgWidth | `String` | `true`  |  图片宽度   |
+| 参数 | 类型 | 异步 | 描述 |
+| --- | --- | --- | --- |
+|  uptokenURL | `String` | `true`   | 上传图片token url |
+| domain | `String` | `true`  |  上传域名 |
+| imgList | `String` | `true`  |  上传图片列表 |
+| imgWidth | `String` | `true`  |  图片宽度 |
 | region | `String` | `true`  |   七牛上传区域  |
 | total | `String` | `true`  |   可上传图片总数  |
 | count | `String` | `true`  |  已上传图片数量   |
@@ -1831,19 +1831,19 @@ data = {
 
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
+| 参数 | 类型 | 异步 | 描述                      |
+| --- | --- | --- | --- |
 | config    | `Object` | `true`   | 单选框组配置信息 |
 | bindchange | `Function` | `false`  | 单选框回调方法    |
 
 &emsp;&emsp;config配置:
 
-| 参数      | 类型 | 异步 | 可选项 | 默认值 | 描述                      |
-| -------- | ----- | ----- | ------- | -------  | ---------------------------- |
-| className   | `String` | `none`   | - | - | 单选框组自定义样式 |
-| position   | `String` | `none`   | `left、right` | `left` | 单选框出现的位置 |
-| circle   | `Boolean` | `none`   | `true、false` | `true` | 单选框样式 |
-| inline   | `Boolean` | `none`   | `true、false` | `false` | 单选框组是否显示在一行内 |
+| 参数 | 类型 | 异步 | 可选项 | 默认值 | 描述 |
+| --- | --- | --- | --- | ---  | --- |
+| className | `String` | `none` | - | - | 单选框组自定义样式 |
+| position | `String` | `none` | `left、right` | `left` | 单选框出现的位置 |
+| circle | `Boolean` | `none` | `true、false` | `true` | 单选框样式 |
+| inline | `Boolean` | `none` | `true、false` | `false` | 单选框组是否显示在一行内 |
 
 &emsp;&emsp;案例
 ```wpy
@@ -1938,19 +1938,19 @@ data = {
 
 &emsp;&emsp;对应参数：
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
+| 参数 | 类型 | 异步 | 描述 |
+| --- | --- | --- | --- |
 | config    | `Object` | `true`   | 复选框组配置信息 |
 | bindchange | `Function` | `false`  | 复选框回调方法    |
 
 &emsp;&emsp;config配置:
 
-| 参数      | 类型 | 异步 | 可选项 | 默认值 | 描述                      |
-| -------- | ----- | ----- | ------- | -------  | ---------------------------- |
-| className   | `String` | `none`   | - | - | 复选框组自定义样式 |
-| position   | `String` | `none`   | `left、right` | `left` | 复选框出现的位置 |
-| circle   | `Boolean` | `none`   | `true、false` | `true` | 复选框样式 |
-| inline   | `Boolean` | `none`   | `true、false` | `false` | 复选组是否显示在一行内 |
+| 参数 | 类型 | 异步 | 可选项 | 默认值 | 描述 |
+| --- | --- | --- | --- | --- | --- |
+| className | `String` | `none` | - | - | 复选框组自定义样式 |
+| position | `String` | `none` | `left、right` | `left` | 复选框出现的位置 |
+| circle | `Boolean` | `none` | `true、false` | `true` | 复选框样式 |
+| inline | `Boolean` | `none` | `true、false` | `false` | 复选组是否显示在一行内 |
 
 &emsp;&emsp;案例
 ```wpy
@@ -2062,26 +2062,26 @@ data = {
 
 &emsp;&emsp;对应方法：
 
-| 参数      | 类型 | 异步 | 描述                      |
-| -------- | ----- | ----- | ---------------------------- |
-| onChange | `Function` | `false`  | 开关change回调方法    |
+| 参数 | 类型 | 异步 | 描述 |
+| --- | --- | --- | --- |
+| onChange | `Function` | `false`  | 开关change回调方法 |
 
 &emsp;&emsp;配置:
 
-| 参数      | 类型 | 异步 | 可选项 | 默认值 | 描述                      |
-| -------- | ----- | ----- | ------- | -------  | ---------------------------- |
-| className   | `String` | `true`   | - | - | 开关自定义样式 |
-| checked   | `Boolean` | `true`   | `true、false` | `false` | 开关是否开启 |
-| disabled   | `Boolean` | `true`   | `true、false` | `false` | 开关是否可操作 |
-| type   | `String` | `true`   | `success、kai、danger、warn` | `success` | 开关样式 |
-| componentId   | `String` | `true`   | - | - | 开关组件id（自定义） |
-| sync   | `Boolean` | `true`   | `true、false` | `false` | 是否异步 |
-| loading   | `Boolean` | `true`   | `true、false` | `false` | 是否显示loading图案 |
+| 参数 | 类型 | 异步 | 可选项 | 默认值 | 描述 |
+| --- | --- | --- | --- | ---  | --- |
+| className | `String` | `true`   | - | - | 开关自定义样式 |
+| checked | `Boolean` | `true`   | `true、false` | `false` | 开关是否开启 |
+| disabled | `Boolean` | `true`   | `true、false` | `false` | 开关是否可操作 |
+| type | `String` | `true`   | `success、kai、danger、warn` | `success` | 开关样式 |
+| componentId | `String` | `true`   | - | - | 开关组件id（自定义） |
+| sync | `Boolean` | `true`   | `true、false` | `false` | 是否异步 |
+| loading | `Boolean` | `true`   | `true、false` | `false` | 是否显示loading图案 |
 
 &emsp;&emsp;案例
 ```wpy
 <template>
-	<view class="kai-content">
+  <view class="kai-content">
     <repeat for="{{items}}" index="index" item="item" key="switch-{{index}}">
       <view class="padding-10 font-12">{{item.title}}</view>
       <view class="padding-10">
