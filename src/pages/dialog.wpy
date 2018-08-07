@@ -1,6 +1,11 @@
 <template>
   <dialog />
-  <button @tap="showSuccess">点击弹出对话框</button>
+  <view class="padding-10">
+    <button @tap="showSuccess" class="btn btn-kai">纵向对话框</button>
+  </view>
+  <view class="padding-10">
+    <button @tap="showkai" class="btn btn-kai">横向对话框</button>
+  </view>
 </template>
 
 <script>
@@ -21,11 +26,39 @@
     methods = {
       showSuccess () {
         const options = {
-          title: '删除提示',
-          content: '确定要删除该地址吗？',
-          showCancelBtn: true,
-          vertical: false,
-          className: 'mytest'
+          title: '删除订单提示',
+          content: '确定要删除该订单吗？',
+          type: 'muti',
+          showVertical: true,
+          buttons: [{
+            text: '取消'
+          }, {
+            text: '确定',
+            color: '#C59E6C'
+          }]
+        }
+        this.$invoke('dialog', 'show', options).then((value) => {
+          console.log(value) // 0: 取消，1：确认
+        }, () => {
+          console.log('reject')
+        })
+      },
+      showkai () {
+        const options = {
+          title: '支付选择',
+          content: '请选择一种支付方式',
+          type: 'muti',
+          showVertical: false,
+          buttons: [{
+            text: '微信支付',
+            color: '#0EB00B'
+          }, {
+            text: '支付宝',
+            color: '#48A9E9'
+          }, {
+            text: '京东',
+            color: '#E45143'
+          }]
         }
         this.$invoke('dialog', 'show', options).then((value) => {
           console.log(value) // 0: 取消，1：确认
@@ -36,9 +69,3 @@
     }
   }
 </script>
-
-<style>
-  .mytest .dialog-container .dialog-footer .dialog-button-ok {
-    color: #C59E6C;
-  }
-</style>

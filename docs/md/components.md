@@ -30,9 +30,9 @@ npm i kai-ui -g
 
 - **使用指南**
 
-&emsp;&emsp;页面中引入样式
+&emsp;&emsp;app页面中引入样式
 ```css
-@import '../node_modules/kai-ui/src/styles/all';
+@import '../node_modules/kai-ui/src/less/index';
 ```
 
 &emsp;&emsp;template添加
@@ -420,9 +420,9 @@ components = {
 
 - **使用指南**
 
-&emsp;&emsp;页面中引入全局样式
+&emsp;&emsp;app页面中引入全局样式
 ```javascript
-@import '../node_modules/kai-ui/src/styles/all';
+@import '../node_modules/kai-ui/src/less/index';
 ```
 
 &emsp;&emsp;案例
@@ -847,9 +847,9 @@ export default class Tag extends wepy.page {
 
 - **使用指南**
 
-&emsp;&emsp;页面中引入全局样式
+&emsp;&emsp;app页面中引入全局样式
 ```javascript
-@import '../node_modules/kai-ui/src/styles/all';
+@import '../node_modules/kai-ui/src/less/index';
 ```
 
 &emsp;&emsp;案例
@@ -1460,7 +1460,122 @@ toptips
 
 #### Dialog 弹窗
 
-dialog
+- **概述**
+
+&emsp;&emsp;适用于弹出层
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Dialog from 'kai-ui/Dialog'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  dialog: Dialog
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+	<dialog />
+</template>
+```
+
+&emsp;&emsp;js调用
+```javascript
+this.$invoke('dialog', 'show', options).then((value) => {
+  console.log(value) // 返回按钮的索引
+}, () => {
+  console.log('reject')
+})
+```
+
+&emsp;&emsp;options配置:
+
+| 参数      | 类型 | 异步 | 可选项 | 默认值 | 描述                      |
+| -------- | ----- | ----- | ------- | -------  | ---------------------------- |
+| title   | `String` | `none`   | - | `标题` | 弹出层标题 |
+| content   | `String` | `none`   | - | `内容` | 弹出层内容 |
+| showVertical   | `Boolean` | `none`   | `true、false` | `false` | 是否纵向显示按钮 |
+| type   | `String` | `none`   | `mutil base alert` | `base` | 按钮类型, mutil支持自定义 |
+| buttons   | `Array` | `none`   | - | - | 弹出层按钮 |
+
+&emsp;&emsp;buttons配置:
+
+| 参数      | 类型 | 异步 | 可选项 | 默认值 | 描述                      |
+| -------- | ----- | ----- | ------- | -------  | ---------------------------- |
+| text   | `String` | `none`   | - | - | 按钮内容 |
+| color   | `String` | `none`   | - | - | 按钮字体颜色 |
+
+&emsp;&emsp;案例
+```wpy
+<template>
+	<dialog />
+	<view class="padding-10">
+    <button @tap="showSuccess" class="btn btn-kai">纵向对话框</button>
+  </view>
+  <view class="padding-10">
+    <button @tap="showkai" class="btn btn-kai">横向对话框</button>
+  </view>
+</template>
+<script>
+import radio from 'kai-ui/Radio'
+export default class Index extends wepy.page {
+	components = {
+		dialog: Dialog
+	}
+
+	methods = {
+		showSuccess () {
+		  const options = {
+		    title: '删除订单提示',
+		    content: '确定要删除该订单吗？',
+		    type: 'muti',
+		    showVertical: true,
+		    buttons: [{
+		      text: '取消'
+		    }, {
+		      text: '确定',
+		      color: '#C59E6C'
+		    }]
+		  }
+		  this.$invoke('dialog', 'show', options).then((value) => {
+		    console.log(value) // 0: 取消，1：确认
+		  }, () => {
+		    console.log('reject')
+		  })
+		},
+		showkai () {
+		  const options = {
+		    title: '支付选择',
+		    content: '请选择一种支付方式',
+		    type: 'muti',
+		    showVertical: false,
+		    buttons: [{
+		      text: '微信支付',
+		      color: '#0EB00B'
+		    }, {
+		      text: '支付宝',
+		      color: '#48A9E9'
+		    }, {
+		      text: '京东',
+		      color: '#E45143'
+		    }]
+		  }
+		  this.$invoke('dialog', 'show', options).then((value) => {
+		    console.log(value) // 0: 取消，1：确认
+		  }, () => {
+		    console.log('reject')
+		  })
+		}
+	}
+}
+</script>
+```
 
 #### Toast 提示
 

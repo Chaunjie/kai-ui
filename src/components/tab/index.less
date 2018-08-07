@@ -1,0 +1,113 @@
+@import '../../less/color';
+
+.tab-content{
+  display:flex;
+  flex-direction: row;
+  background-color:#fff;
+  border-bottom:2px solid #fff;
+  .tab{
+    flex:1;
+    font-size:14px;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    &.active{
+      .tab-text{
+        border-bottom:2px solid #333;
+      }
+    }
+    .tab-text{
+      border-bottom:2px solid #fff;
+    }
+  }
+}
+.scroll-tab-content{
+  width: 100vw;
+  white-space:nowrap;
+  background-color:#fff;
+  .tab{
+    padding:0 20px;
+    display:inline-block;
+    font-size:14px;
+    &.active{
+      .tab-text{
+        line-height:45px;
+        border-bottom:2px solid #333;
+      }
+    }
+    .tab-text{
+      color:#666;
+    }
+  }
+}
+
+.tab-success{
+  .tab{
+    .tab-text{
+      color:#666
+    }
+    &.active{
+      .tab-text{
+        color:@success;
+        border-bottom:2px solid @success;
+      }
+    }
+  }
+}
+
+.tab-kai{
+  .tab{
+    .tab-text{
+      color:#666
+    }
+    &.active{
+      .tab-text{
+        color:@kai;
+        border-bottom:2px solid @kai;
+      }
+    }
+  }
+}
+
+.tab-blue{
+  .tab{
+    .tab-text{
+      color: #666
+    }
+    &.active{
+      .tab-text{
+        color:@blue;
+        border-bottom:2px solid @blue;
+      }
+    }
+  }
+}
+
+.tab-danger{
+  .tab{
+    .tab-text{
+      color: #666
+    }
+    &.active{
+      .tab-text{
+        color:@red;
+        border-bottom:2px solid @red;
+      }
+    }
+  }
+}
+
+.tab-gray{
+  .tab{
+    .tab-text{
+      color:#666
+    }
+    &.active{
+      .tab-text{
+        color:@gray;
+        border-bottom:2px solid @gray;
+      }
+    }
+  }
+}

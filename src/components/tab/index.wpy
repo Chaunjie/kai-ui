@@ -1,3 +1,4 @@
+<style lang="less" src="./index.less"></style>
 <template>
   <view class="tab-container tab-cls {{tabData.class ? tabData.class : ''}}">
     <block wx:if="{{tabData.scroll}}">
