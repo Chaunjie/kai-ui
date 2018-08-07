@@ -46,7 +46,7 @@ npm i kai-ui -g
 </template>
 ```
 
-#### Grid 栅格
+#### Grid 宫格
 
 - **概述**
 
