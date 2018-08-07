@@ -1,0 +1,101 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="searchbar">
+    <view class="searchbar-form">
+      <view class="searchbar-form__wrap">
+        <input
+          class="searchbar-form__input"
+          placeholder="{{placeholder}}"
+          value="{{value}}"
+          focus="{{focus}}"
+          confirm-type="search"
+          @input="_handleInput"
+          @confirm="_handleConfirm"/>
+        <icon
+          class="searchbar-form__clear {{value?'searchbar-form__clear--show':''}}"
+          type="icon-close-circle"
+          event="_handleClear">
+        </icon>
+      </view>
+      <view
+        class="searchbar-form__cancel"
+        @tap="_handleCancel"
+        >取消
+      </view>
+    </view>
+    <view class="searchbar-autocomplete">
+      <repeat for="{{autoCompleteKeys}}" item="item">
+        <view
+          data-key="{{item}}"
+          @tap="_handleTapKey">
+          {{item}}
+        </view>
+      </repeat>
+    </view>
+  </view>
+</template>
+<script>
+import wepy from 'wepy'
+import Icon from '@/components/icon/index'
+
+export default class Searchbar extends wepy.component {
+  data = {
+    value: '',
+    focus: true,
+    autoCompleteKeys: []
+  }
+  props = {
+    placeholder: {
+      type: String,
+      default: '输入文字进行搜索'
+    },
+    datasource: {
+      type: Array,
+      default: []
+    }
+  }
+  components = {
+    icon: Icon
+  }
+  methods = {
+    _handleInput (e) {
+      this.value = e.detail.value
+      // 模糊匹配
+      if (this.datasource.length > 0) {
+        if (this.value) {
+          this.autoCompleteKeys = this.datasource.filter(item => item.indexOf(this.value) > -1)
+        } else {
+          this.autoCompleteKeys = []
+        }
+      }
+    },
+    _handleConfirm (e) {
+      const value = this.value || this.placeholder
+      this.search(value)
+    },
+    _handleTapKey (e) {
+      this.search(e.currentTarget.dataset.key)
+    },
+    _handleCancel () {
+      this.$emit('bindcancel')
+    }
+  }
+
+  search (value) {
+    this.$emit('bindsearch', value)
+  }
+
+  events = {
+    _handleClear () {
+      this.value = ''
+      this.autoCompleteKeys = []
+      // 调起键盘
+      this.focus = false
+      setTimeout(() => {
+        this.focus = true
+        this.$apply()
+      }, 0)
+    }
+  }
+}
+</script>

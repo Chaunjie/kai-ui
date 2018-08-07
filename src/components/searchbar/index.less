@@ -1,0 +1,39 @@
+.searchbar {
+  font-size: 14px;
+  .searchbar-form{
+    display:flex;
+    align-items:center;
+    padding:0 4px;
+    .searchbar-form__wrap {
+      display: flex;
+      align-items:center;
+      flex:1;
+      display:flex;
+      border:1px solid #eee;
+      border-radius:50px;
+      padding:3px 5px 3px 10px;
+      background:#fff;
+      .searchbar-form__input {
+        flex:1;
+      }
+      .searchbar-form__clear {
+        width:32rpx;
+        color:#999;
+        opacity:0;
+      }
+      .searchbar-form__clear--show {
+        opacity: 1;
+      }
+    }
+    .searchbar-form__cancel {
+      padding:0 8px;
+    }
+  }
+  .searchbar-autocomplete {
+    padding:5px 10px 0 10px;
+    view {
+      padding:12px 0;
+      border-bottom:1px solid #efefef;
+    }
+  }
+}

@@ -1,11 +1,51 @@
 <template>
-
+  <searchbar
+    placeholder="文艺复古长裙"
+    :datasource.sync="datasource"
+    @bindsearch.user="searchEvent"
+    @bindcancel.user="cancelEvent"
+    />
 </template>
 
 <script>
   import wepy from 'wepy'
+  import Searchbar from '@/components/searchbar/index'
 
   export default class SearchbarPage extends wepy.page {
-    data = {}
+    data = {
+      historyKeys: '',
+      datasource: [
+        '优衣库女装',
+        'apple',
+        'Banana',
+        'Orange',
+        'Durian',
+        'Lemon',
+        'Peach',
+        'Cherry',
+        'Berry',
+        'Core',
+        'Fig',
+        'Haw',
+        'Melon',
+        'Plum',
+        'Pear',
+        'Peanut',
+        'Other'
+      ]
+    }
+    components = {
+      searchbar: Searchbar
+    }
+    methods = {
+      searchEvent (value) {
+        console.log('搜索：' + value)
+      },
+      cancelEvent () {
+        wx.navigateBack({
+          delta: 1
+        })
+      }
+    }
   }
 </script>
