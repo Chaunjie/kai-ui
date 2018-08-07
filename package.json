@@ -17,11 +17,26 @@
     "wepy-com-toast": "^1.0.2"
   },
   "wepy": {
-    "./Counter": "./src/components/counter/index.wpy",
-    "./Group": "./src/components/group/index.wpy",
-    "./GroupItem": "./src/components/groupItem/index.wpy",
-    "./List": "./src/components/list/index.wpy",
-    "./Panel": "./src/components/panel/index.wpy"
+    "./ActionSheet": "./src/components/actionsheet/index.wpy",
+    "./Cell": "./src/components/cell/index.wpy",
+    "./Checkbox": "./src/components/checkbox/index.wpy",
+    "./Dialog": "./src/components/dialog/index.wpy",
+    "./Grid": "./src/components/grid/index.wpy",
+    "./Icon": "./src/components/icon/index.wpy",
+    "./Input": "./src/components/input/index.wpy",
+    "./Layout": "./src/components/layout/index.wpy",
+    "./Loadmore": "./src/components/loadmore/index.wpy",
+    "./NoticeBar": "./src/components/noticeBar/index.wpy",
+    "./Panel": "./src/components/panel/index.wpy",
+    "./Popup": "./src/components/popup/index.wpy",
+    "./Radio": "./src/components/radio/index.wpy",
+    "./Select": "./src/components/select/index.wpy",
+    "./Switch": "./src/components/switch/index.wpy",
+    "./Tab": "./src/components/tab/index.wpy",
+    "./Tag": "./src/components/tag/index.wpy",
+    "./Toast": "./src/components/toast/index.wpy",
+    "./Toptips": "./src/components/toptips/index.wpy",
+    "./Uploader": "./src/components/uploader/index.wpy"
   },
   "repository": {
     "type": "git",

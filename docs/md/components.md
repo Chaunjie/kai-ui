@@ -371,7 +371,7 @@ export default class Cell extends wepy.page {
 </script>
 ```
 
-#### Panel  
+#### Panel 面板
 
 - **概述**
 
@@ -1272,7 +1272,7 @@ export default class Index extends wepy.page {
 
 ### 操作提示组件
 
-#### Actionsheet
+#### Actionsheet 操作盘
 
 - **概述**
 
@@ -1454,7 +1454,7 @@ export default class ActionSheet extends wepy.page {
 </script>
 ```
 
-#### Toptips
+#### Toptips 顶部提示
 
 toptips
 
