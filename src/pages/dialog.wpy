@@ -1,10 +1,12 @@
 <template>
-  <dialog />
-  <view class="padding-10">
-    <button @tap="showSuccess" class="btn btn-kai">纵向对话框</button>
-  </view>
-  <view class="padding-10">
-    <button @tap="showkai" class="btn btn-kai">横向对话框</button>
+  <view class="kai-content">
+    <dialog />
+    <view class="padding-10">
+      <button @tap="showSuccess" class="btn btn-kai">纵向对话框</button>
+    </view>
+    <view class="padding-10">
+      <button @tap="showkai" class="btn btn-kai">横向对话框</button>
+    </view>
   </view>
 </template>
 
