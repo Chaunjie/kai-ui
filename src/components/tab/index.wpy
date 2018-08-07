@@ -1,50 +1,144 @@
 <template>
-  <view class="tab-container {{tabData.class ? tabData.class : ''}}">
-      <block wx:if="{{tabData.scroll}}">
-          <scroll-view scroll-x class="scroll-tab-content" style="height:{{tabData.height ? tabData.height+2 : 45+2}}px;">
-            <repeat for="{{tabData.list}}" index="index" item="item" key="key">
-              <view class="tab {{selectedId == item.id ? 'active' : ''}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" catchtap="selectTab({{item}})">
-                <view class="tab-text">{{item.title}}</view>
-              </view>
-           </repeat>
-          </scroll-view>
-      </block>
-      <block wx:else>
-        <view class="tab-content">
-           <repeat for="{{tabData.list}}" index="index" item="item" key="key">
-              <view class="tab {{selectedId == item.id ? 'active' : ''}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" catchtap="selectTab({{item}})">
-                <text class="tab-text">{{item.title}}</text>
-              </view>
-           </repeat>
+  <view class="tab-container tab-cls {{tabData.class ? tabData.class : ''}}">
+    <block wx:if="{{tabData.scroll}}">
+      <scroll-view scroll-x class="scroll-tab-content" style="height:{{tabData.height ? tabData.height+2 : 45+2}}px;" id="scroll" scroll-left="{{left}}" scroll-with-animation="true">
+        <repeat for="{{tabData.list}}" index="index" item="item" key="key">
+          <view class="tab {{tabData.selectedId == item.id ? 'active' : ''}}" data-id="{{item.id}}" data-index="{{index}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" catchtap="selectTab({{item}})">
+            <view class="tab-text">{{item.title}}</view>
+          </view>
+        </repeat>
+      </scroll-view>
+    </block>
+    <block wx:else>
+      <view class="tab-content">
+       <repeat for="{{tabData.list}}" index="index" item="item" key="key">
+        <view class="tab {{tabData.selectedId == item.id ? 'active' : ''}}" data-index="{{index}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" catchtap="selectTab({{item}})">
+          <text class="tab-text">{{item.title}}</text>
         </view>
-      </block>
-  </view>
+      </repeat>
+    </view>
+  </block>
+</view>
 </template>
 <script>
-  import wepy from 'wepy'
+import wepy from 'wepy'
 
-  export default class Tab extends wepy.component {
-    props = {
-      tabData: {}
+export default class Tab extends wepy.component {
+  props = {
+    tabData: {}
+  }
+
+  data = {
+    selectedId: '',
+    left: 0,
+    clientArr: [],
+    wWidth: 0
+  }
+
+  events = {}
+
+  methods = {
+    selectTab (item, e) {
+      const index = e.currentTarget.dataset.index
+      this.doSelect(index)
     }
+  }
 
-    data = {
-      selectedId: ''
-    }
-
-    events = {}
-
-    methods = {
-      selectTab (item) {
-        this.selectedId = item.id
-        this.$apply()
-        this.$emit('select-tab', item.id)
+  doSelect (index) {
+    const {tabData, selectedId} = this
+    if (tabData.scroll) {
+      if (index > selectedId) {
+        this.getScrollOffset('right', index)
+      } else {
+        this.getScrollOffset('left', index)
       }
     }
+    this.selectedId = index
+    this.$apply()
+    this.$emit('bindChange', tabData.list[index].id)
+  }
 
-    onLoad () {
-      this.selectedId = this.tabData.selectedId
+  changeIndex (data) {
+    this.doSelect(data.index)
+  }
+
+  doInitTabData (data) {
+    this.tabData = data
+    this.$apply()
+    this.getClientArr()
+  }
+
+  changeScroll (data, index) {
+    const { clientArr } = this
+    const left = clientArr[index] ? clientArr[index].left : ''
+    if (!left) {
+      return false
+    }
+    if (left <= data.scrollLeft + 100) {
+      this.left = left - 100
       this.$apply()
     }
   }
+
+  onLoad () {
+    if (this.tabData.scroll) {
+      wx.getSystemInfo({
+        success: (res) => {
+          this.wWidth = res.windowWidth
+        }
+      })
+    }
+  }
+
+  getClientArr () {
+    wx.createSelectorQuery().selectAll('.tab').boundingClientRect((res) => {
+      if (res.length > 0) {
+        this.clientArr = res
+        this.initScrollPosition()
+      }
+    }).exec()
+  }
+
+  initScrollPosition () {
+    let index = 0
+    for (let i = 0; i < this.tabData.list.length; i++) {
+      if (this.tabData.list[i].id === this.tabData.selectedId) {
+        index = i
+        break
+      }
+    }
+    this.selectedId = index
+    wx.createSelectorQuery().select('.tab-cls').boundingClientRect((res) => {
+      this.getScrollOffset('right', index)
+    }).exec()
+  }
+
+  getScrollOffset (type, index) {
+    wx.createSelectorQuery().select('#scroll').scrollOffset((res) => {
+      const offsetLeft = res.scrollLeft
+      const {clientArr, wWidth} = this
+      if (type === 'right') {
+        const nextClient = clientArr[index + 1]
+        if (nextClient) {
+          const right = nextClient.right
+          if (right - wWidth > offsetLeft) {
+            this.left = right - wWidth
+          }
+        }
+      } else {
+        const prevClient = clientArr[index - 1]
+        if (prevClient) {
+          const right = prevClient.right
+          const left = prevClient.left
+          const width = prevClient.width
+          if (right - width < offsetLeft) {
+            this.left = left
+          }
+        }
+      }
+
+      this.$apply()
+    }).exec()
+  }
+}
 </script>

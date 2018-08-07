@@ -1248,9 +1248,92 @@ export default class Index extends wepy.page {
 </script>
 ```
 
-#### Tab
+#### Tab 标签
 
-tab
+- **概述**
+
+&emsp;&emsp;适用于分类类信息展示
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Tab from 'kai-ui/Tab'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  tab: Tab
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+	<tab @bindChange.user="change"/>
+</template>
+```
+
+&emsp;&emsp;方法触法调用
+```javascript
+this.$invoke('tab', 'doInitTabData', this.tabData)
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数      | 类型 | 异步 | 描述                      |
+| -------- | ----- | ----- | ---------------------------- |
+| bindchange | `Function` | `false`  | 单选框回调方法    |
+
+&emsp;&emsp;tabData配置:
+
+| 参数      | 类型 | 异步 | 可选项 | 默认值 | 描述                      |
+| -------- | ----- | ----- | ------- | -------  | ---------------------------- |
+| class   | `String` | `none`   | - | - | tab自定义样式 |
+| selectedId   | `Number String` | `none`   | - | ` ` | tab选择的item |
+| scroll   | `Boolean` | `none`   | `true、false` | `false` | 是否要求支持滚动 |
+| list   | `Array` | `none`   | - | `[]` | tab显示的数据 |
+
+&emsp;&emsp;list配置:
+
+| 参数      | 类型 | 异步 | 可选项 | 默认值 | 描述                      |
+| -------- | ----- | ----- | ------- | -------  | ---------------------------- |
+| id   | `Number String` | `none`   | - | - | tab每个item的id |
+| title   | `String` | `none`   | - | ` ` | tab每个item显示的字段 |
+
+&emsp;&emsp;案例
+```wpy
+<template>
+	<tab-scroll @bindChange.user="change"/>
+</template>
+<script>
+import Tab from 'kai-ui/Tab'
+export default class Index extends wepy.page {
+	components = {
+	  'tab-scroll': Tab
+	}
+	data = {
+		tab2: {
+		  list: [{id: 1, title: '标签1'}, {id: 2, title: '标签2'}, {id: 3, title: '标签3'}, {id: 4, title: '标签4'}, {id: 5, title: '标签5'}, {id: 6, title: '标签6'}, {id: 7, title: '标签7'}, {id: 8, title: '标签8'}],
+		  scroll: true,
+		  selectedId: 3,
+		  class: 'tab-success'
+		}
+	}
+	methods = {
+		change (res) {
+		  this.tab2.selectedId = res
+		  this.$apply()
+		}
+  }
+	onLoad () {
+		const {tab2} = this
+		this.$invoke('tab-scroll', 'doInitTabData', tab2)
+	}
+}
+</script>
+```
 
 ### 操作提示组件
 

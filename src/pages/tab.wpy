@@ -5,8 +5,10 @@
 </style>
 <template>
   <view class="kai-content">
-    <tab :tabData.sync="tab1"/>
-    <tab1 :tabData.sync="tab2"/>
+    <view class="padding-10 font-12">正常样式</view>
+    <tab @bindChange.user="change1"/>
+    <view class="padding-10 font-12">滚动样式</view>
+    <tab-scroll @bindChange.user="change"/>
   </view>
 </template>
 
@@ -20,8 +22,8 @@ export default class TabPage extends wepy.page {
   }
 
   components = {
-    tab: Tab,
-    tab1: Tab
+    'tab-scroll': Tab,
+    tab: Tab
   }
 
   data = {
@@ -32,23 +34,31 @@ export default class TabPage extends wepy.page {
       class: 'tab-danger'
     },
     tab2: {
-      list: [{id: 1, title: '标签1'}, {id: 2, title: '标签2'}, {id: 3, title: '标签3'}, {id: 4, title: '标签4'}, {id: 5, title: '标签5'}, {id: 6, title: '标签6'}, {id: 7, title: '标签7'}, {id: 8, title: '标签8'}],
-      scroll: true,
-      selectedId: 3,
+      list: [],
+      scroll: false,
+      selectedId: '',
       class: 'tab-success'
     }
   }
 
   computed = {}
 
-  methods = {}
-
-  events = {
-    'select-tab': (data) => {
-      this.tab1.selectedId = data
+  methods = {
+    change (res) {
+      this.tab2.selectedId = res
+      this.$apply()
+    },
+    change1 (res) {
+      this.tab1.selectedId = res
+      this.$apply()
     }
   }
 
-  onLoad() {}
+  onLoad() {
+    const {tab2} = this
+    this.tab2 = Object.assign({}, tab2, {list: [{id: 1, title: '标签1'}, {id: 2, title: '标签2'}, {id: 3, title: '标签3'}, {id: 4, title: '标签4'}, {id: 5, title: '标签5'}, {id: 6, title: '标签6'}, {id: 7, title: '标签7'}, {id: 8, title: '标签8'}], selectedId: 3, scroll: true})
+    this.$invoke('tab-scroll', 'doInitTabData', this.tab2)
+    this.$invoke('tab', 'doInitTabData', this.tab1)
+  }
 }
 </script>
