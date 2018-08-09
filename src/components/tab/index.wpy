@@ -3,20 +3,24 @@
   <view class="tab-container tab-cls {{tabData.class ? tabData.class : ''}}">
     <block wx:if="{{tabData.scroll}}">
       <scroll-view scroll-x class="scroll-tab-content" style="height:{{tabData.height ? tabData.height+2 : 45+2}}px;" id="scroll" scroll-left="{{left}}" scroll-with-animation="true">
-        <repeat for="{{tabData.list}}" index="index" item="item" key="key">
-          <view class="tab {{tabData.selectedId == item.id ? 'active' : ''}}" data-id="{{item.id}}" data-index="{{index}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" catchtap="selectTab({{item}})">
-            <view class="tab-text">{{item.title}}</view>
-          </view>
-        </repeat>
+        <view class="scroll-tab__content">
+          <repeat for="{{tabData.list}}" index="index" item="item" key="key">
+            <view class="tab" data-id="{{item.id}}" data-index="{{index}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" catchtap="selectTab({{item}})">
+              <view class="tab-text">{{item.title}}</view>
+            </view>
+          </repeat>
+          <view class="animate-border" animation="{{animationData}}"></view>
+        </view>
       </scroll-view>
     </block>
     <block wx:else>
       <view class="tab-content">
        <repeat for="{{tabData.list}}" index="index" item="item" key="key">
-        <view class="tab {{tabData.selectedId == item.id ? 'active' : ''}}" data-index="{{index}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" catchtap="selectTab({{item}})">
+        <view class="tab" data-index="{{index}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" catchtap="selectTab({{item}})">
           <text class="tab-text">{{item.title}}</text>
         </view>
       </repeat>
+      <view class="animate-border" animation="{{animationData}}"></view>
     </view>
   </block>
 </view>
@@ -33,7 +37,10 @@ export default class Tab extends wepy.component {
     selectedId: '',
     left: 0,
     clientArr: [],
-    wWidth: 0
+    textArr: [],
+    wWidth: 0,
+    animationData: {},
+    animation: {}
   }
 
   events = {}
@@ -42,6 +49,16 @@ export default class Tab extends wepy.component {
     selectTab (item, e) {
       const index = e.currentTarget.dataset.index
       this.doSelect(index)
+    }
+  }
+
+  watch = {
+    tabData (newValue, oldValue) {
+      if (oldValue) {
+        this.doAnimateBorder()
+      } else {
+        this.getClientArr()
+      }
     }
   }
 
@@ -82,32 +99,62 @@ export default class Tab extends wepy.component {
   }
 
   onLoad () {
-    if (this.tabData.scroll) {
+    let animation = wx.createAnimation({
+      duration: 100,
+      timingFunction: 'ease-in-out'
+    })
+    this.animation = animation
+    // if (this.tabData.scroll) {
       wx.getSystemInfo({
         success: (res) => {
           this.wWidth = res.windowWidth
         }
       })
-    }
+    // }
   }
 
   getClientArr () {
+    wx.createSelectorQuery().selectAll('.tab-text').boundingClientRect((res) => {
+      if (res.length > 0) {
+        this.textArr = res
+      }
+    }).exec()
     wx.createSelectorQuery().selectAll('.tab').boundingClientRect((res) => {
       if (res.length > 0) {
         this.clientArr = res
-        this.initScrollPosition()
+        if (this.tabData.scroll) {
+          this.initScrollPosition()
+          this.doAnimateBorder()
+        } else {
+          this.doAnimateBorder()
+        }
       }
     }).exec()
   }
 
-  initScrollPosition () {
-    let index = 0
-    for (let i = 0; i < this.tabData.list.length; i++) {
-      if (this.tabData.list[i].id === this.tabData.selectedId) {
-        index = i
-        break
+  doAnimateBorder () {
+    const {textArr, tabData, selectedId, clientArr} = this
+    const index = this.getIndex(tabData)
+    const cWidth = clientArr[index].width
+    const cLeft = clientArr[index].left
+    const width = textArr[index].width
+    const left = textArr[index].left
+    this.animation.width(cWidth).translate3d(cLeft, 0, 0).step({duration: 400}).width(width).translate3d(left, 0, 0).step({duration: 400})
+    this.animationData = this.animation.export()
+    this.$apply()
+  }
+
+  getIndex (tabData) {
+    for (let i = 0; i < tabData.list.length; i++) {
+      if (tabData.selectedId === tabData.list[i].id) {
+        return i
       }
     }
+  }
+
+  initScrollPosition () {
+    const {tabData} = this
+    let index = this.getIndex(tabData)
     this.selectedId = index
     wx.createSelectorQuery().select('.tab-cls').boundingClientRect((res) => {
       this.getScrollOffset('right', index)

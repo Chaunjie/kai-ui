@@ -5,6 +5,15 @@
   flex-direction: row;
   background-color:#fff;
   border-bottom:2px solid #fff;
+  position: relative;
+  .animate-border {
+    background-color: #fff;
+    position: absolute;
+    left:0;
+    bottom: -1px;
+    width: 0;
+    height: 2px;
+  }
   .tab{
     flex:1;
     font-size:14px;
@@ -14,11 +23,12 @@
     justify-content: center;
     &.active{
       .tab-text{
-        border-bottom:2px solid #333;
+        // border-bottom:2px solid #333;
       }
     }
     .tab-text{
-      border-bottom:2px solid #fff;
+      padding: 0 5px;
+      // border-bottom:2px solid #fff;
     }
   }
 }
@@ -26,6 +36,17 @@
   width: 100vw;
   white-space:nowrap;
   background-color:#fff;
+  .scroll-tab__content{
+     position: relative;
+     .animate-border {
+        background-color: #fff;
+        position: absolute;
+        left:0;
+        bottom: -1px;
+        width: 0;
+        height: 2px;
+      }
+  }
   .tab{
     padding:0 20px;
     display:inline-block;
@@ -33,11 +54,12 @@
     &.active{
       .tab-text{
         line-height:45px;
-        border-bottom:2px solid #333;
+        // border-bottom:2px solid #333;
       }
     }
     .tab-text{
       color:#666;
+      padding: 0 5px;
     }
   }
 }
@@ -54,6 +76,9 @@
       }
     }
   }
+  .animate-border {
+    background-color: @success !important;
+  }
 }
 
 .tab-kai{
@@ -67,6 +92,9 @@
         border-bottom:2px solid @kai;
       }
     }
+  }
+  .animate-border {
+    background-color: @kai !important;
   }
 }
 
@@ -82,6 +110,9 @@
       }
     }
   }
+  .animate-border {
+    background-color: @blue !important;
+  }
 }
 
 .tab-danger{
@@ -96,6 +127,9 @@
       }
     }
   }
+  .animate-border {
+    background-color: @red !important;
+  }
 }
 
 .tab-gray{
@@ -109,5 +143,8 @@
         border-bottom:2px solid @gray;
       }
     }
+  }
+  .animate-border {
+    background-color: @gray !important;
   }
 }
