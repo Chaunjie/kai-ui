@@ -133,7 +133,7 @@ export default class Tab extends wepy.component {
   }
 
   doAnimateBorder () {
-    const {textArr, tabData, selectedId, clientArr} = this
+    const {textArr, tabData, clientArr} = this
     const index = this.getIndex(tabData)
     const cWidth = clientArr[index].width
     const cLeft = clientArr[index].left
