@@ -6,6 +6,7 @@
         <input
           class="searchbar-form__input"
           placeholder="{{placeholder}}"
+          maxlength="{{maxlength}}"
           value="{{value}}"
           focus="{{focus}}"
           confirm-type="search"
@@ -45,6 +46,10 @@ export default class Searchbar extends wepy.component {
     autoCompleteKeys: []
   }
   props = {
+    maxlength: {
+      type: [Number, String],
+      default: 100
+    },
     placeholder: {
       type: String,
       default: '输入文字进行搜索'
@@ -96,6 +101,13 @@ export default class Searchbar extends wepy.component {
         this.$apply()
       }, 0)
     }
+  }
+
+  onUnload () {
+    setTimeout(() => {
+      this.value = ''
+      this.$apply()
+    }, 1000)
   }
 }
 </script>
