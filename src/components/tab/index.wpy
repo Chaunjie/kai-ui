@@ -17,7 +17,7 @@
       <view class="tab-content">
        <repeat for="{{tabData.list}}" index="index" item="item" key="key">
         <view class="tab" data-index="{{index}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" catchtap="selectTab({{item}})">
-          <text class="tab-text">{{item.title}}</text>
+          <view class="tab-text">{{item.title}}</view>
         </view>
       </repeat>
       <view class="animate-border" animation="{{animationData}}"></view>
