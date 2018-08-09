@@ -60,6 +60,12 @@
           }
         }
       },
+      _handleInput (e) {
+        const dataset = e.currentTarget.dataset
+        const dataConfig = dataset.config
+        this.num = e.detail.value
+        this.handleStepChange(dataConfig.callbackFn)
+      },
       // TODO：输入0
       _handleBlur (e) {
         const dataset = e.currentTarget.dataset
