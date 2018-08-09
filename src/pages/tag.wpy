@@ -30,23 +30,23 @@ export default class Tag extends wepy.page {
   data = {
     types: [
       {
-        type: 'tag-plain',
+        type: 'plain',
         text: '默认'
       },
       {
-        type: 'tag-primary',
+        type: 'primary',
         text: '返现'
       },
       {
-        type: 'tag-danger',
+        type: 'danger',
         text: '会员折扣'
       },
       {
-        type: 'tag-warn',
+        type: 'warn',
         text: '返现'
       },
       {
-        type: 'tag-disabled',
+        type: 'disabled',
         text: '返现不可用'
       }
     ]
