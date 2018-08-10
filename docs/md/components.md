@@ -1510,6 +1510,7 @@ this.$invoke('dialog', 'show', options).then((value) => {
 | -------- | ----- | ----- | ------- | -------  | ---------------------------- |
 | text   | `String` | `none`   | - | - | 按钮内容 |
 | color   | `String` | `none`   | - | - | 按钮字体颜色 |
+| sync   | `Boolean` | `true`   | `true、false` | `false` | 是否是异步按钮 |
 
 &emsp;&emsp;案例
 ```wpy
@@ -1563,11 +1564,17 @@ export default class Index extends wepy.page {
 		      color: '#48A9E9'
 		    }, {
 		      text: '京东',
-		      color: '#E45143'
+		      color: '#E45143',
+          sync: true
 		    }]
 		  }
 		  this.$invoke('dialog', 'show', options).then((value) => {
-		    console.log(value) // 0: 取消，1：确认
+		    console.log(value) // 0: 微信支付，1：支付宝，2：京东
+        if (value === 2) {
+          setTimeout(() => {
+            this.$invoke('dialog', 'reset') // 异步按钮重置
+          }, 3000)
+        }
 		  }, () => {
 		    console.log('reject')
 		  })
