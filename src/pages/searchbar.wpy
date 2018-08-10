@@ -12,6 +12,9 @@
   import Searchbar from '@/components/searchbar/index'
 
   export default class SearchbarPage extends wepy.page {
+    config = {
+      navigationBarTitleText: 'Searchbar 搜索框'
+    }
     data = {
       historyKeys: '',
       datasource: [

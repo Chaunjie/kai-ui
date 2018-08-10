@@ -9,14 +9,14 @@
 5、tag（stardew）✔
 6、tab（stardew）✔
 7、select（stardew）✔
-8、toptips提示 (wppeng)
-9、toast组件(wppeng)
-10、stepper计步器组件(wppeng)
+8、toptips提示 (wppeng) ✔
+9、toast组件(wppeng) ✔
+10、numberpicker数字输入框组件(wppeng) ✔
 11、switch组件 ✔
 12、actionsheet（stardew）✔
-13、dialog(wppeng)
-14、searchbar(wppeng)
-15、input框(wppeng)
+13、dialog(wppeng) ✔
+14、searchbar(wppeng) ✔
+15、input框(wppeng) ✔
 16、slider(wppeng)
 17、uploader（stardew）✔
 18、grid（stardew）✔

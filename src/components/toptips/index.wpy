@@ -19,7 +19,7 @@ export default class Toptips extends wepy.component {
   show (options) {
     this.topTips = {
       show: true,
-      content: options.content || '系统异常',
+      content: options.content,
       duration: options.duration || 3000,
       className: options.className
     }

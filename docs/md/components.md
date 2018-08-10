@@ -4,8 +4,8 @@
 
 ### 使用场景
 
-该版本基于微信小程序环境、`wepy` 框架。 
-`wepy-cli` 版本要求 `^1.7.3`, 
+该版本基于微信小程序环境、`wepy` 框架。
+`wepy-cli` 版本要求 `^1.7.3`,
 低于 `1.7.3` 版本的可以直接把 `src/component` 下的资源文件拷贝到自己项目 `component` 下
 
 ### 如何在项目中使用kai-ui
@@ -1042,12 +1042,12 @@ components = {
             <view class="pop-text">春来江水绿如蓝</view>
             <view class="pop-text">能不忆江南</view>
             <button class="btn btn-kai margin-top20" catchtap="close({{i}})">
-              关闭 
+              关闭
             </button>
           </view>
         </block>
       </popup>
-    </repeat> 
+    </repeat>
   </view>
 </template>
 
@@ -1456,7 +1456,86 @@ export default class ActionSheet extends wepy.page {
 
 #### Toptips 顶部提示
 
-toptips
+- **概述**
+
+&emsp;&emsp;适用于顶部弹出提示消息
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Toptips from 'kai-ui/Toptips'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  toptips: Toptips
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <toptips />
+</template>
+```
+
+&emsp;&emsp;js调用
+```javascript
+this.$invoke('toptips', 'show', options)
+```
+
+&emsp;&emsp;options配置:
+| 参数      | 类型 | 是否必传 | 默认值 | 描述                      |
+| -------- | ------- | ---- | ----- | ------------------------ |
+| content  | `String`  | 是  | -  | 提示内容 |
+| duration | `Number/String` | 否   | 2000 | 提示持续时间，单位毫秒 |
+| afterClose | `String` | 否   | - | 回调函数名 |
+| className | `String` | 否  | - | 自定义class |
+
+&emsp;&emsp;案例
+```wpy
+<template>
+  <toptips />
+  <view class="padding-10">
+    <button @tap="showSuccess" class="btn btn-kai" style="margin-top:100px">点击弹出toptips</button>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Toptips from '@/components/Toptips'
+  export default class ToastPage extends wepy.page {
+    data = {}
+    components = {
+      toptips: Toptips
+    }
+    methods = {
+      showSuccess () {
+        const options = {
+          content: '请输入正确的手机号',
+          duration: 2000,
+          afterClose: 'afterClose',
+          className: 'mytest'
+        }
+        this.$invoke('toptips', 'show', options)
+      }
+    }
+    events = {
+      afterClose () {
+        console.log('弹出框关闭')
+      }
+    }
+  }
+</script>
+
+<style>
+.mytest .toptips {
+  background-color: #ff4400;
+}
+</style>
+```
 
 #### Dialog 弹窗
 
@@ -1586,7 +1665,47 @@ export default class Index extends wepy.page {
 
 #### Toast 提示
 
-toast
+- **概述**
+
+&emsp;&emsp;适用于在页面上弹出提示消息
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Toast from 'kai-ui/Toast'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  toast: Toast
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <toast />
+</template>
+```
+
+&emsp;&emsp;js调用
+```javascript
+this.$invoke('toast', 'show', options)
+```
+
+&emsp;&emsp;options配置:
+| 参数      | 类型 | 是否必传 |  默认值 | 描述                      |
+| -------- | ------- | ---- | ----- | ------------------------ |
+| content  | `String`  | 是  | -  | 提示内容 |
+| duration | `Number/String` | 否   | 2000 | 消息弹出持续时间，单位毫秒 |
+| position  | `String`  | 否  | `middle`  | 消息弹出位置（可选值：`top`,`middle`,`bottom`) |
+| afterClose | `String` | 否   | - | 回调函数名 |
+
+&emsp;&emsp;案例
+参见 Toptips 组件
+
 
 ### 表单组件
 
@@ -1697,7 +1816,7 @@ import uploader from '@/components/uploader/index'
 import panel from '@/components/panel/index'
 
 export default class Uploader extends wepy.page {
-  
+
   config = {
     navigationBarTitleText: 'Uploader 上传'
   }
@@ -2326,16 +2445,279 @@ export default class Index extends wepy.page {
 </script>
 ```
 
-#### Stepper 步骤条
+#### Numberpicker 数字输入框
 
-stepper
+- **概述**
+
+&emsp;&emsp;数字选择器，可通过加减按钮操作或者直接在输入框输入
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import NumberPicker from 'kai-ui/NumberPicker'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  numberpicker: NumberPicker
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <numberpicker :num="item" :index="index" :config="first.config"/>
+</template>
+```
+
+&emsp;&emsp;options配置:
+| 参数      | 类型 | 是否必传 |  默认值 | 描述                      |
+| -------- | ------- | ---- | ----- | ------------------------ |
+| num  | `Number`  | 是  | -  | 初始值 |
+| index | `Number` | 是  | - | 消息弹出持续时间，单位毫秒 |
+| config | `Object` | 是  | - | 配置 |
+
+&emsp;&emsp;config配置:
+| 参数      | 类型 | 是否必传 |  默认值 | 描述                      |
+| -------- | ------- | ---- | ----- | ------------------------ |
+| step | `Number` | 是  | - | 点击加减按钮的步长 |
+| size  | `String`  | 否  | `small`  | 样式尺寸（可选值：`small`,`medium`,`large` |
+| max | `Number` | 否  | - | 最大值 |
+| min | `Number` | 否  | 1 | 最小值 |
+| callbackFn | `String` | 否  | - | 回调函数名，用于处理回传结果 |
+
+&emsp;&emsp;案例
+```wepy
+<template>
+  <view class="kai-content">
+    <view class="bg-white padding-10">
+      <view class="font-12">正常样式</view>
+      <repeat for="{{first.list}}" index="index" item="item">
+        <numberpicker :num="item" :index="index" :config="first.config"/>
+      </repeat>
+    </view>
+    <view class="bg-white padding-10">
+      <view class="font-12">小size样式</view>
+      <repeat for="{{second.list}}" index="index" item="item">
+        <numberpicker :num="item" :index="index" :config="second.config"/>
+      </repeat>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import NumberPicker from '@/components/NumberPicker'
+
+  export default class NumberPickerPage extends wepy.page {
+    data = {
+      first: {
+        list: [1],
+        config: {
+          size: 'medium',
+          step: 1,
+          callbackFn: 'firstListChange'
+        }
+      },
+      second: {
+        list: [5, 6, 7],
+        config: {
+          step: 1,
+          min: 3,
+          max: 10,
+          callbackFn: 'secondListChange'
+        }
+      }
+    }
+    components = {
+      numberpicker: NumberPicker
+    }
+
+    events = {
+      firstListChange (index, value) {
+        this.first.list[index] = value
+      },
+      secondListChange (index, value) {
+        this.second.list[index] = value
+      }
+    }
+  }
+</script>
+```
 
 #### Input 框
 
-input
+
+
+- **概述**
+
+&emsp;&emsp;input 输入框
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Input from 'kai-ui/Input'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  input: Input
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+    <input label="联系人" placeholder="请输入姓名" :value.sync="name" focus="true"/>
+</template>
+```
+
+&emsp;&emsp;options配置:
+| 参数      | 类型 | 是否必传 |  默认值 | 描述                      |
+| -------- | ------- | ---- | ----- | ------------------------ |
+| label  | `String`  | 否  | -  | label标签名 |
+| placeholder | `String` | 否  | - | 输入提示 |
+| value | `String` | 是  | - | 当前值 |
+| focus | `Boolean` | 否  | false | 是否自动获取焦点 |
+| maxlength | `String` | 否  | 9999 | 最大长度 |
+| type | `String` | 否  | `text` | 输入框类型（可选项：`number`,`textarea`,`password`,`text` |
+
+&emsp;&emsp;事件处理函数:
+| 事件名称 | 参数  | 描述    |
+| -------- | ------| ------- |
+| handleChange | e: {Event} DOM事件对象  | value值发生改变的时候触发的回调 |
+| handleInput | e: {Event} DOM事件对象  | 输入value值的时候触发的回调 |
+| handleBlur | e: {Event} DOM事件对象  | 输入框失去焦点的时候触发的回调 |
+
+&emsp;&emsp;案例
+```wepy
+<template>
+  <view class="kai-content">
+    <view class="padding-10 font-12">基础用法</view>
+    <inputName label="联系人" placeholder="请输入姓名" :value.sync="name" focus="true"/>
+    <inputPassword type="password" label="密码" placeholder="请输入密码" :value.sync="password"/>
+    <inputPhone type="number" label="联系电话" maxlength="11" :value.sync="tel" />
+    <inputAddress type="textarea" placeholder="详细地址" :value.sync="address"/>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Input from '@/components/Input'
+  export default class InputPage extends wepy.page {
+    data = {
+      name: '道格强森',
+      password: '',
+      tel: '',
+      address: ''
+    }
+    components = {
+      inputName: Input,
+      inputAddress: Input,
+      inputPassword: Input,
+      inputPhone: Input
+    }
+    events = {
+      handleChange(e) {
+        console.log('handleChange', e)
+      },
+      handleInput(e) {
+        console.log('handleInput', e)
+      },
+      handleBlur(e) {
+        console.log('handleBlur', e)
+      }
+    }
+  }
+</script>
+
+```
 
 ### 搜索组件
 
 #### Searchbar 搜索条
 
-Searchbar
+
+
+- **概述**
+
+&emsp;&emsp;搜索输入框
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Searchbar from 'kai-ui/Searchbar'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  searchbar: Searchbar
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <searchbar
+    placeholder="文艺复古长裙"
+    @bindsearch.user="searchEvent"
+    @bindcancel.user="cancelEvent"
+    />
+</template>
+```
+
+&emsp;&emsp;options配置:
+| 参数      | 类型 | 是否必传 |  默认值 | 描述                      |
+| -------- | ------- | ---- | ----- | ------------------------ |
+| placeholder | `String` | 否  | - | 搜索提示或默认搜索关键字 |
+| datasource | `String` | 否  | - | 模糊搜索的数据来源 |
+| bindsearch | `String` | 否  | - | 点击搜索事件回调名称 |
+| bindcancel | `String` | 否  | - | 点击取消事件回调名称 |
+
+&emsp;&emsp;案例
+```wepy
+<template>
+  <searchbar
+    placeholder="文艺复古长裙"
+    :datasource.sync="datasource"
+    @bindsearch.user="searchEvent"
+    @bindcancel.user="cancelEvent"
+    />
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Searchbar from '@/components/Searchbar'
+  export default class SearchbarPage extends wepy.page {
+    data = {
+      historyKeys: '',
+      datasource: [
+        '优衣库女装',
+        'apple',
+        'Banana',
+        'Orange'
+      ]
+    }
+    components = {
+      searchbar: Searchbar
+    }
+    methods = {
+      searchEvent (value) {
+        console.log('搜索：' + value)
+      },
+      cancelEvent () {
+        wx.navigateBack({
+          delta: 1
+        })
+      }
+    }
+  }
+</script>
+
+```
