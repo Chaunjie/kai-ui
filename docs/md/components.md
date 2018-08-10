@@ -1491,7 +1491,7 @@ this.$invoke('toptips', 'show', options)
 | 参数      | 类型 | 是否必传 | 默认值 | 描述                      |
 | -------- | ------- | ---- | ----- | ------------------------ |
 | content  | `String`  | 是  | -  | 提示内容 |
-| duration | `Number` | 否   | 2000 | 提示持续时间，单位毫秒 |
+| duration | `Number` | 否   | 3000 | 提示持续时间，单位毫秒 |
 | afterClose | `String` | 否   | - | 回调函数名 |
 | className | `String` | 否  | - | 自定义class |
 
@@ -1701,12 +1701,55 @@ this.$invoke('toast', 'show', options)
 | 参数      | 类型 | 是否必传 |  默认值 | 描述                      |
 | -------- | ------- | ---- | ----- | ------------------------ |
 | content  | `String`  | 是  | -  | 提示内容 |
-| duration | `Number` | 否   | 2000 | 消息弹出持续时间，单位毫秒 |
+| type | `String` | 否   | - | 消息类型（可选项：`success`,`error`,`warning`,`loading`) |
+| duration | `Number` | 否   | 3000 | 消息弹出持续时间，单位毫秒 |
 | position  | `String`  | 否  | `middle`  | 消息弹出位置（可选值：`top`,`middle`,`bottom`) |
 | afterClose | `String` | 否   | - | 回调函数名 |
 
 &emsp;&emsp;案例
-参见 Toptips 组件
+```wepy
+<template>
+  <toast />
+  <view class="padding-10">
+    <button @tap="showSuccess" class="btn btn-kai" style="margin-top:100px">点击弹出toast</button>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Toast from '@/components/toast/index'
+
+  export default class ToastPage extends wepy.page {
+    config = {
+      navigationBarTitleText: 'Toast 轻提示'
+    }
+    data = {}
+
+    components = {
+      toast: Toast
+    }
+
+    methods = {
+      showSuccess () {
+        const options = {
+          content: '加载中...',
+          position: 'middle',
+          duration: 4000,
+          type: 'loading',
+          afterClose: 'afterClose'
+        }
+        this.$invoke('toast', 'show', options)
+      }
+    }
+
+    events = {
+      afterClose () {
+        console.log('弹出框关闭')
+      }
+    }
+  }
+</script>
+```
 
 
 ### 表单组件

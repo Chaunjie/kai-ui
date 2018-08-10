@@ -22,9 +22,10 @@
     methods = {
       showSuccess () {
         const options = {
-          content: '提示成功',
+          content: '加载中...',
           position: 'middle',
-          duration: 2000,
+          duration: 10000,
+          type: 'loading',
           afterClose: 'afterClose'
         }
         this.$invoke('toast', 'show', options)

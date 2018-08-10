@@ -3,16 +3,26 @@
     position: fixed;
     z-index: 999;
     left: 50%;
-    padding: 5px 10px;
+    padding: 10px 15px;
     background:rgba(0,0,0,0.5);
     color:#fff;
     font-size: 12px;
     border-radius: 2px;
     opacity: 0;
     transition: opacity .3s;
+    text-align:center;
+    .toast-wrap__icon {
+        margin-bottom: 6px;
+      .iconfont {
+        font-size: 50rpx;
+      }
+    }
   }
   .toast-show {
     opacity: 1;
+    .icon-loading {
+      animation: btn-spin 1s linear infinite;
+    }
   }
   .toast-middle {
     top: 50%;
@@ -26,5 +36,4 @@
     bottom: 0;
     transform: translateX(-50%);
   }
-
 }

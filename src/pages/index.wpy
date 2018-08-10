@@ -150,7 +150,7 @@ export default class Index extends wepy.page {
             link: 'dialog'
           },
           {
-            title: 'Toast 提示条',
+            title: 'Toast 轻提示',
             linktype: 1,
             link: 'toast'
           }

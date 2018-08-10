@@ -17,7 +17,6 @@
     config = {
       navigationBarTitleText: 'Input 输入框'
     }
-    
     data = {
       name: '道格强森',
       password: '',
