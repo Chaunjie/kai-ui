@@ -1,11 +1,14 @@
 <template>
   <view class="kai-content">
     <dialog />
-    <view class="padding-10">
+    <view class="padding-10" style="margin-top: 50px;">
       <button @tap="showSuccess" class="btn btn-kai">纵向对话框</button>
     </view>
     <view class="padding-10">
       <button @tap="showkai" class="btn btn-kai">横向对话框</button>
+    </view>
+    <view class="padding-10">
+      <button @tap="showSync" class="btn btn-kai">异步对话框</button>
     </view>
   </view>
 </template>
@@ -59,11 +62,37 @@
             color: '#48A9E9'
           }, {
             text: '京东',
-            color: '#E45143'
+            color: '#E45143',
+            sync: true
           }]
         }
         this.$invoke('dialog', 'show', options).then((value) => {
-          console.log(value) // 0: 取消，1：确认
+          console.log(value) // 0: 微信支付 1: 支付宝 2: 京东
+        }, () => {
+          console.log('reject')
+        })
+      },
+      showSync () {
+        const options = {
+          title: '删除确认',
+          content: '删除之后无法恢复',
+          type: 'muti',
+          showVertical: false,
+          buttons: [{
+            text: '取消'
+          }, {
+            text: '删除',
+            color: '#E45143',
+            sync: true
+          }]
+        }
+        this.$invoke('dialog', 'show', options).then((value) => {
+          console.log(value) // 0: 删除
+          if (value === 1) {
+            setTimeout(() => {
+              this.$invoke('dialog', 'reset')
+            }, 3000)
+          }
         }, () => {
           console.log('reject')
         })

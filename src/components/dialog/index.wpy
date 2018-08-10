@@ -1,3 +1,4 @@
+<style lang="less" src="../../less/font.less"></style>
 <style lang="less" src="./index.less"></style>
 <template>
   <view class="dialog {{ dialog.show ? 'dialog-show' : '' }} {{ out ? 'dialog-out' : '' }}">
@@ -14,9 +15,12 @@
       class="dialog-footer {{ dialog.showVertical ? 'dialog-footer-vertical' : 'dialog-footer-horizon' }}">
       <repeat for="{{dialog.buttons}}" index="index" item="item" key="key">
         <button
-        class="dialog-button btn"
+        class="dialog-button btn btn-loading"
         catchtap="btnTap({{index}})"
-        style="color: {{ item.color || '#333' }}">{{ item.text }}</button>
+        style="color: {{ item.color || '#333' }}">
+          <view class="iconfont icon-loading" wx:if="{{item.sync && showSync}}"></view>
+          {{ item.text }}
+        </button>
       </repeat>
     </view>
   </view>
@@ -37,12 +41,24 @@ export default class Dialog extends wepy.component {
     },
     resolve: '',
     reject: '',
-    out: false
+    out: false,
+    showSync: false
   }
 
   methods = {
     btnTap (index) {
+      const {dialog, showSync} = this
+      if (showSync) {
+        return
+      }
       this.resolve(index)
+      if (dialog.buttons[index].sync) {
+        this.showSync = true
+      } else {
+        this.methods.resetDialog.call(this)
+      }
+    },
+    resetDialog () {
       this.out = true
       setTimeout(() => {
         this.out = false
@@ -56,10 +72,12 @@ export default class Dialog extends wepy.component {
         }
         this.$apply()
       }, 300)
-    },
-    _handleDialogButtonClick (index) {
-      console.log(index)
     }
+  }
+
+  reset () {
+    this.showSync = false
+    this.methods.resetDialog.call(this)
   }
 
   show (options) {
