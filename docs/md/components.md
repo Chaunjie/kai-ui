@@ -1491,7 +1491,7 @@ this.$invoke('toptips', 'show', options)
 | 参数      | 类型 | 是否必传 | 默认值 | 描述                      |
 | -------- | ------- | ---- | ----- | ------------------------ |
 | content  | `String`  | 是  | -  | 提示内容 |
-| duration | `Number/String` | 否   | 2000 | 提示持续时间，单位毫秒 |
+| duration | `Number` | 否   | 2000 | 提示持续时间，单位毫秒 |
 | afterClose | `String` | 否   | - | 回调函数名 |
 | className | `String` | 否  | - | 自定义class |
 
@@ -1507,7 +1507,7 @@ this.$invoke('toptips', 'show', options)
 <script>
   import wepy from 'wepy'
   import Toptips from '@/components/Toptips'
-  export default class ToastPage extends wepy.page {
+  export default class ToptipsPage extends wepy.page {
     data = {}
     components = {
       toptips: Toptips
@@ -1701,7 +1701,7 @@ this.$invoke('toast', 'show', options)
 | 参数      | 类型 | 是否必传 |  默认值 | 描述                      |
 | -------- | ------- | ---- | ----- | ------------------------ |
 | content  | `String`  | 是  | -  | 提示内容 |
-| duration | `Number/String` | 否   | 2000 | 消息弹出持续时间，单位毫秒 |
+| duration | `Number` | 否   | 2000 | 消息弹出持续时间，单位毫秒 |
 | position  | `String`  | 否  | `middle`  | 消息弹出位置（可选值：`top`,`middle`,`bottom`) |
 | afterClose | `String` | 否   | - | 回调函数名 |
 
@@ -2683,7 +2683,9 @@ components = {
 | 参数      | 类型 | 是否必传 |  默认值 | 描述                      |
 | -------- | ------- | ---- | ----- | ------------------------ |
 | placeholder | `String` | 否  | - | 搜索提示或默认搜索关键字 |
+| maxlength | `Number` | 否  | 100 | 最大输入长度 |
 | datasource | `String` | 否  | - | 模糊搜索的数据来源 |
+| className | `String` | 否  | - | 自定义class |
 | bindsearch | `String` | 否  | - | 点击搜索事件回调名称 |
 | bindcancel | `String` | 否  | - | 点击取消事件回调名称 |
 
@@ -2692,6 +2694,7 @@ components = {
 <template>
   <searchbar
     placeholder="文艺复古长裙"
+    className="mytest"
     :datasource.sync="datasource"
     @bindsearch.user="searchEvent"
     @bindcancel.user="cancelEvent"
@@ -2726,5 +2729,18 @@ components = {
     }
   }
 </script>
+
+<style lang="less">
+  .mytest {
+    .searchbar {
+      .searchbar-form__wrap {
+        border-radius:50px;
+      }
+      .searchbar-form__cancel {
+        color:#4b0;
+      }
+    }
+  }
+</style>
 
 ```

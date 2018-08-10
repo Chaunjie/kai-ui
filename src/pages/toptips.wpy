@@ -9,7 +9,7 @@
   import wepy from 'wepy'
   import Toptips from '@/components/toptips/index'
 
-  export default class ToastPage extends wepy.page {
+  export default class ToptipsPage extends wepy.page {
     config = {
       navigationBarTitleText: 'Toptips 顶部提示'
     }
