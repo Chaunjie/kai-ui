@@ -66,7 +66,6 @@
         this.num = e.detail.value
         this.handleStepChange(dataConfig.callbackFn)
       },
-      // TODO：输入0
       _handleBlur (e) {
         const dataset = e.currentTarget.dataset
         const dataConfig = dataset.config
@@ -84,7 +83,7 @@
     }
 
     verify (num, config) {
-      if (!num) {
+      if (!num && num !== 0) {
         console.error('props "num" is null')
         return false
       }
