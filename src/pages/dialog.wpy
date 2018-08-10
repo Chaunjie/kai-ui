@@ -62,8 +62,7 @@
             color: '#48A9E9'
           }, {
             text: '京东',
-            color: '#E45143',
-            sync: true
+            color: '#E45143'
           }]
         }
         this.$invoke('dialog', 'show', options).then((value) => {

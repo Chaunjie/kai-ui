@@ -1570,11 +1570,11 @@ export default class Index extends wepy.page {
 		  }
 		  this.$invoke('dialog', 'show', options).then((value) => {
 		    console.log(value) // 0: 微信支付，1：支付宝，2：京东
-        if (value === 2) {
-          setTimeout(() => {
-            this.$invoke('dialog', 'reset') // 异步按钮重置
-          }, 3000)
-        }
+            if (value === 2) {
+              setTimeout(() => {
+                this.$invoke('dialog', 'reset') // 异步按钮重置
+              }, 3000)
+            }
 		  }, () => {
 		    console.log('reject')
 		  })
