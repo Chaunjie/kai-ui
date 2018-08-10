@@ -1,6 +1,6 @@
 <style lang="less" src="./index.less"></style>
 <template>
-  <view class="dialog {{ dialog.show ? 'dialog-show' : '' }}">
+  <view class="dialog {{ dialog.show ? 'dialog-show' : '' }} {{ out ? 'dialog-out' : '' }}">
     <view class="dialog-mask" catchtouchmove="return false"></view>
     <view class="dialog-container">
       <view
@@ -36,21 +36,26 @@ export default class Dialog extends wepy.component {
       buttons: []
     },
     resolve: '',
-    reject: ''
+    reject: '',
+    out: false
   }
 
   methods = {
     btnTap (index) {
       this.resolve(index)
-      this.dialog = {
-        title: '标题',
-        content: '内容',
-        showVertical: false,
-        type: 'base',
-        buttons: [{text: '取消'}, {text: '确定', color: '#3CC51F'}],
-        show: false
-      }
-      this.$apply()
+      this.out = true
+      setTimeout(() => {
+        this.out = false
+        this.dialog = {
+          title: '标题',
+          content: '内容',
+          showVertical: false,
+          type: 'base',
+          buttons: [{text: '取消'}, {text: '确定', color: '#3CC51F'}],
+          show: false
+        }
+        this.$apply()
+      }, 300)
     },
     _handleDialogButtonClick (index) {
       console.log(index)
