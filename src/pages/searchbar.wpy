@@ -10,7 +10,8 @@
   <mysearchbar
     placeholder="文艺复古长裙"
     className="mytest"
-    :datasource.sync="datasource"
+    @bindsearch.user="searchEvent"
+    @bindcancel.user="cancelEvent"
     />
 </template>
 
