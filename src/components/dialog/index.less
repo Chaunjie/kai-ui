@@ -3,15 +3,14 @@
   height: 0;
   font-size: 16px;
   overflow: hidden;
-  transition: all .2s linear;
   border-radius: 4px;
   background-color: #fff;
+  opacity: 0;
   transform: translate3d(0, 0, 0) scale(1.2);
   -webkit-transform: translate3d(0, 0, 0) scale(1.2);
   -webkit-transition-property: -webkit-transform, opacity;
   transition-property: transform, opacity;
   color: #333;
-  opacity: 0;
   z-index: 99999;
 }
 
@@ -22,7 +21,6 @@
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, .6);
-  transition: .3s;
   display: none;
   z-index: 99999;
 }
@@ -31,7 +29,6 @@
   padding: 15px 0 0;
   text-align: center;
   font-weight:bold;
-  margin-bottom:10px;
 }
 
 .dialog-content {
@@ -53,6 +50,7 @@
 .dialog-button {
   line-height: 50px;
   height: 50px;
+  overflow: hidden;
   padding: 0 5px;
   border-radius: 0;
   margin-bottom: 0
@@ -70,6 +68,8 @@
   transition-duration: 300ms;
   -webkit-transform: translate3d(0, 0, 0) scale(1);
   transform: translate3d(0, 0, 0) scale(1);
+  -webkit-transition-property: -webkit-transform, opacity;
+  transition-property: transform, opacity;
 }
 
 .dialog-out .dialog-container {
@@ -78,6 +78,8 @@
   transition-duration: 300ms;
   -webkit-transform: translate3d(0, 0, 0) scale(0.815);
   transform: translate3d(0, 0, 0) scale(0.815);
+  -webkit-transition-property: -webkit-transform, opacity;
+  transition-property: transform, opacity;
 }
 
 .dialog-show .dialog-mask {
