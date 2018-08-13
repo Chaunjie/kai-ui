@@ -15,12 +15,21 @@
     font-weight: bold;
     font-style: italic;
     color: #999;
+    .bg {
+      width: 100px;
+      height: 100px;
+      border-radius: 100%;
+      background-image: url('http://images.kaishiba.com/kai-ui.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-origin: center;
+    }
   }
 </style>
 <template>
   <view class="kai-content">
     <view class="icon-img">
-      kai-ui
+      <view class="bg"></view>
     </view>
     <repeat for="{{cellDemoList}}" index="index" item="item" key="panel-{{index}}">
       <panel>
@@ -123,11 +132,6 @@ export default class Index extends wepy.page {
             title: 'Tab 标签',
             linktype: 1,
             link: 'tab'
-          },
-          {
-            title: 'Step 步骤条',
-            linktype: 1,
-            link: 'step'
           }
         ]
       },
