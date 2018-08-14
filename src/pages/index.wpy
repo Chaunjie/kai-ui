@@ -104,6 +104,11 @@ export default class Index extends wepy.page {
             link: 'loadmore'
           },
           {
+            title: 'Loading 加载中',
+            linktype: 1,
+            link: 'loading'
+          },
+          {
             title: 'Tag 标记',
             linktype: 1,
             link: 'tag'

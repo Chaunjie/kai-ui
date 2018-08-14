@@ -30,6 +30,7 @@ export default class extends wepy.app {
       'pages/layout',
       'pages/noticebar',
       'pages/loadmore',
+      'pages/loading',
       'pages/panel',
       'pages/popup',
       'pages/select',

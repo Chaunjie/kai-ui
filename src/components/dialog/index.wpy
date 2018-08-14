@@ -18,7 +18,8 @@
         class="dialog-button btn btn-loading"
         catchtap="btnTap({{index}})"
         style="color: {{ item.color || '#333' }}">
-          <view class="iconfont icon-loading" wx:if="{{item.sync && showSync}}"></view>
+          <loading type="circle" class="black" wx:if="{{item.sync && showSync}}"/>
+          <!-- <view class="iconfont icon-loading" wx:if="{{item.sync && showSync}}"></view> -->
           {{ item.text }}
         </button>
       </repeat>
@@ -28,6 +29,7 @@
 </template>
 <script>
 import wepy from 'wepy'
+import loading from '@/components/loading/index'
 
 export default class Dialog extends wepy.component {
   data = {
@@ -43,6 +45,10 @@ export default class Dialog extends wepy.component {
     reject: '',
     out: false,
     showSync: false
+  }
+
+  components = {
+    loading: loading
   }
 
   methods = {

@@ -29,15 +29,17 @@
     </view>
     <view class="padding-10">
       <button class="btn btn-small btn-success btn-loading">
-       <view class="iconfont icon-loading"></view>
+       <!-- <view class="iconfont icon-loading"></view> -->
+       <loading type="circle"/>
        按钮
      </button>
      <button class="btn btn-large btn-kai btn-loading">
-       <view class="iconfont icon-loading"></view>
+       <!-- <view class="iconfont icon-loading"></view> -->
+       <loading1 type="circular"/>
        按钮
      </button>
      <button class="btn btn-large btn-warn btn-empty btn-loading">
-       <view class="iconfont icon-loading"></view>
+       <loading2 type="circle"/>
        按钮
      </button>
    </view>
@@ -52,12 +54,17 @@
 
 <script>
 import wepy from 'wepy'
+import loading from '@/components/loading/index'
 
 export default class Button extends wepy.page {
   config = {
     navigationBarTitleText: 'Button 按钮'
   }
-  components = {}
+  components = {
+    loading: loading,
+    loading1: loading,
+    loading2: loading
+  }
 
   data = {}
 

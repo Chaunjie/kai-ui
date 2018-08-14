@@ -1,0 +1,79 @@
+<style lang="less" scoped>
+.title {
+  font-size: 12px;
+}
+.kai-content{
+	.inline {
+		display: inline-block;
+		margin-right: 10px;
+	}
+}
+.loading-type {
+	width: 24px !important;
+	height: 24px !important;
+}
+</style>
+<template>
+  <view class="kai-content">
+    <view class="title padding-10">圆形加载</view>
+    <view class="padding-10">
+	    <loading type="circle" size="big"/>
+	    <loading1 type="circle" class="black" size="big"/>
+		</view>
+    <view class="title padding-10">菊花加载</view>
+    <view class="padding-10">
+	    <loading2 type="circular" size="big"/>
+		</view>
+		<view class="title padding-10">small规格</view>
+    <view class="padding-10">
+	    <loadingsmall type="circle"/>
+		</view>
+		<view class="title padding-10">big规格</view>
+    <view class="padding-10">
+	    <loadingbig type="circle" size="big"/>
+		</view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import loading from '@/components/loading/index'
+
+export default class Loading extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Loading 加载中'
+  }
+
+  components = {
+    loading: loading,
+    loading1: loading,
+    loading2: loading,
+    loadingsmall: loading,
+    loadingbig: loading
+  }
+
+  data = {
+    more1: {
+      type: true,
+      loading: 'loading',
+      loaded: '加载完成'
+    },
+    more2: {
+      type: false,
+      loading: '加载中',
+      loaded: '我们是有底线的'
+    }
+  }
+
+  computed = {}
+
+  methods = {
+  }
+
+  events = {
+  }
+
+  onLoad() {
+  }
+}
+</script>
