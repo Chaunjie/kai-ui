@@ -19,8 +19,6 @@
     </view>
     <repeat for="{{asData}}" index="i" item="item" key="row-{{index}}">
       <actionsheet :asData.sync="item"></actionsheet>
-      <!-- <template is="wxParse" data="{{wxParseData: article.nodes}}"/> -->
-      <!-- <template is="wxParse" data="{{wxParseData: article.nodes}}"/> -->
     </repeat>
   </view>
 </template>
@@ -28,7 +26,6 @@
 <script>
 import wepy from 'wepy'
 import actionsheet from '@/components/actionsheet/index'
-// import wxParse from '@/wxParse/wxParse'
 
 export default class ActionSheet extends wepy.page {
   config = {
@@ -123,7 +120,6 @@ export default class ActionSheet extends wepy.page {
   }
 
   onLoad() {
-    // wxParse.wxParse('article', 'html', '<view class="haha">slot1html</view>', this, 5)
   }
 }
 </script>

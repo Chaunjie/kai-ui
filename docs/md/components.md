@@ -589,7 +589,7 @@ components = {
 
   <script>
   import wepy from 'wepy'
-  import icon from '@/components/icon/index'
+  import Icon from 'kai-ui/Icon'
 
   export default class Icon extends wepy.page {
     config = {
@@ -768,9 +768,9 @@ components = {
 
 &emsp;&emsp;对应参数：
 
-| 参数 | 类型 | 异步 | 默认 | 描述 |
-| --- | --- | --- | --- | --- |
-| type | `String` | `true`  | '' | 标签类型 |
+| 参数 | 类型 | 异步 | 可选项 | 默认 | 描述 |
+| --- | --- | --- | --- | --- | --- |
+| type | `String` | `true` | ''、plain、primary、danger、warn、disabled | '' | 标签类型 |
 
 &emsp;&emsp;案例
 ```wpy
@@ -993,11 +993,15 @@ components = {
 | position | `String` | `true`  | bottom | 弹出位置   |
 | maskHide | `Boolean` | `true`  |  true | 点击mask是否关闭popup |
 
+&emsp;&emsp;事件
+
+| 事件名称 | 参数 | 描述 |
+| --- | --- | --- |
+|  pop   | i: 索引i; op:是否关闭 | 点击关闭事件回调 |
+
 &emsp;&emsp;案例
 ```wpy
-<style lang="less" src="./index.less"></style>
 <style lang="less">
-
   .pop-inner {
     padding: 40px 20px;
     box-sizing: border-box;
@@ -1053,7 +1057,7 @@ components = {
 
 <script>
 import wepy from 'wepy'
-import popup from '@/components/popup/index'
+import Popup from 'kai-ui/Popup'
 
 export default class Popup extends wepy.page {
   config = {
@@ -1988,6 +1992,13 @@ components = {
 | list | `Array` | [] | 当前select可选列表 |
 | selectIndex | `Number` | 0 |  当前select的默认勾选索引 |
 | class | `String` | ''  | 当前select的class |
+| event | `String` | ''  | 当前select的点击事件 |
+
+&emsp;&emsp;事件：
+
+| 事件名称 | 参数 | 描述 |
+| --- | --- | --- |
+| select-item | select的id、勾选的索引i | select的点击事件回调，默认select-item，优先event |
 
 &emsp;&emsp;案例
 ```wpy

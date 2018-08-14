@@ -8,7 +8,6 @@
           <view wx:if="{{item.slot}}">
             {{item.slot}}
             <!-- <template is="wxParse" data="{{wxParseData: slotArray[item.slotid]}}"/> -->
-            <!-- <template is="wxParse" data="{{wxParseData: test}}"/> -->
           </view>
           <view wx:else>{{item.value}}</view>
         </view>
@@ -19,7 +18,6 @@
 </template>
 <script>
   import wepy from 'wepy'
-  import wxParse from '@/wxParse/wxParse'
   export default class ActionSheet extends wepy.component {
     props = {
       asData: {
@@ -50,20 +48,6 @@
     }
 
     onLoad () {
-      console.log(this.asData)
-      const asData = this.asData
-      const that = this
-      let o = {}
-      this.asData.itemList.map((r, i) => {
-        if (r.slot) {
-          wxParse.wxParse(r.slotid, 'html', r.slot || '', that, 5)
-          wxParse.wxParseArray(o, r.slotid, that.bindData, that)
-        }
-      })
-      this.tapIndex = asData.tapIndex ? asData.tapIndex : 0
-      that.slotArray = o
-      console.log('slotdata', that.slotArray)
-      this.$apply()
     }
   }
 </script>
