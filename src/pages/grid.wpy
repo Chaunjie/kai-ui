@@ -10,9 +10,12 @@
 .grid-items {
   height: 80px;
   text-align: center;
-  line-height: 80px;
   background: #fff;
   color: #666;
+  display:flex;
+  flex-direction:column;
+  line-height:16px;
+  justify-content:center;
   &:first-child {
     // background: red;
   }
