@@ -1187,7 +1187,7 @@ export default class Index extends wepy.page {
 
 - **概述**
 
-&emsp;&emsp;适用于分类类信息展示
+&emsp;&emsp;适用于分类信息展示
 
 - **使用指南**
 
@@ -1604,7 +1604,7 @@ this.$invoke('dialog', 'show', options).then((value) => {
   </view>
 </template>
 <script>
-import radio from 'kai-ui/Radio'
+import Dialog from 'kai-ui/Radio'
 export default class Index extends wepy.page {
 	components = {
 		dialog: Dialog
@@ -2153,15 +2153,15 @@ export default class Index extends wepy.page {
 	}
 
 	data = {
-		checkboxConfig: {
+	   checkboxConfig: {
 			className: 'sp-radio',
 			position: 'left',
 			circle: true
 		},
 		items: [
-      {id: '1001', value: '圆形单选框', checked: false, disabled: false},
-      {id: '1002', value: '圆形单选框', checked: true, disabled: false}
-    ]
+          {id: '1001', value: '圆形单选框', checked: false, disabled: false},
+          {id: '1002', value: '圆形单选框', checked: true, disabled: false}
+      ]
 	}
 
 	methods = {
@@ -2402,7 +2402,7 @@ import Switch from 'kai-ui/Switch'
 export default class Index extends wepy.page {
 	components = {
 		switch: Switch,
-    'switch-type': Switch
+        'switch-type': Switch
 	}
 
 	data = {
