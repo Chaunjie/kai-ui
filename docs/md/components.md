@@ -1219,7 +1219,7 @@ this.$invoke('tab', 'doInitTabData', this.tabData)
 
 | 参数 | 类型 | 异步 | 描述 |
 | --- | --- | --- | --- |
-| bindchange | `Function` | `false`  | 单选框回调方法 |
+| bindChange | `Function` | `false`  | 单选框回调方法 |
 
 &emsp;&emsp;tabData配置:
 
