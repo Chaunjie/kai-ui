@@ -1485,7 +1485,7 @@ components = {
 </template>
 ```
 
-&emsp;&emsp;js调用
+&emsp;&emsp;js调用`show`方法弹出提示
 ```javascript
 this.$invoke('toptips', 'show', options)
 ```
@@ -1510,7 +1510,7 @@ this.$invoke('toptips', 'show', options)
 
 <script>
   import wepy from 'wepy'
-  import Toptips from '@/components/Toptips'
+  import Toptips from 'kai-ui/Toptips'
   export default class ToptipsPage extends wepy.page {
     data = {}
     components = {
@@ -1529,7 +1529,7 @@ this.$invoke('toptips', 'show', options)
     }
     events = {
       afterClose () {
-        console.log('弹出框关闭')
+        console.log('这是提示关闭后的回调函数')
       }
     }
   }
@@ -1668,7 +1668,7 @@ export default class Index extends wepy.page {
 </script>
 ```
 
-#### Toast 提示
+#### Toast 轻提示
 
 - **概述**
 
@@ -1695,20 +1695,20 @@ components = {
 </template>
 ```
 
-&emsp;&emsp;js调用
+&emsp;&emsp;js调用`show`方法弹出提示
 ```javascript
 this.$invoke('toast', 'show', options)
 ```
 
 &emsp;&emsp;options配置:
 
-| 参数      | 类型 | 是否必传 |  默认值 | 描述                      |
-| -------- | ------- | ---- | ----- | ------------------------ |
-| content  | `String`  | 是  | -  | 提示内容 |
-| type | `String` | 否   | - | 消息类型（可选项：`success`,`error`,`warning`,`loading`) |
-| duration | `Number` | 否   | 3000 | 消息弹出持续时间，单位毫秒 |
-| position  | `String`  | 否  | `middle`  | 消息弹出位置（可选值：`top`,`middle`,`bottom`) |
-| afterClose | `String` | 否   | - | 回调函数名 |
+| 参数      | 类型 | 是否必传 | 可选项 |  默认值 | 描述                      |
+| -------- | ------- | ----- | ----- | ----- | ------------------------ |
+| content  | `String`  | 是  | -  | - |提示内容 |
+| type | `String` | 否   | `success`,`error`,`warning`,`loading` | - | 消息类型 |
+| duration | `Number` | 否  | | 3000 | 消息弹出持续时间，单位毫秒 |
+| position  | `String`  | 否 | `top`,`middle`,`bottom` | `middle`  | 消息弹出位置 |
+| afterClose | `String` | 否 | - | - | 回调函数名 |
 
 &emsp;&emsp;案例
 ```wepy
@@ -1721,7 +1721,7 @@ this.$invoke('toast', 'show', options)
 
 <script>
   import wepy from 'wepy'
-  import Toast from '@/components/toast/index'
+  import Toast from 'kai-ui/Toast'
 
   export default class ToastPage extends wepy.page {
     config = {
@@ -1748,7 +1748,7 @@ this.$invoke('toast', 'show', options)
 
     events = {
       afterClose () {
-        console.log('弹出框关闭')
+        console.log('这是提示关闭后的回调函数')
       }
     }
   }
@@ -2605,7 +2605,7 @@ components = {
 </script>
 ```
 
-#### Input 框
+#### Input 输入框
 
 
 
@@ -2699,7 +2699,7 @@ components = {
 
 ### 搜索组件
 
-#### Searchbar 搜索条
+#### Searchbar 搜索框
 
 
 
@@ -2757,7 +2757,7 @@ components = {
 
 <script>
   import wepy from 'wepy'
-  import Searchbar from '@/components/Searchbar'
+  import Searchbar from 'kai-ui/Searchbar'
   export default class SearchbarPage extends wepy.page {
     data = {
       historyKeys: '',
