@@ -10,6 +10,14 @@
 npm i kai-ui --save-dev
 ```
 
+### 使用场景
+
+该版本基于微信小程序环境、`wepy` 框架。
+`wepy-cli` 版本要求 `^1.7.3`,
+低于 `1.7.3` 版本的可以直接把 `src/component`  `src/less`下的资源文件拷贝到自己项目 `component`  `less` 目录下
+
+#### 预览小程序
+![view](http://images.kaishiba.com/kaiqr.jpg)
 ### 组件列表
 - [x] cell 列表
 - [x] button 按钮
