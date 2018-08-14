@@ -32,7 +32,6 @@
     }
 
     onLoad () {
-      console.log(this.type)
     }
   }
 </script>

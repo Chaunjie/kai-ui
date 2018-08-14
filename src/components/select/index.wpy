@@ -34,7 +34,6 @@ export default class Select extends wepy.component {
 
   methods = {
     tapItem (i, index) {
-      console.log(i, index)
       this.selectIndex = index
       const evt = this.selectData.event ? this.selectData.event : 'select-item'
       this.$emit(evt, i, index)
@@ -42,7 +41,6 @@ export default class Select extends wepy.component {
   }
 
   onLoad () {
-    console.log(this.selectData, this.selectData.id)
     const selectData = this.selectData
     this.selectIndex = selectData.selectIndex ? selectData.selectIndex : 0
     this.$apply()

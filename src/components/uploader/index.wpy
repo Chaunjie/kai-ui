@@ -70,9 +70,7 @@ export default class uploader extends wepy.component {
       wx.chooseImage({
         count: 1,
         success: function (res) {
-          console.log(res)
           var filePath = res.tempFilePaths[0]
-          console.log(res.tempFilePath)
           // 交给七牛上传
           wx.showLoading({
             mask: true

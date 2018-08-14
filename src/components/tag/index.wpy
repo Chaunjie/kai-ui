@@ -25,7 +25,6 @@
     }
 
     onLoad () {
-      console.log('type', this.type, this.index)
     }
   }
 </script>

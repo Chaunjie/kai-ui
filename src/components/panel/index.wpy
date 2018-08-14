@@ -22,7 +22,6 @@
     }
 
     onLoad () {
-      console.log(this.border)
     }
   }
 </script>

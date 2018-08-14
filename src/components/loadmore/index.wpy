@@ -28,7 +28,6 @@
     }
 
     onLoad () {
-      console.log(this.more)
     }
   }
 </script>

@@ -35,9 +35,7 @@
 
     methods = {
       selectIndex (i, index, close) {
-        console.log(i, index, close)
         if (close === 'true') {
-          console.log('you choose close')
           this.asData.show = false
         } else {
           this.tapIndex = index

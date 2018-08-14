@@ -49,7 +49,6 @@ export default class Popup extends wepy.page {
     // op 为true时，关闭
     // i: 索引 close: 关闭
     togglePopup(i, close) {
-      console.log(close)
       if (close === false) {
         return false
       } else {
