@@ -692,7 +692,7 @@ components = {
 
   <script>
   import wepy from 'wepy'
-  import loadmore from '@/components/loadmore/index'
+  import Loadmore from 'kai-ui/Loadmore'
 
   export default class Loadmore extends wepy.page {
     config = {
@@ -794,7 +794,7 @@ components = {
 <script>
 import wepy from 'wepy'
 
-import Tags from '@/components/tag/index'
+import Tag from 'kai-ui/Tag'
 export default class Tag extends wepy.page {
   config = {
     navigationBarTitleText: 'Tag 标记'
@@ -997,7 +997,7 @@ components = {
 
 | 事件名称 | 参数 | 描述 |
 | --- | --- | --- |
-|  pop   | i: 索引i; op:是否关闭 | 点击关闭事件回调 |
+|  pop | i: 索引i; op:是否关闭 | 点击关闭事件回调 |
 
 &emsp;&emsp;案例
 ```wpy

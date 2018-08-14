@@ -8,14 +8,18 @@
 </style>
 <template>
   <view class="kai-content">
-    <view class="padding-10  bg-white">
-      <view class="panel">
-        <select :selectData.sync="selectData"/>
-      </view>
-      <view class="panel">
-        <select1 :selectData.sync="selectData1"/>
-      </view>
-    </view>
+    <panel>
+      <div slot="title" class="title">默认</div>
+      <block>
+        <select :selectData.sync="selectData" class="padding-10  bg-white"></select>
+      </block>
+    </panel>
+    <panel>
+      <div slot="title" class="title">位置变换</div>
+      <block>
+        <select1 :selectData.sync="selectData1" class="padding-10  bg-white"></select1>
+      </block>
+    </panel>
     <view class="padding-10">
       <button class="btn btn-kai" catchtap="changeSelect">切换icon位置</button>
     </view>
@@ -25,6 +29,7 @@
 <script>
 import wepy from 'wepy'
 import select from '@/components/select/index'
+import panel from '@/components/panel/index'
 
 export default class SelectPage extends wepy.page {
   config = {
@@ -33,7 +38,8 @@ export default class SelectPage extends wepy.page {
 
   components = {
     select: select,
-    select1: select
+    select1: select,
+    panel: panel
   }
 
   data = {
