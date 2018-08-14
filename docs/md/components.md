@@ -2295,13 +2295,13 @@ export default class Index extends wepy.page {
 
 &emsp;&emsp;页面中引入组件
 ```javascript
-import switch from 'kai-ui/Switch'
+import Switch from 'kai-ui/Switch'
 ```
 
 &emsp;&emsp;组件添加
 ```javascript
 components = {
-  switch: switch
+  switch: Switch
 }
 ```
 
@@ -2398,11 +2398,11 @@ data = {
   </view>
 </template>
 <script>
-import switch from 'kai-ui/Switch'
+import Switch from 'kai-ui/Switch'
 export default class Index extends wepy.page {
 	components = {
-		switch: switch,
-    'switch-type': switch
+		switch: Switch,
+    'switch-type': Switch
 	}
 
 	data = {
