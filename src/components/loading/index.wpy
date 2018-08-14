@@ -1,0 +1,29 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="loading-content inline loading-{{size}}">
+     <view wx:if="{{type === 'circle'}}" class="loading-type circle"></view>
+     <view wx:if="{{type === 'circular'}}" class="loading-type circular"></view>
+  </view> 
+</template>
+<script>
+  import wepy from 'wepy'
+  export default class Loading extends wepy.component {
+    props = {
+      type: String,
+      size: {
+        type: String,
+        twoWay: true,
+        default: 'small'
+      }
+    }
+
+    data = {
+    }
+
+    methods = {
+    }
+
+    onLoad () {
+    }
+  }
+</script>

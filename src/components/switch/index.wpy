@@ -9,8 +9,8 @@
     data-component-id="{{ componentId }}"
     bindtap="_handleSwitchChange"
   >
-    <view class="switch-circle">
-      <view hidden="{{ !loading }}" class="switch-loading"></view>
+    <view class="switch-circle {{loading ? 'loading-circle': ''}}">
+      <loading-type wx:if="{{ loading }}" type="circle" class="black"/>
     </view>
     <view class="switch-bg"></view>
   </view>
@@ -18,6 +18,8 @@
 
 <script>
   import wepy from 'wepy'
+  import Loading from '../loading/index'
+
   export default class Switch extends wepy.component {
     props = {
       checked: { // 当前选中状态
@@ -53,6 +55,10 @@
         type: String,
         default: 'success'
       }
+    }
+
+    components = {
+      'loading-type': Loading
     }
 
     methods = {

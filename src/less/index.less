@@ -27,7 +27,6 @@
   font-weight: lighter;
 }
 
-
 .btn{
   position: relative;
   color: #333;
@@ -162,11 +161,19 @@ button[disabled][type="default"], wx-button[disabled]:not([type]) {
 }
 
 .btn-loading {
-  .icon-loading{
-    display:inline-block;
-    animation: btn-spin 1s linear;
-    animation-iteration-count: infinite;
-    font-size:20px;
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+  .loading-content{
+    margin-right: 5px;
+  }
+  &.btn-small {
+    display: inline-block;
+    .loading-content{
+      display: inline-block;
+      top: 5px;
+    }
   }
 }
 
