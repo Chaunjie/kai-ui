@@ -28,7 +28,7 @@
 </template>
 <script>
 import wepy from 'wepy'
-import loading from '@/components/loading/index'
+import loading from '../loading/index'
 
 export default class Dialog extends wepy.component {
   data = {

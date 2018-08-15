@@ -38,7 +38,8 @@
     "./Toptips": "./src/components/toptips/index.wpy",
     "./Uploader": "./src/components/uploader/index.wpy",
     "./NumberPicker": "./src/components/numberpicker/index.wpy",
-    "./SearchBar": "./src/components/searchbar/index.wpy"
+    "./SearchBar": "./src/components/searchbar/index.wpy",
+    "./Loading": "./src/components/loading/index.wpy"
   },
   "repository": {
     "type": "git",
