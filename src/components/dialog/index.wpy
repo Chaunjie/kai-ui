@@ -19,7 +19,6 @@
         catchtap="btnTap({{index}})"
         style="color: {{ item.color || '#333' }}">
           <loading type="circle" class="black" wx:if="{{item.sync && showSync}}"/>
-          <!-- <view class="iconfont icon-loading" wx:if="{{item.sync && showSync}}"></view> -->
           {{ item.text }}
         </button>
       </repeat>
