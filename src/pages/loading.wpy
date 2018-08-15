@@ -21,12 +21,12 @@
 </style>
 <template>
   <view class="kai-content">
-    <view class="title padding-10">圆形加载</view>
+    <view class="title padding-10">circle加载</view>
     <view class="padding-10">
 	    <loading type="circle" size="big"/>
 	    <loading1 type="circle" class="black" size="big"/>
 		</view>
-    <view class="title padding-10">菊花加载</view>
+    <view class="title padding-10">circular加载</view>
     <view class="padding-10">
 	    <loading2 type="circular" size="big"/>
 		</view>
