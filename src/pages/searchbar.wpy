@@ -1,18 +1,20 @@
 <template>
-  <view class="padding-10 font-12">基础样式：</view>
-  <searchbar
-    placeholder="文艺复古长裙"
-    :datasource.sync="datasource"
-    @bindsearch.user="searchEvent"
-    @bindcancel.user="cancelEvent"
-    />
-  <view class="padding-10 font-12">自定义样式：</view>
-  <mysearchbar
-    placeholder="文艺复古长裙"
-    className="mytest"
-    @bindsearch.user="searchEvent"
-    @bindcancel.user="cancelEvent"
-    />
+  <view class="kai-content">
+    <view class="padding-10 font-12">基础样式：</view>
+    <searchbar
+      placeholder="文艺复古长裙"
+      :datasource.sync="datasource"
+      @bindsearch.user="searchEvent"
+      @bindcancel.user="cancelEvent"
+      />
+    <view class="padding-10 font-12">自定义样式：</view>
+    <mysearchbar
+      placeholder="文艺复古长裙"
+      className="mytest"
+      @bindsearch.user="searchEvent"
+      @bindcancel.user="cancelEvent"
+      />
+  </view>
 </template>
 
 <script>
