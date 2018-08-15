@@ -6,7 +6,7 @@
         <iconSucess wx:if="{{toast.type==='success'}}" type="icon-tick"/>
         <iconError wx:if="{{toast.type==='error'}}" type="icon-error"/>
         <iconWarn wx:if="{{toast.type==='warning'}}" type="icon-info"/>
-        <iconLoading wx:if="{{toast.type==='loading'}}" type="circle"/>
+        <iconLoading wx:if="{{toast.type==='loading'}}" type="circle" size="big"/>
       </view>
       <view>{{toast.content}}</view>
     </view>

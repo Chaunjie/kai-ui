@@ -1,19 +1,21 @@
 <template>
-  <toast />
-  <view class="padding-10">
-    <button @tap="showSuccess('loading', '加载中的提示')" class="btn btn-kai">加载中</button>
-  </view>
-  <view class="padding-10">
-    <button @tap="showSuccess('success', '成功的提示')" class="btn btn-kai">成功</button>
-  </view>
-  <view class="padding-10">
-    <button @tap="showSuccess('error', '失败的提示')" class="btn btn-kai">失败</button>
-  </view>
-  <view class="padding-10">
-    <button @tap="showSuccess('warning', '警告的提示')" class="btn btn-kai">警告</button>
-  </view>
-  <view class="padding-10">
-    <button @tap="showSuccess('', '纯文本的提示')" class="btn btn-kai">纯文本</button>
+  <view class="kai-content">
+    <toast />
+    <view class="padding-10" style="margin-top: 40px;">
+      <button @tap="showSuccess('loading', '加载中的提示')" class="btn btn-kai">加载中</button>
+    </view>
+    <view class="padding-10">
+      <button @tap="showSuccess('success', '成功的提示')" class="btn btn-kai">成功</button>
+    </view>
+    <view class="padding-10">
+      <button @tap="showSuccess('error', '失败的提示')" class="btn btn-kai">失败</button>
+    </view>
+    <view class="padding-10">
+      <button @tap="showSuccess('warning', '警告的提示')" class="btn btn-kai">警告</button>
+    </view>
+    <view class="padding-10">
+      <button @tap="showSuccess('', '纯文本的提示')" class="btn btn-kai">纯文本</button>
+    </view>
   </view>
 </template>
 
