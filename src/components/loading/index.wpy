@@ -9,7 +9,11 @@
   import wepy from 'wepy'
   export default class Loading extends wepy.component {
     props = {
-      type: String,
+      type: {
+        type: String,
+        twoWay: true,
+        default: 'circle'
+      },
       size: {
         type: String,
         twoWay: true,

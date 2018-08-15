@@ -731,6 +731,68 @@ components = {
   </script>
 ```
 
+#### Loading 加载中
+
+- **概述**
+
+&emsp;&emsp;适用于加载中图案
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Loading from 'kai-ui/Loading'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  loading: Loading
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <loading type="circle" size="big"/>
+</template>
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数 | 类型 | 可选值 | 默认 | 描述 |
+| --- | --- | --- | --- | --- |
+| type | `String` | circle/circular | `circle`  |  circle: 圆形图案, circular: 菊花图案 |
+| size | `String` | small/big | `small`  |  加载图案尺寸   |
+| class | `String` | - | -  |  自定义样式   |
+
+&emsp;&emsp;案例
+```wpy
+  <style lang="less"></style>
+  <template>
+    <view class="kai-content">
+      <view class="padding-10">
+        <loading type="circle" size="big"/>
+      </view>
+    </view>
+  </template>
+
+  <script>
+  import wepy from 'wepy'
+  import Loading from 'kai-ui/Loading'
+
+  export default class Loading extends wepy.page {
+    config = {
+      navigationBarTitleText: 'Loading 加载中'
+    }
+
+    components = {
+      Loading: Loading
+    }
+  }
+  </script>
+```
+
 #### Tag 标记
 
 - **概述**
