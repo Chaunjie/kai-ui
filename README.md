@@ -35,6 +35,7 @@ npm i kai-ui --save-dev
 - [x] uploader 上传
 - [x] grid 宫格
 - [x] loadmore 更多
+- [x] loading 加载中
 - [x] panel 面板
 - [x] layout 布局
 - [x] checkbox 复选框
@@ -50,4 +51,3 @@ npm i kai-ui --save-dev
 - [ ] calander 日期选择
 - [ ] swipeout 滑动菜单
 - [ ] scrollviewrefresh 下拉刷新
-- [ ] shareimg 生成分享图片
