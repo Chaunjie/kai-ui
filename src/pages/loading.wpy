@@ -1,4 +1,4 @@
-<style lang="less" scoped>
+<style lang="less">
 .title {
   font-size: 12px;
 }
@@ -6,11 +6,17 @@
 	.inline {
 		display: inline-block;
 		margin-right: 10px;
+    .loading-type {
+      width: 24px !important;
+      height: 24px !important;
+    }
+    &.loading-resize {
+      .loading-type {
+        width: 30px !important;
+        height: 30px !important;
+      }
+    }
 	}
-}
-.loading-type {
-	width: 24px !important;
-	height: 24px !important;
 }
 </style>
 <template>
@@ -32,6 +38,10 @@
     <view class="padding-10">
 	    <loadingbig type="circle" size="big"/>
 		</view>
+    <view class="title padding-10">自定义规格</view>
+    <view class="padding-10">
+      <loading-resize type="circle" class="loading-resize"/>
+    </view>
   </view>
 </template>
 
@@ -49,7 +59,8 @@ export default class Loading extends wepy.page {
     loading1: loading,
     loading2: loading,
     loadingsmall: loading,
-    loadingbig: loading
+    loadingbig: loading,
+    'loading-resize': loading
   }
 
   data = {
