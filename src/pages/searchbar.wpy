@@ -51,7 +51,7 @@
     }
     methods = {
       searchEvent (value) {
-        console.log('搜索：' + value)
+        console.log('搜索关键词：' + value)
       },
       cancelEvent () {
         wx.navigateBack({

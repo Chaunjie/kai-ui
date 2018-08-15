@@ -19,7 +19,7 @@
             @confirm="_handleConfirm"/>
           <iconClear
             class="searchbar-form__clear {{value?'searchbar-form__clear--show':''}}"
-            type="icon-close-circle"
+            type="icon-closebg"
             event="_handleClear">
           </iconClear>
         </view>
@@ -29,7 +29,7 @@
           >取消
         </view>
       </view>
-      <view class="searchbar-autocomplete">
+      <view wx:if="{{autoCompleteKeys.length>0}}" class="searchbar-autocomplete">
         <repeat for="{{autoCompleteKeys}}" item="item">
           <view
             data-key="{{item}}"
@@ -43,7 +43,7 @@
 </template>
 <script>
 import wepy from 'wepy'
-import Icon from '@/components/icon/index'
+import Icon from '../icon/index'
 
 export default class Searchbar extends wepy.component {
   data = {

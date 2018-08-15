@@ -1,4 +1,5 @@
 .searchbar {
+  position:relative;
   font-size: 14px;
   .searchbar-form{
     display:flex;
@@ -14,8 +15,8 @@
       padding:4px 5px 4px 6px;
       background:#fff;
       .searchbar-form__find {
-        width:30rpx;
-        font-size:30rpx;
+        width:45rpx;
+        font-size:45rpx;
         color:#999;
         margin-right:5px;
       }
@@ -23,7 +24,8 @@
         flex:1;
       }
       .searchbar-form__clear {
-        width:32rpx;
+        width:45rpx;
+        font-size:45rpx;
         color:#999;
         opacity:0;
       }
@@ -36,6 +38,11 @@
     }
   }
   .searchbar-autocomplete {
+    position:absolute;
+    z-index:2;
+    width:100%;
+    box-sizing:border-box;
+    background:#fff;
     padding:5px 10px 0 10px;
     view {
       padding:12px 0;

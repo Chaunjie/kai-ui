@@ -2813,8 +2813,8 @@ components = {
 | maxlength | `Number` | 否  | 100 | 最大输入长度 |
 | datasource | `String` | 否  | - | 模糊搜索的数据来源 |
 | className | `String` | 否  | - | 自定义class |
-| bindsearch | `String` | 否  | - | 点击搜索事件回调名称 |
-| bindcancel | `String` | 否  | - | 点击取消事件回调名称 |
+| bindsearch | `Function` | 否  | - | 搜索事件回调 |
+| bindcancel | `Function` | 否  | - | 取消事件回调 |
 
 &emsp;&emsp;案例
 ```wepy
@@ -2846,7 +2846,7 @@ components = {
     }
     methods = {
       searchEvent (value) {
-        console.log('搜索：' + value)
+        console.log('搜索关键词：' + value)
       },
       cancelEvent () {
         wx.navigateBack({
