@@ -2704,14 +2704,14 @@ components = {
 
 &emsp;&emsp;options配置:
 
-| 参数      | 类型 | 是否必传 |  默认值 | 描述                      |
-| -------- | ------- | ---- | ----- | ------------------------ |
-| label  | `String`  | 否  | -  | label标签名 |
-| placeholder | `String` | 否  | - | 输入提示 |
-| value | `String` | 是  | - | 当前值 |
-| focus | `Boolean` | 否  | false | 是否自动获取焦点 |
-| maxlength | `String` | 否  | 9999 | 最大长度 |
-| type | `String` | 否  | `text` | 输入框类型（可选项：`number`,`textarea`,`password`,`text` |
+| 参数      | 类型 | 是否必传 | 可选项 | 默认值 | 描述                      |
+| -------- | ------- | ---- | ---- | ----- | ------------------------ |
+| value | `String` | 是  | - | - | 当前值 |
+| label  | `String`  | 否  | - | -  | label标签名 |
+| placeholder | `String` | 否 | - | - | 输入提示 |
+| focus | `Boolean` | 否  | `true`,`false` | false | 是否自动获取焦点 |
+| maxlength | `String` | 否  | - | 9999 | 最大长度 |
+| type | `String` | 否  | `number`,`textarea`,`password`,`text` | `text` | 输入框类型 |
 
 &emsp;&emsp;事件处理函数:
 
@@ -2806,6 +2806,7 @@ components = {
 | -------- | ------- | ---- | ----- | ------------------------ |
 | placeholder | `String` | 否  | - | 搜索提示或默认搜索关键字 |
 | maxlength | `Number` | 否  | 100 | 最大输入长度 |
+| focus | `Boolean` | 否  | false | 是否自动获取焦点 |
 | datasource | `String` | 否  | - | 模糊搜索的数据来源 |
 | className | `String` | 否  | - | 自定义class |
 | bindsearch | `Function` | 否  | - | 搜索事件回调 |

@@ -3,6 +3,7 @@
     <view class="padding-10 font-12">基础样式：</view>
     <searchbar
       placeholder="文艺复古长裙"
+      focus="true"
       :datasource.sync="datasource"
       @bindsearch.user="searchEvent"
       @bindcancel.user="cancelEvent"

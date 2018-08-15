@@ -48,7 +48,6 @@ import Icon from '../icon/index'
 export default class Searchbar extends wepy.component {
   data = {
     value: '',
-    focus: true,
     autoCompleteKeys: []
   }
   props = {
@@ -67,6 +66,13 @@ export default class Searchbar extends wepy.component {
     datasource: {
       type: Array,
       default: []
+    },
+    focus: { // 是否默认聚焦
+      type: [Boolean, String],
+      default: false,
+      coerce(v) {
+        return typeof v === 'string' ? JSON.parse(v) : v
+      }
     }
   }
   components = {
