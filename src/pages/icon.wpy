@@ -53,7 +53,7 @@ export default class Icon extends wepy.page {
 
   data = {
     list: [
-      'icon-wonder', 'icon-error', 'icon-tick', 'icon-broadcast', 'icon-back', 'icon-calendar', 'icon-camera', 'icon-cart',
+      'icon-error', 'icon-tick', 'icon-broadcast', 'icon-back', 'icon-calendar', 'icon-camera', 'icon-cart',
       'icon-close', 'icon-comment', 'icon-success', 'icon-date', 'icon-display',
       'icon-down', 'icon-edit', 'icon-flag', 'icon-forward', 'icon-gear',
       'icon-hide', 'icon-home', 'icon-image', 'icon-info', 'icon-laud',
@@ -61,7 +61,7 @@ export default class Icon extends wepy.page {
       'icon-map', 'icon-menu', 'icon-minus', 'icon-mobile', 'icon-more',
       'icon-my', 'icon-paper', 'icon-pencil', 'icon-phone', 'icon-plus',
       'icon-question', 'icon-recovery', 'icon-right', 'icon-search', 'icon-share',
-      'icon-star', 'icon-top', 'icon-trash', 'icon-unlock', 'icon-video'
+      'icon-star', 'icon-top', 'icon-trash', 'icon-unlock', 'icon-video', 'icon-closebg'
     ]
   }
 
