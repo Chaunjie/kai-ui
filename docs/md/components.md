@@ -1715,7 +1715,19 @@ this.$invoke('toast', 'show', options)
 <template>
   <toast />
   <view class="padding-10">
-    <button @tap="showSuccess" class="btn btn-kai" style="margin-top:100px">点击弹出toast</button>
+    <button @tap="showSuccess('loading', '加载中的提示')" class="btn btn-kai">加载中</button>
+  </view>
+  <view class="padding-10">
+    <button @tap="showSuccess('success', '成功的提示')" class="btn btn-kai">成功</button>
+  </view>
+  <view class="padding-10">
+    <button @tap="showSuccess('error', '失败的提示')" class="btn btn-kai">失败</button>
+  </view>
+  <view class="padding-10">
+    <button @tap="showSuccess('warning', '警告的提示')" class="btn btn-kai">警告</button>
+  </view>
+  <view class="padding-10">
+    <button @tap="showSuccess('', '纯文本的提示')" class="btn btn-kai">纯文本</button>
   </view>
 </template>
 
@@ -1734,12 +1746,12 @@ this.$invoke('toast', 'show', options)
     }
 
     methods = {
-      showSuccess () {
+      showSuccess (type, msg) {
         const options = {
-          content: '加载中...',
+          content: msg,
           position: 'middle',
-          duration: 4000,
-          type: 'loading',
+          duration: 2000,
+          type: type,
           afterClose: 'afterClose'
         }
         this.$invoke('toast', 'show', options)
@@ -2567,7 +2579,7 @@ components = {
 
 <script>
   import wepy from 'wepy'
-  import NumberPicker from '@/components/NumberPicker'
+  import NumberPicker from 'kai-ui/NumberPicker'
 
   export default class NumberPickerPage extends wepy.page {
     data = {

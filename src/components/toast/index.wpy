@@ -1,12 +1,12 @@
 <style lang="less" src="./index.less"></style>
 <template>
   <view class="toast">
-    <view class="toast-wrap btn-loading toast-{{toast.position}} toast-{{toast.show?'show':'hide'}}">
+    <view class="toast-wrap toast-{{toast.position}} toast-{{toast.show?'show':'hide'}}">
       <view wx:if="{{toast.type}}" class="toast-wrap__icon">
         <iconSucess wx:if="{{toast.type==='success'}}" type="icon-success-outline" />
         <iconError wx:if="{{toast.type==='error'}}" type="icon-close-outline" />
         <iconWarn wx:if="{{toast.type==='warning'}}" type="icon-warning" />
-        <iconLoading wx:if="{{toast.type==='loading'}}" type="icon-loading" />
+        <iconLoading wx:if="{{ toast.type==='loading' }}" type="circle" class="black"/>
       </view>
       <view>{{toast.content}}</view>
     </view>
@@ -15,7 +15,8 @@
 
 <script>
   import wepy from 'wepy'
-  import Icon from '@/components/icon/index'
+  import Icon from '../icon/index'
+  import Loading from '../loading/index'
 
   export default class Toast extends wepy.component {
     data = {
@@ -27,7 +28,7 @@
       iconSucess: Icon,
       iconError: Icon,
       iconWarn: Icon,
-      iconLoading: Icon
+      iconLoading: Loading
     }
 
     show (options) {
