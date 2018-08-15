@@ -1882,7 +1882,6 @@ components = {
 | imgWidth | `String` | `true`  |  图片宽度 |
 | region | `String` | `true`  |   七牛上传区域  |
 | total | `String` | `true`  |   可上传图片总数  |
-| count | `String` | `true`  |  已上传图片数量   |
 
 &emsp;&emsp;案例
 ```wpy

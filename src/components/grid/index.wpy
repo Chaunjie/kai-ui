@@ -21,23 +21,12 @@
     }
 
     data = {
-      // gridlist: []
     }
 
     methods = {
     }
 
     onLoad () {
-      // const {rows, cols} = this
-      // for (let i = 1; i <= rows; i++) {
-      //   for (let j = 1; j <= cols; j++) {
-      //     this.gridlist.push({
-      //       class: 'grid-items' + i + j,
-      //       name: 'row' + i + '-col' + j
-      //     })
-      //   }
-      // }
-      // this.$apply()
     }
   }
 </script>

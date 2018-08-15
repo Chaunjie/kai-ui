@@ -43,11 +43,6 @@ export default class uploader extends wepy.component {
       twoWay: true,
       default: 0
     },
-    count: {  // 已上传图片数量
-      type: Number,
-      twoWay: true,
-      default: 0
-    },
     test: {  // 预留本地测试
       type: Boolean,
       twoWay: true,
@@ -92,13 +87,21 @@ export default class uploader extends wepy.component {
     }
   }
 
+  data = {
+    count: 0
+  }
+
   watch = {
     imgList (newValue, oldValue) {
       this.count = newValue.length
+      this.$apply()
     }
   }
 
   onLoad () {
+    this.count = this.imgList.length
+    console.log(this.imgList, this.imgList.length, this.count)
+    this.$apply()
   }
 }
 </script>

@@ -34,7 +34,7 @@
       <view slot="title" class="title">上传凭证</view>
       <view class="panel-upload">
         <repeat for="{{imgList}}" index="index" item="item" key="row-{{index}}">
-          <view class="img-list flex-list common-bg" style="width:{{imgWidth+'px'}};height:{{imgWidth+'px'}};background-image:url({{item.url+'?imageView2/1/w/120/h/120'}})"
+          <view class="img-list flex-list common-bg" style="width:{{imgWidth+'px'}};height:{{imgWidth+'px'}};background-image:url({{item.url}});background-size:100% 100%;"
                 catchtap="previewImg({{imgList}}, {{item.url}})">
             <text class="iconfont icon-close delete-file" catchtap="removeImg({{index}})"></text>
           </view>
@@ -62,7 +62,20 @@ export default class Uploader extends wepy.page {
 
   data = {
     imgTotal: 5,  // 可上传图片总数
-    imgList: [],  // 图片上传列表
+    imgList: [  // 图片上传列表
+      {
+        url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534311575731&di=3935a761607376a7e8d1abe5413afd67&imgtype=0&src=http%3A%2F%2Fa0.att.hudong.com%2F23%2F02%2F300000876508129592021450066_950.jpg'
+      },
+      {
+        url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b10000_10000&sec=1534301532&di=24ef71de1aa5a0cfd332302edaedd9d4&src=http://img4.duitang.com/uploads/item/201303/26/20130326111750_8mEnj.jpeg'
+      },
+      {
+        url: 'https://ss3.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/b21bb051f8198618b47f5dc149ed2e738bd4e6bf.jpg'
+      },
+      {
+        url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1534312674356&di=302fedd307b810868a2c472d75cf5a60&imgtype=0&src=http%3A%2F%2Fs6.sinaimg.cn%2Fmw690%2F001oPD81zy7eKtwl69n95%26690'
+      }
+    ],
     imgWidth: 90,
     domain: '',
     uptokenURL: '',
