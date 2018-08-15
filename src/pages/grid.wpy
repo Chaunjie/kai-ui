@@ -1,27 +1,11 @@
 <style lang="less">
-.grid-outer {
-  background-color: #fff;
-  font-size: 12px;
-  margin-top: 20px;
-}
 .grid-container {
   background-color: #ccc;
 }
 .grid-items {
   height: 80px;
-  text-align: center;
   background: #fff;
   color: #666;
-  display:flex;
-  flex-direction:column;
-  line-height:16px;
-  justify-content:center;
-  &:first-child {
-    // background: red;
-  }
-  &:last-child {
-    // background: rgb(25, 214, 228);
-  }
 }
 .no-padding .info{
   padding: 0;
@@ -30,55 +14,15 @@
 <template>
   <view class="kai-content">
     <panel class="no-padding">
-      <view slot="title" class="title">16宫格</view>
-      <view class="panel">
-        <grid1 :rows="rows4" :cols="cols4">
-          <repeat for="{{gridlist4}}" index="i" item="item" key="row-{{index}}">
-            <view class="grid-items {{item.class}}">
-              <icon :type="item.icon"></icon>
-              <text class="">{{item.text}}</text>
-            </view>
-          </repeat>
-        </grid1>
-      </view>
-    </panel>
-    <panel class="no-padding">
       <view slot="title" class="title">9宫格</view>
       <view class="panel">
-        <grid :rows="rows3" :cols="cols3">
-          <repeat for="{{gridlist3}}" index="i" item="item" key="row-{{index}}">
-            <view class="grid-items {{item.class}}">
-              <icon :type="item.icon"></icon>
-              <text class="">{{item.text}}</text>
-            </view>
-          </repeat>
-        </grid>
+        <grid1 :grid="grid1" :gridData="gridlist1"></grid1>
       </view>
     </panel>
     <panel class="no-padding">
-      <view slot="title" class="title">4宫格</view>
+      <view slot="title" class="title">16宫格</view>
       <view class="panel">
-        <grid :rows.sync="rows2" :cols.sync="cols2">
-          <repeat for="{{gridlist2}}" index="i" item="item" key="row-{{index}}">
-            <view class="grid-items {{item.class}}">
-              <icon :type="item.icon"></icon>
-              <text class="">{{item.text}}</text>
-            </view>
-          </repeat>
-        </grid>
-      </view>
-    </panel>
-    <panel class="no-padding">
-      <view slot="title" class="title">1宫格</view>
-      <view class="panel">
-        <grid :rows.sync="rows1" :cols.sync="cols1">
-          <repeat for="{{gridlist1}}" index="i" item="item" key="row-{{index}}">
-            <view class="grid-items {{item.class}}">
-              <icon :type="item.icon"></icon>
-              <text class="">{{item.text}}</text>
-            </view>
-          </repeat>
-        </grid>
+        <grid :grid="grid2" :gridData="gridlist2"></grid>
       </view>
     </panel>
   </view>
@@ -103,82 +47,74 @@ export default class Grid extends wepy.page {
   }
 
   data = {
-    rows1: 1,
-    cols1: 1,
-    rows2: 2,
-    cols2: 2,
-    rows3: 3,
-    cols3: 3,
-    rows4: 4,
-    cols4: 4,
+    grid1: 9,
+    grid2: 16,
     gridlist1: [],
     gridlist2: [],
-    gridlist3: [],
-    gridlist4: [],
     gridItems: [
       {
-        icon: 'icon-message',
-        text: '消息'
+        icon: 'icon-comment',
+        text: '评论'
       },
       {
-        icon: 'icon-star-outline',
-        text: '收藏'
+        icon: 'icon-camera',
+        text: '相机'
       },
       {
-        icon: 'icon-news',
-        text: '新闻'
+        icon: 'icon-calendar',
+        text: '日历'
       },
       {
-        icon: 'icon-printer',
-        text: '打印'
+        icon: 'icon-cart',
+        text: '购物车'
       },
       {
-        icon: 'icon-goods',
-        text: '商品'
+        icon: 'icon-date',
+        text: '时间'
       },
       {
-        icon: 'icon-ticket',
-        text: '票务'
+        icon: 'icon-edit',
+        text: '编辑'
       },
       {
-        icon: 'icon-components',
-        text: '组件'
+        icon: 'icon-gear',
+        text: '设置'
       },
       {
-        icon: 'icon-upload',
-        text: '上传'
+        icon: 'icon-home',
+        text: '主页'
       },
       {
-        icon: 'icon-picture-outline',
+        icon: 'icon-image',
         text: '图像'
       },
       {
-        icon: 'icon-phone',
-        text: '手机'
+        icon: 'icon-laud',
+        text: '点赞'
       },
       {
         icon: 'icon-service',
         text: '服务'
       },
       {
-        icon: 'icon-time',
-        text: '时间'
+        icon: 'icon-like',
+        text: '收藏'
       },
       {
-        icon: 'icon-goods-soldout',
-        text: '售罄'
+        icon: 'icon-mail',
+        text: '邮件'
       },
       {
-        icon: 'icon-document',
-        text: '文件'
+        icon: 'icon-map',
+        text: '地图'
       },
       {
-        icon: 'icon-menu',
-        text: '菜单'
+        icon: 'icon-mobile',
+        text: '手机'
       },
       {
-        icon: 'icon-picture',
-        text: '图画'
+        icon: 'icon-video',
+        text: '摄像'
       }
     ]
   }
@@ -191,9 +127,10 @@ export default class Grid extends wepy.page {
   events = {
   }
 
-  initData (rows, cols, gridItems, gridlist) {
+  initData (grid, gridItems, gridlist) {
+    const rows = Math.sqrt(grid)
+    const cols = rows
     // 初始化grid
-    console.log(rows, cols, gridItems)
     for (let i = 1, k = 0; i <= rows; i++) {
       for (let j = 1; j <= cols; j++) {
         gridlist.push({
@@ -211,11 +148,9 @@ export default class Grid extends wepy.page {
   }
 
   onLoad() {
-    const {rows1, cols1, gridItems, gridlist1, rows2, cols2, gridlist2, rows3, cols3, gridlist3, rows4, cols4, gridlist4} = this
-    this.initData(rows1, cols1, gridItems, gridlist1)
-    this.initData(rows2, cols2, gridItems, gridlist2)
-    this.initData(rows3, cols3, gridItems, gridlist3)
-    this.initData(rows4, cols4, gridItems, gridlist4)
+    const {grid1, grid2, gridItems, gridlist1, gridlist2} = this
+    this.initData(grid1, gridItems, gridlist1)
+    this.initData(grid2, gridItems, gridlist2)
   }
 }
 </script>

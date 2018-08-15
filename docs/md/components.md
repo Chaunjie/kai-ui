@@ -50,7 +50,7 @@ npm i kai-ui -g
 
 - **概述**
 
-&emsp;&emsp;适用于二维布局（例如九宫格）
+&emsp;&emsp;适用于二维布局（例如九宫格，十六宫格）
 
 - **使用指南**
 
@@ -69,14 +69,7 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-	<grid :rows="rows" :cols="cols">
-		<repeat for="{{gridlist}}" index="i" item="item" key="row-{{index}}">
-			<view class="grid-items {{item.class}}">
-				<icon :type="item.icon"></icon>
-				<text class="">{{item.text}}</text>
-			</view>
-		</repeat>
-	</grid>
+	<grid :grid="grid" :gridData="gridlist"></grid>
 </template>
 ```
 
@@ -84,38 +77,36 @@ components = {
 
 | 参数 | 类型 | 异步 | 默认 | 描述 |
 | --- | --- | --- | --- | --- |
-| rows | `Number` | `true` | 3 | 宫格行数1-10 |
-| cols | `Number` | `true` | 3 | 宫格列数1-10 |
+| grid | `Number` | `true` | 9 | 9宫格，可选9，16 |
+| gridData | `Array` | `true` | [] | 宫格中数据 |
 
 &emsp;&emsp;案例
 ```wpy
 <style lang="less">
-.grid-outer {
-  background-color: #fff;
-  font-size: 12px;
-  margin-top: 20px;
+.grid-container {
+  background-color: #ccc;
 }
 .grid-items {
   height: 80px;
-  text-align: center;
-  line-height: 80px;
-  background: green;
-  color: #eee;
+  background: #fff;
+  color: #666;
+}
+.no-padding .info{
+  padding: 0;
 }
 </style>
 <template>
   <view class="kai-content">
-    <panel>
+    <panel class="no-padding">
       <view slot="title" class="title">9宫格</view>
       <view class="panel">
-        <grid :rows="rows" :cols="cols">
-          <repeat for="{{gridlist}}" index="i" item="item" key="row-{{index}}">
-            <view class="grid-items {{item.class}}">
-              <icon :type="item.icon"></icon>
-              <text class="">{{item.text}}</text>
-            </view>
-          </repeat>
-        </grid>
+        <grid1 :grid="grid1" :gridData="gridlist1"></grid1>
+      </view>
+    </panel>
+    <panel class="no-padding">
+      <view slot="title" class="title">16宫格</view>
+      <view class="panel">
+        <grid :grid="grid2" :gridData="gridlist2"></grid>
       </view>
     </panel>
   </view>
@@ -129,83 +120,85 @@ import icon from 'kai-ui/Icon'
 
 export default class Grid extends wepy.page {
   config = {
-    navigationBarTitleText: 'grid'
+    navigationBarTitleText: 'Grid 宫格'
   }
 
   components = {
     grid: grid,
+    grid1: grid,
     panel: panel,
     icon: icon
   }
 
   data = {
-    rows: 3,
-    cols: 3,
-    gridlist: [],
+    grid1: 9,
+    grid2: 16,
+    gridlist1: [],
+    gridlist2: [],
     gridItems: [
       {
-        icon: 'icon-message',
-        text: '消息'
+        icon: 'icon-comment',
+        text: '评论'
       },
       {
-        icon: 'icon-star-outline',
-        text: '收藏'
+        icon: 'icon-camera',
+        text: '相机'
       },
       {
-        icon: 'icon-news',
-        text: '新闻'
+        icon: 'icon-calendar',
+        text: '日历'
       },
       {
-        icon: 'icon-printer',
-        text: '打印'
+        icon: 'icon-cart',
+        text: '购物车'
       },
       {
-        icon: 'icon-goods',
-        text: '商品'
+        icon: 'icon-date',
+        text: '时间'
       },
       {
-        icon: 'icon-ticket',
-        text: '票务'
+        icon: 'icon-edit',
+        text: '编辑'
       },
       {
-        icon: 'icon-components',
-        text: '组件'
+        icon: 'icon-gear',
+        text: '设置'
       },
       {
-        icon: 'icon-upload',
-        text: '上传'
+        icon: 'icon-home',
+        text: '主页'
       },
       {
-        icon: 'icon-picture-outline',
+        icon: 'icon-image',
         text: '图像'
       },
       {
-        icon: 'icon-phone',
-        text: '手机'
+        icon: 'icon-laud',
+        text: '点赞'
       },
       {
         icon: 'icon-service',
         text: '服务'
       },
       {
-        icon: 'icon-time',
-        text: '时间'
+        icon: 'icon-like',
+        text: '收藏'
       },
       {
-        icon: 'icon-goods-soldout',
-        text: '售罄'
+        icon: 'icon-mail',
+        text: '邮件'
       },
       {
-        icon: 'icon-document',
-        text: '文件'
+        icon: 'icon-map',
+        text: '地图'
       },
       {
-        icon: 'icon-menu',
-        text: '菜单'
+        icon: 'icon-mobile',
+        text: '手机'
       },
       {
-        icon: 'icon-picture',
-        text: '图画'
+        icon: 'icon-video',
+        text: '摄像'
       }
     ]
   }
@@ -218,9 +211,10 @@ export default class Grid extends wepy.page {
   events = {
   }
 
-  initData (rows, cols, gridItems, gridlist) {
+  initData (grid, gridItems, gridlist) {
+    const rows = Math.sqrt(grid)
+    const cols = rows
     // 初始化grid
-    console.log(rows, cols, gridItems)
     for (let i = 1, k = 0; i <= rows; i++) {
       for (let j = 1; j <= cols; j++) {
         gridlist.push({
@@ -238,8 +232,9 @@ export default class Grid extends wepy.page {
   }
 
   onLoad() {
-    const {rows, cols, gridItems, gridlist} = this
-    this.initData(rows, cols, gridItems, gridlist)
+    const {grid1, grid2, gridItems, gridlist1, gridlist2} = this
+    this.initData(grid1, gridItems, gridlist1)
+    this.initData(grid2, gridItems, gridlist2)
   }
 }
 </script>

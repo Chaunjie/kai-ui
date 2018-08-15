@@ -1,32 +1,43 @@
 <style lang="less" src="./index.less"></style>
 <template>
-  <view class="grid-container" style="grid-template-rows: {{100/rows}}%;">
-    <slot></slot>
+  <view class="grid-container clearfix">
+    <repeat for="{{gridData}}" index="i" item="item" key="row-{{index}}">
+      <view class="grid-items fl grid-items{{gridRow}} items{{i}} {{item.class}}">
+        <view class="grid-items-inner">
+          <text class="iconfont {{item.icon}}"></text>
+          <text class="">{{item.text}}</text>
+        </view>
+      </view>
+    </repeat>
   </view>
 </template>
 <script>
   import wepy from 'wepy'
   export default class Grid extends wepy.component {
     props = {
-      rows: {
+      grid: {
         type: [Number, String],
         twoWay: true,
         default: 3
       },
-      cols: {
-        type: [Number, String],
+      gridData: {
+        type: Array,
         twoWay: true,
-        default: 3
+        default: []
       }
     }
 
     data = {
+      gridRow: 3
     }
 
     methods = {
     }
 
     onLoad () {
+      this.gridRow = ~~Math.sqrt(this.grid)
+      console.log(this.gridRow)
+      this.$apply()
     }
   }
 </script>

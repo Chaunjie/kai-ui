@@ -27,6 +27,21 @@
   font-weight: lighter;
 }
 
+.fl {
+  float: left;
+}
+
+.clearfix {
+  zoom: 1;
+  &:after {
+    height: 0;
+    overflow: hidden;
+    display: block;
+    content: '';
+    clear: both;
+  }
+}
+
 .btn{
   position: relative;
   color: #333;
