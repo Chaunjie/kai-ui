@@ -53,7 +53,7 @@ export default class Icon extends wepy.page {
 
   data = {
     list: [
-      'icon-broadcast', 'icon-back', 'icon-calendar', 'icon-camera', 'icon-cart',
+      'icon-wonder', 'icon-error', 'icon-tick', 'icon-broadcast', 'icon-back', 'icon-calendar', 'icon-camera', 'icon-cart',
       'icon-close', 'icon-comment', 'icon-success', 'icon-date', 'icon-display',
       'icon-down', 'icon-edit', 'icon-flag', 'icon-forward', 'icon-gear',
       'icon-hide', 'icon-home', 'icon-image', 'icon-info', 'icon-laud',
