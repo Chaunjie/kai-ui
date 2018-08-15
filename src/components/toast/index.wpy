@@ -22,7 +22,8 @@
     data = {
       toast: {
         show: false
-      }
+      },
+      timer: ''
     }
     components = {
       iconSucess: Icon,
@@ -32,6 +33,12 @@
     }
 
     show (options) {
+      const {timer} = this
+      if (timer) {
+        this.toast.show = false
+        this.$apply()
+        clearTimeout(this.timer)
+      }
       this.toast = {
         show: true,
         type: options.type,
@@ -41,7 +48,7 @@
       }
       this.$apply()
 
-      setTimeout(() => {
+      this.timer = setTimeout(() => {
         this.toast.show = false
         this.$apply()
         options.afterClose && this.$emit(options.afterClose)
