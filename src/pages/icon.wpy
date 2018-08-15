@@ -53,20 +53,15 @@ export default class Icon extends wepy.page {
 
   data = {
     list: [
-      'icon-delete', 'icon-upload', 'icon-upload2', 'icon-download2', 'icon-rank',
-      'icon-refresh', 'icon-edit-outline', 'icon-edit', 'icon-setting-outline', 'icon-setting',
-      'icon-share', 'icon-loading', 'icon-picture-outline', 'icon-picture', 'icon-callinging',
-      'icon-call', 'icon-location-outline', 'icon-location', 'icon-more-outline', 'icon-more',
-      'icon-phone', 'icon-service', 'icon-menu', 'icon-star-outline', 'icon-star',
-      'icon-view', 'icon-time', 'icon-message', 'icon-printer', 'icon-bell',
-      'icon-date', 'icon-news', 'icon-goods-soldout', 'icon-goods', 'icon-sort',
-      'icon-sort-down', 'icon-sort-up', 'icon-ticket', 'icon-document', 'icon-zoom-out',
-      'icon-zoom-in', 'icon-search', 'icon-double-left', 'icon-double-right', 'icon-plus-outline',
-      'icon-plus-circle', 'icon-plus', 'icon-minus-outline', 'icon-minus-circle', 'icon-minus',
-      'icon-success-outline', 'icon-success-circle', 'icon-success', 'icon-close-outline', 'icon-close-circle',
-      'icon-close', 'icon-caret', 'icon-caret-up', 'icon-caret-right', 'icon-caret-down',
-      'icon-caret-left', 'icon-info', 'icon-warning', 'icon-right', 'icon-left',
-      'icon-up', 'icon-down', 'icon-question', 'icon-back', 'icon-components'
+      'icon-broadcast', 'icon-back', 'icon-calendar', 'icon-camera', 'icon-cart',
+      'icon-close', 'icon-comment', 'icon-success', 'icon-date', 'icon-display',
+      'icon-down', 'icon-edit', 'icon-flag', 'icon-forward', 'icon-gear',
+      'icon-hide', 'icon-home', 'icon-image', 'icon-info', 'icon-laud',
+      'icon-left', 'icon-like', 'icon-location', 'icon-lock', 'icon-mail',
+      'icon-map', 'icon-menu', 'icon-minus', 'icon-mobile', 'icon-more',
+      'icon-my', 'icon-paper', 'icon-pencil', 'icon-phone', 'icon-plus',
+      'icon-question', 'icon-recovery', 'icon-right', 'icon-search', 'icon-share',
+      'icon-star', 'icon-top', 'icon-trash', 'icon-unlock', 'icon-video'
     ]
   }
 

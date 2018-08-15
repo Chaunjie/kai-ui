@@ -49,21 +49,21 @@ export default class Cell extends wepy.page {
         {
           title: '列表带icon',
           icontype: '1',
-          icontext: 'icon-components',
+          icontext: 'icon-gear',
           linktype: 1,
           link: '#'
         },
         {
           title: '列表带icon',
           icontype: '1',
-          icontext: 'icon-components',
+          icontext: 'icon-gear',
           linktype: 1,
           link: '#'
         },
         {
           title: '列表带icon',
           icontype: '1',
-          icontext: 'icon-components',
+          icontext: 'icon-gear',
           linktype: 1,
           link: '#'
         }
@@ -96,7 +96,7 @@ export default class Cell extends wepy.page {
           linktype: 0,
           link: '#',
           icontype: '1',
-          icontext: 'icon-components'
+          icontext: 'icon-gear'
         },
         {
           title: '多行列表',

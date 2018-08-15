@@ -29,12 +29,10 @@
     </view>
     <view class="padding-10">
       <button class="btn btn-small btn-success btn-loading">
-       <!-- <view class="iconfont icon-loading"></view> -->
        <loading type="circle"/>
        按钮
      </button>
      <button class="btn btn-large btn-kai btn-loading">
-       <!-- <view class="iconfont icon-loading"></view> -->
        <loading1 type="circular"/>
        按钮
      </button>
