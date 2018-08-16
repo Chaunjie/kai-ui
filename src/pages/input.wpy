@@ -1,49 +1,110 @@
+<style lang="less">
+	.no-title__content {
+		.field-wrapped {
+			margin: 0;
+		}
+	}
+	.wrap {
+		input {
+			border: 1px solid #ccc;
+		}
+	}
+</style>
 <template>
   <view class="kai-content">
     <view class="padding-10 font-12">基础用法</view>
-    <inputName label="联系人" placeholder="请输入姓名" :value.sync="name" focus="true"/>
-    <inputPassword type="password" label="密码" placeholder="请输入密码" :value.sync="password"/>
-    <inputPhone type="number" label="联系电话" maxlength="11" :value.sync="tel" />
-    <inputAddress type="textarea" placeholder="详细地址" :value.sync="address"/>
-    <!-- <button @tap="save">保存</button> -->
+    <view style="background-color: #fff;">
+	    <input-name :config="name" @onInput.user="_handleInput" @onBlur.user="_handleBlur"></input-name>
+	    <input-tel :config="tel"></input-tel>
+	    <input-password :config="pwd"></input-password>
+	    <input-address :config="address"></input-address>
+    </view>
+    <view class="padding-10 font-12">无边框用法</view>
+    <view style="background-color: #fff;" class="no-title__content">
+	    <input-notitle :config="notitle"></input-notitle>
+    </view>
+    <view class="padding-10 font-12">带清除按钮</view>
+    <view style="background-color: #fff;">
+	    <input-clear :config="clear"></input-clear>
+    </view>
+    <view class="padding-10 font-12">带正则匹配</view>
+    <view style="background-color: #fff;">
+	    <input-filter :config="filter"></input-filter>
+    </view>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
-  import Input from '@/components/input/index'
+  import input from '@/components/input/index'
 
-  export default class InputPage extends wepy.page {
+  export default class Input extends wepy.page {
     config = {
       navigationBarTitleText: 'Input 输入框'
     }
+
     data = {
-      name: '道格强森',
-      password: '',
-      tel: '',
-      address: ''
+    	name: {
+	      label: '收货人',
+	      placeholder: '名字'
+	    },
+	    tel: {
+	      error: true,
+	      label: '联系电话',
+	      inputType: 'number',
+	      placeholder: '请输入手机号'
+	    },
+	    pwd: {
+	      label: '输入密码',
+	      inputType: 'password',
+	      placeholder: '请输入密码'
+	    },
+	    address: {
+	      label: '详细地址',
+	      type: 'textarea',
+	      placeholder: '请输入详细地址'
+	    },
+	    clear: {
+	      label: '清除按钮',
+	      clear: true,
+	      adjust: true,
+	      value: '腹背受敌',
+	      placeholder: '带清除按钮'
+	    },
+		  notitle: {
+		  	adjust: true,
+		    placeholder: '请输入收货人姓名',
+		    componentId: 'textarea:test'
+		  },
+		  filter: {
+		  	adjust: true,
+		  	label: '带正则',
+		  	filter: /^(\+?0?86?)?1[3456789]\d{9}$/,
+	      placeholder: '手机号码正则'
+		  }
     }
+
     components = {
-      inputName: Input,
-      inputAddress: Input,
-      inputPassword: Input,
-      inputPhone: Input
+      'input-name': input,
+      'input-tel': input,
+      'input-address': input,
+      'input-notitle': input,
+      'input-password': input,
+      'input-clear': input,
+      'input-filter': input
     }
+
     methods = {
-      save () {
-        console.log(this.name, this.password, this.tel, this.address)
+      _handleInput (e) {
+      	console.log(e)
+      },
+      _handleBlur (e) {
+      	console.log(e)
       }
     }
-    events = {
-      handleChange(e) {
-        console.log('handleChange', e)
-      },
-      handleInput(e) {
-        console.log('handleInput', e)
-      },
-      handleBlur(e) {
-        console.log('handleBlur', e)
-      }
-    }
+
+    events = {}
+
+    onLoad () {}
   }
 </script>
