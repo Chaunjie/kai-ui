@@ -36,7 +36,7 @@
         <repeat for="{{imgList}}" index="index" item="item" key="row-{{index}}">
           <view class="img-list flex-list common-bg" style="width:{{imgWidth+'px'}};height:{{imgWidth+'px'}};background-image:url({{item.url}});background-size:100% 100%;"
                 catchtap="previewImg({{imgList}}, {{item.url}})">
-            <text class="iconfont icon-close delete-file" catchtap="removeImg({{index}})"></text>
+            <text class="kai-iconfont kai-icon-close delete-file" catchtap="removeImg({{index}})"></text>
           </view>
         </repeat>
         <uploader :imgWidth.sync="imgWidth" :total="imgTotal" region="ECN" :imgList.sync="imgList" :domain="domain" :uptokenURL="uptokenURL" :test="test"></uploader>

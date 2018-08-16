@@ -44,14 +44,14 @@ export default class ActionSheet extends wepy.page {
           value: '江南忆',
           event: '',
           slotid: 'slotid0'
-          // ,slot: '<view class="iconfont icon-success">alot1</view><view class="iconfont icon-delete">alot11</view>'
+          // ,slot: '<view class="kai-iconfont kai-icon-success">alot1</view><view class="kai-iconfont kai-icon-delete">alot11</view>'
         },
         {
           class: 'list',
           value: '其次忆吴宫',
           event: '',
           slotid: 'slotid1'
-          // ,slot: '<view class="iconfont icon-minus">slot2</view><view class="iconfont icon-plus">alot21</view>'
+          // ,slot: '<view class="kai-iconfont kai-icon-minus">slot2</view><view class="kai-iconfont kai-icon-plus">alot21</view>'
         },
         {
           class: 'list',

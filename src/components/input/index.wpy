@@ -34,7 +34,7 @@
       bindblur="_handleFieldBlur"
       data-component-id="{{ config.componentId || '' }}"/>
       <view wx:if="{{ config.clear && showClose }}" class="clear-content" catchtap="_handleClear">
-        <text class="iconfont icon-closebg clear-btn"></text>
+        <text class="kai-iconfont kai-icon-closebg clear-btn"></text>
       </view>
   </view>
 </template>

@@ -1,7 +1,7 @@
 <style lang="less" src="./index.less"></style>
 <template>
   <view class="add-file flex-list" style="width:{{imgWidth+'px'}};height:{{imgWidth+'px'}};" wx:if="{{count<total}}" catchtap="upLoad">
-    <text class="iconfont icon-plus color-999"></text>
+    <text class="kai-iconfont kai-icon-plus color-999"></text>
     <text class="color-999">添加 {{count}}/{{total}}</text>
   </view>
 </template>

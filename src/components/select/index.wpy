@@ -4,11 +4,11 @@
    <repeat for="{{selectData.list}}" index="index" item="item" key="key">
     <view class="select-item {{index==selectIndex ? 'active': ''}}" catchtap="tapItem({{selectData.id}}, {{index}})">
       <block wx:if="{{index==selectIndex && selectData.class==='select-left'}}">
-        <text class="iconfont icon-success" ></text>
+        <text class="kai-iconfont kai-icon-success" ></text>
       </block>
       <text class="item-name font-14">{{item.name}}</text>
       <block wx:if="{{index==selectIndex && selectData.class!=='select-left'}}">
-        <text class="iconfont icon-success" ></text>
+        <text class="kai-iconfont kai-icon-success" ></text>
       </block>
     </view>
   </repeat>

@@ -3,7 +3,7 @@
   <view class="cell">
     <view class="cell-list" wx:for="{{celldata}}" wx:key="index" :class="{'cell-list-access': item.linktype > 0}" catchtap="translateToPage({{item.linktype}}, {{item.link}})">
       <view class="cell-icon" wx:if="{{item.icontype}}">
-        <text wx:if="{{item.icontype==1}}" class="iconfont cell-icon {{item.icontext}}"></text>
+        <text wx:if="{{item.icontype==1}}" class="kai-iconfont cell-icon {{item.icontext}}"></text>
         <image wx:if="{{item.icontype==2}}" class="cell-img" src="{{item.icontext}}"/>
       </view>
       <view class="cell-list-bd">

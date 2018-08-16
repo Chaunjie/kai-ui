@@ -4,7 +4,7 @@
     <repeat for="{{gridData}}" index="i" item="item" key="row-{{index}}">
       <view class="grid-items fl grid-items{{gridRow}} items{{i}} {{item.class}}">
         <view class="grid-items-inner">
-          <text class="iconfont {{item.icon}}"></text>
+          <text class="kai-iconfont {{item.icon}}"></text>
           <text class="">{{item.text}}</text>
         </view>
       </view>
