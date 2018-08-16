@@ -1400,8 +1400,7 @@ components = {
 
 <script>
 import wepy from 'wepy'
-import actionsheet from '@/components/actionsheet/index'
-// import wxParse from '@/wxParse/wxParse'
+import actionsheet from 'kai-ui/ActionSheet'
 
 export default class ActionSheet extends wepy.page {
   config = {
@@ -1916,8 +1915,8 @@ components = {
 
 <script>
 import wepy from 'wepy'
-import uploader from '@/components/uploader/index'
-import panel from '@/components/panel/index'
+import uploader from 'kai-ui/Uploader'
+import panel from 'kai-ui/Panel'
 
 export default class Uploader extends wepy.page {
 
@@ -2072,7 +2071,7 @@ components = {
 
 <script>
 import wepy from 'wepy'
-import select from '@/components/select/index'
+import select from 'kai-ui/Select'
 
 export default class SelectPage extends wepy.page {
   config = {
@@ -2673,14 +2672,14 @@ import Input from 'kai-ui/Input'
 &emsp;&emsp;组件添加
 ```javascript
 components = {
-  input: Input
+  'input-name': input
 }
 ```
 
 &emsp;&emsp;template添加
 ```template
 <template>
-    <input label="联系人" placeholder="请输入姓名" :value.sync="name" focus="true"/>
+    <input-name :config="name" @onInput.user="_handleInput" @onBlur.user="_handleBlur"></input-name>
 </template>
 ```
 
@@ -2693,57 +2692,141 @@ components = {
 | placeholder | `String` | 否 | - | - | 输入提示 |
 | focus | `Boolean` | 否  | `true`,`false` | false | 是否自动获取焦点 |
 | maxlength | `String` | 否  | - | 9999 | 最大长度 |
-| type | `String` | 否  | `number`,`textarea`,`password`,`text` | `text` | 输入框类型 |
+| type | `String` | 否  | `textarea` ` ` | `` | 是否是文本域 |
+| error | `Boolean` | 否  | `true` `false` | `false` | 是否开启提示错误 |
+| clear | `Boolean` | 否  | `true` `false` | `false` | 是否显示清空按钮 |
+| adjust | `Boolean` | 否  | `true` `false` | `false` | 键盘弹起时，是否自动上推页面 |
+| componentId | `String` | 否  | - | - | 组件id（适用于数组类型） |
+| inputType | `String` | 否  | `text` `password` `number` `idcard` `digit` | `text` | 输入框类型 |
+| disabled | `Boolean` | 否  | `true` `false` | `false` | 输入框是否禁用 |
+| filter | `Object` | 否  | - | - | 输错需要提示的正则(例: /^(\+?0?86?)?1[3456789]\d{9}$/ 手机号码正则) |
 
 &emsp;&emsp;事件处理函数:
 
 | 事件名称 | 参数  | 描述    |
 | -------- | ------| ------- |
-| handleChange | e: {Event} DOM事件对象  | value值发生改变的时候触发的回调 |
-| handleInput | e: {Event} DOM事件对象  | 输入value值的时候触发的回调 |
-| handleBlur | e: {Event} DOM事件对象  | 输入框失去焦点的时候触发的回调 |
+| onInput | value: 输入框返回值  | value值发生改变的时候触发的回调 |
+| onBlur | value: 输入框返回值  | 输入框失去焦点的时候触发的回调 |
 
 &emsp;&emsp;案例
 ```wepy
+<style lang="less">
+  .no-title__content {
+    .field-wrapped {
+      margin: 0;
+    }
+  }
+  .wrap {
+    input {
+      border: 1px solid #ccc;
+    }
+  }
+</style>
 <template>
   <view class="kai-content">
     <view class="padding-10 font-12">基础用法</view>
-    <inputName label="联系人" placeholder="请输入姓名" :value.sync="name" focus="true"/>
-    <inputPassword type="password" label="密码" placeholder="请输入密码" :value.sync="password"/>
-    <inputPhone type="number" label="联系电话" maxlength="11" :value.sync="tel" />
-    <inputAddress type="textarea" placeholder="详细地址" :value.sync="address"/>
+    <view style="background-color: #fff;">
+      <input-name :config="name" @onInput.user="_handleInput" @onBlur.user="_handleBlur"></input-name>
+      <input-tel :config="tel"></input-tel>
+      <input-password :config="pwd"></input-password>
+      <input-address :config="address"></input-address>
+      <input-disabled :config="disabled"></input-disabled>
+    </view>
+    <view class="padding-10 font-12">无边框用法</view>
+    <view style="background-color: #fff;" class="no-title__content">
+      <input-notitle :config="notitle"></input-notitle>
+    </view>
+    <view class="padding-10 font-12">带清除按钮</view>
+    <view style="background-color: #fff;">
+      <input-clear :config="clear"></input-clear>
+    </view>
+    <view class="padding-10 font-12">带正则匹配</view>
+    <view style="background-color: #fff;">
+      <input-filter :config="filter"></input-filter>
+    </view>
   </view>
 </template>
 
 <script>
   import wepy from 'wepy'
-  import Input from '@/components/Input'
-  export default class InputPage extends wepy.page {
+  import input from 'kai-ui/Input'
+
+  export default class Input extends wepy.page {
+    config = {
+      navigationBarTitleText: 'Input 输入框'
+    }
+
     data = {
-      name: '道格强森',
-      password: '',
-      tel: '',
-      address: ''
+      name: {
+        label: '收货人',
+        value: '小明',
+        placeholder: '名字'
+      },
+      disabled: {
+        label: '用户信息',
+        disabled: true,
+        value: '该输入框已禁用',
+        placeholder: '不可用输入框'
+      },
+      tel: {
+        error: true,
+        label: '联系电话',
+        inputType: 'number',
+        placeholder: '请输入手机号'
+      },
+      pwd: {
+        label: '输入密码',
+        inputType: 'password',
+        placeholder: '请输入密码'
+      },
+      address: {
+        label: '详细地址',
+        type: 'textarea',
+        maxlength: 20,
+        placeholder: '请输入详细地址(最多20个字)'
+      },
+      clear: {
+        label: '清除按钮',
+        clear: true,
+        adjust: true,
+        value: '腹背受敌',
+        placeholder: '带清除按钮'
+      },
+      notitle: {
+        adjust: true,
+        placeholder: '请输入收货人姓名',
+        componentId: 'textarea:test'
+      },
+      filter: {
+        adjust: true,
+        label: '带正则',
+        filter: /^(\+?0?86?)?1[3456789]\d{9}$/,
+        placeholder: '手机号码正则'
+      }
     }
+
     components = {
-      inputName: Input,
-      inputAddress: Input,
-      inputPassword: Input,
-      inputPhone: Input
+      'input-name': input,
+      'input-disabled': input,
+      'input-tel': input,
+      'input-address': input,
+      'input-notitle': input,
+      'input-password': input,
+      'input-clear': input,
+      'input-filter': input
     }
-    events = {
-      handleChange(e) {
-        console.log('handleChange', e)
+
+    methods = {
+      _handleInput (e) {
+        console.log(e)
       },
-      handleInput(e) {
-        console.log('handleInput', e)
-      },
-      handleBlur(e) {
-        console.log('handleBlur', e)
+      _handleBlur (e) {
+        console.log(e)
       }
     }
   }
 </script>
+
 
 ```
 

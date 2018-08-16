@@ -55,6 +55,7 @@
             label: c.label || '',
             componentId: c.componentId || '',
             inputType: c.inputType || 'text',
+            type: c.type || '',
             placeholder: c.placeholder || '',
             disabled: Boolean(c.disabled) && true,
             focus: Boolean(c.focus) && true,
