@@ -38,11 +38,11 @@ npm i kai-ui -g
 &emsp;&emsp;template添加
 ```template
 <template>
-	<view class="layout layout-list">
-		<view class="col col-4">4</view>
-		<view class="col col-4 col-offset-4">4 4</view>
-		<view class="col col-8 col-offset-4">4 8</view>
-	</view>
+  <view class="layout layout-list">
+    <view class="col col-4">4</view>
+    <view class="col col-4 col-offset-4">4 4</view>
+    <view class="col col-8 col-offset-4">4 8</view>
+  </view>
 </template>
 ```
 
@@ -69,7 +69,7 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-	<grid :grid="grid" :gridData="gridlist"></grid>
+  <grid :grid="grid" :gridData="gridlist"></grid>
 </template>
 ```
 
@@ -137,67 +137,67 @@ export default class Grid extends wepy.page {
     gridlist2: [],
     gridItems: [
       {
-        icon: 'icon-comment',
+        icon: 'kai-icon-comment',
         text: '评论'
       },
       {
-        icon: 'icon-camera',
+        icon: 'kai-icon-camera',
         text: '相机'
       },
       {
-        icon: 'icon-calendar',
+        icon: 'kai-icon-calendar',
         text: '日历'
       },
       {
-        icon: 'icon-cart',
+        icon: 'kai-icon-cart',
         text: '购物车'
       },
       {
-        icon: 'icon-date',
+        icon: 'kai-icon-date',
         text: '时间'
       },
       {
-        icon: 'icon-edit',
+        icon: 'kai-icon-edit',
         text: '编辑'
       },
       {
-        icon: 'icon-gear',
+        icon: 'kai-icon-gear',
         text: '设置'
       },
       {
-        icon: 'icon-home',
+        icon: 'kai-icon-home',
         text: '主页'
       },
       {
-        icon: 'icon-image',
+        icon: 'kai-icon-image',
         text: '图像'
       },
       {
-        icon: 'icon-laud',
+        icon: 'kai-icon-laud',
         text: '点赞'
       },
       {
-        icon: 'icon-service',
+        icon: 'kai-icon-service',
         text: '服务'
       },
       {
-        icon: 'icon-like',
+        icon: 'kai-icon-like',
         text: '收藏'
       },
       {
-        icon: 'icon-mail',
+        icon: 'kai-icon-mail',
         text: '邮件'
       },
       {
-        icon: 'icon-map',
+        icon: 'kai-icon-map',
         text: '地图'
       },
       {
-        icon: 'icon-mobile',
+        icon: 'kai-icon-mobile',
         text: '手机'
       },
       {
-        icon: 'icon-video',
+        icon: 'kai-icon-video',
         text: '摄像'
       }
     ]
@@ -263,7 +263,7 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-	<view class="panel">
+  <view class="panel">
       <repeat for="{{cellList}}" index="index" item="item" key="row-{{index}}">
         <cell :celldata="item"></cell>
       </repeat>
@@ -273,7 +273,7 @@ components = {
 
 &emsp;&emsp;回调
 ```javascript
-	events = {
+  events = {
     'item-tap': (type, url) => {
       wx.navigateTo({
         url: url
@@ -453,15 +453,15 @@ components = {
     </view>
     <view class="padding-10">
       <button class="btn btn-small btn-success btn-loading">
-       <view class="iconfont icon-loading"></view>
+       <view class="kai-iconfont kai-icon-loading"></view>
        按钮
      </button>
      <button class="btn btn-large btn-kai btn-loading">
-       <view class="iconfont icon-loading"></view>
+       <view class="kai-iconfont kai-icon-loading"></view>
        按钮
      </button>
      <button class="btn btn-large btn-warn btn-empty btn-loading">
-       <view class="iconfont icon-loading"></view>
+       <view class="kai-iconfont kai-icon-loading"></view>
        按钮
      </button>
    </view>
@@ -519,14 +519,14 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-  <icon :type="item" :event="index % 2 ? 'icon-tap' : ''"></icon>
+  <icon :type="item" :event="index % 2 ? 'kai-icon-tap' : ''"></icon>
 </template>
 ```
 
 &emsp;&emsp;方法触法调用
 ```javascript
   events = {
-    'icon-tap': function () {
+    'kai-icon-tap': function () {
       console.log('点击事件回调')
     }
   }
@@ -536,25 +536,25 @@ components = {
 
 | 参数 | 类型 | 异步 | 默认 | 描述 |
 | --- | --- | --- | --- | --- |
-|  type   | `String` | `true`  | '' | 图标的iconfont |
+|  type   | `String` | `true`  | '' | 图标的kai-iconfont |
 | event | `String` | `true`  | '' |  事件回调   |
 
 &emsp;&emsp;案例
 ```wpy
   <style lang="less" src="../less/font.less"></style>
   <style lang="less">
-  .icon-container{
+  .kai-icon-container{
     background-color:#fff;
   }
-  .icon-block{
+  .kai-icon-block{
     background-color:#fff;
     padding: 20px 0;
-    .iconfont {
+    .kai-iconfont {
       font-size:30px;
       margin-bottom:20px;
       color:#999;
     }
-    .icon-title{
+    .kai-icon-title{
       font-size:12px;
       color:#999;
       text-align: center;
@@ -568,14 +568,14 @@ components = {
   }
   </style>
   <template>
-    <view class="kai-content icon-container layout">
+    <view class="kai-content kai-icon-container layout">
       <repeat for="{{list}}" index="index" item="item" key="key">
-        <view class="col col-6 icon-block" >
+        <view class="col col-6 kai-icon-block" >
           <view>
-            <icon :type="item" :event="index % 2 ? 'icon-tap' : ''"></icon>
+            <icon :type="item" :event="index % 2 ? 'kai-icon-tap' : ''"></icon>
           </view>
           <view>
-            <text class="icon-title">{{item}}</text>
+            <text class="kai-icon-title">{{item}}</text>
           </view>
         </view>
       </repeat>
@@ -596,15 +596,15 @@ components = {
 
     data = {
       list: [
-        'icon-error', 'icon-tick', 'icon-broadcast', 'icon-back', 'icon-calendar', 'icon-camera', 'icon-cart',
-        'icon-close', 'icon-comment', 'icon-success', 'icon-date', 'icon-display',
-        'icon-down', 'icon-edit', 'icon-flag', 'icon-forward', 'icon-gear',
-        'icon-hide', 'icon-home', 'icon-image', 'icon-info', 'icon-laud',
-        'icon-left', 'icon-like', 'icon-location', 'icon-lock', 'icon-mail',
-        'icon-map', 'icon-menu', 'icon-minus', 'icon-mobile', 'icon-more',
-        'icon-my', 'icon-paper', 'icon-pencil', 'icon-phone', 'icon-plus',
-        'icon-question', 'icon-recovery', 'icon-right', 'icon-search', 'icon-share',
-        'icon-star', 'icon-top', 'icon-trash', 'icon-unlock', 'icon-video', 'icon-closebg'
+        'kai-icon-error', 'kai-icon-tick', 'kai-icon-broadcast', 'kai-icon-back', 'kai-icon-calendar', 'kai-icon-camera', 'kai-icon-cart',
+        'kai-icon-close', 'kai-icon-comment', 'kai-icon-success', 'kai-icon-date', 'kai-icon-display',
+        'kai-icon-down', 'kai-icon-edit', 'kai-icon-flag', 'kai-icon-forward', 'kai-icon-gear',
+        'kai-icon-hide', 'kai-icon-home', 'kai-icon-image', 'kai-icon-info', 'kai-icon-laud',
+        'kai-icon-left', 'kai-icon-like', 'kai-icon-location', 'kai-icon-lock', 'kai-icon-mail',
+        'kai-icon-map', 'kai-icon-menu', 'kai-icon-minus', 'kai-icon-mobile', 'kai-icon-more',
+        'kai-icon-my', 'kai-icon-paper', 'kai-icon-pencil', 'kai-icon-phone', 'kai-icon-plus',
+        'kai-icon-question', 'kai-icon-recovery', 'kai-icon-right', 'kai-icon-search', 'kai-icon-share',
+        'kai-icon-star', 'kai-icon-top', 'kai-icon-trash', 'kai-icon-unlock', 'kai-icon-video', 'kai-icon-closebg'
       ]
     }
 
@@ -613,7 +613,7 @@ components = {
     methods = {}
 
     events = {
-      'icon-tap': function () {
+      'kai-icon-tap': function () {
         console.log(111)
       }
     }
@@ -1195,7 +1195,7 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-	<noticeBar :text="longText" componentId="noticebar" ></noticeBar>
+  <noticeBar :text="longText" componentId="noticebar" ></noticeBar>
 </template>
 ```
 
@@ -1204,7 +1204,7 @@ components = {
 this.$invoke('noticeBar', 'initNoticeBarScroll')
 也可以延迟调用
 setTimeout(() => {
-	this.$invoke('noticeBar', 'initNoticeBarScroll')
+  this.$invoke('noticeBar', 'initNoticeBarScroll')
 }, 3000)
 ```
 
@@ -1219,22 +1219,22 @@ setTimeout(() => {
 &emsp;&emsp;案例
 ```wpy
 <template>
-	<noticeBar :text="longText" componentId="noticebar" ></noticeBar>
+  <noticeBar :text="longText" componentId="noticebar" ></noticeBar>
 </template>
 <script>
 import NoticeBar from 'kai-ui/NoticeBar'
 export default class Index extends wepy.page {
-	components = {
-	  noticeBar: NoticeBar
-	}
-	data = {
-	  longText: '近日，俄空军苏-34战斗轰炸机部队在里海地区举行了反舰实弹攻击演练，其中罕见使用了Kh-31AD超音速反舰导弹，明显是针对先前美海军在环太军演中的反舰演习，本图集就此为您简析',
-	  icon: true,
-	  shotText: '美F35培训中心遭沙尘暴袭击'
-	}
-	onLoad () {
-		this.$invoke('noticeBar', 'initNoticeBarScroll')
-	}
+  components = {
+    noticeBar: NoticeBar
+  }
+  data = {
+    longText: '近日，俄空军苏-34战斗轰炸机部队在里海地区举行了反舰实弹攻击演练，其中罕见使用了Kh-31AD超音速反舰导弹，明显是针对先前美海军在环太军演中的反舰演习，本图集就此为您简析',
+    icon: true,
+    shotText: '美F35培训中心遭沙尘暴袭击'
+  }
+  onLoad () {
+    this.$invoke('noticeBar', 'initNoticeBarScroll')
+  }
 }
 </script>
 ```
@@ -1262,7 +1262,7 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-	<tab @bindChange.user="change"/>
+  <tab @bindChange.user="change"/>
 </template>
 ```
 
@@ -1296,32 +1296,32 @@ this.$invoke('tab', 'doInitTabData', this.tabData)
 &emsp;&emsp;案例
 ```wpy
 <template>
-	<tab-scroll @bindChange.user="change"/>
+  <tab-scroll @bindChange.user="change"/>
 </template>
 <script>
 import Tab from 'kai-ui/Tab'
 export default class Index extends wepy.page {
-	components = {
-	  'tab-scroll': Tab
-	}
-	data = {
-		tab2: {
-		  list: [{id: 1, title: '标签1'}, {id: 2, title: '标签2'}, {id: 3, title: '标签3'}, {id: 4, title: '标签4'}, {id: 5, title: '标签5'}, {id: 6, title: '标签6'}, {id: 7, title: '标签7'}, {id: 8, title: '标签8'}],
-		  scroll: true,
-		  selectedId: 3,
-		  class: 'tab-success'
-		}
-	}
-	methods = {
-		change (res) {
-		  this.tab2.selectedId = res
-		  this.$apply()
-		}
+  components = {
+    'tab-scroll': Tab
   }
-	onLoad () {
-		const {tab2} = this
-		this.$invoke('tab-scroll', 'doInitTabData', tab2)
-	}
+  data = {
+    tab2: {
+      list: [{id: 1, title: '标签1'}, {id: 2, title: '标签2'}, {id: 3, title: '标签3'}, {id: 4, title: '标签4'}, {id: 5, title: '标签5'}, {id: 6, title: '标签6'}, {id: 7, title: '标签7'}, {id: 8, title: '标签8'}],
+      scroll: true,
+      selectedId: 3,
+      class: 'tab-success'
+    }
+  }
+  methods = {
+    change (res) {
+      this.tab2.selectedId = res
+      this.$apply()
+    }
+  }
+  onLoad () {
+    const {tab2} = this
+    this.$invoke('tab-scroll', 'doInitTabData', tab2)
+  }
 }
 </script>
 ```
@@ -1428,14 +1428,14 @@ export default class ActionSheet extends wepy.page {
           value: '江南忆',
           event: '',
           slotid: 'slotid0'
-          // ,slot: '<view class="iconfont icon-success">alot1</view><view class="iconfont icon-delete">alot11</view>'
+          // ,slot: '<view class="kai-iconfont kai-icon-success">alot1</view><view class="kai-iconfont kai-icon-delete">alot11</view>'
         },
         {
           class: 'list',
           value: '其次忆吴宫',
           event: '',
           slotid: 'slotid1'
-          // ,slot: '<view class="iconfont icon-minus">slot2</view><view class="iconfont icon-plus">alot21</view>'
+          // ,slot: '<view class="kai-iconfont kai-icon-minus">slot2</view><view class="kai-iconfont kai-icon-plus">alot21</view>'
         },
         {
           class: 'list',
@@ -1617,7 +1617,7 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-	<dialog />
+  <dialog />
 </template>
 ```
 
@@ -1651,8 +1651,8 @@ this.$invoke('dialog', 'show', options).then((value) => {
 &emsp;&emsp;案例
 ```wpy
 <template>
-	<dialog />
-	<view class="padding-10">
+  <dialog />
+  <view class="padding-10">
     <button @tap="showSuccess" class="btn btn-kai">纵向对话框</button>
   </view>
   <view class="padding-10">
@@ -1662,60 +1662,60 @@ this.$invoke('dialog', 'show', options).then((value) => {
 <script>
 import Dialog from 'kai-ui/Radio'
 export default class Index extends wepy.page {
-	components = {
-		dialog: Dialog
-	}
+  components = {
+    dialog: Dialog
+  }
 
-	methods = {
-		showSuccess () {
-		  const options = {
-		    title: '删除订单提示',
-		    content: '确定要删除该订单吗？',
-		    type: 'muti',
-		    showVertical: true,
-		    buttons: [{
-		      text: '取消'
-		    }, {
-		      text: '确定',
-		      color: '#C59E6C'
-		    }]
-		  }
-		  this.$invoke('dialog', 'show', options).then((value) => {
-		    console.log(value) // 0: 取消，1：确认
-		  }, () => {
-		    console.log('reject')
-		  })
-		},
-		showkai () {
-		  const options = {
-		    title: '支付选择',
-		    content: '请选择一种支付方式',
-		    type: 'muti',
-		    showVertical: false,
-		    buttons: [{
-		      text: '微信支付',
-		      color: '#0EB00B'
-		    }, {
-		      text: '支付宝',
-		      color: '#48A9E9'
-		    }, {
-		      text: '京东',
-		      color: '#E45143',
+  methods = {
+    showSuccess () {
+      const options = {
+        title: '删除订单提示',
+        content: '确定要删除该订单吗？',
+        type: 'muti',
+        showVertical: true,
+        buttons: [{
+          text: '取消'
+        }, {
+          text: '确定',
+          color: '#C59E6C'
+        }]
+      }
+      this.$invoke('dialog', 'show', options).then((value) => {
+        console.log(value) // 0: 取消，1：确认
+      }, () => {
+        console.log('reject')
+      })
+    },
+    showkai () {
+      const options = {
+        title: '支付选择',
+        content: '请选择一种支付方式',
+        type: 'muti',
+        showVertical: false,
+        buttons: [{
+          text: '微信支付',
+          color: '#0EB00B'
+        }, {
+          text: '支付宝',
+          color: '#48A9E9'
+        }, {
+          text: '京东',
+          color: '#E45143',
           sync: true
-		    }]
-		  }
-		  this.$invoke('dialog', 'show', options).then((value) => {
-		    console.log(value) // 0: 微信支付，1：支付宝，2：京东
+        }]
+      }
+      this.$invoke('dialog', 'show', options).then((value) => {
+        console.log(value) // 0: 微信支付，1：支付宝，2：京东
             if (value === 2) {
               setTimeout(() => {
                 this.$invoke('dialog', 'reset') // 异步按钮重置
               }, 3000)
             }
-		  }, () => {
-		    console.log('reject')
-		  })
-		}
-	}
+      }, () => {
+        console.log('reject')
+      })
+    }
+  }
 }
 </script>
 ```
@@ -1852,7 +1852,7 @@ components = {
         <repeat for="{{imgList}}" index="index" item="item" key="row-{{index}}">
           <view class="img-list flex-list common-bg" style="width:{{imgWidth+'px'}};height:{{imgWidth+'px'}};background-image:url({{item.url}})"
                 catchtap="previewImg({{imgList}}, {{item.url}})">
-            <text class="iconfont icon-close delete-file" catchtap="removeImg({{index}})"></text>
+            <text class="kai-iconfont kai-icon-close delete-file" catchtap="removeImg({{index}})"></text>
           </view>
         </repeat>
         <uploader :imgWidth.sync="imgWidth" :total="imgTotal" region="ECN" :imgList.sync="imgList" :domain="domain" :uptokenURL="uptokenURL" :test="test"></uploader>
@@ -1913,7 +1913,7 @@ components = {
         <repeat for="{{imgList}}" index="index" item="item" key="row-{{index}}">
           <view class="img-list flex-list common-bg" style="width:{{imgWidth+'px'}};height:{{imgWidth+'px'}};background-image:url({{item.url}})"
                 catchtap="previewImg({{imgList}}, {{item.url}})">
-            <text class="iconfont icon-close delete-file" catchtap="removeImg({{index}})"></text>
+            <text class="kai-iconfont kai-icon-close delete-file" catchtap="removeImg({{index}})"></text>
           </view>
         </repeat>
         <uploader :imgWidth.sync="imgWidth" :total="imgTotal" region="ECN" :imgList.sync="imgList" :domain="domain" :uptokenURL="uptokenURL" :test="test"></uploader>
@@ -2066,7 +2066,7 @@ components = {
 &emsp;&emsp;案例
 ```wpy
 <style lang="less">
-.icon-right{
+.kai-icon-right{
   font-size:12px;
 }
 </style>
@@ -2160,29 +2160,29 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-	<radio-circle :config.sync="config" @bindchange.user="radioChange">
-		<block slot="radio-body">
-			<repeat for="{{items}}" index="index" item="item" key="radio-{{index}}">
-				<label class="radio-item">
-					<view class="radio-card">{{item.value}}</view>
-					<radio value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
-				</label>
-			</repeat>
-		</block>
-	</radio-circle>
+  <radio-circle :config.sync="config" @bindchange.user="radioChange">
+    <block slot="radio-body">
+      <repeat for="{{items}}" index="index" item="item" key="radio-{{index}}">
+        <label class="radio-item">
+          <view class="radio-card">{{item.value}}</view>
+          <radio value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+        </label>
+      </repeat>
+    </block>
+  </radio-circle>
 </template>
 ```
 
 &emsp;&emsp;参数格式
 ```data
 data = {
-	config: {
-		className: 'sp-radio',
-		position: 'left',
-		circle: true,
-		inline: false
-	},
-	items: [
+  config: {
+    className: 'sp-radio',
+    position: 'left',
+    circle: true,
+    inline: false
+  },
+  items: [
     {id: '1001', value: '圆形单选框', checked: false, disabled: false},
     {id: '1002', value: '圆形单选框', checked: true, disabled: false}
   ]
@@ -2208,41 +2208,41 @@ data = {
 &emsp;&emsp;案例
 ```wpy
 <template>
-	<radio-circle :config.sync="config" @bindchange.user="radioChange">
-		<block slot="radio-body">
-			<repeat for="{{items}}" index="index" item="item" key="radio-{{index}}">
-				<label class="radio-item">
-					<view class="radio-card">{{item.value}}</view>
-					<radio value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
-				</label>
-			</repeat>
-		</block>
-	</radio-circle>
+  <radio-circle :config.sync="config" @bindchange.user="radioChange">
+    <block slot="radio-body">
+      <repeat for="{{items}}" index="index" item="item" key="radio-{{index}}">
+        <label class="radio-item">
+          <view class="radio-card">{{item.value}}</view>
+          <radio value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+        </label>
+      </repeat>
+    </block>
+  </radio-circle>
 </template>
 <script>
 import radio from 'kai-ui/Radio'
 export default class Index extends wepy.page {
-	components = {
-		'radio-circle': radio
-	}
+  components = {
+    'radio-circle': radio
+  }
 
-	data = {
-	   checkboxConfig: {
-			className: 'sp-radio',
-			position: 'left',
-			circle: true
-		},
-		items: [
+  data = {
+     checkboxConfig: {
+      className: 'sp-radio',
+      position: 'left',
+      circle: true
+    },
+    items: [
           {id: '1001', value: '圆形单选框', checked: false, disabled: false},
           {id: '1002', value: '圆形单选框', checked: true, disabled: false}
       ]
-	}
+  }
 
-	methods = {
-		radioChange (res) {
-			console.log(res)
-		}
-	}
+  methods = {
+    radioChange (res) {
+      console.log(res)
+    }
+  }
 }
 </script>
 ```
@@ -2270,29 +2270,29 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-	<checkbox-circle :config.sync="checkboxConfig" @bindchange.user="checkboxChange">
-		<view slot="check-body">
-			<repeat for="{{items}}" index="index" item="item" key="checkbox-{{index}}">
-				<label class="checkbox-item">
-					<view class="check-card">{{item.value}}</view>
-					<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
-				</label>
-			</repeat>
-		</view>
-	</checkbox-circle>
+  <checkbox-circle :config.sync="checkboxConfig" @bindchange.user="checkboxChange">
+    <view slot="check-body">
+      <repeat for="{{items}}" index="index" item="item" key="checkbox-{{index}}">
+        <label class="checkbox-item">
+          <view class="check-card">{{item.value}}</view>
+          <checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+        </label>
+      </repeat>
+    </view>
+  </checkbox-circle>
 </template>
 ```
 
 &emsp;&emsp;参数格式
 ```data
 data = {
-	checkboxConfig: {
-		className: 'sp-checkbox',
-		position: 'left',
-		circle: true,
-		inline: false
-	},
-	items: [{id: '1000', value: '圆形复选框', checked: true, disabled: false}]
+  checkboxConfig: {
+    className: 'sp-checkbox',
+    position: 'left',
+    circle: true,
+    inline: false
+  },
+  items: [{id: '1000', value: '圆形复选框', checked: true, disabled: false}]
 }
 ```
 
@@ -2315,46 +2315,46 @@ data = {
 &emsp;&emsp;案例
 ```wpy
 <template>
-	<checkbox-circle :config.sync="checkboxConfig" @bindchange.user="checkboxChange">
-		<view slot="check-body">
-			<repeat for="{{items}}" index="index" item="item" key="checkbox-{{index}}">
-				<label class="checkbox-item">
-					<view class="check-card">{{item.value}}</view>
-					<checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
-				</label>
-			</repeat>
-		</view>
-	</checkbox-circle>
+  <checkbox-circle :config.sync="checkboxConfig" @bindchange.user="checkboxChange">
+    <view slot="check-body">
+      <repeat for="{{items}}" index="index" item="item" key="checkbox-{{index}}">
+        <label class="checkbox-item">
+          <view class="check-card">{{item.value}}</view>
+          <checkbox value="{{item.id}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+        </label>
+      </repeat>
+    </view>
+  </checkbox-circle>
 </template>
 <script>
 import checkbox from 'kai-ui/Checkbox'
 export default class Index extends wepy.page {
-	components = {
-		'checkbox-circle': checkbox
-	}
+  components = {
+    'checkbox-circle': checkbox
+  }
 
-	data = {
-		checkboxConfig: {
-			className: 'sp-checkbox',
-			position: 'left',
-			circle: true
-		},
-		items: [{id: '1000', value: '圆形复选框', checked: true}]
-	}
+  data = {
+    checkboxConfig: {
+      className: 'sp-checkbox',
+      position: 'left',
+      circle: true
+    },
+    items: [{id: '1000', value: '圆形复选框', checked: true}]
+  }
 
-	methods = {
-		checkboxChange (res) {
-			console.log(res)
-			if (res.length) {
-				this.items[0].checked = true
-				this.items1[0].checked = true
-			} else {
-				this.items[0].checked = false
-				this.items1[0].checked = false
-			}
-			this.$apply()
-		}
-	}
+  methods = {
+    checkboxChange (res) {
+      console.log(res)
+      if (res.length) {
+        this.items[0].checked = true
+        this.items1[0].checked = true
+      } else {
+        this.items[0].checked = false
+        this.items1[0].checked = false
+      }
+      this.$apply()
+    }
+  }
 }
 </script>
 ```
@@ -2382,7 +2382,7 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-	<switch
+  <switch
     :checked.sync="item1.checked"
     :disabled.sync="item1.disabled"
     :componentId.sync="item1.componentId"
@@ -2403,13 +2403,13 @@ components = {
 &emsp;&emsp;参数格式
 ```data
 data = {
-	item1: {
+  item1: {
     title: '普通样式',
     checked: false,
     disabled: false,
     componentId: 'switch1'
   },
-	item: {
+  item: {
     title: '异步样式',
     checked: false,
     disabled: false,
@@ -2474,13 +2474,13 @@ data = {
 <script>
 import Switch from 'kai-ui/Switch'
 export default class Index extends wepy.page {
-	components = {
-		switch: Switch,
+  components = {
+    switch: Switch,
         'switch-type': Switch
-	}
+  }
 
-	data = {
-		items: [
+  data = {
+    items: [
         {
           title: '普通样式',
           checked: false,
@@ -2528,10 +2528,10 @@ export default class Index extends wepy.page {
           componentId: 'switch7'
         }
       ]
-	}
+  }
 
-	methods = {
-		change (res) {
+  methods = {
+    change (res) {
         const {items} = this
         for (let i = 0; i < items.length; i++) {
           if (items[i].componentId === res.componentId) {
@@ -2559,7 +2559,7 @@ export default class Index extends wepy.page {
           }
         }
       }
-	}
+  }
 }
 </script>
 ```
