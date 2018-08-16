@@ -12,15 +12,15 @@
 <template>
   <view class="kai-content">
     <view class="bg-white padding-10">
-      <view class="font-12">正常样式</view>
-      <repeat for="{{first.list}}" index="index" item="item">
-        <numberpicker :num="item" :index="index" :config="first.config"/>
-      </repeat>
+      <view class="font-12">默认小尺寸样式</view>
+      <!-- 单个数值处理 -->
+      <picker :num.sync="item"/>
     </view>
     <view class="bg-white padding-10">
-      <view class="font-12">小size样式</view>
-      <repeat for="{{second.list}}" index="index" item="item">
-        <numberpicker :num="item" :index="index" :config="second.config"/>
+      <view class="font-12">大尺寸样式</view>
+      <!-- 数组处理 -->
+      <repeat for="{{list.data}}" index="index" item="item">
+        <numberpicker :num="item" :index="index" :config="list.config"/>
       </repeat>
     </view>
     <!-- <button @tap="save">保存</button> -->
@@ -36,42 +36,32 @@
       navigationBarTitleText: 'NumberPicker 数字输入框'
     }
     data = {
-      first: {
-        list: [1],
+      item: 1,
+      list: {
+        data: [5, 6, 7],
         config: {
-          size: 'medium',
-          step: 1,
-          // min: 1,
-          // max: 5,
-          callbackFn: 'firstListChange'
-        }
-      },
-      second: {
-        list: [5, 6, 7],
-        config: {
-          step: 1,
+          step: 2,
           min: 3,
-          max: 10,
-          callbackFn: 'secondListChange'
+          max: 20,
+          size: 'large',
+          callbackFn: 'listChange'
         }
       }
     }
     components = {
+      picker: NumberPicker,
       numberpicker: NumberPicker
     }
 
     methods = {
       save () {
-        console.log(this.first.list, this.second.list)
+        console.log(this.item, this.list.data)
       }
     }
 
     events = {
-      firstListChange (index, value) {
-        this.first.list[index] = value
-      },
-      secondListChange (index, value) {
-        this.second.list[index] = value
+      listChange (value, index) {
+        this.list.data[index] = value
       }
     }
   }

@@ -2,20 +2,19 @@
 <template>
   <view class="numberpicker {{config.size}}">
     <view
-      class="numberpicker-minus {{num <= (config.min || defaultMin) ? 'numberpicker-disabled':''}}"
+      class="numberpicker-minus {{num <= config.min ? 'numberpicker-disabled':''}}"
       data-type="minus"
       data-num="{{num}}"
       data-config="{{config}}"
-      data-disabled="{{num <= (config.min || defaultMin)}}"
+      data-disabled="{{num <= config.min}}"
       @tap="_handleStep"
       >-</view>
     <input
       class="numberpicker-input"
       type="number"
-      value="{{num}}"
+      value="{{num?num:''}}"
       data-num="{{num}}"
       data-config="{{config}}"
-      min="1"
       @input="_handleInput"
       @blur="_handleBlur"/>
     <view
@@ -31,14 +30,23 @@
 <script>
   import wepy from 'wepy'
   export default class NumberPicker extends wepy.component {
-    data = {
-      defaultMin: 1
-    }
     props = {
-      config: {}, // 配置包含：最大值max, 最小值min, 步长step, 尺寸size(可选：small, medium, large), 回调函数callbackFn
+      config: {
+        type: Object,
+        // 赋默认值
+        coerce (conf) {
+          const c = conf || {}
+          return {
+            step: c.step || 1,
+            min: c.min || 1,
+            max: c.max || 999999999
+          }
+        }
+      },
       num: { // 数值
         type: [Number, String],
-        default: ''
+        default: '',
+        twoWay: true // 对数组repeat的情况无效，此时需要回调函数手动同步
       },
       index: { // 索引
         type: [Number, String],
@@ -50,12 +58,12 @@
       _handleStep (e) {
         const dataset = e.currentTarget.dataset
         const dataConfig = dataset.config
-        const min = dataConfig.min || this.defaultMin
         if (!dataset.disabled) {
           let originalNum = dataset.num
           if (this.verify(originalNum, dataConfig)) {
             let num = dataset.type === 'plus' ? originalNum + Math.ceil(dataConfig.step) : originalNum - Math.ceil(dataConfig.step)
-            this.num = num > dataConfig.max || num < min ? originalNum : num
+            // 处理类似如下情况：step:2,max:3,originalNum2+2=4>3,此时需要重置到3
+            this.num = num > dataConfig.max || num < dataConfig.min ? originalNum : num
             this.handleStepChange(dataConfig.callbackFn)
           }
         }
@@ -69,17 +77,16 @@
       _handleBlur (e) {
         const dataset = e.currentTarget.dataset
         const dataConfig = dataset.config
-        const min = dataConfig.min || this.defaultMin
         if (this.verify(dataset.num, dataConfig)) {
           let num = +e.detail.value
-          this.num = num < min ? min : (dataConfig.max && num > dataConfig.max ? dataConfig.max : num)
+          this.num = num < dataConfig.min ? dataConfig.min : (dataConfig.max && num > dataConfig.max ? dataConfig.max : num)
           this.handleStepChange(dataConfig.callbackFn)
         }
       }
     }
 
     handleStepChange (callbackFn) {
-      this.$emit(callbackFn, this.index, Number(this.num))
+      callbackFn && this.$emit(callbackFn, Number(this.num), this.index)
     }
 
     verify (num, config) {

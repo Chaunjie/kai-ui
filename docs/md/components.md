@@ -2587,7 +2587,7 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-  <numberpicker :num="item" :index="index" :config="first.config"/>
+  <numberpicker :num.sync="item"/>
 </template>
 ```
 
@@ -2595,36 +2595,37 @@ components = {
 
 | 参数      | 类型 | 是否必传 |  默认值 | 描述                      |
 | -------- | ------- | ---- | ----- | ------------------------ |
-| num  | `Number`  | 是  | -  | 初始值 |
-| index | `Number` | 是  | - | 消息弹出持续时间，单位毫秒 |
-| config | `Object` | 是  | - | 配置 |
+| num  | `Number`  | 是  | -  | 初始数值 |
+| config | `Object` | 否 | - | 配置，如果是数组repeat则必传 |
+| index | `Number` | 否  | - | 数值索引，如果是数组repeat则必传 |
 
 &emsp;&emsp;config配置:
 
 | 参数      | 类型 | 是否必传 |  默认值 | 描述                      |
 | -------- | ------- | ---- | ----- | ------------------------ |
-| step | `Number` | 是  | - | 点击加减按钮的步长 |
-| size  | `String`  | 否  | `small`  | 样式尺寸（可选值：`small`,`medium`,`large` |
-| max | `Number` | 否  | - | 最大值 |
+| step | `Number` | 否  | 1 | 加减步长 |
+| max | `Number` | 否  | 999999999 | 最大值 |
 | min | `Number` | 否  | 1 | 最小值 |
-| callbackFn | `String` | 否  | - | 回调函数名，用于处理回传结果 |
+| size  | `String`  | 否  | `small`  | 样式尺寸（可选值：`small`,`large`） |
+| callbackFn | `String` | 否  | - | 回调函数名，如果是数组repeat，需要手动处理回传结果 |
 
 &emsp;&emsp;案例
 ```wepy
 <template>
   <view class="kai-content">
     <view class="bg-white padding-10">
-      <view class="font-12">正常样式</view>
-      <repeat for="{{first.list}}" index="index" item="item">
-        <numberpicker :num="item" :index="index" :config="first.config"/>
-      </repeat>
+      <view class="font-12">默认小尺寸样式</view>
+      <!-- 单个数值处理 -->
+      <picker :num.sync="item"/>
     </view>
     <view class="bg-white padding-10">
-      <view class="font-12">小size样式</view>
-      <repeat for="{{second.list}}" index="index" item="item">
-        <numberpicker :num="item" :index="index" :config="second.config"/>
+      <view class="font-12">大尺寸样式</view>
+      <!-- 数组处理 -->
+      <repeat for="{{list.data}}" index="index" item="item">
+        <numberpicker :num="item" :index="index" :config="list.config"/>
       </repeat>
     </view>
+    <button @tap="save">保存</button>
   </view>
 </template>
 
@@ -2634,34 +2635,32 @@ components = {
 
   export default class NumberPickerPage extends wepy.page {
     data = {
-      first: {
-        list: [1],
-        config: {
-          size: 'medium',
-          step: 1,
-          callbackFn: 'firstListChange'
-        }
-      },
-      second: {
-        list: [5, 6, 7],
+      item: 1,
+      list: {
+        data: [5, 6, 7],
         config: {
           step: 1,
           min: 3,
           max: 10,
-          callbackFn: 'secondListChange'
+          size: 'large',
+          callbackFn: 'listChange'
         }
       }
     }
     components = {
+      picker: NumberPicker,
       numberpicker: NumberPicker
     }
 
+    methods = {
+      save () {
+        console.log(this.item, this.list.data)
+      }
+    }
+
     events = {
-      firstListChange (index, value) {
-        this.first.list[index] = value
-      },
-      secondListChange (index, value) {
-        this.second.list[index] = value
+      listChange (value, index) {
+        this.list.data[index] = value
       }
     }
   }
