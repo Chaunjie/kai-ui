@@ -18,6 +18,7 @@
 	    <input-tel :config="tel"></input-tel>
 	    <input-password :config="pwd"></input-password>
 	    <input-address :config="address"></input-address>
+	    <input-disabled :config="disabled"></input-disabled>
     </view>
     <view class="padding-10 font-12">无边框用法</view>
     <view style="background-color: #fff;" class="no-title__content">
@@ -46,7 +47,14 @@
     data = {
     	name: {
 	      label: '收货人',
+	      value: '小明',
 	      placeholder: '名字'
+	    },
+	    disabled: {
+	      label: '用户信息',
+	      disabled: true,
+	      value: '该输入框已禁用',
+	      placeholder: '不可用输入框'
 	    },
 	    tel: {
 	      error: true,
@@ -62,7 +70,8 @@
 	    address: {
 	      label: '详细地址',
 	      type: 'textarea',
-	      placeholder: '请输入详细地址'
+	      maxlength: 20,
+	      placeholder: '请输入详细地址(最多20个字)'
 	    },
 	    clear: {
 	      label: '清除按钮',
@@ -86,6 +95,7 @@
 
     components = {
       'input-name': input,
+      'input-disabled': input,
       'input-tel': input,
       'input-address': input,
       'input-notitle': input,
