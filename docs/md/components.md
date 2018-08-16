@@ -137,67 +137,67 @@ export default class Grid extends wepy.page {
     gridlist2: [],
     gridItems: [
       {
-        icon: 'kai-icon-comment',
+        icon: 'comment',
         text: '评论'
       },
       {
-        icon: 'kai-icon-camera',
+        icon: 'camera',
         text: '相机'
       },
       {
-        icon: 'kai-icon-calendar',
+        icon: 'calendar',
         text: '日历'
       },
       {
-        icon: 'kai-icon-cart',
+        icon: 'cart',
         text: '购物车'
       },
       {
-        icon: 'kai-icon-date',
+        icon: 'date',
         text: '时间'
       },
       {
-        icon: 'kai-icon-edit',
+        icon: 'edit',
         text: '编辑'
       },
       {
-        icon: 'kai-icon-gear',
+        icon: 'gear',
         text: '设置'
       },
       {
-        icon: 'kai-icon-home',
+        icon: 'home',
         text: '主页'
       },
       {
-        icon: 'kai-icon-image',
+        icon: 'image',
         text: '图像'
       },
       {
-        icon: 'kai-icon-laud',
+        icon: 'laud',
         text: '点赞'
       },
       {
-        icon: 'kai-icon-service',
+        icon: 'service',
         text: '服务'
       },
       {
-        icon: 'kai-icon-like',
+        icon: 'like',
         text: '收藏'
       },
       {
-        icon: 'kai-icon-mail',
+        icon: 'mail',
         text: '邮件'
       },
       {
-        icon: 'kai-icon-map',
+        icon: 'map',
         text: '地图'
       },
       {
-        icon: 'kai-icon-mobile',
+        icon: 'mobile',
         text: '手机'
       },
       {
-        icon: 'kai-icon-video',
+        icon: 'video',
         text: '摄像'
       }
     ]
@@ -519,14 +519,14 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-  <icon :type="item" :event="index % 2 ? 'kai-icon-tap' : ''"></icon>
+  <icon :type="item" :event="index % 2 ? 'icon-tap' : ''"></icon>
 </template>
 ```
 
 &emsp;&emsp;方法触法调用
 ```javascript
   events = {
-    'kai-icon-tap': function () {
+    'icon-tap': function () {
       console.log('点击事件回调')
     }
   }
@@ -536,17 +536,17 @@ components = {
 
 | 参数 | 类型 | 异步 | 默认 | 描述 |
 | --- | --- | --- | --- | --- |
-|  type   | `String` | `true`  | '' | 图标的kai-iconfont |
+|  type   | `String` | `true`  | '' | 图标的kai-iconfont(例如: 类名为kai-icon-plus type就为plus) |
 | event | `String` | `true`  | '' |  事件回调   |
 
 &emsp;&emsp;案例
 ```wpy
   <style lang="less" src="../less/font.less"></style>
   <style lang="less">
-  .kai-icon-container{
+  .icon-container{
     background-color:#fff;
   }
-  .kai-icon-block{
+  .icon-block{
     background-color:#fff;
     padding: 20px 0;
     .kai-iconfont {
@@ -554,7 +554,7 @@ components = {
       margin-bottom:20px;
       color:#999;
     }
-    .kai-icon-title{
+    .icon-title{
       font-size:12px;
       color:#999;
       text-align: center;
@@ -568,14 +568,14 @@ components = {
   }
   </style>
   <template>
-    <view class="kai-content kai-icon-container layout">
+    <view class="kai-content icon-container layout">
       <repeat for="{{list}}" index="index" item="item" key="key">
-        <view class="col col-6 kai-icon-block" >
+        <view class="col col-6 icon-block" >
           <view>
-            <icon :type="item" :event="index % 2 ? 'kai-icon-tap' : ''"></icon>
+            <icon :type="item" :event="index % 2 ? 'icon-tap' : ''"></icon>
           </view>
           <view>
-            <text class="kai-icon-title">{{item}}</text>
+            <text class="icon-title">{{item}}</text>
           </view>
         </view>
       </repeat>
@@ -596,15 +596,7 @@ components = {
 
     data = {
       list: [
-        'kai-icon-error', 'kai-icon-tick', 'kai-icon-broadcast', 'kai-icon-back', 'kai-icon-calendar', 'kai-icon-camera', 'kai-icon-cart',
-        'kai-icon-close', 'kai-icon-comment', 'kai-icon-success', 'kai-icon-date', 'kai-icon-display',
-        'kai-icon-down', 'kai-icon-edit', 'kai-icon-flag', 'kai-icon-forward', 'kai-icon-gear',
-        'kai-icon-hide', 'kai-icon-home', 'kai-icon-image', 'kai-icon-info', 'kai-icon-laud',
-        'kai-icon-left', 'kai-icon-like', 'kai-icon-location', 'kai-icon-lock', 'kai-icon-mail',
-        'kai-icon-map', 'kai-icon-menu', 'kai-icon-minus', 'kai-icon-mobile', 'kai-icon-more',
-        'kai-icon-my', 'kai-icon-paper', 'kai-icon-pencil', 'kai-icon-phone', 'kai-icon-plus',
-        'kai-icon-question', 'kai-icon-recovery', 'kai-icon-right', 'kai-icon-search', 'kai-icon-share',
-        'kai-icon-star', 'kai-icon-top', 'kai-icon-trash', 'kai-icon-unlock', 'kai-icon-video', 'kai-icon-closebg'
+        'error', 'tick', 'broadcast', 'back', 'calendar', 'camera', 'cart', 'close', 'comment', 'success', 'date', 'display', 'down', 'edit', 'flag', 'forward', 'gear', 'hide', 'home', 'image', 'info', 'laud', 'left', 'like', 'location', 'lock', 'mail', 'map', 'menu', 'minus', 'mobile', 'more', 'my', 'paper', 'pencil', 'phone', 'plus', 'question', 'recovery', 'right', 'search', 'share', 'star', 'top', 'trash', 'unlock', 'video', 'closebg'
       ]
     }
 
@@ -613,7 +605,7 @@ components = {
     methods = {}
 
     events = {
-      'kai-icon-tap': function () {
+      'icon-tap': function () {
         console.log(111)
       }
     }
@@ -2065,11 +2057,7 @@ components = {
 
 &emsp;&emsp;案例
 ```wpy
-<style lang="less">
-.kai-icon-right{
-  font-size:12px;
-}
-</style>
+<style lang="less"></style>
 <template>
   <view class="kai-content">
     <view class="panel">
