@@ -10,6 +10,10 @@
 .no-padding .info{
   padding: 0;
 }
+.border {
+  border: 1rpx solid #e1e1e1;
+  margin-bottom: 20px;
+}
 </style>
 <template>
   <view class="kai-content">
@@ -23,6 +27,12 @@
       <view slot="title" class="title">16宫格</view>
       <view class="panel">
         <grid :grid="grid2" :gridData="gridlist2"></grid>
+      </view>
+    </panel>
+    <panel class="no-padding">
+      <view slot="title" class="title">16宫格，带边框</view>
+      <view class="panel">
+        <grid :grid="grid2" :gridData="gridlist2" class="border"></grid>
       </view>
     </panel>
   </view>
