@@ -63,67 +63,67 @@ export default class Grid extends wepy.page {
     gridlist2: [],
     gridItems: [
       {
-        icon: 'kai-icon-comment',
+        icon: 'comment',
         text: '评论'
       },
       {
-        icon: 'kai-icon-camera',
+        icon: 'camera',
         text: '相机'
       },
       {
-        icon: 'kai-icon-calendar',
+        icon: 'calendar',
         text: '日历'
       },
       {
-        icon: 'kai-icon-cart',
+        icon: 'cart',
         text: '购物车'
       },
       {
-        icon: 'kai-icon-date',
+        icon: 'date',
         text: '时间'
       },
       {
-        icon: 'kai-icon-edit',
+        icon: 'edit',
         text: '编辑'
       },
       {
-        icon: 'kai-icon-gear',
+        icon: 'gear',
         text: '设置'
       },
       {
-        icon: 'kai-icon-home',
+        icon: 'home',
         text: '主页'
       },
       {
-        icon: 'kai-icon-image',
+        icon: 'image',
         text: '图像'
       },
       {
-        icon: 'kai-icon-laud',
+        icon: 'laud',
         text: '点赞'
       },
       {
-        icon: 'kai-icon-service',
+        icon: 'service',
         text: '服务'
       },
       {
-        icon: 'kai-icon-like',
+        icon: 'like',
         text: '收藏'
       },
       {
-        icon: 'kai-icon-mail',
+        icon: 'mail',
         text: '邮件'
       },
       {
-        icon: 'kai-icon-map',
+        icon: 'map',
         text: '地图'
       },
       {
-        icon: 'kai-icon-mobile',
+        icon: 'mobile',
         text: '手机'
       },
       {
-        icon: 'kai-icon-video',
+        icon: 'video',
         text: '摄像'
       }
     ]

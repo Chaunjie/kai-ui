@@ -53,15 +53,15 @@ export default class Icon extends wepy.page {
 
   data = {
     list: [
-      'kai-icon-error', 'kai-icon-tick', 'kai-icon-broadcast', 'kai-icon-back', 'kai-icon-calendar', 'kai-icon-camera', 'kai-icon-cart',
-      'kai-icon-close', 'kai-icon-comment', 'kai-icon-success', 'kai-icon-date', 'kai-icon-display',
-      'kai-icon-down', 'kai-icon-edit', 'kai-icon-flag', 'kai-icon-forward', 'kai-icon-gear',
-      'kai-icon-hide', 'kai-icon-home', 'kai-icon-image', 'kai-icon-info', 'kai-icon-laud',
-      'kai-icon-left', 'kai-icon-like', 'kai-icon-location', 'kai-icon-lock', 'kai-icon-mail',
-      'kai-icon-map', 'kai-icon-menu', 'kai-icon-minus', 'kai-icon-mobile', 'kai-icon-more',
-      'kai-icon-my', 'kai-icon-paper', 'kai-icon-pencil', 'kai-icon-phone', 'kai-icon-plus',
-      'kai-icon-question', 'kai-icon-recovery', 'kai-icon-right', 'kai-icon-search', 'kai-icon-share',
-      'kai-icon-star', 'kai-icon-top', 'kai-icon-trash', 'kai-icon-unlock', 'kai-icon-video', 'kai-icon-closebg'
+      'error', 'tick', 'broadcast', 'back', 'calendar', 'camera', 'cart',
+      'close', 'comment', 'success', 'date', 'display',
+      'down', 'edit', 'flag', 'forward', 'gear',
+      'hide', 'home', 'image', 'info', 'laud',
+      'left', 'like', 'location', 'lock', 'mail',
+      'map', 'menu', 'minus', 'mobile', 'more',
+      'my', 'paper', 'pencil', 'phone', 'plus',
+      'question', 'recovery', 'right', 'search', 'share',
+      'star', 'top', 'trash', 'unlock', 'video', 'closebg'
     ]
   }
 

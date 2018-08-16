@@ -3,9 +3,9 @@
   <view class="toast">
     <view class="toast-wrap toast-{{toast.position}} toast-{{toast.show?'show':'hide'}}">
       <view wx:if="{{toast.type}}" class="toast-wrap__icon">
-        <iconSucess wx:if="{{toast.type==='success'}}" type="kai-icon-tick"/>
-        <iconError wx:if="{{toast.type==='error'}}" type="kai-icon-error"/>
-        <iconWarn wx:if="{{toast.type==='warning'}}" type="kai-icon-info"/>
+        <iconSucess wx:if="{{toast.type==='success'}}" type="tick"/>
+        <iconError wx:if="{{toast.type==='error'}}" type="error"/>
+        <iconWarn wx:if="{{toast.type==='warning'}}" type="info"/>
         <iconLoading wx:if="{{toast.type==='loading'}}" type="circle" size="big"/>
       </view>
       <view>{{toast.content}}</view>

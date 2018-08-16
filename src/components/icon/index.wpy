@@ -1,6 +1,6 @@
 <style lang="less" src="./index.less"></style>
 <template>
-  <text class="kai-iconfont {{type}}" catchtap="iconTap" data-event="{{event}}"></text>
+  <text class="kai-iconfont kai-icon-{{type}}" catchtap="iconTap" data-event="{{event}}"></text>
 </template>
 <script>
   import wepy from 'wepy'

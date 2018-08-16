@@ -6,7 +6,7 @@
         <view class="searchbar-form__wrap">
           <iconSearch
             class="searchbar-form__find"
-            type="kai-icon-search">
+            type="search">
           </iconSearch>
           <input
             class="searchbar-form__input"
@@ -19,7 +19,7 @@
             @confirm="_handleConfirm"/>
           <iconClear
             class="searchbar-form__clear {{value?'searchbar-form__clear--show':''}}"
-            type="kai-icon-closebg"
+            type="closebg"
             event="_handleClear">
           </iconClear>
         </view>
