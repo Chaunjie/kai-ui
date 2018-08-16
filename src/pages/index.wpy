@@ -5,7 +5,7 @@
   .cell {
     margin: 0;
   }
-  .kai-icon-img{
+  .icon-img{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -28,7 +28,7 @@
 </style>
 <template>
   <view class="kai-content">
-    <view class="kai-icon-img">
+    <view class="icon-img">
       <view class="bg"></view>
     </view>
     <repeat for="{{cellDemoList}}" index="index" item="item" key="panel-{{index}}">

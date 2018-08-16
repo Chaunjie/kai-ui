@@ -1,7 +1,4 @@
 <style lang="less">
-.kai-icon-right{
-  font-size:12px;
-}
 .bg-white{
   background-color: #fff;
 }
