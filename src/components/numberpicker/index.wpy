@@ -71,7 +71,7 @@
       _handleInput (e) {
         const dataset = e.currentTarget.dataset
         const dataConfig = dataset.config
-        this.num = e.detail.value
+        this.num = +e.detail.value
         this.handleStepChange(dataConfig.callbackFn)
       },
       _handleBlur (e) {
