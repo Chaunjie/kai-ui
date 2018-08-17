@@ -13,7 +13,7 @@
 <template>
   <view class="kai-content">
     <import src="../wxParse/wxParse.wxml"/>
-    <view class="padding-10">
+    <view class="padding-10" style="margin-top:40px;">
       <!-- <button class="btn btn-success" catchtap="showActionSheet(0)">从顶部弹出popup</button> -->
       <button class="btn btn-kai" catchtap="showActionSheet(1)">从底部弹出ActionSheet</button>
     </view>

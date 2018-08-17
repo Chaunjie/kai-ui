@@ -2693,7 +2693,7 @@ components = {
 | focus | `Boolean` | 否  | `true`,`false` | false | 是否自动获取焦点 |
 | maxlength | `String` | 否  | - | 9999 | 最大长度 |
 | type | `String` | 否  | `textarea` ` ` | `` | 是否是文本域 |
-| error | `Boolean` | 否  | `true` `false` | `false` | 是否开启提示错误 |
+| error | `Boolean` | 否  | `true` `false` | `false` | 是否开启提示错误需要搭配filter使用 |
 | clear | `Boolean` | 否  | `true` `false` | `false` | 是否显示清空按钮 |
 | adjust | `Boolean` | 否  | `true` `false` | `false` | 键盘弹起时，是否自动上推页面 |
 | componentId | `String` | 否  | - | - | 组件id（适用于数组类型） |
