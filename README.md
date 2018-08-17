@@ -1,4 +1,4 @@
-## kai-ui
+## 高颜值, 高效率微信小程序组件库kai-ui（支持npm安装）
 ### 文档
 [文档地址](https://chaunjie.github.io/kai-ui/index.html#/components)
 
