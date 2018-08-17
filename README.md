@@ -1,3 +1,10 @@
+```
+  <p align="center">
+    <a href="https://weapp.iviewui.com">
+        <img width="200" src="http://images.kaishiba.com/kai-ui.png">
+    </a>
+</p>
+```
 ## 高颜值, 高效率微信小程序组件库kai-ui（支持npm安装）
 ### 文档
 [文档地址](https://chaunjie.github.io/kai-ui/index.html#/components)
