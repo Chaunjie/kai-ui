@@ -25,7 +25,8 @@ npm i kai-ui --save-dev
 低于 `1.7.3` 版本的可以直接把 `src/component`  `src/less`下的资源文件拷贝到自己项目 `component`  `less` 目录下
 
 #### 预览小程序
- <img width="100" src="http://images.kaishiba.com/kai-ui.png">
+ <img width="100" src="http://images.kaishiba.com/kaiqr.jpg">
+ 
 ### 组件列表
 - [x] cell 列表
 - [x] button 按钮
