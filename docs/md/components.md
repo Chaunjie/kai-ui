@@ -744,8 +744,8 @@ components = {
 
 | 参数 | 类型 | 可选值 | 默认 | 描述 |
 | --- | --- | --- | --- | --- |
-| type | `String` | circle/circular | `circle`  |  circle: 圆形图案, circular: 菊花图案 |
-| size | `String` | small/big | `small`  |  加载图案尺寸   |
+| type | `String` | ` circle ` ` circular ` | `circle`  |  ` circle ` : 圆形图案, ` circular `: 菊花图案 |
+| size | `String` | ` small ` ` big ` | `small`  |  加载图案尺寸   |
 | class | `String` | - | -  |  自定义样式   |
 
 &emsp;&emsp;案例
