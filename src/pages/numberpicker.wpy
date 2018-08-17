@@ -38,10 +38,10 @@
     data = {
       item: 1,
       list: {
-        data: [5, 6, 7],
+        data: [2, 6, 4],
         config: {
           step: 2,
-          min: 3,
+          min: 2,
           max: 20,
           size: 'large',
           callbackFn: 'listChange'

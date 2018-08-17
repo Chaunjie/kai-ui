@@ -16,7 +16,7 @@
 }
 </style>
 <template>
-  <view class="kai-content">
+  <view class="kai-content" style="width: 100%">
     <panel class="no-padding">
       <view slot="title" class="title">9宫格</view>
       <view class="panel">
