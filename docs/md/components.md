@@ -2688,18 +2688,18 @@ components = {
 | 参数      | 类型 | 是否必传 | 可选项 | 默认值 | 描述                      |
 | -------- | ------- | ---- | ---- | ----- | ------------------------ |
 | value | `String` | 是  | - | - | 当前值 |
-| label  | `String`  | 否  | - | -  | label标签名 |
+| label  | `String`  | 否  | - | -  | ` label ` 标签名 |
 | placeholder | `String` | 否 | - | - | 输入提示 |
-| focus | `Boolean` | 否  | `true`,`false` | false | 是否自动获取焦点 |
-| maxlength | `String` | 否  | - | 9999 | 最大长度 |
-| type | `String` | 否  | `textarea` ` ` | `` | 是否是文本域 |
-| error | `Boolean` | 否  | `true` `false` | `false` | 是否开启提示错误需要搭配filter使用 |
-| clear | `Boolean` | 否  | `true` `false` | `false` | 是否显示清空按钮 |
-| adjust | `Boolean` | 否  | `true` `false` | `false` | 键盘弹起时，是否自动上推页面 |
+| focus | `Boolean` | 否  | ` true ` ` false ` | ` false ` | 是否自动获取焦点 |
+| maxlength | `String` | 否  | - | ` 9999 ` | 最大长度 |
+| type | `String` | 否  | ` textarea ` ` ` | ` ` | 是否是文本域 |
+| error | `Boolean` | 否  | ` true ` ` false ` | ` false ` | 是否开启提示错误, 需要搭配 ` filter ` 使用 |
+| clear | `Boolean` | 否  | ` true ` ` false ` | ` false ` | 是否显示清空按钮 |
+| adjust | `Boolean` | 否  | ` true ` ` false ` | ` false ` | 键盘弹起时，是否自动上推页面 |
 | componentId | `String` | 否  | - | - | 组件id（适用于数组类型） |
-| inputType | `String` | 否  | `text` `password` `number` `idcard` `digit` | `text` | 输入框类型 |
-| disabled | `Boolean` | 否  | `true` `false` | `false` | 输入框是否禁用 |
-| filter | `Object` | 否  | - | - | 输错需要提示的正则(例: /^(\+?0?86?)?1[3456789]\d{9}$/ 手机号码正则) |
+| inputType | `String` | 否  | ` text ` ` password ` ` number ` ` idcard ` ` digit ` | ` text ` | 输入框类型 |
+| disabled | `Boolean` | 否  | ` true ` ` false ` | ` false ` | 输入框是否禁用 |
+| filter | `Object` | 否  | - | - | 输错需要提示的正则(例: ` /^(\+?0?86?)?1[3456789]\d{9}$/ ` 手机号码正则) |
 
 &emsp;&emsp;事件处理函数:
 
