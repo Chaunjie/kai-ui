@@ -2844,13 +2844,13 @@ components = {
 
 &emsp;&emsp;页面中引入组件
 ```javascript
-import Searchbar from 'kai-ui/Searchbar'
+import SearchBar from 'kai-ui/SearchBar'
 ```
 
 &emsp;&emsp;组件添加
 ```javascript
 components = {
-  searchbar: Searchbar
+  searchbar: SearchBar
 }
 ```
 
@@ -2891,7 +2891,7 @@ components = {
 
 <script>
   import wepy from 'wepy'
-  import Searchbar from 'kai-ui/Searchbar'
+  import SearchBar from 'kai-ui/SearchBar'
   export default class SearchbarPage extends wepy.page {
     data = {
       historyKeys: '',
@@ -2903,7 +2903,7 @@ components = {
       ]
     }
     components = {
-      searchbar: Searchbar
+      searchbar: SearchBar
     }
     methods = {
       searchEvent (value) {
