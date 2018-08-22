@@ -1318,6 +1318,95 @@ export default class Index extends wepy.page {
 </script>
 ```
 
+#### Step 步骤条
+
+- **概述**
+
+&emsp;&emsp;适用于分步展示
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Step from 'kai-ui/Step'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  step: Step
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <step :stepData.sync="stepData"/>
+</template>
+```
+
+&emsp;&emsp;stepData参数配置:
+
+| 参数 | 类型 | 是否必传 |  可选项 |默认值 | 描述 |
+| --- | ----- | ----- | --- | --- | --- |
+| steps | `Array` | 是  | - | - | 步骤内容列表 |
+| current | `Number` | 否 | - | `0` | 当前步骤索引 |
+| direction | `String` | 否 | `vertical`,`horizontal` | `vertical` | 步骤条方向 |
+
+&emsp;&emsp;steps数组中对象的参数配置:
+
+| 参数 | 类型 | 是否必传 |  可选项 |默认值 | 描述 |
+| --- | ----- | ----- | --- | --- | --- |
+| title | `String` | 是  | - | - | 标题 |
+| content | `String` | 否 | - | - | 内容 |
+
+&emsp;&emsp;案例
+```wpy
+<template>
+  <view class="padding-10">
+    <view class="padding-10 font-12">竖向步骤条：</view>
+    <vstep :stepData.sync="stepData1"/>
+  </view>
+  <view class="padding-10">
+    <view class="padding-10 font-12">横向步骤条：</view>
+    <hstep :stepData.sync="stepData2"/>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Step from 'kai-ui/Step'
+
+  export default class StepPage extends wepy.page {
+    data = {
+      stepData1: {},
+      stepData2: {}
+    }
+    components = {
+      vstep: Step,
+      hstep: Step
+    }
+    onLoad () {
+      const steps = [
+        {title: '已做完的', content: '2016-07-08'},
+        {title: '正在做的', content: '2016-17-08'},
+        {title: '即将要做的', content: '这是内容'},
+        {title: '即将要做的', content: '2016-17-08'}
+      ]
+      this.stepData1 = {
+        steps: steps,
+        current: 1
+      }
+      this.stepData2 = {
+        steps: steps,
+        current: 1,
+        direction: 'horizontal'
+      }
+    }
+  }
+</script>
+```
+
 ### 操作提示组件
 
 #### Actionsheet 操作盘
