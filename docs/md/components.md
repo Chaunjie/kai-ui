@@ -1359,6 +1359,7 @@ components = {
 | --- | ----- | ----- | --- | --- | --- |
 | title | `String` | 是  | - | - | 标题 |
 | content | `String` | 否 | - | - | 内容 |
+| iconClass | `String` | 否 | - | - | 自定义icon类名 |
 
 &emsp;&emsp;案例
 ```wpy
@@ -1371,6 +1372,10 @@ components = {
     <view class="padding-10 font-12">横向步骤条：</view>
     <hstep :stepData.sync="stepData2"/>
   </view>
+  <view class="padding-10">
+    <view class="padding-10 font-12">自定义icon：</view>
+    <step :stepData.sync="stepData3"/>
+  </view>
 </template>
 
 <script>
@@ -1380,11 +1385,13 @@ components = {
   export default class StepPage extends wepy.page {
     data = {
       stepData1: {},
-      stepData2: {}
+      stepData2: {},
+      stepData3: {}
     }
     components = {
       vstep: Step,
-      hstep: Step
+      hstep: Step,
+      step: Step
     }
     onLoad () {
       const steps = [
@@ -1402,9 +1409,38 @@ components = {
         current: 1,
         direction: 'horizontal'
       }
+      const steps3 = [
+        {title: '已做完的', content: '2016-07-08', iconClass: 'step-icon-bre'},
+        {title: '正在做的', content: '2016-17-08', iconClass: 'step-icon-train'},
+        {title: '即将要做的', content: '2016-17-08', iconClass: 'step-icon-view'}
+      ]
+      this.stepData3 = {
+        steps: steps3,
+        current: 1,
+        direction: 'horizontal'
+      }
     }
   }
 </script>
+
+<style>
+  /*以下是自定义icon样式*/
+  @font-face {
+    font-family: "step-iconfont";  /* project id 804062 */
+    src: url('//at.alicdn.com/t/font_804062_pvg9hzszcd.eot');
+    src: url('//at.alicdn.com/t/font_804062_pvg9hzszcd.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_804062_pvg9hzszcd.woff') format('woff'),
+    url('//at.alicdn.com/t/font_804062_pvg9hzszcd.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_804062_pvg9hzszcd.svg#iconfont') format('svg');
+  }
+  .step-icon-bre, .step-icon-train, .step-icon-view {
+    font-family: "step-iconfont" !important;
+    font-size: 12px;
+  }
+  .step-icon-bre:before {content: "\e6e9";}
+  .step-icon-train:before {content: "\e658";}
+  .step-icon-view:before {content: "\e645";}
+</style>
 ```
 
 ### 操作提示组件
