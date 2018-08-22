@@ -1,0 +1,42 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="step-container step-{{step.direction}}">
+    <repeat for="{{step.steps}}" index="index" item="item">
+      <view class="step-cell {{step.current === index ? 'step-active' : (step.current > index ? 'step-finish' : 'step-wait')}}">
+        <text wx:if="{{step.current > index}}" class="step-icon">
+          <icon type="success"/>
+        </text>
+        <text wx:else class="step-icon font-12">{{index+1}}</text>
+        <text class="step-line"></text>
+        <view class="step-content">
+          <view class="step-title font-12">{{item.title}}</view>
+          <view class="step-des font-12">{{item.content}}</view>
+        </view>
+      </view>
+    </repeat>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+  import Icon from '../icon/index'
+
+  export default class Step extends wepy.component {
+    props = {
+      stepData: {}
+    }
+    components = {
+      icon: Icon
+    }
+    computed = {
+      step () {
+        const c = this.stepData || {}
+        return {
+          steps: c.steps || [],
+          direction: c.direction || 'vertical',
+          current: c.current || 0
+        }
+      }
+    }
+  }
+</script>

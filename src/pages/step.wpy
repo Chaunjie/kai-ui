@@ -1,11 +1,43 @@
 <template>
-
+  <view class="padding-10">
+    <view class="padding-10 font-12">竖向步骤条：</view>
+    <vstep :stepData.sync="stepData1"/>
+  </view>
+  <view class="padding-10">
+    <view class="padding-10 font-12">横向步骤条：</view>
+    <hstep :stepData.sync="stepData2"/>
+  </view>
 </template>
 
 <script>
   import wepy from 'wepy'
+  import Step from '../components/step/index'
 
   export default class StepPage extends wepy.page {
-    data = {}
+    data = {
+      stepData1: {},
+      stepData2: {}
+    }
+    components = {
+      vstep: Step,
+      hstep: Step
+    }
+    onLoad () {
+      const steps = [
+        {title: '已做完的', content: '2016-07-08'},
+        {title: '正在做的', content: '2016-17-08'},
+        {title: '即将要做的', content: '这是内容'},
+        {title: '即将要做的', content: '2016-17-08'}
+      ]
+      this.stepData1 = {
+        steps: steps,
+        current: 1
+      }
+      this.stepData2 = {
+        steps: steps,
+        current: 1,
+        direction: 'horizontal'
+      }
+    }
   }
 </script>

@@ -1,0 +1,115 @@
+@circle: 18px;
+@active: #2077ff;
+@wait: #c4c6cf;
+.step-container {
+  .step-cell{
+    position: relative;
+    &:last-of-type {
+      .step-line {
+        width: 0;
+        height: 0;
+      }
+    }
+    .step-icon {
+      width: @circle;
+      height: @circle;
+      line-height: @circle;
+      border-radius: 100%;
+      text-align: center;
+      box-sizing: border-box;
+      .kai-icon-success {
+        font-size:20rpx;
+        font-weight:bold;
+      }
+    }
+    .step-line {
+      position: absolute;
+      background-color: @active;
+    }
+    .step-content{
+      .step-title{
+        color: #666;
+        margin-bottom: 5px;
+        line-height: 16px;
+      }
+      .step-des{
+        color: #999;
+        margin-bottom: 15px;
+        min-height: 12px;
+      }
+    }
+  }
+  .step-finish {
+    color: @active;
+    .step-icon {
+      border: 1rpx solid @active;
+    }
+  }
+  .step-active {
+    color: #fff;
+    .step-icon {
+      background: @active;
+    }
+    .step-line {
+      background-color: @wait;
+    }
+  }
+  .step-wait {
+    color: @wait;
+    .step-icon {
+      border: 1rpx solid @wait;
+    }
+    .step-line {
+      background-color: @wait;
+    }
+  }
+}
+.step-vertical{
+  padding: 6px 6px 6px 20px;
+  .step-cell{
+    .step-icon {
+      position: absolute;
+      top: 0;
+      left: -(@circle/2);
+      display:flex;
+      align-content:middle;
+      align-items:center;
+      justify-content:center;
+    }
+    .step-line {
+      left: 0;
+      top: 22px;
+      bottom: 22 - @circle;
+      width: 1rpx;
+    }
+    .step-content{
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+      margin-left: 18px;
+    }
+  }
+}
+.step-horizontal {
+  display: flex;
+  .step-cell {
+    flex: 1;
+    text-align:center;
+    display: inline-block;
+    font-size: 0;
+    .step-icon {
+      display:inline-block;
+    }
+    .step-line {
+      top: @circle/2;
+      height: 1rpx;
+      width: e("calc(100% - 36px)");
+      left: e("calc(50% + 18px)")
+    }
+    .step-content{
+      margin-top: 10px;
+      padding:0 2px;
+    }
+  }
+}

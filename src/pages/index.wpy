@@ -137,6 +137,11 @@ export default class Index extends wepy.page {
             title: 'Tab 标签',
             linktype: 1,
             link: 'tab'
+          },
+          {
+            title: 'Step 步骤条',
+            linktype: 1,
+            link: 'step'
           }
         ]
       },
