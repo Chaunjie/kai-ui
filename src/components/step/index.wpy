@@ -3,10 +3,14 @@
   <view class="step-container step-{{step.direction}}">
     <repeat for="{{step.steps}}" index="index" item="item">
       <view class="step-cell {{step.current === index ? 'step-active' : (step.current > index ? 'step-finish' : 'step-wait')}}">
-        <text wx:if="{{step.current > index}}" class="step-icon">
-          <icon type="success"/>
+        <text wx:if="{{step.current > index}}" class="step-circle">
+          <text wx:if="{{item.iconClass}}" class="{{item.iconClass}}"></text>
+          <icon wx:else type="success"/>
         </text>
-        <text wx:else class="step-icon font-12">{{index+1}}</text>
+        <text wx:else class="step-circle font-12">
+          <text wx:if="{{item.iconClass}}" class="{{item.iconClass}}"></text>
+          <text wx:else>{{index+1}}</text>
+        </text>
         <text class="step-line"></text>
         <view class="step-content">
           <view class="step-title font-12">{{item.title}}</view>

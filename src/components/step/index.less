@@ -10,7 +10,7 @@
         height: 0;
       }
     }
-    .step-icon {
+    .step-circle {
       width: @circle;
       height: @circle;
       line-height: @circle;
@@ -41,13 +41,13 @@
   }
   .step-finish {
     color: @active;
-    .step-icon {
+    .step-circle {
       border: 1rpx solid @active;
     }
   }
   .step-active {
     color: #fff;
-    .step-icon {
+    .step-circle {
       background: @active;
     }
     .step-line {
@@ -56,7 +56,7 @@
   }
   .step-wait {
     color: @wait;
-    .step-icon {
+    .step-circle {
       border: 1rpx solid @wait;
     }
     .step-line {
@@ -67,7 +67,7 @@
 .step-vertical{
   padding: 6px 6px 6px 20px;
   .step-cell{
-    .step-icon {
+    .step-circle {
       position: absolute;
       top: 0;
       left: -(@circle/2);
@@ -98,7 +98,7 @@
     text-align:center;
     display: inline-block;
     font-size: 0;
-    .step-icon {
+    .step-circle {
       display:inline-block;
     }
     .step-line {
