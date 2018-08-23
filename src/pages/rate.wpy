@@ -1,10 +1,16 @@
 <template>
   <view class="kai-content">
     <view class="padding-10">
-      <rate1 title="描述相描" :value.sync="value1"/>
+      <view class="font-12">基础用法:</view>
+      <rate1 title="描述相符" :value.sync="value1"/>
     </view>
     <view class="padding-10">
-      <rate2 title="物流服务" :value.sync="value2"/>
+      <view class="font-12">自定义评分描述:</view>
+      <rate2 title="物流服务" :value.sync="value2" :desc="desc"/>
+    </view>
+    <view class="padding-10">
+      <view class="font-12">竖向布局:</view>
+      <rate3 title="这是一个比较长的标题信息" :value.sync="value3" type="vertical"/>
     </view>
   </view>
 </template>
@@ -19,11 +25,20 @@ export default class RatePage extends wepy.page {
   }
   data = {
     value1: 4,
-    value2: 0
+    value2: 1,
+    value3: 2,
+    desc: [
+      '非常差',
+      '差',
+      '一般',
+      '好',
+      '非常好'
+    ]
   }
   components = {
     rate1: Rate,
-    rate2: Rate
+    rate2: Rate,
+    rate3: Rate
   }
 }
 </script>

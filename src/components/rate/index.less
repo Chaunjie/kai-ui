@@ -1,21 +1,19 @@
 .rate-container {
-  display: flex;
   align-items: center;
   background:#fff;
-  padding: 15px 10px;
+  padding: 12px 10px;
   color: #999;
   .rate-title {
-    margin-right: 10px;
     color: #666;
   }
-  .rate-desc {
-    margin-left: 10px;
+  .rate-content {
+    display: flex;
   }
   .rate-icon {
     position: relative;
     top: -3px;
-    font-size: 22px;
-    margin: 0 8px;
+    font-size: 20px;
+    margin-right: 12px;
   }
   .rate-icon:before {
     content: '\e634';
@@ -26,5 +24,16 @@
   }
   .rate-icon__stared:before {
     content: '\e6a6';
+  }
+}
+.rate-container__horizontal {
+  display: flex;
+  .rate-title {
+    margin-right: 15px;
+  }
+}
+.rate-container__vertical {
+  .rate-title {
+    margin-bottom: 10px;
   }
 }

@@ -1,11 +1,13 @@
 <style lang="less" src="./index.less"></style>
 <template>
-  <view class="rate-container font-14">
+  <view class="rate-container font-14 {{type==='vertical'?'rate-container__vertical':'rate-container__horizontal'}}">
     <view class="rate-title">{{title}}</view>
-    <repeat for="{{[1, 2, 3, 4, 5]}}" key="index" index="index" item="item">
-      <icon class="rate-icon {{value>index?'rate-icon__stared':''}}" type="star" event="star"/>
-    </repeat>
-    <view  class="rate-desc" wx:if="{{value>0}}">{{desc[value-1]}}</view>
+    <view class="rate-content">
+      <repeat for="{{[1, 2, 3, 4, 5]}}" key="index" index="index" item="item">
+        <icon class="rate-icon {{value>index?'rate-icon__stared':''}}" type="star" event="star"/>
+      </repeat>
+      <view class="rate-desc" wx:if="{{value>0}}">{{desc[value-1]}}</view>
+    </view>
   </view>
 </template>
 <script>
@@ -25,16 +27,21 @@
         coerce (v) {
           return Number(v)
         }
+      },
+      desc: {
+        type: Array,
+        default: [
+          '1星',
+          '2星',
+          '3星',
+          '4星',
+          '5星'
+        ]
+      },
+      type: {
+        type: String,
+        default: 'horizontal'
       }
-    }
-    data = {
-      desc: [
-        '非常差',
-        '差',
-        '一般',
-        '好',
-        '非常好'
-      ]
     }
     components = {
       icon: Icon

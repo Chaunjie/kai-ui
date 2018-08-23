@@ -1083,7 +1083,7 @@ components = {
 &emsp;&emsp;template添加
 ```template
 <template>
-  <rate title="物流服务" :value.sync="value"/>
+  <rate title="物流服务" :value.sync="value" :desc="desc"/>
 </template>
 ```
 
@@ -1091,18 +1091,26 @@ components = {
 
 | 参数 | 类型 | 是否必传 | 可选项 | 默认 | 描述 |
 | --- | --- | --- | --- | --- | --- | --- |
-| title | `String` | 是 | - | - | 评价标题 |
-| value | `Number` | 是 | 1，2，3，4，5 | - | 星级分数 |
+| title | `String` | 是 | - | - | 评分标题 |
+| value | `Number` | 是 | 0，1，2，3，4，5 | - | 评分 |
+| desc | `Array` | 否 | - | ['1星','2星','3星','4星','5星'] | 评分描述 |
+| type | `String` | 否 | `vertical`,`horizontal` | `horizontal` | 布局 |
 
 &emsp;&emsp;案例
 ```wpy
 <template>
   <view class="kai-content">
     <view class="padding-10">
+      <view class="font-12">基础用法:</view>
       <rate1 title="描述相符" :value.sync="value1"/>
     </view>
     <view class="padding-10">
-      <rate2 title="物流服务" :value.sync="value2"/>
+      <view class="font-12">自定义评分描述:</view>
+      <rate2 title="物流服务" :value.sync="value2" :desc="desc"/>
+    </view>
+    <view class="padding-10">
+      <view class="font-12">竖向布局:</view>
+      <rate3 title="这是一个比较长的标题信息" :value.sync="value3" type="vertical"/>
     </view>
   </view>
 </template>
@@ -1114,11 +1122,20 @@ import Rate from 'kai-ui/Rate'
 export default class RatePage extends wepy.page {
   data = {
     value1: 4,
-    value2: 0
+    value2: 1,
+    value3: 2,
+    desc: [
+      '非常差',
+      '差',
+      '一般',
+      '好',
+      '非常好'
+    ]
   }
   components = {
     rate1: Rate,
-    rate2: Rate
+    rate2: Rate,
+    rate3: Rate
   }
 }
 </script>
