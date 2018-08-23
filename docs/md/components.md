@@ -1060,6 +1060,70 @@ export default class Helper extends wepy.page {
 </script>
 ```
 
+#### Rate 星级评分
+
+- **概述**
+
+&emsp;&emsp;星级评分
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Rate from 'kai-ui/Rate'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  rate: Rate
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <rate title="物流服务" :value.sync="value"/>
+</template>
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数 | 类型 | 是否必传 | 可选项 | 默认 | 描述 |
+| --- | --- | --- | --- | --- | --- | --- |
+| title | `String` | 是 | - | - | 评价标题 |
+| value | `Number` | 是 | 1，2，3，4，5 | - | 星级分数 |
+
+&emsp;&emsp;案例
+```wpy
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <rate1 title="描述相符" :value.sync="value1"/>
+    </view>
+    <view class="padding-10">
+      <rate2 title="物流服务" :value.sync="value2"/>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import Rate from 'kai-ui/Rate'
+
+export default class RatePage extends wepy.page {
+  data = {
+    value1: 4,
+    value2: 0
+  }
+  components = {
+    rate1: Rate,
+    rate2: Rate
+  }
+}
+</script>
+```
+
 ### 导航组件
 
 #### Popup 弹出层
