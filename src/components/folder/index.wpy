@@ -44,7 +44,6 @@
     }
 
     onLoad () {
-      console.log(this)
       wx.createSelectorQuery().select('.folder-content__' + this.componentId).boundingClientRect((res) => {
         this.height = res.height
         this.$apply()
