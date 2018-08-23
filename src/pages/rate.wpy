@@ -1,0 +1,29 @@
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <rate1 title="描述相描" :value.sync="value1"/>
+    </view>
+    <view class="padding-10">
+      <rate2 title="物流服务" :value.sync="value2"/>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import Rate from '@/components/rate/index'
+
+export default class RatePage extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Rate 星级评分'
+  }
+  data = {
+    value1: 4,
+    value2: 0
+  }
+  components = {
+    rate1: Rate,
+    rate2: Rate
+  }
+}
+</script>

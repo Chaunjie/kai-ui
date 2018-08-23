@@ -26,7 +26,7 @@ npm i kai-ui --save-dev
 
 #### 预览小程序
  <img width="100" src="http://images.kaishiba.com/kaiqr.jpg">
- 
+
 ### 组件列表
 - [x] cell 列表
 - [x] button 按钮
@@ -36,7 +36,7 @@ npm i kai-ui --save-dev
 - [x] tab 标签
 - [x] select 选择
 - [x] toptips 顶部提示
-- [x] toast 轻提示组件、
+- [x] toast 轻提示组件
 - [x] numberpicker 数字输入框
 - [x] switch 开关
 - [x] actionsheet 操作盘
@@ -52,11 +52,10 @@ npm i kai-ui --save-dev
 - [x] noticebar 通知栏
 - [x] searchbar 搜索框
 - [x] input 输入框
-- [ ] step 步骤条
+- [x] step 步骤条
 - [ ] slider 滑块
-- [ ] rate 星级评分
-- [ ] folder 折叠面板
-- [ ] backtotop 返回顶部
+- [x] rate 星级评分
+- [x] folder 折叠面板
 - [ ] calander 日期选择
 - [ ] swipeout 滑动菜单
 - [ ] scrollviewrefresh 下拉刷新
