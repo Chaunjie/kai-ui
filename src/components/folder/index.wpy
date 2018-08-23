@@ -4,7 +4,7 @@
     <view class="folder-header" @tap="collapse">
       <view class="folder-header__title font-14">{{title}}</view>
       <view class="folder-header__icon {{collapsed?'folder-header__icon--down':''}}">
-        <icon type="right"/>
+        <icon type="right" event="collapse"/>
       </view>
     </view>
     <view class="folder-content folder-content__{{componentId}} font-12" style="height:{{collapsed?0:height}}px;">
@@ -36,11 +36,18 @@
     components = {
       icon: Icon
     }
-
     methods = {
       collapse () {
-        this.collapsed = !this.collapsed
+        this.folder()
       }
+    }
+    events = {
+      collapse () {
+        this.folder()
+      }
+    }
+    folder () {
+      this.collapsed = !this.collapsed
     }
 
     onLoad () {
