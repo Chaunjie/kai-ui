@@ -1,0 +1,41 @@
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <folder1 title="会员信息" componentId="0">
+        <view slot="content">
+          <view>客户来源：微信公众号</view>
+          <view>昵称：江南</view>
+          <view>下单数：132</view>
+          <view>退款数：2</view>
+          <view>购买均价：100</view>
+        </view>
+      </folder1>
+      <view class="padding-10"></view>
+      <folder2 title="订单信息" componentId="1">
+        <view slot="content">
+          忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+          忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+          忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+          忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+          忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+        </view>
+      </folder2>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import Folder from '@/components/folder/index'
+
+export default class FolderPage extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Folder 折叠面板'
+  }
+
+  components = {
+    folder1: Folder,
+    folder2: Folder
+  }
+}
+</script>

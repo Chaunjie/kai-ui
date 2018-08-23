@@ -1,0 +1,54 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="folder-container">
+    <view class="folder-header" @tap="collapse">
+      <view class="folder-header__title font-14">{{title}}</view>
+      <view class="folder-header__icon {{collapsed?'folder-header__icon--down':''}}">
+        <icon type="right"/>
+      </view>
+    </view>
+    <view class="folder-content folder-content__{{componentId}} font-12" style="height:{{collapsed?0:height}}px;">
+      <view class="folder-content__inner">
+        <slot name="content"></slot>
+      </view>
+    </view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  import Icon from '../icon/index'
+
+  export default class Folder extends wepy.component {
+    props = {
+      title: {
+        type: String,
+        default: ''
+      },
+      componentId: {
+        type: [String, Number],
+        default: ''
+      }
+    }
+    data = {
+      collapsed: false,
+      height: ''
+    }
+    components = {
+      icon: Icon
+    }
+
+    methods = {
+      collapse () {
+        this.collapsed = !this.collapsed
+      }
+    }
+
+    onLoad () {
+      console.log(this)
+      wx.createSelectorQuery().select('.folder-content__' + this.componentId).boundingClientRect((res) => {
+        this.height = res.height
+        this.$apply()
+      }).exec()
+    }
+  }
+</script>

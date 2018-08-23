@@ -82,6 +82,11 @@ export default class Index extends wepy.page {
             title: 'Panel 面板',
             linktype: 1,
             link: 'panel'
+          },
+          {
+            title: 'Folder 折叠面板',
+            linktype: 1,
+            link: 'folder'
           }
         ]
       },
