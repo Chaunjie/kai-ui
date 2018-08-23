@@ -64,12 +64,8 @@
 <style>
   /*以下是自定义icon样式*/
   @font-face {
-    font-family: "step-iconfont";  /* project id 804062 */
-    src: url('//at.alicdn.com/t/font_804062_pvg9hzszcd.eot');
-    src: url('//at.alicdn.com/t/font_804062_pvg9hzszcd.eot?#iefix') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_804062_pvg9hzszcd.woff') format('woff'),
-    url('//at.alicdn.com/t/font_804062_pvg9hzszcd.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_804062_pvg9hzszcd.svg#iconfont') format('svg');
+    font-family: "step-iconfont";
+    src: url('//at.alicdn.com/t/font_804062_pvg9hzszcd.ttf') format('truetype');
   }
   .step-icon-bre, .step-icon-train, .step-icon-view {
     font-family: "step-iconfont" !important;
