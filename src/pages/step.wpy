@@ -15,9 +15,12 @@
 
 <script>
   import wepy from 'wepy'
-  import Step from '../components/step/index'
+  import Step from '@/components/step/index'
 
   export default class StepPage extends wepy.page {
+    config = {
+      navigationBarTitleText: 'Step 步骤条'
+    }
     data = {
       stepData1: {},
       stepData2: {},

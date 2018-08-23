@@ -43,7 +43,8 @@ export default class extends wepy.app {
       'pages/toptips',
       'pages/input',
       'pages/searchbar',
-      'pages/step'
+      'pages/step',
+      'pages/folder'
     ],
     window: {
       backgroundTextStyle: 'light',

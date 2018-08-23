@@ -1,0 +1,26 @@
+.folder-container {
+  background-color: #fff;
+  .folder-header {
+    display: flex;
+    align-items:center;
+    padding: 0 10px;
+    height: 36px;
+    background-color: #ECECEC;
+    .folder-header__icon {
+      transition: all .4s;
+    }
+    .folder-header__icon--down {
+      transform: rotate(90deg);
+    }
+    .folder-header__title {
+      flex: 1;
+    }
+  }
+  .folder-content {
+    overflow:hidden;
+    transition: all .4s;
+    .folder-content__inner {
+      padding: 5px 10px;
+    }
+  }
+}

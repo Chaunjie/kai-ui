@@ -405,6 +405,92 @@ components = {
 | --- | --- | --- | --- |
 | border | `String` | `false` | 0 | panel边框宽度，例如border-width: 1px 0 1px 0; |
 
+
+#### Folder 折叠面板
+
+- **概述**
+
+&emsp;&emsp;适用于折叠/展开面板内容
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Folder from 'kai-ui/Folder'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  folder: Folder
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <folder title="会员信息" componentId="0">
+    <view slot="content">
+      <view>客户来源：微信公众号</view>
+      <view>昵称：江南</view>
+      <view>下单数：132</view>
+      <view>退款数：2</view>
+      <view>购买均价：100</view>
+    </view>
+  </folder>
+</template>
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数 | 类型 | 是否必传 | 默认  | 描述 |
+| --- | ---- | ------- | ---- | ---- |
+| title | `String` | 是 | - | 标题 |
+| componentId | `String`,`Number` | 是 | - | 组件id，与该页面中其他折叠面板组件id不重复 |
+| content | `slot` | 是 | - | 内容 |
+
+&emsp;&emsp;案例：
+```wpy
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <folder1 title="会员信息" componentId="0">
+        <view slot="content">
+          <view>客户来源：微信公众号</view>
+          <view>昵称：江南</view>
+          <view>下单数：132</view>
+          <view>退款数：2</view>
+          <view>购买均价：100</view>
+        </view>
+      </folder1>
+      <view class="padding-10"></view>
+      <folder2 title="订单信息" componentId="1">
+        <view slot="content">
+          忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+          忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+          忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+          忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+          忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+        </view>
+      </folder2>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import Folder from 'kai-ui/Folder'
+
+export default class FolderPage extends wepy.page {
+  components = {
+    folder1: Folder,
+    folder2: Folder
+  }
+}
+</script>
+
+```
+
 ### 基础组件
 
 #### Button 按钮
