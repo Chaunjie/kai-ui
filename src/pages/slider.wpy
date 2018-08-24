@@ -1,0 +1,33 @@
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <view class="padding-10 font-12">基础用法:</view>
+      <slider :value.sync="value" componentId="0"/>
+      <view class="padding-10 font-12">自定义最大最小值:</view>
+      <slider1 :value.sync="value1" max="10" min="5" componentId="1"/>
+      <view class="padding-10 font-12">双滑块选择数据范围:</view>
+      <slider2 :value.sync="value2" max="100" min="0" type="double" componentId="2"/>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import Slider from '@/components/slider/index'
+
+export default class RatePage extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Slider 滑块'
+  }
+  data = {
+    value: 50,
+    value1: 8,
+    value2: [10, 60]
+  }
+  components = {
+    slider: Slider,
+    slider1: Slider,
+    slider2: Slider
+  }
+}
+</script>

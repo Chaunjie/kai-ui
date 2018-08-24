@@ -1,0 +1,129 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="slider-{{componentId}}">
+    <view wx:if="{{type==='single'}}" class="slider-container">
+      <view class="slider-stick__wrap" @tap="tap" >
+        <view class="slider-stick slider-stick__unselected"></view>
+        <view class="slider-stick slider-stick__selected" style="width:{{left}}px"></view>
+        <view class="slider-block" @touchmove="move" style="left:{{left}}px;"></view>
+      </view>
+      <view class="slider-value font-14">{{value}}</view>
+    </view>
+    <view wx:else class="slider-container">
+      <view class="slider-stick__wrap" @tap="tap" >
+        <view class="slider-stick slider-stick__unselected"></view>
+        <view class="slider-stick slider-stick__selected" style="left:{{left1}}px;width:{{left2-left1}}px"></view>
+        <view class="slider-block" @touchmove="move" style="left:{{left1}}px;"></view>
+        <view class="slider-block" @touchmove="move" style="left:{{left2}}px;"></view>
+      </view>
+      <view class="slider-value font-14">{{value[0]}}-{{value[1]}}</view>
+    </view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+
+  export default class Slider extends wepy.component {
+    props = {
+      type: {
+        type: String,
+        default: 'single'
+      },
+      componentId: {
+        type: String,
+        default: ''
+      },
+      value: {
+        type: [Number, String, Array],
+        default: 0,
+        twoWay: true,
+        coerce (v) {
+          if (typeof v !== 'object') {
+            return Number(v)
+          } else {
+            return v.map(item => Number(item))
+          }
+        }
+      },
+      max: {
+        type: [Number, String],
+        default: 100,
+        coerce (v) {
+          return Number(v)
+        }
+      },
+      min: {
+        type: [Number, String],
+        default: 0,
+        coerce (v) {
+          return Number(v)
+        }
+      }
+    }
+    data = {
+      ratio: '',
+      left: '',
+      startX: '',
+      endX: '',
+      width: '',
+      circle: '',
+      left1: '',
+      left2: ''
+    }
+    methods = {
+      tap (e) {
+        this.countLeft(e.detail.x)
+      },
+      move (e) {
+        const endX = e.touches[0].clientX
+        if (endX - this.startX <= this.width) {
+          this.countLeft(endX)
+        }
+      }
+    }
+
+    countLeft (endX) {
+      let distance = endX - this.startX
+      if (distance > this.width) {
+        distance = this.width
+      }
+      if (distance < 0) {
+        distance = 0
+      }
+      if (this.type === 'single') {
+        this.left = distance - this.circle / 2
+        this.value = Math.round(distance / this.ratio) + this.min
+      } else {
+        if (endX > this.left2) {
+          this.left2 = distance - this.circle / 2
+          this.value[1] = Math.round(distance / this.ratio) + this.min
+        } else {
+          this.left1 = distance - this.circle / 2
+          this.value[0] = Math.round(distance / this.ratio) + this.min
+        }
+      }
+
+    }
+
+    onLoad () {
+      wx.createSelectorQuery().select('.slider-' + this.componentId +' .slider-stick__wrap').boundingClientRect((res) => {
+        this.width = res.width
+        this.startX = res.left
+        this.$apply()
+        wx.createSelectorQuery().select('.slider-' + this.componentId +' .slider-block').boundingClientRect((res) => {
+          this.circle = res.width
+          this.ratio = this.width / (this.max - this.min)
+          if (this.type === 'single'){
+            this.left = this.ratio * (this.value - this.min) - this.circle / 2
+          }
+          else {
+            this.left1 = this.ratio * (this.value[0] - this.min) - this.circle / 2
+            this.left2 = this.ratio * (this.value[1] - this.min) - this.circle / 2
+          }
+          this.$apply()
+        }).exec()
+      }).exec()
+
+    }
+  }
+</script>
