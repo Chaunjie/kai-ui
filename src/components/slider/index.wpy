@@ -93,17 +93,17 @@
     }
     methods = {
       tap (e) {
-        this.countLeft(e.detail.x, 'tap')
+        this.count(e.detail.x, 'tap')
       },
       move (index, e) {
         const endX = e.touches[0].clientX
         if (endX - this.startX <= this.width) {
-          this.countLeft(endX, 'move', Number(index))
+          this.count(endX, 'move', Number(index))
         }
       }
     }
 
-    countLeft (endX, eventName, index) {
+    count (endX, eventName, index) {
       let distance = endX - this.startX
       if (distance > this.width) {
         distance = this.width
@@ -112,28 +112,32 @@
         distance = 0
       }
       if (this.type === 'single') {
-        this.left = distance - this.circle / 2
+        this.left = this.countLeft(distance)
         this.value = this.countValue(distance)
       } else {
         if (eventName === 'tap') {
           if ((this.left1 < this.left2 && this.left2 < distance)
             || (distance < this.left2 && this.left2 < this.left1)
             || (this.left2 < this.left1 && distance < this.left1)) {
-              this.left2 = distance - this.circle / 2
+              this.left2 = this.countLeft(distance)
               this.value[1] = this.countValue(distance)
           } else {
-            this.left1 = distance - this.circle / 2
+            this.left1 = this.countLeft(distance)
             this.value[0] = this.countValue(distance)
           }
         } else {
           if (index === 0) {
-            this.left1 = distance - this.circle / 2
+            this.left1 = this.countLeft(distance)
           } else {
-            this.left2 = distance - this.circle / 2
+            this.left2 = this.countLeft(distance)
           }
           this.value[index] = this.countValue(distance)
         }
       }
+    }
+
+    countLeft (distance) {
+      return distance - this.circle / 2
     }
 
     countValue (distance) {
