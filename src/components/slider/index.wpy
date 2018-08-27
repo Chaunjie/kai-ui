@@ -5,18 +5,18 @@
       <view class="slider-stick__wrap" @tap="tap" >
         <view class="slider-stick slider-stick__unselected"></view>
         <view class="slider-stick slider-stick__selected" style="width:{{left}}px"></view>
-        <view class="slider-block" @touchmove="move" style="left:{{left}}px;"></view>
+        <view class="slider-block" catchtouchmove="move(0)" style="left:{{left}}px;"></view>
       </view>
       <view class="slider-value font-14">{{value}}</view>
     </view>
     <view wx:else class="slider-container">
       <view class="slider-stick__wrap" @tap="tap" >
         <view class="slider-stick slider-stick__unselected"></view>
-        <view class="slider-stick slider-stick__selected" style="left:{{left1}}px;width:{{left2-left1}}px"></view>
-        <view class="slider-block" @touchmove="move" style="left:{{left1}}px;"></view>
-        <view class="slider-block" @touchmove="move" style="left:{{left2}}px;"></view>
+        <view class="slider-stick slider-stick__selected" style="left:{{stickLeft}}px;width:{{stickWidth}}px"></view>
+        <view class="slider-block" catchtouchmove="move(0)" style="left:{{left1}}px;"></view>
+        <view class="slider-block" catchtouchmove="move(1)" style="left:{{left2}}px;"></view>
       </view>
-      <view class="slider-value font-14">{{value[0]}}-{{value[1]}}</view>
+      <view class="slider-value font-14">{{valueMin}}-{{valueMax}}</view>
     </view>
   </view>
 </template>
@@ -35,7 +35,6 @@
       },
       value: {
         type: [Number, String, Array],
-        default: 0,
         twoWay: true,
         coerce (v) {
           if (typeof v !== 'object') {
@@ -70,19 +69,41 @@
       left1: '',
       left2: ''
     }
+    computed = {
+      stickLeft () {
+        if (this.type !== 'single') {
+          return Math.min(this.left1, this.left2)
+        }
+      },
+      stickWidth () {
+        if (this.type !== 'single') {
+          return Math.abs(this.left1 - this.left2)
+        }
+      },
+      valueMin () {
+        if (this.type !== 'single') {
+          return Math.min(this.value[0], this.value[1])
+        }
+      },
+      valueMax () {
+        if (this.type !== 'single') {
+          return Math.max(this.value[0], this.value[1])
+        }
+      }
+    }
     methods = {
       tap (e) {
-        this.countLeft(e.detail.x)
+        this.countLeft(e.detail.x, 'tap')
       },
-      move (e) {
+      move (index, e) {
         const endX = e.touches[0].clientX
         if (endX - this.startX <= this.width) {
-          this.countLeft(endX)
+          this.countLeft(endX, 'move', Number(index))
         }
       }
     }
 
-    countLeft (endX) {
+    countLeft (endX, eventName, index) {
       let distance = endX - this.startX
       if (distance > this.width) {
         distance = this.width
@@ -92,38 +113,50 @@
       }
       if (this.type === 'single') {
         this.left = distance - this.circle / 2
-        this.value = Math.round(distance / this.ratio) + this.min
+        this.value = this.countValue(distance)
       } else {
-        if (endX > this.left2) {
-          this.left2 = distance - this.circle / 2
-          this.value[1] = Math.round(distance / this.ratio) + this.min
+        if (eventName === 'tap') {
+          if ((this.left1 < this.left2 && this.left2 < distance)
+            || (distance < this.left2 && this.left2 < this.left1)
+            || (this.left2 < this.left1 && distance < this.left1)) {
+              this.left2 = distance - this.circle / 2
+              this.value[1] = this.countValue(distance)
+          } else {
+            this.left1 = distance - this.circle / 2
+            this.value[0] = this.countValue(distance)
+          }
         } else {
-          this.left1 = distance - this.circle / 2
-          this.value[0] = Math.round(distance / this.ratio) + this.min
+          if (index === 0) {
+            this.left1 = distance - this.circle / 2
+          } else {
+            this.left2 = distance - this.circle / 2
+          }
+          this.value[index] = this.countValue(distance)
         }
       }
+    }
 
+    countValue (distance) {
+      return Math.round(distance / this.ratio) + this.min
     }
 
     onLoad () {
-      wx.createSelectorQuery().select('.slider-' + this.componentId +' .slider-stick__wrap').boundingClientRect((res) => {
+      wx.createSelectorQuery().select('.slider-' + this.componentId + ' .slider-stick__wrap').boundingClientRect((res) => {
         this.width = res.width
         this.startX = res.left
         this.$apply()
-        wx.createSelectorQuery().select('.slider-' + this.componentId +' .slider-block').boundingClientRect((res) => {
+        wx.createSelectorQuery().select('.slider-' + this.componentId + ' .slider-block').boundingClientRect((res) => {
           this.circle = res.width
           this.ratio = this.width / (this.max - this.min)
-          if (this.type === 'single'){
+          if (this.type === 'single') {
             this.left = this.ratio * (this.value - this.min) - this.circle / 2
-          }
-          else {
+          } else {
             this.left1 = this.ratio * (this.value[0] - this.min) - this.circle / 2
             this.left2 = this.ratio * (this.value[1] - this.min) - this.circle / 2
           }
           this.$apply()
         }).exec()
       }).exec()
-
     }
   }
 </script>
