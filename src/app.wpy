@@ -45,6 +45,7 @@ export default class extends wepy.app {
       'pages/searchbar',
       'pages/step',
       'pages/folder',
+      'pages/slider',
       'pages/rate'
     ],
     window: {

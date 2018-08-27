@@ -3122,6 +3122,77 @@ components = {
 
 ```
 
+#### Slider 滑块
+
+- **概述**
+
+&emsp;&emsp;滑动选择器，单个滑块选择某个数值或者两个滑块确定数据范围
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Slider from 'kai-ui/Slider'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  slider: Slider
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+    <slider :value.sync="value" max="100" min="0" type="double" componentId="0"/>
+</template>
+```
+
+&emsp;&emsp;options配置:
+
+| 参数      | 类型 | 是否必传 | 可选项 | 默认值 | 描述                      |
+| -------- | ------- | ---- | ---- | ----- | ------------------------ |
+| value | `Number`,`Array` | 是  | - | - | 初始值，单个滑块传入number型数值，两个滑块传入数组 |
+| componentId | `String` | 是  | - | - | 组件id，与该页面中其他组件id不重复 |
+| type | `String` | 否  | `single`,`double` | `single` | 一个或者两个滑块 |
+| max | `Number` | 否  | - | 100 | 最大值 |
+| min | `Number` | 否  | - | 0 | 最小值 |
+
+&emsp;&emsp;案例
+```wepy
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <view class="padding-10 font-12">基础用法:</view>
+      <slider :value.sync="value" componentId="0"/>
+      <view class="padding-10 font-12">自定义最大最小值:</view>
+      <slider1 :value.sync="value1" max="10" min="5" componentId="1"/>
+      <view class="padding-10 font-12">双滑块选择数据范围:</view>
+      <slider2 :value.sync="value2" max="100" min="0" type="double" componentId="2"/>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import Slider from 'kai-ui/Slider'
+
+export default class RatePage extends wepy.page {
+  data = {
+    value: 50,
+    value1: 8,
+    value2: [10, 60]
+  }
+  components = {
+    slider: Slider,
+    slider1: Slider,
+    slider2: Slider
+  }
+}
+</script>
+```
+
 ### 搜索组件
 
 #### Searchbar 搜索框
