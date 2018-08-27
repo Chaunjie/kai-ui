@@ -116,9 +116,7 @@
         this.value = this.countValue(distance)
       } else {
         if (eventName === 'tap') {
-          if ((this.left1 < this.left2 && this.left2 < distance)
-            || (distance < this.left2 && this.left2 < this.left1)
-            || (this.left2 < this.left1 && distance < this.left1)) {
+          if ((this.left1 < this.left2 && this.left2 < distance) || (distance < this.left2 && this.left2 < this.left1) || (this.left2 < this.left1 && distance < this.left1)) {
               this.left2 = this.countLeft(distance)
               this.value[1] = this.countValue(distance)
           } else {

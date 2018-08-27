@@ -217,6 +217,11 @@ export default class Index extends wepy.page {
             title: 'Input 输入框',
             linktype: 1,
             link: 'input'
+          },
+          {
+            title: 'Slider 滑块',
+            linktype: 1,
+            link: 'slider'
           }
         ]
       },
