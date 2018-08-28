@@ -97,9 +97,7 @@
       },
       move (index, e) {
         const endX = e.touches[0].clientX
-        if (endX - this.startX <= this.width) {
-          this.count(endX, 'move', Number(index))
-        }
+        this.count(endX, 'move', Number(index))
       }
     }
 
