@@ -2102,6 +2102,110 @@ this.$invoke('toast', 'show', options)
 </script>
 ```
 
+#### Swipeout 滑动菜单
+
+- **概述**
+
+&emsp;&emsp;左滑主体内容显示操作项
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Swipeout from 'kai-ui/Swipeout'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  swipeout: Swipeout
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <swipeout componentId="0">
+    <view slot="content">
+      <view class="text">
+        忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+      </view>
+    </view>
+    <view slot="action">
+      <view class="action-btn btn1">移入收藏夹</view>
+      <view class="action-btn btn2">删除</view>
+    </view>
+  </swipeout>
+</template>
+```
+
+&emsp;&emsp;配置:
+
+| 参数      | 类型 | 是否必传 | 可选项 |  默认值 | 描述                      |
+| -------- | ------- | ----- | ----- | ----- | ------------------------ |
+| componentId| `String`| 是  | -  | - | 组件id，与该页面中其他组件id不重复 |
+| content    | `slot`  | 是  | -  | - | 主体内容 |
+| action     | `slot`  | 是  | -  | - | 操作项 |
+
+&emsp;&emsp;案例
+```wepy
+<template>
+  <view class="kai-content">
+    <view class="padding-10 font-12">
+      <view class="padding-10 font-12">示例：</view>
+      <swipeout componentId="0">
+        <view slot="content">
+          <view class="text">
+            <view>向左滑动试试：）</view>
+            忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+            忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+            忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+          </view>
+        </view>
+        <view slot="action">
+          <view class="action-btn btn1">移入收藏夹</view>
+          <view class="action-btn btn2">删除</view>
+        </view>
+      </swipeout>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import Swipeout from 'kai-ui/Swipeout'
+
+export default class SwipeoutPage extends wepy.page {
+  components = {
+    swipeout: Swipeout
+  }
+}
+</script>
+
+<style lang="less">
+  .text {
+    padding: 10px;
+    height: 100px;
+  }
+  .action-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 50px;
+    padding: 0 5px;
+    font-size: 14px;
+    color: #fff;
+  }
+  .btn1 {
+    background: #f40;
+  }
+  .btn2 {
+    background: #ccc;
+  }
+</style>
+```
+
 
 ### 表单组件
 
