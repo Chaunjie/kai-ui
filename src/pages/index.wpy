@@ -177,6 +177,11 @@ export default class Index extends wepy.page {
             title: 'Toast 轻提示',
             linktype: 1,
             link: 'toast'
+          },
+          {
+            title: 'Swipeout 滑动菜单',
+            linktype: 1,
+            link: 'swipeout'
           }
         ]
       },

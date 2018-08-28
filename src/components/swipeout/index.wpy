@@ -1,0 +1,68 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="swipeout-container">
+    <view class="swipeout-content" @tap="tap" @touchstart="start" @touchmove="move" @touchend="end" style="transform: translateX({{left}}px);">
+      <slot name="content"></slot>
+    </view>
+    <view class="swipeout-action swipeout-action__{{componentId}}">
+      <slot name="action"></slot>
+    </view>
+  </view>
+</template>
+
+<script>
+  import wepy from 'wepy'
+
+  export default class Swipeout extends wepy.component {
+    props = {
+      componentId: {
+        type: String,
+        default: ''
+      }
+    }
+    data = {
+      width: '',
+      startX: '',
+      left: 0
+    }
+    methods = {
+      tap () {
+        this.left = 0
+      },
+      start (e) {
+        this.startX = e.touches[0].clientX
+        // 处理已经滑动到最左测，再次开始继续向左滑动的情况
+        if (this.left === -this.width) {
+          this.left = 0
+          this.startX = 0
+        }
+      },
+      move (e) {
+        const endX = e.touches[0].clientX
+        const offsetX = endX - this.startX
+        // 左移
+        if (offsetX < 0) {
+          this.left = Math.max(offsetX, -this.width)
+        }
+        // 右移
+        if (offsetX > 0) {
+          this.left = Math.min(this.left + offsetX, 0)
+        }
+      },
+      end () {
+        // 滑动后自动到底
+        if (this.left < 0) {
+          this.left = -this.width
+        } else {
+          this.left = 0
+        }
+      }
+    }
+    onLoad () {
+      wx.createSelectorQuery().select('.swipeout-action__' + this.componentId).boundingClientRect((res) => {
+        this.width = res.width
+        this.$apply()
+      }).exec()
+    }
+  }
+</script>
