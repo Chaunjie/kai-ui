@@ -4,7 +4,8 @@
     <view class="rate-title">{{title}}</view>
     <view class="rate-content">
       <repeat for="{{[1, 2, 3, 4, 5]}}" key="index" index="index" item="item">
-        <icon class="rate-icon {{value>index?'rate-icon__stared':''}}" type="star" event="star"/>
+        <icon1 wx:if="{{value>index}}" class="rate-icon rate-icon__stared" type="starbg" event="star"/>
+        <icon2 wx:else class="rate-icon" type="stargap" event="star"/>
       </repeat>
       <view class="rate-desc" wx:if="{{value>0}}">{{desc[value-1]}}</view>
     </view>
@@ -44,7 +45,8 @@
       }
     }
     components = {
-      icon: Icon
+      icon1: Icon,
+      icon2: Icon
     }
     events = {
       star (e) {
