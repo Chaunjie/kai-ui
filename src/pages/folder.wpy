@@ -1,6 +1,7 @@
 <template>
   <view class="kai-content">
     <view class="padding-10">
+      <view class="padding-10 font-12">基础用法：</view>
       <folder1 title="会员信息" componentId="0">
         <view slot="content">
           <view>客户来源：微信公众号</view>

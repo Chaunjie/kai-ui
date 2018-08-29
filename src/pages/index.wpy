@@ -122,11 +122,6 @@ export default class Index extends wepy.page {
             title: 'Helper 基础样式',
             linktype: 1,
             link: 'helper'
-          },
-          {
-            title: 'Rate 星级评分',
-            linktype: 1,
-            link: 'rate'
           }
         ]
       },
@@ -227,6 +222,11 @@ export default class Index extends wepy.page {
             title: 'Slider 滑块',
             linktype: 1,
             link: 'slider'
+          },
+          {
+            title: 'Rate 星级评分',
+            linktype: 1,
+            link: 'rate'
           }
         ]
       },
