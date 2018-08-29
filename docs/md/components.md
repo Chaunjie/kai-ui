@@ -1060,86 +1060,6 @@ export default class Helper extends wepy.page {
 </script>
 ```
 
-#### Rate 星级评分
-
-- **概述**
-
-&emsp;&emsp;星级评分
-
-- **使用指南**
-
-&emsp;&emsp;页面中引入组件
-```javascript
-import Rate from 'kai-ui/Rate'
-```
-
-&emsp;&emsp;组件添加
-```javascript
-components = {
-  rate: Rate
-}
-```
-
-&emsp;&emsp;template添加
-```template
-<template>
-  <rate title="物流服务" :value.sync="value" :desc="desc"/>
-</template>
-```
-
-&emsp;&emsp;对应参数：
-
-| 参数 | 类型 | 是否必传 | 可选项 | 默认 | 描述 |
-| --- | --- | --- | --- | --- | --- | --- |
-| title | `String` | 是 | - | - | 评分标题 |
-| value | `Number` | 是 | 0，1，2，3，4，5 | - | 评分 |
-| desc | `Array` | 否 | - | ['1星','2星','3星','4星','5星'] | 评分描述 |
-| type | `String` | 否 | `vertical`,`horizontal` | `horizontal` | 布局 |
-
-&emsp;&emsp;案例
-```wpy
-<template>
-  <view class="kai-content">
-    <view class="padding-10">
-      <view class="font-12">基础用法:</view>
-      <rate1 title="描述相符" :value.sync="value1"/>
-    </view>
-    <view class="padding-10">
-      <view class="font-12">自定义评分描述:</view>
-      <rate2 title="物流服务" :value.sync="value2" :desc="desc"/>
-    </view>
-    <view class="padding-10">
-      <view class="font-12">竖向布局:</view>
-      <rate3 title="这是一个比较长的标题信息" :value.sync="value3" type="vertical"/>
-    </view>
-  </view>
-</template>
-
-<script>
-import wepy from 'wepy'
-import Rate from 'kai-ui/Rate'
-
-export default class RatePage extends wepy.page {
-  data = {
-    value1: 4,
-    value2: 1,
-    value3: 2,
-    desc: [
-      '非常差',
-      '差',
-      '一般',
-      '好',
-      '非常好'
-    ]
-  }
-  components = {
-    rate1: Rate,
-    rate2: Rate,
-    rate3: Rate
-  }
-}
-</script>
-```
 
 ### 导航组件
 
@@ -2152,8 +2072,8 @@ components = {
 <template>
   <view class="kai-content">
     <view class="padding-10 font-12">
-      <view class="padding-10 font-12">示例：</view>
-      <swipeout componentId="0">
+      <view class="padding-10">基础用法：</view>
+      <swipeout1 componentId="0">
         <view slot="content">
           <view class="text">
             <view>向左滑动试试：）</view>
@@ -2166,7 +2086,21 @@ components = {
           <view class="action-btn btn1">移入收藏夹</view>
           <view class="action-btn btn2">删除</view>
         </view>
-      </swipeout>
+      </swipeout1>
+      <view class="padding-10"></view>
+      <swipeout2 componentId="1">
+        <view slot="content">
+          <view class="text">
+            <view>向左滑动试试：）</view>
+            忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+          </view>
+        </view>
+        <view slot="action">
+          <view class="action-btn btn0">找相似</view>
+          <view class="action-btn btn1">移入收藏夹</view>
+          <view class="action-btn btn2">删除</view>
+        </view>
+      </swipeout2>
     </view>
   </view>
 </template>
@@ -2177,7 +2111,8 @@ import Swipeout from 'kai-ui/Swipeout'
 
 export default class SwipeoutPage extends wepy.page {
   components = {
-    swipeout: Swipeout
+    swipeout1: Swipeout,
+    swipeout2: Swipeout
   }
 }
 </script>
@@ -2185,7 +2120,6 @@ export default class SwipeoutPage extends wepy.page {
 <style lang="less">
   .text {
     padding: 10px;
-    height: 100px;
   }
   .action-btn {
     display: flex;
@@ -2202,6 +2136,9 @@ export default class SwipeoutPage extends wepy.page {
   }
   .btn2 {
     background: #ccc;
+  }
+  .btn0 {
+    background: #f80;
   }
 </style>
 ```
@@ -3292,6 +3229,87 @@ export default class RatePage extends wepy.page {
     slider: Slider,
     slider1: Slider,
     slider2: Slider
+  }
+}
+</script>
+```
+
+#### Rate 星级评分
+
+- **概述**
+
+&emsp;&emsp;星级评分
+
+- **使用指南**
+
+&emsp;&emsp;页面中引入组件
+```javascript
+import Rate from 'kai-ui/Rate'
+```
+
+&emsp;&emsp;组件添加
+```javascript
+components = {
+  rate: Rate
+}
+```
+
+&emsp;&emsp;template添加
+```template
+<template>
+  <rate title="物流服务" :value.sync="value" :desc="desc"/>
+</template>
+```
+
+&emsp;&emsp;对应参数：
+
+| 参数 | 类型 | 是否必传 | 可选项 | 默认 | 描述 |
+| --- | --- | --- | --- | --- | --- | --- |
+| title | `String` | 是 | - | - | 评分标题 |
+| value | `Number` | 是 | 0，1，2，3，4，5 | - | 评分 |
+| desc | `Array` | 否 | - | ['1星','2星','3星','4星','5星'] | 评分描述 |
+| type | `String` | 否 | `vertical`,`horizontal` | `horizontal` | 布局 |
+
+&emsp;&emsp;案例
+```wpy
+<template>
+  <view class="kai-content">
+    <view class="padding-10">
+      <view class="font-12">基础用法:</view>
+      <rate1 title="描述相符" :value.sync="value1"/>
+    </view>
+    <view class="padding-10">
+      <view class="font-12">自定义评分描述:</view>
+      <rate2 title="物流服务" :value.sync="value2" :desc="desc"/>
+    </view>
+    <view class="padding-10">
+      <view class="font-12">竖向布局:</view>
+      <rate3 title="这是一个比较长的标题信息" :value.sync="value3" type="vertical"/>
+    </view>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+import Rate from 'kai-ui/Rate'
+
+export default class RatePage extends wepy.page {
+  data = {
+    value1: 4,
+    value2: 1,
+    value3: 2,
+    desc: [
+      '非常差',
+      '差',
+      '一般',
+      '好',
+      '非常好'
+    ]
+  }
+  components = {
+    rate1: Rate,
+    rate2: Rate,
+    rate3: Rate
   }
 }
 </script>

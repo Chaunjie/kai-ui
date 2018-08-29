@@ -1,8 +1,8 @@
 <template>
   <view class="kai-content">
     <view class="padding-10 font-12">
-      <view class="padding-10 font-12">示例：</view>
-      <swipeout componentId="0">
+      <view class="padding-10">基础用法：</view>
+      <swipeout1 componentId="0">
         <view slot="content">
           <view class="text">
             <view>向左滑动试试：）</view>
@@ -15,7 +15,21 @@
           <view class="action-btn btn1">移入收藏夹</view>
           <view class="action-btn btn2">删除</view>
         </view>
-      </swipeout>
+      </swipeout1>
+      <view class="padding-10"></view>
+      <swipeout2 componentId="1">
+        <view slot="content">
+          <view class="text">
+            <view>向左滑动试试：）</view>
+            忆江南，江南好，风景旧曾谙，日出江花红胜火，春来江水绿如蓝，能不忆江南。
+          </view>
+        </view>
+        <view slot="action">
+          <view class="action-btn btn0">找相似</view>
+          <view class="action-btn btn1">移入收藏夹</view>
+          <view class="action-btn btn2">删除</view>
+        </view>
+      </swipeout2>
     </view>
   </view>
 </template>
@@ -30,7 +44,8 @@ export default class SwipeoutPage extends wepy.page {
   }
 
   components = {
-    swipeout: Swipeout
+    swipeout1: Swipeout,
+    swipeout2: Swipeout
   }
 }
 </script>
@@ -38,7 +53,6 @@ export default class SwipeoutPage extends wepy.page {
 <style lang="less">
   .text {
     padding: 10px;
-    height: 100px;
   }
   .action-btn {
     display: flex;
@@ -55,5 +69,8 @@ export default class SwipeoutPage extends wepy.page {
   }
   .btn2 {
     background: #ccc;
+  }
+  .btn0 {
+    background: #f80;
   }
 </style>

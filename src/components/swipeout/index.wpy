@@ -42,7 +42,7 @@
         const offsetX = endX - this.startX
         // 左移
         if (offsetX < 0) {
-          this.left = Math.max(offsetX, -this.width)
+          this.left = offsetX
         }
         // 右移
         if (offsetX > 0) {
