@@ -34,14 +34,14 @@ git clone https://github.com/Chaunjie/kai-ui.git
 import Panel from 'kai-ui/Panel'
 
 components = {
-  panel: Panel
+  'k-panel': Panel
 }
 ```
 
 接着就可以在 wxml 中直接使用组件
 
 ```html
-<panel>使用kai-ui组件库开始</panel>
+<k-panel>使用kai-ui组件库开始</k-panel>
 ```
 
 ### 在开发者工具中预览
