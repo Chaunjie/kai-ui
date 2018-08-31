@@ -11,6 +11,9 @@
 
 使用 kai-ui 前，务必要先阅读[wepy自定义组件开发](https://tencent.github.io/wepy/)。
 
+#### 预览小程序
+ <img width="100" src="http://images.kaishiba.com/kaiqr.jpg">
+ 
 ### 如何使用
 #### 安装
 ##### 方式一. 通过 npm 安装 (推荐)
