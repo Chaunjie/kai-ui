@@ -1,32 +1,68 @@
 
 <p align="center">
-    <a href="https://weapp.iviewui.com">
-        <img width="200" src="http://images.kaishiba.com/kai-ui.png">
-    </a>
+  <img width="200" src="http://images.kaishiba.com/kai-ui.png">
 </p>
 
-## kai-ui Weapp
-### 高颜值, 高效率微信小程序组件库（支持npm安装）
-### 文档
-[文档地址](https://chaunjie.github.io/kai-ui/index.html#/components)
+## 快速上手
 
-### 安装使用
+### 使用之前
 
-#### 安装`npm`包。
-
-```bash
-npm i kai-ui --save-dev
-```
-
-### 使用场景
-
-该版本基于微信小程序环境、`wepy` 框架。
-`wepy-cli` 版本要求 `^1.7.3`,
-低于 `1.7.3` 版本的可以直接把 `src/component`  `src/less`下的资源文件拷贝到自己项目 `component`  `less` 目录下
+使用 kai-ui 前，务必要先阅读[wepy自定义组件开发](https://tencent.github.io/wepy/)。
 
 #### 预览小程序
- <img width="100" src="http://images.kaishiba.com/kaiqr.jpg">
+<p>
+ <img width="150" src="http://images.kaishiba.com/kai.jpg"/>
+</p>
 
+### 如何使用
+#### 安装
+##### 方式一. 通过 npm 安装 (推荐)
+```bash
+# npm
+npm i kai-ui -S --production
+```
+
+##### 方式二. 下载代码
+
+直接下载[GitHub](https://github.com/Chaunjie/kai-ui)或者通过 `git` 命令下载并把minparogram文件夹拷贝到自己项目中
+```bash
+git clone https://github.com/Chaunjie/kai-ui.git
+```
+
+### 使用组件
+
+以按钮组件为例，只需要在 json 文件中引入按钮对应的自定义组件即可
+
+```javascript
+import Panel from 'kai-ui/Panel'
+
+components = {
+  'k-panel': Panel
+}
+```
+
+接着就可以在 wxml 中直接使用组件
+
+```html
+<k-panel>使用kai-ui组件库开始</k-panel>
+```
+
+### 在开发者工具中预览
+
+```bash
+# 拉取代码
+git clone https://github.com/Chaunjie/kai-ui.git
+
+# 安装项目依赖
+npm install
+
+# 执行组件编译
+npm run dev
+```
+
+打开开发者工具，把`dist`目录添加进去就可以预览示例了。
+
+ 
 ### 组件列表
 - [x] cell 列表
 - [x] button 按钮
@@ -53,9 +89,9 @@ npm i kai-ui --save-dev
 - [x] searchbar 搜索框
 - [x] input 输入框
 - [x] step 步骤条
-- [ ] slider 滑块
+- [x] slider 滑块
 - [x] rate 星级评分
 - [x] folder 折叠面板
 - [ ] calander 日期选择
-- [ ] swipeout 滑动菜单
+- [x] swipeout 滑动菜单
 - [ ] scrollviewrefresh 下拉刷新
