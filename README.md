@@ -13,7 +13,7 @@
 
 #### 预览小程序
 
- <img width="100" src="http://images.kaishiba.com/kaiqr.jpg"/>
+ <img width="150" src="http://images.kaishiba.com/kaiqr.jpg"/>
 
 ### 如何使用
 #### 安装
