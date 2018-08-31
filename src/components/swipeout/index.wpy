@@ -2,6 +2,7 @@
 <template>
   <view class="swipeout-container">
     <view class="swipeout-content" @tap="tap" @touchstart="start" @touchmove="move" @touchend="end" style="transform: translateX({{left}}px);">
+      <view class="swipeout-content__mask" style="width:{{left===0?'0':'100%'}}"></view>
       <slot name="content"></slot>
     </view>
     <view class="swipeout-action swipeout-action__{{componentId}}">
