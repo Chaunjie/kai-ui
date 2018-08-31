@@ -1,3 +1,10 @@
+
+<p align="center">
+    <a href="https://weapp.iviewui.com">
+        <img width="200" src="http://images.kaishiba.com/kai-ui.png">
+    </a>
+</p>
+
 ## 快速上手
 
 ### 使用之前
