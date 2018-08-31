@@ -9,7 +9,7 @@
 
 ### 使用之前
 
-使用 kai-ui 前，务必要先阅读[小程序自定义组件开发](https://developers.weixin.qq.com/miniprogram/dev/framework/custom-component/)。
+使用 kai-ui 前，务必要先阅读[wepy自定义组件开发](https://tencent.github.io/wepy/)。
 
 ### 如何使用
 #### 安装
