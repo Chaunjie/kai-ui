@@ -1,0 +1,1 @@
+.panel{width:100%;box-sizing:border-box;text-align:left}.panel .title{padding:10px 15px;font-size:12px;display:block}.panel .info{border-style:solid;border-color:#e1e1e1;border-width:0;font-size:12px;background-color:#fff;display:block}

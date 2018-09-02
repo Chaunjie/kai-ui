@@ -1,0 +1,15 @@
+<view class="step-cell step-cell__{{direction}} step-cell__{{isLast?'last':''}} {{current === index ? 'step-active' : (current > index ? 'step-finish' : 'step-wait')}}" style="width:{{width}}%">
+  <view wx:if="{{current > index}}" class="step-circle">
+    <text wx:if="{{step.iconClass}}" class="custom-class"></text>
+    <k-icon wx:else name="success" custom-class="custom-success"/>
+  </view>
+  <view wx:else class="step-circle">
+    <text wx:if="{{step.iconClass}}" class="custom-class"></text>
+    <text wx:else class="number">{{index+1}}</text>
+  </view>
+  <text class="step-line"></text>
+  <view class="step-content">
+    <view class="step-title">{{step.title}}</view>
+    <view class="step-des">{{step.content}}</view>
+  </view>
+</view>

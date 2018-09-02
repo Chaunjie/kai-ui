@@ -1,0 +1,24 @@
+<view class="dialog custom-class {{ dialog.show ? 'dialog-show' : '' }} {{ out ? 'dialog-out' : '' }}">
+    <view class="dialog-mask" catchtouchmove="doProp"></view>
+    <view class="dialog-container">
+      <view
+      wx:if="{{ dialog.title }}"
+      class="dialog-header" catchtouchmove="doProp">{{ dialog.title }}</view>
+      <view class="content-container" catchtouchmove="doProp">
+        <view
+        class="dialog-content {{ dialog.title ? 'dialog-content-title' : '' }}">{{ dialog.content }}</view>
+      </view>
+      <view
+      class="dialog-footer {{ dialog.showVertical ? 'dialog-footer-vertical' : 'dialog-footer-horizon' }}">
+      <view
+        wx:for="{{ dialog.buttons }}" wx:for-item="item" wx:for-index="index" wx:key="index"
+        class="dialog-button btn btn-loading"
+        catchtap="btnTap"
+        data-index="{{ index }}"
+        style="color: {{ item.color || '#333' }}">
+        <k-loading type="circle" custom-class="custom-loading" wx:if="{{item.sync && showSync}}"/>
+        {{ item.text }}
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "k-icon": "../icon/index",
+    "k-loading": "../loading/index"
+  }
+}

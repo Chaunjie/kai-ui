@@ -1,0 +1,3 @@
+<view class="col custom-class col-{{col}} col-offset-{{offset}}">
+	<slot/>
+</view>

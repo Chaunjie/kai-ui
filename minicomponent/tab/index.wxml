@@ -1,0 +1,20 @@
+<view class="tab-container custom-class tab-cls {{tabData.class ? tabData.class : ''}}">
+  <block wx:if="{{tabData.scroll}}">
+    <scroll-view scroll-x class="scroll-tab-content" style="height:{{tabData.height ? tabData.height+2 : 45+2}}px;" id="scroll" scroll-left="{{left}}" scroll-with-animation="true">
+      <view class="scroll-tab__content">
+        <view class="tab" wx:for="{{ tabData.list }}" wx:for-item="item" wx:key="index" data-id="{{item.id}}" data-index="{{index}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" data-item="{{item}}" catchtap="selectTab">
+          <view class="tab-text">{{item.title}}</view>
+        </view>
+        <view class="animate-border" animation="{{animationData}}"></view>
+      </view>
+    </scroll-view>
+  </block>
+  <block wx:else>
+    <view class="tab-content">
+      <view class="tab" wx:for="{{ tabData.list }}" wx:for-item="item" wx:key="index" data-index="{{index}}" style="height:{{tabData.height ? tabData.height : 45}}px;line-height: {{tabData.height ? tabData.height : 45}}px" data-item="{{item}}" catchtap="selectTab">
+        <view class="tab-text">{{item.title}}</view>
+      </view>
+      <view class="animate-border" animation="{{animationData}}"></view>
+    </view>
+  </block>
+</view>

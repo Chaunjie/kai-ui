@@ -1,0 +1,9 @@
+<view class="loadmore custom-class">
+  <block wx:if="{{more.type}}">
+  	<k-loading type="circular" custom-class="loadmore-icon"/>
+  	<text>{{more.loading || '加载中'}}</text>
+  </block>
+  <block wx:else>
+    <text class="lighter">————</text><text> {{more.loaded || '加载完成'}} </text><text class="lighter">————</text>
+  </block>
+</view>

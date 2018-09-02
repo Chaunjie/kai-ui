@@ -1,0 +1,18 @@
+<view class="noticebar custom-class {{icon ? 'icon-noticebar' : ''}}">
+  <view class="icon-content" wx:if="{{icon}}">
+    <k-icon name="broadcast" custom-class="custom-broadcast"/>
+  </view>
+  <view
+    id="noticebar-content-wrap"
+    class="noticebar-wrap"
+    style="height: 18px; overflow: hidden; position: relative;"
+  >
+    <view
+      animation="{{ animationData }}"
+      id="noticebar-content"
+      style="position: absolute; white-space: nowrap;"
+    >
+      {{ text }}
+    </view>
+  </view>
+</view>

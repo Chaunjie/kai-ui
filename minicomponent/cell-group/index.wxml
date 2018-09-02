@@ -1,0 +1,3 @@
+<view class="cell custom-class">
+	<slot/>
+</view>

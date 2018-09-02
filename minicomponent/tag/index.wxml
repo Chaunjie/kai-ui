@@ -1,0 +1,3 @@
+<view class="tag custom-class tag-{{type}} {{ empty ? 'tag-empty' : '' }}">
+	<slot />
+</view>

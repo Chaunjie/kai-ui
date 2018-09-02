@@ -1,0 +1,3 @@
+<button class="btn {{ empty ? 'btn-empty' : '' }} custom-class btn-{{name}} btn-{{size}}" disabled="{{disabled}}">
+	<slot/>
+</button>

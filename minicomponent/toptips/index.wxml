@@ -1,0 +1,5 @@
+<view class="custom-class">
+  <view class="toptips topstips-{{show?'show':'hide'}}">
+    {{ content }}
+  </view>
+</view>

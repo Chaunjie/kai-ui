@@ -1,0 +1,9 @@
+<view class="radio-container custom-class radio-{{ position }}" catchtap="onTap">
+  <view class="radio-panel radio-{{ type }} {{ checked ? 'checked' : '' }} {{ disabled ? 'disabled' : '' }}">
+    <view class="center-content">
+      <k-icon wx:if="{{ type === 'circle' }}" custom-class="custom-icon" name="success"/>
+      <view class="cube-check"></view>
+    </view>
+  </view>
+  <view class="radio-label__container" wx:if="{{ label }}">{{ label }}</view>
+</view>

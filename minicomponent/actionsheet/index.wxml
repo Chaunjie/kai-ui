@@ -1,0 +1,10 @@
+<view class="ac-container custom-class {{ asData.show ? 'ac-show': '' }}">
+  <view class="ac-mask" catchtouchmove="doProp" catchtap="hideAc"></view>
+  <view class="ac-content bottom" catchtouchmove="doProp">
+    <view class="ac-list {{ item.disabled ? 'disabled' : ''}}" wx:for="{{ asData.actions }}" wx:for-item="item" wx:for-index="i" wx:key="i" catchtap="selectIndex" data-index="{{ i }}" style="color: {{item.color}};" >
+      <k-icon wx:if="{{ item.icon }}" name="{{ item.icon }}" custom-class="custom-icon inline"/>
+      <view class="btn-name inline">{{ item.name }}</view>
+    </view>
+    <view class="ac-list mt5" catchtap="hideAc">取消</view>
+  </view>
+</view>

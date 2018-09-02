@@ -1,0 +1,19 @@
+<view class="slider custom-class">
+  <view wx:if="{{type==='single'}}" class="slider-container">
+    <view class="slider-stick__wrap" catchtap="tap" >
+      <view class="slider-stick slider-stick__unselected"></view>
+      <view class="slider-stick slider-stick__selected" style="width:{{left}}px"></view>
+      <view class="slider-block" catchtouchmove="move" style="left:{{left}}px;"></view>
+    </view>
+    <view class="slider-value">{{value}}</view>
+  </view>
+  <view wx:else class="slider-container">
+    <view class="slider-stick__wrap" catchtap="tap" >
+      <view class="slider-stick slider-stick__unselected"></view>
+      <view class="slider-stick slider-stick__selected" style="left:{{stickLeft}}px;width:{{stickWidth}}px"></view>
+      <view class="slider-block" catchtouchmove="move" style="left:{{left1}}px;" data-index="0"></view>
+      <view class="slider-block" catchtouchmove="move" style="left:{{left2}}px;" data-index="1"></view>
+    </view>
+    <view class="slider-value">{{valueMin}}-{{valueMax}}</view>
+  </view>
+</view>

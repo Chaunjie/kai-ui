@@ -1,0 +1,11 @@
+<view class="toast custom-class">
+  <view class="toast-wrap toast-{{ position }} toast-{{ type }} toast-{{ show ? 'show' : 'hide' }}">
+    <view wx:if="{{ type }}" class="toast-wrap__icon">
+      <k-icon wx:if="{{ type === 'success' }}" name="tick" custom-class="custom-icon"/>
+      <k-icon wx:if="{{ type === 'error' }}" name="error" custom-class="custom-icon"/>
+      <k-icon wx:if="{{ type === 'warning' }}" name="info" custom-class="custom-icon"/>
+      <k-loading wx:if="{{ type === 'loading' }}" type="circle" size="big" custom-class="custom-circle"/>
+    </view>
+    <view class="toast-content">{{ content }}</view>
+  </view>
+</view>

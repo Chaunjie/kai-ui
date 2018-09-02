@@ -1,0 +1,6 @@
+<view class="panel custom-class">
+  <view wx:if="title" class="title">{{title}}</view>
+  <view class="info">
+    <slot/>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+<view class="custom-class">
+  <view class="searchbar">
+    <view class="searchbar-form">
+      <view class="searchbar-form__wrap">
+        <k-icon name="search" custom-class="searchbar-form__find"/>
+        <input
+          class="searchbar-form__input"
+          placeholder="{{placeholder}}"
+          value="{{value}}"
+          focus="{{focus}}"
+          confirm-type="search"
+          bindinput="_handleInput"
+          bindconfirm="_handleConfirm"/>
+          <k-icon name="closebg" wx:if="{{showClear}}" custom-class="searchbar-form__clear" bindtap="_clear"/>
+        </view>
+        <view
+          class="searchbar-form__cancel"
+          bindtap="_handleCancel"
+          >取消
+        </view>
+      </view>
+    </view>
+  </view>

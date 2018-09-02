@@ -1,0 +1,25 @@
+<view class="numberpicker custom-class {{ size }}">
+  <view
+    class="numberpicker-minus {{ num <= min ? 'numberpicker-disabled' : '' }}"
+    data-num="{{ num }}"
+    data-config="{{ config }}"
+    data-disabled="{{ num <= min }}"
+    bindtap="_handleMinueStep"
+    >-</view>
+  <input
+    class="numberpicker-input"
+    type="number"
+    value="{{ num }}"
+    type="number"
+    data-num="{{ num }}"
+    data-config="{{ config }}"
+    bindinput="_handleInput"
+    bindblur="_handleBlur"/>
+  <view
+    class="numberpicker-plus {{ num >= max ? 'numberpicker-disabled' : '' }}"
+    data-num="{{ num }}"
+    data-config="{{ config }}"
+    data-disabled="{{ num >= max }}"
+    bindtap="_handlePlusStep"
+    >+</view>
+</view>

@@ -1,0 +1,3 @@
+<view class="custom-class grid">
+	<slot></slot>
+</view>

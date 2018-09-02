@@ -1,0 +1,7 @@
+<view class="rate-container {{type==='vertical'?'rate-container__vertical':'rate-container__horizontal'}} custom-class">
+  <view class="rate-title">{{title}}</view>
+  <view class="rate-content">
+    <k-icon wx:for="{{[1, 2, 3, 4, 5]}}" wx:for-index="index" wx:key="index" class="rate-icon {{value>index?'rate-icon__stared':''}}" name="{{value>index?'starbg':'stargap'}}" catchtap="star"  data-index="{{index}}" custom-class="custom-icon"/>
+    <view class="rate-desc" wx:if="{{value>0}}">{{desc[value-1]}}</view>
+  </view>
+</view>

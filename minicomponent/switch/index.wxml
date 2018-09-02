@@ -1,0 +1,13 @@
+<view
+    class="switch custom-class switch-{{ checked ? 'on' : 'off' }} {{ disabled ? 'swtich-disabled' : '' }} switch-{{type || 'success'}}"
+    data-checked="{{ checked }}"
+    data-sync="{{ sync }}"
+    data-loading="{{loading}}"
+    data-disabled="{{ disabled }}"
+    bindtap="_handleSwitchChange"
+  >
+    <view class="switch-circle {{loading ? 'loading-circle': ''}}">
+      <k-loading wx:if="{{ loading }}" type="circle"/>
+    </view>
+    <view class="switch-bg"></view>
+  </view>

@@ -1,0 +1,9 @@
+<view class="select-container custom-class select-{{selectData.type}}">
+  <view wx:for="{{ selectData.list }}" wx:for-item="item" wx:for-index="index" wx:key="index" class="select-item {{index === selectData.selectIndex ? 'active': ''}}" catchtap="tapItem" data-index="{{index}}">
+    <view class="position-content position-{{selectData.position || 'right'}}">
+      <text class="item-name font-14">{{item.name}}</text>
+      <k-icon name="success" wx:if="{{index === selectData.selectIndex}}"  custom-class="custom-icon"/>
+      <view wx:else></view>
+    </view>
+  </view>
+</view>

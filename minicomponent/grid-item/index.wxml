@@ -1,0 +1,5 @@
+<view class="custom-class grid-item" style="width: {{ width }}">
+	<view class="grid-item__container">
+		<slot name="content"></slot>
+	</view>
+</view>

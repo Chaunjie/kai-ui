@@ -1,0 +1,9 @@
+<view class="cell-list custom-class {{access ? 'cell-list-access' : ''}}">
+  <view class="cell-list-bd">
+  	<view wx:if="{{title}}" class="cell-list-text">{{title || ''}}</view>
+  	<slot name="title"/>
+  	<view wx:if="{{subtitle}}" class="cell-list-desc">{{subtitle || ''}}</view>
+  </view>
+  <view class="cell-list-arrow" wx:if="{{arrow}}">{{detail || ''}}</view>
+  <slot name="detail"/>
+</view>

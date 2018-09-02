@@ -1,0 +1,6 @@
+<view class="popup custom-class {{'popup-'+position}} {{ show ? 'popup-show' : ''}}">
+  <view class="popup-mask" catchtap="togglePopup" catchtouchmove="doProp"></view>
+  <view class="popup-container {{position=='top'|| position=='bottom' ? 'container100':''}}" catchtouchmove="doProp">
+    <slot/>
+  </view>
+</view>

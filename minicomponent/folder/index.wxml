@@ -1,0 +1,13 @@
+<view class="folder-container custom-class">
+  <view class="folder-header" catchtap="collapse">
+    <view class="folder-header__title">{{title}}</view>
+    <view class="folder-header__icon {{collapsed?'folder-header__icon--down':''}}">
+      <k-icon name="right"/>
+    </view>
+  </view>
+  <view class="folder-content" style="height:{{collapsed?0:height}}px;">
+    <view class="folder-content__inner">
+      <slot></slot>
+    </view>
+  </view>
+</view>

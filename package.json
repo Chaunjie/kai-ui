@@ -1,6 +1,6 @@
 {
   "name": "kai-ui",
-  "version": "1.1.0",
+  "version": "1.2.1",
   "description": "weapp ui components",
   "main": "dist/index.js",
   "scripts": {
@@ -39,8 +39,14 @@
     "./Uploader": "./src/components/uploader/index.wpy",
     "./NumberPicker": "./src/components/numberpicker/index.wpy",
     "./SearchBar": "./src/components/searchbar/index.wpy",
-    "./Loading": "./src/components/loading/index.wpy"
+    "./Loading": "./src/components/loading/index.wpy",
+    "./Folder": "./src/components/folder/index.wpy",
+    "./Rate": "./src/components/rate/index.wpy",
+    "./Slider": "./src/components/slider/index.wpy",
+    "./Step": "./src/components/step/index.wpy",
+    "./Swipeout": "./src/components/swipeout/index.wpy"
   },
+  "miniprogram": "minicomponent",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Chaunjie/kai-ui.git"
