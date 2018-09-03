@@ -1,6 +1,6 @@
 {
   "name": "kai-ui",
-  "version": "1.2.1",
+  "version": "1.2.3",
   "description": "weapp ui components",
   "main": "dist/index.js",
   "scripts": {
@@ -11,11 +11,7 @@
   },
   "author": "chaunjie",
   "license": "MIT",
-  "dependencies": {
-    "wepy": "^1.7.2",
-    "wepy-async-function": "^1.4.6",
-    "wepy-com-toast": "^1.0.2"
-  },
+  "dependencies": {},
   "wepy": {
     "./ActionSheet": "./src/components/actionsheet/index.wpy",
     "./Cell": "./src/components/cell/index.wpy",
@@ -73,7 +69,8 @@
     "wepy-compiler-less": "^1.3.12",
     "wepy-eslint": "^1.5.4",
     "wepy-plugin-imagemin": "^1.5.3",
-    "wepy-plugin-uglifyjs": "^1.3.7"
+    "wepy-plugin-uglifyjs": "^1.3.7",
+    "wepy" "^1.7.2"
   },
   "bugs": {
     "url": "https://github.com/Chaunjie/kai-ui/issues"
