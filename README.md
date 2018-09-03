@@ -65,7 +65,7 @@ npm run dev
 ### 贡献者
 感谢下面这些小朋友的贡献
 
-[stardew](https://github.com/stardew516)[wppeng](https://github.com/wppeng)
+[stardew](https://github.com/stardew516)  [wppeng](https://github.com/wppeng)
  
 ### 组件列表
 - [x] cell 列表
