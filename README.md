@@ -62,6 +62,10 @@ npm run dev
 
 打开开发者工具，把`dist`目录添加进去就可以预览示例了。
 
+### 贡献者
+感谢下面这些小朋友的贡献
+
+[stardew](https://github.com/stardew516)[wppeng](https://github.com/wppeng)
  
 ### 组件列表
 - [x] cell 列表
