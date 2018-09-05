@@ -7,7 +7,6 @@
 </template>
 <script>
 import wepy from 'wepy'
-const qiniuUploader = require('../../utils/qiniuUploader')
 
 export default class uploader extends wepy.component {
   props = {
@@ -43,7 +42,7 @@ export default class uploader extends wepy.component {
       twoWay: true,
       default: 0
     },
-    test: {  // 预留本地测试
+    local: {  // 预留本地
       type: Boolean,
       twoWay: true,
       default: false
@@ -53,14 +52,19 @@ export default class uploader extends wepy.component {
   methods = {
     upLoad () {
       var that = this
-      // 初始化
-      var options = {
-        region: that.region, // 华东区
-        uptokenURL: that.uptokenURL,
-        domain: that.domain,
-        shouldUseQiniuFileName: false
+      if (!that.local) {
+        var qiniuUploader = require('../../utils/qiniuUploader',function (re) {
+          console.log('required', re)
+        })
+        // 初始化
+        var options = {
+          region: that.region, // 华东区
+          uptokenURL: that.uptokenURL,
+          domain: that.domain,
+          shouldUseQiniuFileName: false
+        }
+        qiniuUploader.init(options)
       }
-      qiniuUploader.init(options)
       // 选择图片
       wx.chooseImage({
         count: 1,
@@ -70,15 +74,16 @@ export default class uploader extends wepy.component {
           wx.showLoading({
             mask: true
           })
-          if (that.test) {
+          if (that.local) {
             wx.hideLoading()
-            that.$emit('refresh-img-list', filePath, that.test)
+            that.$emit('refresh-img-list', filePath)
           } else {
             qiniuUploader.upload(filePath, (res) => {
               wx.hideLoading()
               // 上传成功回调
-              that.$emit('refresh-img-list', res)
+              that.$emit('refresh-img-list', res.imageURL)
             }, (error) => {
+              wx.hideLoading()
               console.log('error: ' + error)
             })
           }
@@ -100,7 +105,7 @@ export default class uploader extends wepy.component {
 
   onLoad () {
     this.count = this.imgList.length
-    console.log(this.imgList, this.imgList.length, this.count)
+    console.log(this.uptokenURL, this.domain, this.count)
     this.$apply()
   }
 }

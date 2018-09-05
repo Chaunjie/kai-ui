@@ -1,0 +1,29 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="custom-class grid-item" style="width: {{ width }}">
+    <view class="grid-item__container">
+      <slot name="content"></slot>
+    </view>
+  </view>
+</template>
+<script>
+  import wepy from 'wepy'
+  export default class GridItem extends wepy.component {
+    props = {
+      width: {
+        type: [String, Number],
+        twoWay: true,
+        default: ''
+      }
+    }
+
+    data = {
+    }
+
+    methods = {
+    }
+
+    onLoad () {
+    }
+  }
+</script>

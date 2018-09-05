@@ -1,16 +1,70 @@
+<style lang="less">
+.single-cellgroup {
+ margin-bottom: 10px;
+}
+
+.single-cellgroup .cell-class > view:last-of-type{
+  font-size: 10px;
+}
+.title-new{
+  display: inline-block;
+  margin-right: 5px;
+}
+.title-text{
+  color: red;
+}
+.icon{
+	display: inline-block;
+	margin-right: 5px;
+}
+</style>
 <template>
   <view class="kai-content">
-    <view class="panel">
-      <repeat for="{{cellList}}" index="index" item="item" key="row-{{index}}">
-        <cell :celldata="item"></cell>
-      </repeat>
-    </view>
+    <repeat for="{{cellData}}" index="i" item="item" key="row-{{index}}">
+      <panel custom-class="panel-container">
+        <view slot="title" class="title">{{item.panelTitle}}</view>
+        <cellgroup custom-class="single-cellgroup">
+          <block>
+            <cell :title="item.title" :detail="item.detail" :arrow="item.arrow" :access="item.access"></cell>
+            <cell :title="item.title" :subtitle="item.subtitle" :arrow="item.arrow" :access="item.access"></cell>
+          </block>
+        </cellgroup>
+      </panel>
+    </repeat>
+
+    <panel custom-class="panel-container">
+      <view slot="title" class="title">高级用法</view>
+      <cellgroup1 custom-class="single-cellgroup">
+        <block>
+        <cell1 detail="自定义内容" :access="arrow" :arrow="arrow">
+          <view slot="title">
+            <icon type="location" class="icon"/>
+            <view class="title-new">搜索</view>
+            <tag type="danger" custom-class="single-tag">标签</tag>
+          </view>
+        </cell1>
+        <cell2 title="单元格" arrow="{{ true }}">
+          <view slot="detail">
+            <switch-type
+              :switchItem.sync="switchItem"
+              @onChange.user="change"/>
+          </view>
+        </cell2>
+        <cell3 title="标题" custom-class="cell-class" detail="自定义内容样式" :arrow="arrow" :access="arrow"></cell3>
+      </block>
+      </cellgroup1>
+    </panel>
   </view>
 </template>
 
 <script>
 import wepy from 'wepy'
+import cellGroup from '@/components/cell-group/index'
 import cell from '@/components/cell/index'
+import panel from '@/components/panel/index'
+import Switch from '@/components/switch/index'
+import icon from '@/components/icon/index'
+import tag from '@/components/tag/index'
 
 export default class Cell extends wepy.page {
   config = {
@@ -18,132 +72,66 @@ export default class Cell extends wepy.page {
   }
 
   components = {
-    cell: cell
+    cell: cell,
+    cell1: cell,
+    cell2: cell,
+    cell3: cell,
+    panel: panel,
+    cellgroup: cellGroup,
+    cellgroup1: cellGroup,
+    'switch-type': Switch,
+    icon: icon,
+    tag: tag
   }
 
   data = {
-    cellList: [
-      [
-        {
-          title: '默认'
-        }
-      ],
-      [
-        {
-          title: '列表',
-          linktype: 1,
-          link: '#'
-        },
-        {
-          title: '列表',
-          linktype: 1,
-          link: '#'
-        },
-        {
-          title: '列表',
-          linktype: 1,
-          link: '#'
-        }
-      ],
-      [
-        {
-          title: '列表带icon',
-          icontype: '1',
-          icontext: 'kai-icon-gear',
-          linktype: 1,
-          link: '#'
-        },
-        {
-          title: '列表带icon',
-          icontype: '1',
-          icontext: 'kai-icon-gear',
-          linktype: 1,
-          link: '#'
-        },
-        {
-          title: '列表带icon',
-          icontype: '1',
-          icontext: 'kai-icon-gear',
-          linktype: 1,
-          link: '#'
-        }
-      ],
-      [
-        {
-          title: '单行有附加信息',
-          subtitle: '图片icon',
-          detail: '有箭头',
-          linktype: 1,
-          link: '#',
-          icontype: '2',
-          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
-        }
-      ],
-      [
-        {
-          title: '多行列表',
-          subtitle: '无icon',
-          detail: '无箭头',
-          linktype: 0,
-          link: '#',
-          icontype: 1,
-          icontext: ''
-        },
-        {
-          title: '多行列表',
-          subtitle: 'icon',
-          detail: '无箭头',
-          linktype: 0,
-          link: '#',
-          icontype: '1',
-          icontext: 'kai-icon-gear'
-        },
-        {
-          title: '多行列表',
-          subtitle: '图片icon',
-          detail: '有箭头',
-          linktype: 1,
-          link: '#',
-          icontype: '2',
-          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
-        }
-      ],
-      [
-        {
-          title: '单行',
-          subtitle: '',
-          detail: '无附加信息',
-          linktype: 1,
-          link: '#',
-          icontype: '2',
-          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
-        }
-      ],
-      [
-        {
-          title: '单行好多字真的好多字不信你数数怎么样',
-          subtitle: '',
-          detail: '无附加信息',
-          linktype: 1,
-          link: '#',
-          icontype: '2',
-          icontext: 'https://gss1.bdstatic.com/5bVXsj_p_tVS5dKfpU_Y_D3/urlicon/12.6155.png'
-        }
-      ]
-    ]
+    arrow: true,
+    cellData: [
+      {
+        panelTitle: '基础用法',
+        title: '标题',
+        subtitle: '自定义内容',
+        arrow: true,
+        detail: '内容'
+      },
+      {
+        panelTitle: '带图标用法',
+        title: '标题',
+        subtitle: '自定义内容',
+        arrow: true,
+        detail: '内容',
+        access: true
+      },
+      {
+        panelTitle: '带箭头用法',
+        title: '标题',
+        subtitle: '自定义内容',
+        arrow: true,
+        detail: '内容',
+        access: true
+      }
+    ],
+    switchItem: {
+      checked: true,
+      disabled: false,
+      componentId: 'switch1'
+    }
   }
 
   computed = {}
 
-  methods = {}
+  methods = {
+    change (e) {
+      console.log(e)
+      console.log(e)
+      this.switchItem.checked = e.checked
+      this.$apply()
+    }
+  }
 
   events = {
-    'item-tap': (type, url) => {
-      if (url !== '#') {
-				wx.navigateTo({
-					url: url
-				})
-			}
+    'item-tap': (e) => {
+      console.log(e)
     }
   }
 

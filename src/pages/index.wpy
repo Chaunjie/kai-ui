@@ -31,12 +31,14 @@
     <view class="icon-img">
       <view class="bg"></view>
     </view>
-    <repeat for="{{cellDemoList}}" index="index" item="item" key="panel-{{index}}">
-      <panel>
-        <view slot="title" class="title">{{item.title}}</view>
-        <block>
-          <cell :celldata="item.list"></cell>
-        </block>
+    <repeat for="{{cellDemoList}}" index="i" item="items" key="row-{{i}}">
+      <panel custom-class="panel-container">
+        <view slot="title" class="title">{{items.title}}</view>
+        <cellgroup custom-class="single-cellgroup">
+          <block wx:for="{{items.list}}" wx:key="index">
+            <cell :title="item.title" :item="item" :arrow="true" :access="item.link"></cell>
+          </block>
+        </cellgroup>
       </panel>
     </repeat>
     <view class="padding-10"></view>
@@ -47,6 +49,7 @@
 import wepy from 'wepy'
 import cell from '@/components/cell/index'
 import panel from '@/components/panel/index'
+import cellgroup from '@/components/cell-group/index'
 
 export default class Index extends wepy.page {
   config = {
@@ -55,7 +58,8 @@ export default class Index extends wepy.page {
 
   components = {
     cell: cell,
-    panel: panel
+    panel: panel,
+    cellgroup: cellgroup
   }
 
   data = {
@@ -65,27 +69,22 @@ export default class Index extends wepy.page {
         list: [
           {
             title: 'Layout 布局',
-            linktype: 1,
             link: 'layout'
           },
           {
             title: 'Grid 宫格',
-            linktype: 1,
             link: 'grid'
           },
           {
             title: 'Cell 列表',
-            linktype: 1,
             link: 'cell'
           },
           {
             title: 'Panel 面板',
-            linktype: 1,
             link: 'panel'
           },
           {
             title: 'Folder 折叠面板',
-            linktype: 1,
             link: 'folder'
           }
         ]
@@ -95,32 +94,26 @@ export default class Index extends wepy.page {
         list: [
           {
             title: 'Button 按钮',
-            linktype: 1,
             link: 'button'
           },
           {
             title: 'Icon 图标',
-            linktype: 1,
             link: 'icon'
           },
           {
             title: 'LoadMore 更多',
-            linktype: 1,
             link: 'loadmore'
           },
           {
             title: 'Loading 加载中',
-            linktype: 1,
             link: 'loading'
           },
           {
             title: 'Tag 标记',
-            linktype: 1,
             link: 'tag'
           },
           {
             title: 'Helper 基础样式',
-            linktype: 1,
             link: 'helper'
           }
         ]
@@ -130,22 +123,18 @@ export default class Index extends wepy.page {
         list: [
           {
             title: 'Popup 弹出层',
-            linktype: 1,
             link: 'popup'
           },
           {
             title: 'NoticeBar 通知栏',
-            linktype: 1,
             link: 'noticebar'
           },
           {
             title: 'Tab 标签',
-            linktype: 1,
             link: 'tab'
           },
           {
             title: 'Step 步骤条',
-            linktype: 1,
             link: 'step'
           }
         ]
@@ -155,27 +144,22 @@ export default class Index extends wepy.page {
         list: [
           {
             title: 'ActionSheet 操作盘',
-            linktype: 1,
             link: 'actionsheet'
           },
           {
             title: 'Toptips 顶部提示',
-            linktype: 1,
             link: 'toptips'
           },
           {
             title: 'Dialog 弹出框',
-            linktype: 1,
             link: 'dialog'
           },
           {
             title: 'Toast 轻提示',
-            linktype: 1,
             link: 'toast'
           },
           {
             title: 'Swipeout 滑动菜单',
-            linktype: 1,
             link: 'swipeout'
           }
         ]
@@ -185,47 +169,39 @@ export default class Index extends wepy.page {
         list: [
           {
             title: 'Uploader 上传',
-            linktype: 1,
+            
             link: 'uploader'
           },
           {
             title: 'Select 选择',
-            linktype: 1,
             link: 'select'
           },
           {
             title: 'Checkbox 复选框',
-            linktype: 1,
             link: 'checkbox'
           },
           {
             title: 'Radio 单选框',
-            linktype: 1,
             link: 'radio'
           },
           {
             title: 'NumberPicker 数字输入框',
-            linktype: 1,
             link: 'numberpicker'
           },
           {
             title: 'Switch 开关',
-            linktype: 1,
             link: 'switch'
           },
           {
             title: 'Input 输入框',
-            linktype: 1,
             link: 'input'
           },
           {
             title: 'Slider 滑块',
-            linktype: 1,
             link: 'slider'
           },
           {
             title: 'Rate 星级评分',
-            linktype: 1,
             link: 'rate'
           }
         ]
@@ -235,7 +211,6 @@ export default class Index extends wepy.page {
         list: [
           {
             title: 'Searchbar 搜索框',
-            linktype: 1,
             link: 'searchbar'
           }
         ]
@@ -246,16 +221,12 @@ export default class Index extends wepy.page {
   computed = {}
 
   methods = {
-    translateToPage (name) {
-      wx.navigateTo({url: name})
-    }
   }
 
   events = {
-    'item-tap': (type, url) => {
-      console.log(url)
+    'item-tap': (item) => {
       wx.navigateTo({
-        url: url
+        url: item.link
       })
     }
   }

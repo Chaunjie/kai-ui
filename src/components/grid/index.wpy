@@ -1,43 +1,31 @@
 <style lang="less" src="./index.less"></style>
 <template>
-  <view class="grid-container clearfix">
-    <repeat for="{{gridData}}" index="i" item="item" key="row-{{index}}">
-      <view class="grid-items fl grid-items{{gridRow}} items{{i}} {{item.class}}">
-        <view class="grid-items-inner">
-          <text class="kai-iconfont kai-icon-{{item.icon}}"></text>
-          <text class="">{{item.text}}</text>
-        </view>
-      </view>
-    </repeat>
+  <view class="custom-class grid">
+    <slot :width.sync="width"></slot>
   </view>
 </template>
 <script>
   import wepy from 'wepy'
   export default class Grid extends wepy.component {
     props = {
-      grid: {
+      col: {
         type: [Number, String],
-        twoWay: true,
-        default: 3
-      },
-      gridData: {
-        type: Array,
-        twoWay: true,
-        default: []
+        value: 9
       }
     }
 
     data = {
-      gridRow: 3
+      width: ''
     }
 
-    methods = {
+    setGridItemWidth () {
+      const col = +this.data.col
+      const length = Math.sqrt(col)
+      this.width = (100 / length) + '%'
     }
 
     onLoad () {
-      this.gridRow = ~~Math.sqrt(this.grid)
-      console.log(this.gridRow)
-      this.$apply()
+      this.setGridItemWidth()
     }
   }
 </script>

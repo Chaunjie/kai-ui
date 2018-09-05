@@ -1,48 +1,5 @@
-@import "../../less/font.less";
-@import "../../less/color.less";
-
-.grid-container {
-  width: 100%;
-  .grid-items {
-    overflow: hidden;
-    border-bottom: 1rpx solid @border;
-    border-right: 1rpx solid @border;
-    display:inline-block;
-    margin: 0;
-    padding: 0;
-    font-size: 14px;
-    box-sizing: border-box;
-    .kai-iconfont {
-      font-size: 24px;
-      line-height: 28px;
-    }
-    &.grid-items3 {
-      width: calc(33.33333333%);
-      &.items6, &.items7, &.items8 {
-        border-bottom: 0 none;
-      }
-    }
-    &.grid-items4 {
-      width: 25%;
-      &.items12, &.items13, &.items14, &.items15 {
-        border-bottom: 0 none;
-      }
-    }
-    .grid-items-inner {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-content: center;
-      text-align: center;
-    }
-  }
-  .grid-items.grid-items3:nth-child(3n) {
-    border-right: 0 none;
-  }
-  .grid-items.grid-items4:nth-child(4n) {
-    border-right: 0 none;
-  }
+.grid{
+	border-top:1rpx solid #e9eaec;
+	border-left:1rpx solid #e9eaec;
+	overflow:hidden;
 }
-

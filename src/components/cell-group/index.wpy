@@ -1,0 +1,43 @@
+<style lang="less" src="./index.less"></style>
+<template>
+  <view class="cell custom-class">
+    <slot></slot>
+  </view>
+</template>
+
+<script>
+import wepy from 'wepy'
+export default class CellGroup extends wepy.component {
+  props = {
+    title: {
+      type: String,
+      default: ''
+    },
+    detail: {
+      type: String,
+      default: ''
+    },
+    subtitle: {
+      type: String,
+      default: ''
+    },
+    access: {
+      type: Boolean,
+      default: false
+    },
+    arrow: {
+      type: Boolean,
+      default: false
+    }
+  }
+
+  data = {
+  }
+
+  methods = {
+  }
+
+  onLoad () {
+  }
+}
+</script>

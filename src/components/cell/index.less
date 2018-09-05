@@ -1,27 +1,3 @@
-@import "../../less/font.less";
-.cell {
-  position: relative;
-  background: #fff;
-  overflow: hidden;
-  margin: 10px 0;
-}
-
-.cell::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 200%;
-  height: 200%;
-  transform: scale(.5);
-  transform-origin: 0 0;
-  pointer-events: none;
-  box-sizing: border-box;
-  border: 0 solid #e5e5e5;
-  border-top-width: 1px;
-  border-bottom-width: 1px
-}
-
 .cell-icon {
   width: 16px;
   height: 16px;
@@ -56,15 +32,15 @@
   padding: 12px 15px;
   display: flex;
   align-items: center;
-  line-height: 1.4;
-  font-size: 14px
+  line-height: 1.4em;
+  font-size: 14px;
 }
 
-.cell-list::after {
-  content: '';
+.cell-list::before {
+  content: "";
   position: absolute;
   top: 0;
-  left: 0;
+  left: 10;
   width: 200%;
   height: 200%;
   transform: scale(.5);
@@ -73,8 +49,6 @@
   box-sizing: border-box;
   border: 0 solid #e5e5e5;
   border-bottom-width: 1px;
-  left: 15px;
-  right: 0
 }
 
 .cell-list-icon {
@@ -82,7 +56,8 @@
 }
 
 .cell-list-bd {
-  flex: 1
+  flex: 1;
+  position: relative;
 }
 
 .cell-list-text {
@@ -111,7 +86,7 @@
 }
 
 .cell-list-no-pading .cell-list-bd_padding .form-input {
-  height: 26px
+  height: 26px;
 }
 
 .cell-list-no-pading .cell-list-arrow_padding {
@@ -131,14 +106,18 @@
   position: absolute;
   top: 50%;
   margin-top: -1.5px;
-  content: " ";
+  content: "";
   display: inline-block;
   height: 6px;
   width: 6px;
-  border-width: 2px 2px 0 0;
+  border-width: 1px 1px 0 0;
   border-color: #c8c8c8;
   border-style: solid;
   transform: translateY(-50%) matrix(.71, .71, -.71, .71, 0, 0)
+}
+
+.cell-list-arrow::after {
+  margin-left: 5px;
 }
 
 .cell-list-switch {
