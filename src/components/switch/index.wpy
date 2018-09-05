@@ -1,16 +1,16 @@
 <style lang="less" src="./index.less"></style>
 <template>
   <view
-    class="switch switch-{{ checked ? 'on' : 'off' }} {{ disabled ? 'swtich-disabled' : '' }} {{className}} switch-{{type}}"
-    data-checked="{{ checked }}"
-    data-sync="{{ sync }}"
-    data-loading="{{loading}}"
-    data-disabled="{{ disabled }}"
-    data-component-id="{{ componentId }}"
+    class="switch switch-{{ switchItem.checked ? 'on' : 'off' }} {{ switchItem.disabled ? 'swtich-disabled' : '' }} {{switchItem.className}} switch-{{switchItem.type || 'success'}}"
+    data-checked="{{ switchItem.checked }}"
+    data-sync="{{ switchItem.sync }}"
+    data-loading="{{switchItem.loading}}"
+    data-disabled="{{ switchItem.disabled }}"
+    data-component-id="{{ switchItem.componentId }}"
     bindtap="_handleSwitchChange"
   >
-    <view class="switch-circle {{loading ? 'loading-circle': ''}}">
-      <loading-type wx:if="{{ loading }}" type="circle" class="black"/>
+    <view class="switch-circle {{switchItem.loading ? 'loading-circle': ''}}">
+      <loading-type wx:if="{{ switchItem.loading }}" type="circle" class="black"/>
     </view>
     <view class="switch-bg"></view>
   </view>
@@ -22,38 +22,40 @@
 
   export default class Switch extends wepy.component {
     props = {
-      checked: { // 当前选中状态
-        type: Boolean,
-        default: false,
-        twoWay: true
-      },
-      disabled: {  // 是否禁用
-        type: Boolean,
-        default: false
-      },
-      size: { // 可选尺寸：small, large
-        type: String,
-        default: 'small'
-      },
-      className: { // 样式类名
-        type: String,
-        default: ''
-      },
-      componentId: {
-        type: String,
-        default: ''
-      },
-      loading: {
-        type: Boolean,
-        default: false
-      },
-      sync: {
-        type: Boolean,
-        default: false
-      },
-      type: {
-        type: String,
-        default: 'success'
+      switchItem: {
+        type: [Object, String],
+        twoWay: true,
+        coerce (v) {
+          console.log(v)
+          const obj = {
+            checked: Boolean(v.checked) || false,
+            disabled: v.disabled || false,
+            size: v.size || 'small',
+            className: v.className || '',
+            componentId: v.componentId || '',
+            loading: v.loading || false,
+            sync: v.sync || false,
+            type: v.type || 'success'
+          }
+          console.log(obj)
+          return obj
+        }
+      }
+    }
+
+    watch = {
+      switchItem (v) {
+        const obj = {
+          checked: Boolean(v.checked) || false,
+          disabled: v.disabled || false,
+          size: v.size || 'small',
+          className: v.className || '',
+          componentId: v.componentId || '',
+          loading: v.loading || false,
+          sync: v.sync || false,
+          type: v.type || 'success'
+        }
+        this.switchItem = obj
       }
     }
 
@@ -64,7 +66,6 @@
     methods = {
       _handleSwitchChange (e) {
         const dataset = e.currentTarget.dataset
-        // console.log(dataset)
         if (!dataset.disabled) {
           const checked = !dataset.checked
           const newObj = Object.assign({}, dataset, {checked: checked})

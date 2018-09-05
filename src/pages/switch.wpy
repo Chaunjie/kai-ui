@@ -5,124 +5,117 @@
       <view class="padding-10 font-12">{{item.title}}</view>
       <view class="padding-10">
         <switch
-          :checked.sync="item.checked"
-          :disabled.sync="item.disabled"
-          :size.sync="item.size"
-          :componentId.sync="item.componentId"
-          className="test-switch"
-          :sync.sync="item.sync"
-          :loading.sync="item.loading"
-          @onChange.user="change"/>
+        :switchItem.sync="item"
+        @onChange.user="change"/>
       </view>
     </repeat>
     <view class="padding-10 font-12">其它样式</view>
     <view class="padding-10">
       <repeat for="{{items1}}" index="index" item="item" key="switch-{{index}}">
         <switch-type
-          :checked.sync="item.checked"
-          :disabled.sync="item.disabled"
-          :size.sync="item.size"
-          :type.sync="item.type"
-          :componentId.sync="item.componentId"
-          className="test-switch"
-          @onChange.user="doChange"/>
+        :switchItem.sync="item"
+        @onChange.user="doChange"/>
       </repeat>
     </view>
   </view>
 </template>
 
 <script>
-  import wepy from 'wepy'
-  import Switch from '@/components/switch/index'
+import wepy from 'wepy'
+import Switch from '@/components/switch/index'
 
-  export default class ToastPage extends wepy.page {
-    config = {
-      navigationBarTitleText: 'Switch 开关'
-    }
+export default class ToastPage extends wepy.page {
+  config = {
+    navigationBarTitleText: 'Switch 开关'
+  }
 
-    data = {
-      items: [
-        {
-          title: '普通样式',
-          checked: false,
-          disabled: false,
-          componentId: 'switch1'
-        },
-        {
-          title: '禁选样式',
-          checked: true,
-          disabled: true,
-          componentId: 'switch2'
-        },
-        {
-          title: '异步样式',
-          checked: false,
-          disabled: false,
-          sync: true,
-          loading: false,
-          componentId: 'switch3'
-        }
-      ],
-      items1: [
-        {
-          checked: true,
-          disabled: false,
-          type: 'success',
-          componentId: 'switch4'
-        },
-        {
-          checked: true,
-          disabled: false,
-          type: 'kai',
-          componentId: 'switch5'
-        },
-        {
-          checked: true,
-          disabled: false,
-          type: 'danger',
-          componentId: 'switch6'
-        },
-        {
-          checked: true,
-          disabled: false,
-          type: 'warn',
-          componentId: 'switch7'
-        }
-      ]
+  data = {
+    items: [
+    {
+      title: '普通样式',
+      checked: false,
+      disabled: false,
+      componentId: 'switch1'
+    },
+    {
+      title: '禁选样式',
+      checked: true,
+      disabled: true,
+      componentId: 'switch2'
+    },
+    {
+      title: '异步样式',
+      checked: false,
+      disabled: false,
+      type: 'kai',
+      sync: true,
+      loading: false,
+      componentId: 'switch3'
     }
-    components = {
-      switch: Switch,
-      'switch-type': Switch
+    ],
+    items1: [
+    {
+      checked: true,
+      disabled: false,
+      type: 'success',
+      className: 'test-switch',
+      componentId: 'switch4'
+    },
+    {
+      checked: true,
+      disabled: false,
+      type: 'kai',
+      className: 'test-switch',
+      componentId: 'switch5'
+    },
+    {
+      checked: true,
+      disabled: false,
+      type: 'danger',
+      className: 'test-switch',
+      componentId: 'switch6'
+    },
+    {
+      checked: true,
+      disabled: false,
+      type: 'warn',
+      componentId: 'switch7'
     }
+    ]
+  }
+  components = {
+    switch: Switch,
+    'switch-type': Switch
+  }
 
-    methods = {
-      change (res) {
-        const {items} = this
-        for (let i = 0; i < items.length; i++) {
-          if (items[i].componentId === res.componentId) {
-            if (res.sync) {
-              this.items[i].loading = true
-              setTimeout(() => {
-                this.items[i].loading = false
-                this.items[i].checked = res.checked
-                this.$apply()
-              }, 1000)
-            } else {
+  methods = {
+    change (res) {
+      const {items} = this
+      for (let i = 0; i < items.length; i++) {
+        if (items[i].componentId === res.componentId) {
+          if (res.sync) {
+            this.items[i].loading = true
+            setTimeout(() => {
+              this.items[i].loading = false
               this.items[i].checked = res.checked
               this.$apply()
-            }
-          }
-        }
-      },
-      doChange (res) {
-        const {items1} = this
-        for (let i = 0; i < items1.length; i++) {
-          if (items1[i].componentId === res.componentId) {
-            this.items1[i].checked = res.checked
+            }, 1000)
+          } else {
+            this.items[i].checked = res.checked
             this.$apply()
           }
         }
       }
+    },
+    doChange (res) {
+      const {items1} = this
+      for (let i = 0; i < items1.length; i++) {
+        if (items1[i].componentId === res.componentId) {
+          this.items1[i].checked = res.checked
+          this.$apply()
+        }
+      }
     }
   }
+}
 </script>
