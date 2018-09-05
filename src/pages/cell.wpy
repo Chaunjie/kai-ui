@@ -130,8 +130,8 @@ export default class Cell extends wepy.page {
   }
 
   events = {
-    'item-tap': (e) => {
-      console.log(e)
+    'item-tap': (item) => {
+      console.log(item)
     }
   }
 

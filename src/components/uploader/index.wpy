@@ -45,7 +45,7 @@ export default class uploader extends wepy.component {
     local: {  // 预留本地
       type: Boolean,
       twoWay: true,
-      default: false
+      default: true
     }
   }
 
