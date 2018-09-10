@@ -31,56 +31,56 @@ export default class ToastPage extends wepy.page {
 
   data = {
     items: [
-    {
-      title: '普通样式',
-      checked: false,
-      disabled: false,
-      componentId: 'switch1'
-    },
-    {
-      title: '禁选样式',
-      checked: true,
-      disabled: true,
-      componentId: 'switch2'
-    },
-    {
-      title: '异步样式',
-      checked: false,
-      disabled: false,
-      type: 'kai',
-      sync: true,
-      loading: false,
-      componentId: 'switch3'
-    }
+      {
+        title: '普通样式',
+        checked: false,
+        disabled: false,
+        componentId: 'switch1'
+      },
+      {
+        title: '禁选样式',
+        checked: true,
+        disabled: true,
+        componentId: 'switch2'
+      },
+      {
+        title: '异步样式',
+        checked: false,
+        disabled: false,
+        type: 'kai',
+        sync: true,
+        loading: false,
+        componentId: 'switch3'
+      }
     ],
     items1: [
-    {
-      checked: true,
-      disabled: false,
-      type: 'success',
-      className: 'test-switch',
-      componentId: 'switch4'
-    },
-    {
-      checked: true,
-      disabled: false,
-      type: 'kai',
-      className: 'test-switch',
-      componentId: 'switch5'
-    },
-    {
-      checked: true,
-      disabled: false,
-      type: 'danger',
-      className: 'test-switch',
-      componentId: 'switch6'
-    },
-    {
-      checked: true,
-      disabled: false,
-      type: 'warn',
-      componentId: 'switch7'
-    }
+      {
+        checked: true,
+        disabled: false,
+        type: 'success',
+        className: 'test-switch',
+        componentId: 'switch4'
+      },
+      {
+        checked: true,
+        disabled: false,
+        type: 'kai',
+        className: 'test-switch',
+        componentId: 'switch5'
+      },
+      {
+        checked: true,
+        disabled: false,
+        type: 'danger',
+        className: 'test-switch',
+        componentId: 'switch6'
+      },
+      {
+        checked: true,
+        disabled: false,
+        type: 'warn',
+        componentId: 'switch7'
+      }
     ]
   }
   components = {
