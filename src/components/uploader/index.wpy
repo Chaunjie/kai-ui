@@ -8,7 +8,7 @@
 <script>
 import wepy from 'wepy'
 
-export default class uploader extends wepy.component {
+export default class Uploader extends wepy.component {
   props = {
     uptokenURL: {  // tokenurl
       type: String,
@@ -53,7 +53,7 @@ export default class uploader extends wepy.component {
     upLoad () {
       var that = this
       if (!that.local) {
-        var qiniuUploader = require('../../utils/qiniuUploader',function (re) {
+        var qiniuUploader = require('../../utils/qiniuUploader', function (re) {
           console.log('required', re)
         })
         // 初始化

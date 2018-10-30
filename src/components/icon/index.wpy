@@ -4,7 +4,7 @@
 </template>
 <script>
   import wepy from 'wepy'
-  export default class Grid extends wepy.component {
+  export default class Icon extends wepy.component {
     props = {
       type: {
         type: String,

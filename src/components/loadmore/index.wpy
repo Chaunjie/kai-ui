@@ -16,7 +16,7 @@
 </template>
 <script>
   import wepy from 'wepy'
-  export default class Loadmore extends wepy.component {
+  export default class LoadMore extends wepy.component {
     props = {
       more: {
         type: Object,

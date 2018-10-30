@@ -29,7 +29,7 @@ import actionsheet from '@/components/actionsheet/index'
 
 export default class ActionSheet extends wepy.page {
   config = {
-    navigationBarTitleText: 'Actionsheet 操作盘'
+    navigationBarTitleText: 'ActionSheet 操作盘'
   }
 
   components = {

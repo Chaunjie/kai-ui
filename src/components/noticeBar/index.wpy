@@ -23,7 +23,7 @@
 <script>
 import wepy from 'wepy'
 
-export default class noticebar extends wepy.component {
+export default class Noticebar extends wepy.component {
   props = {
     componentId: String,
     text: String,
