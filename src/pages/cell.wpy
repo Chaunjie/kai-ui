@@ -25,7 +25,7 @@
         <view slot="title" class="title">{{item.panelTitle}}</view>
         <cellgroup custom-class="single-cellgroup">
           <block>
-            <cell :title="item.title" :detail="item.detail" :arrow="item.arrow" :access="item.access"></cell>
+            <cell :title="item.title" :detail="item.detail" :arrow="item.arrow" :access="item.access" :item="item"></cell>
             <cell :title="item.title" :subtitle="item.subtitle" :arrow="item.arrow" :access="item.access"></cell>
           </block>
         </cellgroup>
