@@ -15,9 +15,11 @@
   "wepy": {
     "./ActionSheet": "./src/components/actionsheet/index.wpy",
     "./Cell": "./src/components/cell/index.wpy",
+    "./CellGroup": "./src/components/cell-group/index.wpy",
     "./Checkbox": "./src/components/checkbox/index.wpy",
     "./Dialog": "./src/components/dialog/index.wpy",
     "./Grid": "./src/components/grid/index.wpy",
+    "./GridItem": "./src/components/grid-item/index.wpy",
     "./Icon": "./src/components/icon/index.wpy",
     "./Input": "./src/components/input/index.wpy",
     "./Layout": "./src/components/layout/index.wpy",
