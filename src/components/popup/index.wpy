@@ -11,7 +11,7 @@
 <script>
 import wepy from 'wepy'
 
-export default class Popup extends wepy.page {
+export default class Popup extends wepy.component {
   config = {
     navigationBarTitleText: 'Popup'
   }
