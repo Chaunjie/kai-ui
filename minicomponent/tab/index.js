@@ -1,12 +1,12 @@
 import Tab from './tab';
 
 Component({
-  externalClasses: ['custom-class'],
+  externalClasses: ['custom-class', 'custom-border-class', 'custom-tab-class', 'custom-tab-active-class'],
   options: {
     multipleSlots: true
   },
   data: {
-    selectedId: '',
+    selectedId: 0,
     left: 0,
     clientArr: [],
     textArr: [],
@@ -105,7 +105,8 @@ Component({
       const cLeft = clientArr[index].left
       const width = textArr[index].width
       const left = textArr[index].left
-      this.data.animation.width(cWidth).translate3d(cLeft, 0, 0).step({duration: 400}).width(width).translate3d(left, 0, 0).step({duration: 400})
+      // this.data.animation.width(cWidth).translate3d(cLeft, 0, 0).step({duration: 400}).width(width).translate3d(left, 0, 0).step({duration: 400})
+      this.data.animation.width(width).translate3d(left, 0, 0).step({duration: 400}).width(tabData.borderWidth).translate3d(left + (width - tabData.borderWidth) / 2, 0, 0).step({duration: 400})
       this.setData({
         animationData: this.data.animation.export()
       })
